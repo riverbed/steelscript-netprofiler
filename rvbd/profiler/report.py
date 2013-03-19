@@ -131,6 +131,13 @@ class Report(object):
     used directly, but instead via subclasses for specific report types.
     """
 
+    RESOLUTION_MAP = { 60: "1min",
+                       60*15: "15min",
+                       60*60: "hour",
+                       60*60*6: "6hour",
+                       60*60*24: "day",
+                       60*60*24*7: "week" }
+
     # Note that report parameters such as the template id are not set
     # on initialization, but not until run().  This is to accommodate
     # a future load() command which will take a report id and load the
@@ -193,8 +200,12 @@ class Report(object):
         self.id = None
         self.last_status = None
 
+
         if resolution not in ["auto", "1min", "15min", "hour",
                               "6hour", "day", "week", "month"]:
+            rd = parse_timedelta(resolution)
+            resolution = self.RESOLUTION_MAP[int(rd.total_seconds())]
+
             raise ValueError('resolution "%s" invalid must be one of these values: '
                              'auto, 1min, 15min, hour '
                              '6hour, day, week, month' % resolution)
