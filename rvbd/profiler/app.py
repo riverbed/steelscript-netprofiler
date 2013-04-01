@@ -11,7 +11,7 @@ from rvbd.common.app import Application
 import rvbd.profiler
 
 class ProfilerApp(Application):
-    '''Simple class to wrap common command line parsing'''
+    """Simple class to wrap common command line parsing"""
     def __init__(self, *args, **kwargs):
         super(ProfilerApp, self).__init__(*args, **kwargs)
         self.optparse.set_usage('%prog PROFILER_HOSTNAME <options>')
