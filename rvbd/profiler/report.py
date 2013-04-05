@@ -397,7 +397,7 @@ class SingleQueryReport(Report):
         `host_group_type` sets the host group type to use when the groupby is
             related to groups (such as 'group' or 'peer_group')
 
-        `centricity` is either 'hos' for host-based counts, or 'ifc' for interface
+        `centricity` is either 'hos' for host-based counts, or 'int' for interface
             based counts, this only affects directional columns
 
         `area` sets the appropriate scope for the report
