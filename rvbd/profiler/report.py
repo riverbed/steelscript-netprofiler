@@ -568,8 +568,6 @@ class WANSummaryReport(SingleQueryReport):
         self.columns = columns
         self._convert_columns()
 
-        print self.columns
-
         if not (self._timefilter and self._timefilter == timefilter and 
             self._columns == self.columns):
             
@@ -617,25 +615,45 @@ class WANSummaryReport(SingleQueryReport):
         else:
             raise RvbdException('Invalid direction %s for WANSummaryReport' % direction)
 
-        # debug
-        self.lan_columns = lan_columns
-        self.wan_columns = wan_columns
-
         self.table = lan_columns.join(wan_columns, how='inner')
 
-        header = self.table.index.names
-        header.extend(list(self.table.columns))
-        self._legend = header
 
     def get_legend(self):
-        return self._legend
+        header = self.table.index.names
+        header.extend(list(self.table.columns))
+        return header
 
-    def get_data(self, as_list=True):
-        """ Get report data
+    def get_data(self, as_list=True, calc_reduction=False, calc_percentage=False):
+        """ Retrieve WAN report data
 
         `as_list`           return results as list of lists or pandas DataFrame
                             defaults to True (list of lists)
+        `calc_reduction`    include extra column displaying optimization reductions
+        `calc_percentage`   include extra column displaying optimization percent reductions
         """
+        def reduction(x, y):
+            return x - y
+        def percentage(x, y):
+            return (x - y * 1.0) / x
+
+        if calc_reduction or calc_percentage:
+            pairs = []
+            s = set(self.table.columns)
+            for i in s:
+                if i.startswith('LAN_') and i.replace('LAN_', 'WAN_') in s:
+                    pairs.append((i, i.replace('LAN_', 'WAN_')))
+
+            for p in pairs:
+                lan = self.table[p[0]]
+                wan = self.table[p[1]]
+
+                if calc_reduction:
+                    name = 'reduct_%s' % p[0].lstrip('LAN_')
+                    self.table[name] = reduction(lan, wan)
+                if calc_percentage:
+                    name = 'perc_reduct_%s' % p[0].lstrip('LAN_')
+                    self.table[name] = percentage(lan, wan)
+
         if as_list:
             # convert to CSV and parse that into list
             f = StringIO.StringIO()
