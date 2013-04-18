@@ -529,12 +529,12 @@ class TrafficFlowListReport(SingleQueryReport):
             resolution="1min", centricity="hos", area=None, sync=sync)
 
 
-class WANSummaryReport(SingleQueryReport):
-    """
+class WANReport(SingleQueryReport):
+    """ Base class for WAN Report Types
     """
     def __init__(self, profiler):
         """ Create a WAN Traffic Summary report """
-        super(WANSummaryReport, self).__init__(profiler)
+        super(WANReport, self).__init__(profiler)
 
         # cache data for quick calculations in opposite direction
         self._timefilter = None
@@ -542,15 +542,115 @@ class WANSummaryReport(SingleQueryReport):
         self._wan_data = None
         self._lan_data = None
 
-        # setup some fixed parameters
-        self.realm = 'traffic_summary'
-        self.centricity = 'int'
+        # report parameters
+        self.realm = None
+        self.centricity = None
         self.groupby = None
         self.columns = None
+        self.timefilter = None
+        self.trafficexpr = None
+        self.resolution = None
+
+        # data parameters
+        self.table = None
+
+    def get_legend(self):
+        header = self.table.index.names
+        header.extend(list(self.table.columns))
+        return header
+
+    def get_data(self, as_list=True, calc_reduction=False, calc_percentage=False):
+        """ Retrieve WAN report data
+
+        `as_list`           return results as list of lists or pandas DataFrame
+                            defaults to True (list of lists)
+        `calc_reduction`    include extra column displaying optimization reductions
+        `calc_percentage`   include extra column displaying optimization percent reductions
+        """
+        def reduction(x, y):
+            return x - y
+        def percentage(x, y):
+            return (x - y * 1.0) / x
+
+        if calc_reduction or calc_percentage:
+            pairs = []
+            s = set(self.table.columns)
+            for i in s:
+                if i.startswith('LAN_') and i.replace('LAN_', 'WAN_') in s:
+                    pairs.append((i, i.replace('LAN_', 'WAN_')))
+
+            for p in pairs:
+                lan = self.table[p[0]]
+                wan = self.table[p[1]]
+
+                if calc_reduction:
+                    name = '%s_reduct' % p[0].lstrip('LAN_')
+                    self.table[name] = reduction(lan, wan)
+                if calc_percentage:
+                    name = '%s_reduct_pct' % p[0].lstrip('LAN_')
+                    self.table[name] = percentage(lan, wan)
+
+        if as_list:
+            # convert to CSV and parse that into list
+            f = StringIO.StringIO()
+            self.table.to_csv(f, header=False)
+            return [x.split(',') for x in f.getvalue().splitlines()]
+        else:
+            return self.table
+
+    def _get_data(self):
+        """ Normal get_data, used internally """
+        return super(WANReport, self).get_data()
+
+    def _run_reports(self, lan_interface, wan_interface):
+        """ Verify cache and run reports for both interfaces """
+
+        if not (self._timefilter and self._timefilter == self.timefilter and 
+                    self._columns == self.columns):
+            
+            # store for cache verification later
+            self._timefilter = self.timefilter
+            self._columns = self.columns
+
+            # fetch data for both interfaces
+            self._run(wan_interface)
+            self._wan_data = self._get_data()
+            self._run(lan_interface)
+            self._lan_data = self._get_data()
+
+        return self._lan_data, self._wan_data
+
+    def _run(self, interface):
+        """ Internal run method, calls super with class attributes """
+        return super(WANReport, self).run(realm=self.realm,
+                                          groupby=self.groupby,
+                                          columns=self.columns,
+                                          timefilter=self.timefilter,
+                                          trafficexpr=self.trafficexpr,
+                                          centricity=self.centricity,
+                                          resolution=self.resolution,
+                                          data_filter=('interfaces_a', interface),
+                                          sync=True)
+
+    def run(self, **kwargs):
+        """ Unimplemented for subclass to override """
+        pass
+
+
+class WANSummaryReport(WANReport):
+    """
+    """
+    def __init__(self, profiler):
+        """ Create a WAN Traffic Summary report """
+        super(WANSummaryReport, self).__init__(profiler)
+
+        # setup summary parameters
+        self.realm = 'traffic_summary'
+        self.centricity = 'int'
 
     def run(self, lan_interface, wan_interface, direction, 
             columns=None, timefilter='last 1 h', trafficexpr=None, 
-            groupby='ifc', resolution='15min', sync=True):
+            groupby='ifc', resolution='15min'):
         """ Run WAN Report
 
         `lan_interface`     full interface name for LAN interface, e.g. '10.99.16.252:1'
@@ -566,25 +666,13 @@ class WANSummaryReport(SingleQueryReport):
 
         self.groupby = groupby
         self.columns = columns
+        self.timefilter = timefilter
+        self.trafficexpr = trafficexpr
+        self.resolution = resolution
+
         self._convert_columns()
 
-        if not (self._timefilter and self._timefilter == timefilter and 
-            self._columns == self.columns):
-            
-            # store for cache verification later
-            self._timefilter = timefilter
-            self._columns = self.columns
-
-            # fetch data for both interfaces
-            self._run(groupby, self.columns, timefilter, trafficexpr,
-                    resolution, wan_interface, sync)
-            self._wan_data = self._get_data()
-            self._run(groupby, self.columns, timefilter, trafficexpr,
-                    resolution, lan_interface, sync)
-            self._lan_data = self._get_data()
-
-        wan_data = self._wan_data
-        lan_data = self._lan_data
+        lan_data, wan_data = self._run_reports(lan_interface, wan_interface)
 
         key_columns = [c for c in self.columns if c.iskey]
 
@@ -617,51 +705,6 @@ class WANSummaryReport(SingleQueryReport):
 
         self.table = lan_columns.join(wan_columns, how='inner')
 
-
-    def get_legend(self):
-        header = self.table.index.names
-        header.extend(list(self.table.columns))
-        return header
-
-    def get_data(self, as_list=True, calc_reduction=False, calc_percentage=False):
-        """ Retrieve WAN report data
-
-        `as_list`           return results as list of lists or pandas DataFrame
-                            defaults to True (list of lists)
-        `calc_reduction`    include extra column displaying optimization reductions
-        `calc_percentage`   include extra column displaying optimization percent reductions
-        """
-        def reduction(x, y):
-            return x - y
-        def percentage(x, y):
-            return (x - y * 1.0) / x
-
-        if calc_reduction or calc_percentage:
-            pairs = []
-            s = set(self.table.columns)
-            for i in s:
-                if i.startswith('LAN_') and i.replace('LAN_', 'WAN_') in s:
-                    pairs.append((i, i.replace('LAN_', 'WAN_')))
-
-            for p in pairs:
-                lan = self.table[p[0]]
-                wan = self.table[p[1]]
-
-                if calc_reduction:
-                    name = 'reduct_%s' % p[0].lstrip('LAN_')
-                    self.table[name] = reduction(lan, wan)
-                if calc_percentage:
-                    name = 'perc_reduct_%s' % p[0].lstrip('LAN_')
-                    self.table[name] = percentage(lan, wan)
-
-        if as_list:
-            # convert to CSV and parse that into list
-            f = StringIO.StringIO()
-            self.table.to_csv(f, header=False)
-            return [x.split(',') for x in f.getvalue().splitlines()]
-        else:
-            return self.table
-
     def _convert_columns(self):
         """ Takes list of columns and replaces any available ones with in/out 
             versions if available.
@@ -693,22 +736,6 @@ class WANSummaryReport(SingleQueryReport):
 
         self.columns = result
 
-    def _get_data(self):
-        """ Normal get_data, used internally """
-        return super(WANSummaryReport, self).get_data()
-
-    def _run(self, groupby, columns, timefilter, trafficexpr, resolution, 
-            interface, sync):
-        return super(WANSummaryReport, self).run(
-                realm=self.realm,
-                groupby=groupby,
-                columns=columns,
-                timefilter=timefilter,
-                trafficexpr=trafficexpr,
-                centricity=self.centricity,
-                resolution=resolution,
-                data_filter=('interfaces_a', interface),
-                sync=sync)
 
 
 class IdentityReport(SingleQueryReport):
