@@ -16,7 +16,7 @@ import re
 import time
 import cStringIO as StringIO
 
-from rvbd.profiler.filters import TimeFilter
+from rvbd.profiler.filters import TimeFilter, TrafficFilter
 from rvbd.common.timeutils import parse_timedelta, datetime_to_seconds
 from rvbd.common.utils import RecursiveUpdateDict
 from rvbd.common.exceptions import RvbdException
@@ -530,7 +530,7 @@ class TrafficFlowListReport(SingleQueryReport):
 
 
 class WANReport(SingleQueryReport):
-    """ Base class for WAN Report Types
+    """ Base class for WAN Report Types, use subclasses for report generation
     """
     def __init__(self, profiler):
         """ Create a WAN Traffic Summary report """
@@ -558,6 +558,34 @@ class WANReport(SingleQueryReport):
         header = self.table.index.names
         header.extend(list(self.table.columns))
         return header
+
+    def get_interfaces(self, device_ip):
+        """ Query profiler to attempt to automatically determine
+            LAN and WAN interface ids.
+        """ 
+        lan, wan = None, None
+
+        cols = self.profiler.get_columns(['interface_dns', 'interface'])
+        super(WANReport, self).run(realm='traffic_summary',
+                                          groupby='ifc',
+                                          columns=cols,
+                                          timefilter=TimeFilter.parse_range('last 1 h'),
+                                          trafficexpr=TrafficFilter('device %s' % device_ip),
+                                          centricity='int',
+                                          resolution='auto',
+                                          sync=True)
+        interfaces = self._get_data()
+
+        lan = [address for name, address in interfaces if 'lan' in name]
+        wan = [address for name, address in interfaces if 'wan' in name]
+
+        if len(lan) > 1 or len(wan) > 1:
+            raise RvbdException('Multiple LAN or WAN interfaces found for device' % device_ip)
+        elif not lan or not wan:
+            raise RvbdException('Unable to determine LAN and WAN interfaces for device %s' %
+                                device_ip)
+        return lan[0], wan[0]
+
 
     def get_data(self, as_list=True, calc_reduction=False, calc_percentage=False):
         """ Retrieve WAN report data
@@ -597,6 +625,71 @@ class WANReport(SingleQueryReport):
             return [x.split(',') for x in f.getvalue().splitlines()]
         else:
             return self.table
+
+    def _align_columns(self, direction, df_lan, df_wan):
+        """ Replace lan and wan dataframe columns with those appropriate for
+            inbound/outbound data
+        """
+        # To help illustrate, column prefixes are as follows:
+        #
+        #               LAN         WAN
+        #   Inbound     <out_>      <in_>
+        #   Outbound    <in_>       <out_>
+
+
+        # create boolean lists for in, out, and universal columns
+        in_flags = [c.startswith('in_') for c in df_lan.keys()]
+        out_flags = [c.startswith('out_') for c in df_lan.keys()]
+        key_flags = [not x and not y for x,y in zip(in_flags, out_flags)]
+
+        if direction == 'inbound':
+            lan_flags = [x or y for x,y in zip(key_flags, out_flags)]
+            lan_columns = df_lan.ix[:, lan_flags]
+            lan_columns.rename(columns=lambda n: n.replace('out_', 'LAN_'), inplace=True)
+            wan_columns = df_wan.ix[:, in_flags]
+            wan_columns.rename(columns=lambda n: n.replace('in_', 'WAN_'), inplace=True)
+        elif direction == 'outbound':
+            lan_flags = [x or y for x,y in zip(key_flags, in_flags)]
+            lan_columns = df_lan.ix[:, lan_flags]
+            lan_columns.rename(columns=lambda n: n.replace('in_', 'LAN_'), inplace=True)
+            wan_columns = df_wan.ix[:, out_flags]
+            wan_columns.rename(columns=lambda n: n.replace('out_', 'WAN_'), inplace=True)
+        else:
+            raise RvbdException('Invalid direction %s for WANSummaryReport' % direction)
+
+        return lan_columns, wan_columns
+
+
+    def _convert_columns(self):
+        """ Takes list of columns and replaces any available ones with in/out 
+            versions if available.
+        """
+        result = []
+        seen = set()
+        available = self.profiler.search_columns([self.realm], [self.centricity], [self.groupby])
+        keys = set(a.key for a in available)
+        
+        for c in self.columns:
+            # normalize the name
+            if c.key.startswith('in_') or c.key.startswith('out_'):
+                key = c.key.split('_', 1)[1]
+            else:
+                key = c.key
+
+            if key not in seen:
+                seen.add(key)
+
+                in_key = 'in_%s' % key
+                out_key = 'out_%s' % key
+
+                # find matches
+                if in_key in keys and out_key in keys:
+                    result.extend(self.profiler.get_columns([in_key, out_key]))
+                else:
+                    # e.g. 'interface', but not 'in_avg_bytes'
+                    result.append(c)
+
+        self.columns = result
 
     def _get_data(self):
         """ Normal get_data, used internally """
@@ -638,7 +731,7 @@ class WANReport(SingleQueryReport):
 
 
 class WANSummaryReport(WANReport):
-    """
+    """ Tabular or summary WAN Report data
     """
     def __init__(self, profiler):
         """ Create a WAN Traffic Summary report """
@@ -683,60 +776,78 @@ class WANSummaryReport(WANReport):
         df_wan = pd.DataFrame.from_records(wan_data, columns=[c.key for c in self.columns])
         df_wan.set_index([c.key for c in key_columns], inplace=True)
 
-        # create boolean lists for in, out, and universal columns
-        in_flags = [c.startswith('in_') for c in df_lan.keys()]
-        out_flags = [c.startswith('out_') for c in df_lan.keys()]
-        key_flags = [not x and not y for x,y in zip(in_flags, out_flags)]
-
-        if direction == 'inbound':
-            lan_flags = [x or y for x,y in zip(key_flags, out_flags)]
-            lan_columns = df_lan.ix[:, lan_flags]
-            lan_columns.rename(columns=lambda n: n.replace('out_', 'LAN_'), inplace=True)
-            wan_columns = df_wan.ix[:, in_flags]
-            wan_columns.rename(columns=lambda n: n.replace('in_', 'WAN_'), inplace=True)
-        elif direction == 'outbound':
-            lan_flags = [x or y for x,y in zip(key_flags, in_flags)]
-            lan_columns = df_lan.ix[:, lan_flags]
-            lan_columns.rename(columns=lambda n: n.replace('in_', 'LAN_'), inplace=True)
-            wan_columns = df_wan.ix[:, out_flags]
-            wan_columns.rename(columns=lambda n: n.replace('out_', 'WAN_'), inplace=True)
-        else:
-            raise RvbdException('Invalid direction %s for WANSummaryReport' % direction)
+        # remove and rename columns appropriately
+        lan_columns, wan_columns = self._align_columns(direction, df_lan, df_wan)
 
         self.table = lan_columns.join(wan_columns, how='inner')
 
-    def _convert_columns(self):
-        """ Takes list of columns and replaces any available ones with in/out 
-            versions if available.
+
+class WANTimeSeriesReport(WANReport):
+    """
+    """
+    def __init__(self, profiler):
+        """ Create a WAN Time Series report """
+        super(WANTimeSeriesReport, self).__init__(profiler)
+
+        # setup summary parameters
+        self.realm = 'traffic_overall_time_series'
+        self.centricity = 'int'
+        self.groupby = 'tim'
+
+    def run(self, lan_interface, wan_interface, direction, 
+            columns=None, timefilter='last 1 h', trafficexpr=None, 
+            resolution='auto'):
+        """ Run WAN Time Series Report
+
+        `lan_interface`     full interface name for LAN interface, e.g. '10.99.16.252:1'
+        `wan_interface`     full interface name for WAN interface
+        `direction`         'inbound' / 'outbound'
+        `columns`           list of columns available in both 'in_' and 'out_' versions,
+                            for example, ['avg_bytes', 'total_bytes'], instead of
+                            ['in_avg_bytes', 'out_avg_bytes']
+
         """
-        result = []
-        seen = set()
-        available = self.profiler.search_columns([self.realm], [self.centricity], [self.groupby])
-        keys = set(a.key for a in available)
+        # we need some heavier data analysis tools for this report
+        import pandas as pd
+
+        self.columns = columns
+        self.timefilter = timefilter
+        self.trafficexpr = trafficexpr
+        self.resolution = resolution
+
+        self._convert_columns()
+
+        lan_data, wan_data = self._run_reports(lan_interface, wan_interface)
+
+        key_columns = [c.key for c in self.columns if c.iskey]
+        if key_columns[0] != 'time':
+            raise RvbdException('Invalid Key Column for WANTimeSeriesReport')
+
+        labels = [c.key for c in self.columns]
+
+        # create data frames, and convert timestamps
+        df_lan = pd.DataFrame.from_records(lan_data, columns=labels)
+        df_lan.set_index('time', inplace=True)
+        df_lan.index = df_lan.index.astype(int).astype('M8[s]')
+
+        df_wan = pd.DataFrame.from_records(wan_data, columns=labels)
+        df_wan.set_index('time', inplace=True)
+        df_wan.index = df_wan.index.astype(int).astype('M8[s]')
+
+        # remove and rename columns appropriately
+        lan_columns, wan_columns = self._align_columns(direction, df_lan, df_wan)
         
-        for c in self.columns:
-            # normalize the name
-            if c.key.startswith('in_') or c.key.startswith('out_'):
-                key = c.key.split('_', 1)[1]
-            else:
-                key = c.key
+        self.table = lan_columns.join(wan_columns, how='inner')
 
-            if key not in seen:
-                seen.add(key)
+    def get_data(self, as_list=True):
+        """ Retrieve WAN report data
 
-                in_key = 'in_%s' % key
-                out_key = 'out_%s' % key
-
-                # find matches
-                if in_key in keys and out_key in keys:
-                    result.extend(self.profiler.get_columns([in_key, out_key]))
-                else:
-                    # e.g. 'interface', but not 'in_avg_bytes'
-                    result.append(c)
-
-        self.columns = result
-
-
+        `as_list`           return results as list of lists or pandas DataFrame
+                            defaults to True (list of lists)
+        """
+        return super(WANTimeSeriesReport, self).get_data(as_list=as_list,
+                                                         calc_reduction=False, 
+                                                         calc_percentage=False)
 
 class IdentityReport(SingleQueryReport):
     """
