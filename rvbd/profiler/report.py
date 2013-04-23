@@ -668,6 +668,8 @@ class WANReport(SingleQueryReport):
         seen = set()
         available = self.profiler.search_columns([self.realm], [self.centricity], [self.groupby])
         keys = set(a.key for a in available)
+
+        self.columns = self.profiler.get_columns(self.columns)
         
         for c in self.columns:
             # normalize the name
@@ -743,7 +745,7 @@ class WANSummaryReport(WANReport):
 
     def run(self, lan_interface, wan_interface, direction, 
             columns=None, timefilter='last 1 h', trafficexpr=None, 
-            groupby='ifc', resolution='15min'):
+            groupby='ifc', resolution='auto'):
         """ Run WAN Report
 
         `lan_interface`     full interface name for LAN interface, e.g. '10.99.16.252:1'
@@ -796,7 +798,7 @@ class WANTimeSeriesReport(WANReport):
 
     def run(self, lan_interface, wan_interface, direction, 
             columns=None, timefilter='last 1 h', trafficexpr=None, 
-            resolution='auto'):
+            groupby=None, resolution='auto'):
         """ Run WAN Time Series Report
 
         `lan_interface`     full interface name for LAN interface, e.g. '10.99.16.252:1'
@@ -805,6 +807,7 @@ class WANTimeSeriesReport(WANReport):
         `columns`           list of columns available in both 'in_' and 'out_' versions,
                             for example, ['avg_bytes', 'total_bytes'], instead of
                             ['in_avg_bytes', 'out_avg_bytes']
+        `groupby`           Ignored for this report type, included for interface compatibility
 
         """
         # we need some heavier data analysis tools for this report
