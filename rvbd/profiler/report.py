@@ -32,18 +32,23 @@ logger = logging.getLogger(__name__)
 class Query(object):
     """This class represents a profiler query instance.
     """
-    def __init__(self, report, query, column_ids=None):
+    def __init__(self, report, query, column_ids=None, custom_columns=False):
         self.report = report
         self.id = query['id']
         self.actual_t0 = query['actual_t0']
         self.actual_t1 = query['actual_t1']
+        self.custom_columns = custom_columns
 
-        # find the columns in query which indicate they are 'available'
-        # or have been computed as part of the request
-        # TODO this part of the API should be reviewed with profiler team
-        query_columns = [q for q in query['columns'] if q['available']]
-
-        self.available_columns = self.report.profiler.get_columns(query_columns)
+        if self.custom_columns:
+            # ignore the columns stored in Profiler, create new objects
+            # based on what comes back in query
+            query_columns = [q for q in query['columns'] if q['available']]
+            self.available_columns = self.report.profiler._gencolumns(query_columns)
+        else:
+            # find the columns in query which indicate they are 'available'
+            # or have been computed as part of the request
+            query_columns = [q for q in query['columns'] if q['available']]
+            self.available_columns = self.report.profiler.get_columns(query_columns)
 
         if column_ids:
             self.selected_columns = self.report.profiler.get_columns_by_ids(column_ids)
@@ -64,14 +69,15 @@ class Query(object):
     def _to_native(self, row):
         legend = self.get_legend()
         for i, x in enumerate(row):
-            if legend[i].json['type'] == 'int':
-                row[i] = int(x)
-            elif (legend[i].json['type'] == 'float' or
-                  legend[i].json['type'] in 'reltime'):
+            if (legend[i].json['type'] == 'float' or
+                legend[i].json['type'] in 'reltime' or
+                legend[i].json['rate'] == 'opt'):          # profiler bug, %reduct columns labeled as ints
                 try:
                     row[i] = float(x)
                 except ValueError:
                     pass
+            elif legend[i].json['type'] == 'int':
+                row[i] = int(x)
         return row
 
     def _get_querydata(self, columns=None):
@@ -81,12 +87,15 @@ class Query(object):
             columns = self.report.profiler.get_columns(columns)
         elif self.selected_columns is not None:
             columns = self.selected_columns
+        elif self.custom_columns:
+            columns = self.available_columns
 
         #if we already got this data do not get it again
         changed = (self.data_selected_columns is None or
                    self.data_selected_columns != columns)
         if not changed:
             return
+
         if columns:
             params = {"columns": (",".join(str(col.id)
                                            for col in columns))}
@@ -133,12 +142,12 @@ class Report(object):
     used directly, but instead via subclasses for specific report types.
     """
 
-    RESOLUTION_MAP = { 60: "1min",
-                       60*15: "15min",
-                       60*60: "hour",
-                       60*60*6: "6hour",
-                       60*60*24: "day",
-                       60*60*24*7: "week" }
+    RESOLUTION_MAP = {60: "1min",
+                      60*15: "15min",
+                      60*60: "hour",
+                      60*60*6: "6hour",
+                      60*60*24: "day",
+                      60*60*24*7: "week"}
 
     # Note that report parameters such as the template id are not set
     # on initialization, but not until run().  This is to accommodate
@@ -190,6 +199,11 @@ class Report(object):
         """
 
         self.template_id = template_id
+        self.custom_columns = False
+        if self.template_id != 184:
+            # the columns in this report won't match, use custom columns instead
+            self.custom_columns = True
+
         if timefilter is None:
             self.timefilter = TimeFilter.parse_range("last 5 min")
         else:
@@ -202,7 +216,6 @@ class Report(object):
         self.id = None
         self.queries = list()
         self.last_status = None
-
 
         if resolution not in ["auto", "1min", "15min", "hour",
                               "6hour", "day", "week", "month"]:
@@ -308,7 +321,7 @@ class Report(object):
 
         data = self.profiler.api.report.queries(self.id)
         for query in data:
-            self.queries.append(Query(self, query, column_ids))
+            self.queries.append(Query(self, query, column_ids, self.custom_columns))
 
         logger.debug("Report %d: loaded %d queries"
                      % (self.id, len(data)))
@@ -365,8 +378,61 @@ class Report(object):
         """Issue a call to Profiler delete this report."""
         try:
             self.profiler.api.report.delete(self.id)
-        except AttributeError:
+        except:
             pass
+
+
+class MultiQueryReport(Report):
+    """ Used to generate Profiler standard template reports
+    """
+    def __init__(self, profiler):
+        """Create a report using standard Profiler template ids which will
+        include multiple queries, one for each widget on a report page.
+        """
+        super(MultiQueryReport, self).__init__(profiler)
+        self.template_id = None
+
+    def run(self, template_id, timefilter=None, trafficexpr=None,
+            data_filter=None, resolution="auto"):
+        """
+        The primary driver of these reports come from the `template_id` which
+        defines the query sources.  Thus no query input or realm/centricity/groupby
+        is necessary.
+
+        `timefilter` is the range of time to query, a TimeFilter object
+
+        `trafficexpr` is a TrafficFilter object
+
+        `resolution` is the data resolution (1min, 15min, etc.)
+
+        `data_filter` is a deprecated filter to run against report data
+        """
+        self.template_id = template_id
+
+        super(MultiQueryReport, self).run(template_id,
+                                          timefilter=timefilter,
+                                          resolution="auto",
+                                          query=None,
+                                          trafficexpr=trafficexpr,
+                                          data_filter=data_filter,
+                                          sync=True)
+
+    def get_query_names(self):
+        """Return full name of each query in report
+        """
+        if not self.queries:
+            self.get_data()
+        return [q.id for q in self.queries]
+
+    def get_data_by_name(self, query_name):
+        """Return data and legend for query matching `query_name`
+        """
+        for i, name in enumerate(self.get_query_names()):
+            if name == query_name:
+                legend = self.queries[i].get_legend()
+                data = self.queries[i].get_data()
+                return legend, data
+        return None, None
 
 
 class SingleQueryReport(Report):
@@ -549,7 +615,7 @@ class WANReport(SingleQueryReport):
         self.columns = None
         self.timefilter = None
         self.trafficexpr = None
-        self.resolution = None
+        self.resolution = 'auto'
 
         # data parameters
         self.table = None
@@ -563,29 +629,24 @@ class WANReport(SingleQueryReport):
         """ Query profiler to attempt to automatically determine
             LAN and WAN interface ids.
         """ 
-        lan, wan = None, None
-
         cols = self.profiler.get_columns(['interface_dns', 'interface'])
         super(WANReport, self).run(realm='traffic_summary',
-                                          groupby='ifc',
-                                          columns=cols,
-                                          timefilter=TimeFilter.parse_range('last 1 h'),
-                                          trafficexpr=TrafficFilter('device %s' % device_ip),
-                                          centricity='int',
-                                          resolution='auto',
-                                          sync=True)
+                                   groupby='ifc',
+                                   columns=cols,
+                                   timefilter=TimeFilter.parse_range('last 1 h'),
+                                   trafficexpr=TrafficFilter('device %s' % device_ip),
+                                   centricity='int',
+                                   resolution='auto',
+                                   sync=True)
         interfaces = self._get_data()
 
         lan = [address for name, address in interfaces if 'lan' in name]
         wan = [address for name, address in interfaces if 'wan' in name]
 
-        if len(lan) > 1 or len(wan) > 1:
-            raise RvbdException('Multiple LAN or WAN interfaces found for device' % device_ip)
-        elif not lan or not wan:
+        if not lan or not wan:
             raise RvbdException('Unable to determine LAN and WAN interfaces for device %s' %
                                 device_ip)
-        return lan[0], wan[0]
-
+        return lan, wan
 
     def get_data(self, as_list=True, calc_reduction=False, calc_percentage=False):
         """ Retrieve WAN report data
@@ -607,15 +668,15 @@ class WANReport(SingleQueryReport):
                 if i.startswith('LAN_') and i.replace('LAN_', 'WAN_') in s:
                     pairs.append((i, i.replace('LAN_', 'WAN_')))
 
-            for p in pairs:
-                lan = self.table[p[0]]
-                wan = self.table[p[1]]
+            for lan_col, wan_col in pairs:
+                lan = self.table[lan_col]
+                wan = self.table[wan_col]
 
                 if calc_reduction:
-                    name = '%s_reduct' % p[0].lstrip('LAN_')
+                    name = '%s_reduct' % lan_col.lstrip('LAN_')
                     self.table[name] = reduction(lan, wan)
                 if calc_percentage:
-                    name = '%s_reduct_pct' % p[0].lstrip('LAN_')
+                    name = '%s_reduct_pct' % lan_col.lstrip('LAN_')
                     self.table[name] = percentage(lan, wan)
 
         if as_list:
@@ -636,20 +697,19 @@ class WANReport(SingleQueryReport):
         #   Inbound     <out_>      <in_>
         #   Outbound    <in_>       <out_>
 
-
         # create boolean lists for in, out, and universal columns
         in_flags = [c.startswith('in_') for c in df_lan.keys()]
         out_flags = [c.startswith('out_') for c in df_lan.keys()]
-        key_flags = [not x and not y for x,y in zip(in_flags, out_flags)]
+        key_flags = [not x and not y for x, y in zip(in_flags, out_flags)]
 
         if direction == 'inbound':
-            lan_flags = [x or y for x,y in zip(key_flags, out_flags)]
+            lan_flags = [x or y for x, y in zip(key_flags, out_flags)]
             lan_columns = df_lan.ix[:, lan_flags]
             lan_columns.rename(columns=lambda n: n.replace('out_', 'LAN_'), inplace=True)
             wan_columns = df_wan.ix[:, in_flags]
             wan_columns.rename(columns=lambda n: n.replace('in_', 'WAN_'), inplace=True)
         elif direction == 'outbound':
-            lan_flags = [x or y for x,y in zip(key_flags, in_flags)]
+            lan_flags = [x or y for x, y in zip(key_flags, in_flags)]
             lan_columns = df_lan.ix[:, lan_flags]
             lan_columns.rename(columns=lambda n: n.replace('in_', 'LAN_'), inplace=True)
             wan_columns = df_wan.ix[:, out_flags]
@@ -658,7 +718,6 @@ class WANReport(SingleQueryReport):
             raise RvbdException('Invalid direction %s for WANSummaryReport' % direction)
 
         return lan_columns, wan_columns
-
 
     def _convert_columns(self):
         """ Takes list of columns and replaces any available ones with in/out 
@@ -697,25 +756,25 @@ class WANReport(SingleQueryReport):
         """ Normal get_data, used internally """
         return super(WANReport, self).get_data()
 
-    def _run_reports(self, lan_interface, wan_interface):
+    def _run_reports(self, lan_interfaces, wan_interfaces):
         """ Verify cache and run reports for both interfaces """
 
         if not (self._timefilter and self._timefilter == self.timefilter and 
-                    self._columns == self.columns):
+                self._columns == self.columns):
             
             # store for cache verification later
             self._timefilter = self.timefilter
             self._columns = self.columns
 
             # fetch data for both interfaces
-            self._run(wan_interface)
+            self._run(wan_interfaces)
             self._wan_data = self._get_data()
-            self._run(lan_interface)
+            self._run(lan_interfaces)
             self._lan_data = self._get_data()
 
         return self._lan_data, self._wan_data
 
-    def _run(self, interface):
+    def _run(self, interfaces):
         """ Internal run method, calls super with class attributes """
         return super(WANReport, self).run(realm=self.realm,
                                           groupby=self.groupby,
@@ -724,7 +783,7 @@ class WANReport(SingleQueryReport):
                                           trafficexpr=self.trafficexpr,
                                           centricity=self.centricity,
                                           resolution=self.resolution,
-                                          data_filter=('interfaces_a', interface),
+                                          data_filter=('interfaces_a', ','.join(interfaces)),
                                           sync=True)
 
     def run(self, **kwargs):
@@ -738,18 +797,20 @@ class WANSummaryReport(WANReport):
     def __init__(self, profiler):
         """ Create a WAN Traffic Summary report """
         super(WANSummaryReport, self).__init__(profiler)
+        self._configure()
 
+    def _configure(self):
         # setup summary parameters
         self.realm = 'traffic_summary'
         self.centricity = 'int'
 
-    def run(self, lan_interface, wan_interface, direction, 
+    def run(self, lan_interfaces, wan_interfaces, direction, 
             columns=None, timefilter='last 1 h', trafficexpr=None, 
             groupby='ifc', resolution='auto'):
         """ Run WAN Report
 
-        `lan_interface`     full interface name for LAN interface, e.g. '10.99.16.252:1'
-        `wan_interface`     full interface name for WAN interface
+        `lan_interfaces`    list of full interface name for LAN interface, e.g. ['10.99.16.252:1']
+        `wan_interfaces`    list of full interface name for WAN interface
         `direction`         'inbound' / 'outbound'
         `columns`           list of columns available in both 'in_' and 'out_' versions,
                             for example, ['avg_bytes', 'total_bytes'], instead of
@@ -765,9 +826,10 @@ class WANSummaryReport(WANReport):
         self.trafficexpr = trafficexpr
         self.resolution = resolution
 
+        self._configure()
         self._convert_columns()
 
-        lan_data, wan_data = self._run_reports(lan_interface, wan_interface)
+        lan_data, wan_data = self._run_reports(lan_interfaces, wan_interfaces)
 
         key_columns = [c for c in self.columns if c.iskey]
 
@@ -790,19 +852,21 @@ class WANTimeSeriesReport(WANReport):
     def __init__(self, profiler):
         """ Create a WAN Time Series report """
         super(WANTimeSeriesReport, self).__init__(profiler)
+        self._configure()
 
+    def _configure(self):
         # setup summary parameters
         self.realm = 'traffic_overall_time_series'
         self.centricity = 'int'
         self.groupby = 'tim'
 
-    def run(self, lan_interface, wan_interface, direction, 
+    def run(self, lan_interfaces, wan_interfaces, direction, 
             columns=None, timefilter='last 1 h', trafficexpr=None, 
             groupby=None, resolution='auto'):
         """ Run WAN Time Series Report
 
-        `lan_interface`     full interface name for LAN interface, e.g. '10.99.16.252:1'
-        `wan_interface`     full interface name for WAN interface
+        `lan_interfaces`     full interface name for LAN interface, e.g. '10.99.16.252:1'
+        `wan_interfaces`     full interface name for WAN interface
         `direction`         'inbound' / 'outbound'
         `columns`           list of columns available in both 'in_' and 'out_' versions,
                             for example, ['avg_bytes', 'total_bytes'], instead of
@@ -817,10 +881,12 @@ class WANTimeSeriesReport(WANReport):
         self.timefilter = timefilter
         self.trafficexpr = trafficexpr
         self.resolution = resolution
+        self.groupby = 'tim'
 
+        self._configure()
         self._convert_columns()
 
-        lan_data, wan_data = self._run_reports(lan_interface, wan_interface)
+        lan_data, wan_data = self._run_reports(lan_interfaces, wan_interfaces)
 
         key_columns = [c.key for c in self.columns if c.iskey]
         if key_columns[0] != 'time':
