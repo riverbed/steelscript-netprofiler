@@ -55,9 +55,9 @@ def create_profiler():
 class ProfilerTests(unittest.TestCase):
     def setUp(self):
         self.profiler = create_profiler()
-        now = datetime.datetime.now()
-        yesterday_at_4 = datetime.datetime(now.year, now.month, now.day-1, hour=16, minute=0, microsecond=1)
-        yesterday_at_5 = datetime.datetime(now.year, now.month, now.day-1, hour=17, minute=0, microsecond=1)
+        y = datetime.datetime.now() - datetime.timedelta(days=1)
+        yesterday_at_4 = datetime.datetime(y.year, y.month, y.day, hour=16, minute=0, microsecond=1)
+        yesterday_at_5 = datetime.datetime(y.year, y.month, y.day, hour=17, minute=0, microsecond=1)
         self.yesterday = TimeFilter(yesterday_at_4, yesterday_at_5)
 
     def test_groupby_structure(self):

@@ -24,6 +24,8 @@ from rvbd.common.exceptions import RvbdException
 __all__ = ['TrafficSummaryReport',
            'TrafficOverallTimeSeriesReport',
            'TrafficFlowListReport',
+           'WANSummaryReport',
+           'WANTimeSeriesReport',
            'IdentityReport']
 
 logger = logging.getLogger(__name__)
