@@ -9,7 +9,7 @@
 from rvbd.profiler import Profiler
 from rvbd.profiler.filters import TimeFilter, TrafficFilter
 from rvbd.common.service import UserAuth
-from rvbd.common.exceptions import RvbdHTTPException
+from rvbd.common.exceptions import RvbdException
 from rvbd.profiler.report import (WANSummaryReport, WANTimeSeriesReport, TrafficSummaryReport,
                                   TrafficOverallTimeSeriesReport, TrafficFlowListReport, IdentityReport)
 
@@ -89,7 +89,7 @@ class ProfilerTests(unittest.TestCase):
         self.assertEqual(cols[0].id, 98)
         self.assertEqual(cols[1].id, 5)
         self.assertEqual(cols[2].id, 280)
-        self.assertRaises(ValueError, self.profiler.get_columns, ['noexist'])
+        self.assertRaises(RvbdException, self.profiler.get_columns, ['noexist'])
         # test __cmp__ method on Column object
         self.assertTrue(self.profiler.columns.key.time >
                         self.profiler.columns.key.host_ip)
@@ -230,12 +230,12 @@ class ProfilerTests(unittest.TestCase):
         trafficexpr = TrafficFilter("host 10/8")
 
         report = TrafficSummaryReport(self.profiler)
-        report.run(groupby=groupby,
-                   columns=columns,
-                   sort_col=sort_col,
-                   timefilter=timerange,
-                   trafficexpr=trafficexpr)
-        self.assertRaises(RvbdHTTPException, report.get_data)
+        kwds = dict(groupby=groupby,
+                    columns=columns,
+                    sort_col=sort_col,
+                    timefilter=timerange,
+                    trafficexpr=trafficexpr)
+        self.assertRaises(RvbdException, report.run, None, kwds)
 
     def test_resolution(self):
         groupby = self.profiler.groupbys.host

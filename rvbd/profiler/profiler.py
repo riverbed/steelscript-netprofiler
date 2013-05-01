@@ -23,6 +23,7 @@ from rvbd.profiler import _api1
 from rvbd.profiler import _constants
 from rvbd.common._fs import FlyscriptDir
 from rvbd.profiler._types import Column, AreaContainer, ColumnContainer
+from rvbd.common.exceptions import RvbdException
 
 import rvbd.common.service
 
@@ -229,11 +230,11 @@ class Profiler(rvbd.common.service.Service):
                     cname = column['strid'].lower()[3:]
 
             if cname not in colnames:
-                raise ValueError('{0} is not a valid column '
-                                 'for this profiler'.format(column))
-            if False and groupby_cols and cname not in groupby_cols:
-                raise ValueError('{0} is not a valid column '
-                                 'for groupby {1}'.format(column, groupby))
+                raise RvbdException('{0} is not a valid column '
+                                    'for this profiler'.format(column))
+            if groupby_cols and cname not in groupby_cols:
+                raise RvbdException('{0} is not a valid column '
+                                    'for groupby {1}'.format(column, groupby))
             res.append(self.columns[cname])
                 
         return res
