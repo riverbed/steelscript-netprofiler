@@ -22,6 +22,9 @@ class TimeFilter:
         msg = '<rvbd.profiler.filters.TimeFilter(start={0}, end={1}>'
         return msg.format(self.start, self.end)
 
+    def __eq__(self, other):
+        return self.start == other.start and self.end == other.end
+
     @classmethod
     def parse_range(cls, s):
         """ Take a range string `s` and return a TimeFilter object
