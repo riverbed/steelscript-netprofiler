@@ -505,7 +505,7 @@ class SingleQueryReport(Report):
         if self.area is not None:
             query['area'] = self.profiler._parse_area(self.area)
 
-        if self.groupby in ['gro', 'gpp', 'gpr']:
+        if self.groupby in ['gro', 'gpp', 'gpr', 'pgp', 'pgr']:
             query['host_group_type'] = self.host_group_type
 
         super(SingleQueryReport, self).run(template_id=184,
