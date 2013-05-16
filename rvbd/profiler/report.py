@@ -470,7 +470,7 @@ class SingleQueryReport(Report):
         `host_group_type` sets the host group type to use when the groupby is
             related to groups (such as 'group' or 'peer_group')
 
-        `centricity` is either 'hos' for host-based counts, or 'ifc' for interface
+        `centricity` is either 'hos' for host-based counts, or 'int' for interface
             based counts, this only affects directional columns
 
         `area` sets the appropriate scope for the report
@@ -505,7 +505,7 @@ class SingleQueryReport(Report):
         if self.area is not None:
             query['area'] = self.profiler._parse_area(self.area)
 
-        if self.groupby in ['gro', 'gpp', 'gpr']:
+        if self.groupby in ['gro', 'gpp', 'gpr', 'pgp', 'pgr']:
             query['host_group_type'] = self.host_group_type
 
         super(SingleQueryReport, self).run(template_id=184,
