@@ -319,13 +319,13 @@ class ProfilerTests(unittest.TestCase):
             self.assertTrue(wan_address)
 
             report.run(lan_address, wan_address, 'inbound', columns=columns,
-                       timefilter=self.yesterday, resolution='auto')
+                       timefilter=self.yesterday, resolution='1min')
             inbound = report.get_data(as_list=False)
             self.assertEqual(inbound.shape, (60,4))
             self.assertTrue(all(inbound.LAN_avg_bytes > inbound.WAN_avg_bytes))
 
             report.run(lan_address, wan_address, 'outbound', columns=columns,
-                       timefilter=self.yesterday, resolution='auto')
+                       timefilter=self.yesterday, resolution='1min')
             outbound = report.get_data(as_list=False)
             self.assertEqual(outbound.shape, (60,4))
             self.assertTrue(all(outbound.LAN_avg_bytes > outbound.WAN_avg_bytes))
