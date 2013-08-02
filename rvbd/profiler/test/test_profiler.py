@@ -11,7 +11,8 @@ from rvbd.profiler.filters import TimeFilter, TrafficFilter
 from rvbd.common.service import UserAuth
 from rvbd.common.exceptions import RvbdException
 from rvbd.profiler.report import (WANSummaryReport, WANTimeSeriesReport, TrafficSummaryReport,
-                                  TrafficOverallTimeSeriesReport, TrafficFlowListReport, IdentityReport)
+                                  TrafficOverallTimeSeriesReport, TrafficFlowListReport,
+                                  IdentityReport)
 
 import unittest
 import logging
@@ -261,7 +262,6 @@ class ProfilerTests(unittest.TestCase):
                         sort_col, timerange,
                         trafficexpr, resolution=resolution)
 
-
     def test_area(self):
         self.assertEqual(self.profiler.areas.wan, 'wan')
         self.assertEqual(self.profiler.areas.lan, 'lan')
@@ -428,7 +428,7 @@ class ProfilerDevicesTests(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    # for standalone use take one command-line argument: the shark host
+    # for standalone use take one command-line argument: the profiler host
     import sys
     assert len(sys.argv) == 2
 
