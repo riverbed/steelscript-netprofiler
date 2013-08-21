@@ -20,8 +20,8 @@ class API1Group(APIGroup):
     def _json_request(self, urlpath, method='GET', data=None, params=None):
         """Issue the given API request via JSON
         """
-        return self.service.conn.json_request(self.uri_prefix + urlpath, method=method,
-                                               data=data, params=params)
+        return self.service.conn.json_request(method, uri=self.uri_prefix + urlpath,
+                                               body=data, params=params)
 
 
 class Common(API1Group):

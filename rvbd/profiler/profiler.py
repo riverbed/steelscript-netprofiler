@@ -67,9 +67,6 @@ class Profiler(rvbd.common.service.Service):
         See the base [Service](common.html#service) class for more information
         about additional functionality supported.
         """
-        if port is None:
-            port = [443, 80]
-
         super(Profiler, self).__init__("profiler", host, port,
                                        auth=auth, force_ssl=force_ssl,
                                        versions=[APIVersion("1.0")])
