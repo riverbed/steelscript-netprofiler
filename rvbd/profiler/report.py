@@ -224,9 +224,6 @@ class Report(object):
             rd = parse_timedelta(resolution)
             resolution = self.RESOLUTION_MAP[int(rd.total_seconds())]
 
-            raise ValueError('resolution "%s" invalid must be one of these values: '
-                             'auto, 1min, 15min, hour '
-                             '6hour, day, week, month' % resolution)
         self.resolution = resolution
 
         start = datetime_to_seconds(self.timefilter.start)
