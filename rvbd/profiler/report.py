@@ -17,7 +17,8 @@ import time
 import cStringIO as StringIO
 
 from rvbd.profiler.filters import TimeFilter, TrafficFilter
-from rvbd.common.timeutils import parse_timedelta, datetime_to_seconds
+from rvbd.common.timeutils import (parse_timedelta, datetime_to_seconds, 
+                                   timedelta_total_seconds)
 from rvbd.common.utils import RecursiveUpdateDict
 from rvbd.common.exceptions import RvbdException
 
@@ -222,7 +223,7 @@ class Report(object):
         if resolution not in ["auto", "1min", "15min", "hour",
                               "6hour", "day", "week", "month"]:
             rd = parse_timedelta(resolution)
-            resolution = self.RESOLUTION_MAP[int(rd.total_seconds())]
+            resolution = self.RESOLUTION_MAP[int(timedelta_total_seconds(rd))]
 
         self.resolution = resolution
 

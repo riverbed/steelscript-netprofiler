@@ -249,10 +249,12 @@ class ProfilerTests(unittest.TestCase):
                        ["15min", "last 1 hour"],
                        ["hour", "last 4 hours"],
                        ["6hour", "last 1 day"],
-                       ["day", "last 1 week"]
-                       #"week",
-                       #"month"
-                       #Commented values blow up with a 
+                       ["day", "last 1 week"],
+                       ["3600", "last 4 hours"],  # hour resolution
+                       ["60", "last 5 min"],      # minute resolution
+                       #["week", "last 4 weeks"],
+                       #["month", "last 12 months"],
+                       #Commented values blow up with a
                        #E       RvbdHTTPException: 400 Unknown time resolution.
                        ]
         for (resolution, duration) in resolutions:
