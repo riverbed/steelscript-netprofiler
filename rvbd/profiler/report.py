@@ -252,9 +252,9 @@ class Report(object):
 
         logger.debug("Posting JSON: %s" % to_post)
 
-        self.profiler.api.report.reports(data=to_post)
+        response = self.profiler.api.report.reports(data=to_post)
 
-        location = self.profiler.conn.response.headers["Location"]
+        location = response.headers["Location"]
         m = re.match(".*reporting/reports/([0-9]+)$", location)
         if not m:
             raise ValueError(

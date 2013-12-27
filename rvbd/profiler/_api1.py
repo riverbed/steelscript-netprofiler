@@ -6,8 +6,6 @@
 # This software is distributed "AS IS" as set forth in the License.
 
 
-import logging
-
 class APIGroup(object):
     """Wrapper for API functions
     """
@@ -20,8 +18,8 @@ class API1Group(APIGroup):
     def _json_request(self, urlpath, method='GET', data=None, params=None):
         """Issue the given API request via JSON
         """
-        return self.service.conn.json_request(method, uri=self.uri_prefix + urlpath,
-                                               body=data, params=params)
+        return self.service.conn.json_request(method, self.uri_prefix + urlpath,
+                                              body=data, params=params)
 
 
 class Common(API1Group):
@@ -37,7 +35,7 @@ class Common(API1Group):
 
 class Report(API1Group):
     def __init__(self, *args, **kwargs):
-        super(Report,self).__init__(*args, **kwargs)
+        super(Report, self).__init__(*args, **kwargs)
         self.columns_cache = dict()
         self.realms_cache = None
         self.centricities_cache = None
@@ -85,12 +83,13 @@ class Report(API1Group):
     def queries(self, rid, qid=None, params=None):
         uri = '/reports/{0}/queries'.format(rid)
         if qid is not None:
-            uri+='/'+str(qid)
-        uri+='.json'
+            uri += '/' + str(qid)
+        uri += '.json'
         return self._json_request(uri, params=params)
 
     def delete(self, rid):
-        return self._json_request('/reports/{0}.json'.format(rid), method='DELETE')
+        return self._json_request('/reports/{0}.json'.format(rid),
+                                  method='DELETE')
 
 
 class Devices(API1Group):
@@ -121,7 +120,7 @@ class Devices(API1Group):
             data = self.get_all()
             types = set((x['type_id'], x['type']) for x in data)
             self.type_cache = list(types)
-            self.type_cache.sort(key=lambda x:x[0])
+            self.type_cache.sort(key=lambda x: x[0])
         return self.type_cache
 
 

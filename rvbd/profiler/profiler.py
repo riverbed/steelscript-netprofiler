@@ -42,8 +42,8 @@ class Profiler(rvbd.common.service.Service):
     """The Profiler class is the main interface to interact with a Profiler
     Appliance.  Primarily this provides an interface to reporting.
     """
-    
-    def __init__(self, host, port=None, auth=None, force_ssl=None):
+
+    def __init__(self, host, port=None, auth=None):
         """Establishes a connection to a Profiler appliance.
 
         `host` is the name or IP address of the Profiler to connect to
@@ -60,15 +60,11 @@ class Profiler(rvbd.common.service.Service):
                  if unspecified, this will use the latest version supported
                  by both this implementation and the Profiler appliance.
 
-        `force_ssl` when set to True will only allow SSL based connections.
-            If False, only allow non-SSL connections.  If set to None (the default)
-            try SSL first, then try non-SSL.
-        
         See the base [Service](common.html#service) class for more information
         about additional functionality supported.
         """
         super(Profiler, self).__init__("profiler", host, port,
-                                       auth=auth, force_ssl=force_ssl,
+                                       auth=auth,
                                        versions=[APIVersion("1.0")])
 
         self.api = _api1.Handler(self)
