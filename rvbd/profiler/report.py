@@ -254,14 +254,13 @@ class Report(object):
 
         response = self.profiler.api.report.reports(data=to_post)
 
-        location = response.headers["Location"]
-        m = re.match(".*reporting/reports/([0-9]+)$", location)
-        if not m:
+        try:
+            self.id = int(response['id'])
+        except KeyError:
             raise ValueError(
-                "failed to retrieve report id from location header: %s"
-                % location)
+                "failed to retrieve report id from report creation response: %s"
+                % response)
 
-        self.id = int(m.group(1))
         logger.info("Created report %d" % self.id)
 
         if sync:
