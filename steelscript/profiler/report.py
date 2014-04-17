@@ -16,11 +16,11 @@ import re
 import time
 import cStringIO as StringIO
 
-from rvbd.profiler.filters import TimeFilter, TrafficFilter
-from rvbd.common.timeutils import (parse_timedelta, datetime_to_seconds, 
+from steelscript.profiler.filters import TimeFilter, TrafficFilter
+from steelscript.common.timeutils import (parse_timedelta, datetime_to_seconds,
                                    timedelta_total_seconds)
-from rvbd.common.utils import RecursiveUpdateDict
-from rvbd.common.exceptions import RvbdException
+from steelscript.common.utils import RecursiveUpdateDict
+from steelscript.common.exceptions import RvbdException
 
 __all__ = ['TrafficSummaryReport',
            'TrafficOverallTimeSeriesReport',

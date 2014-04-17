@@ -6,7 +6,7 @@
 # This software is distributed "AS IS" as set forth in the License.
 
 
-from rvbd.common import timeutils
+from steelscript.common import timeutils
 
 import time
 import calendar
@@ -19,7 +19,7 @@ class TimeFilter:
         self.end = end
 
     def __repr__(self):
-        msg = '<rvbd.profiler.filters.TimeFilter(start={0}, end={1}>'
+        msg = '<steelscript.profiler.filters.TimeFilter(start={0}, end={1}>'
         return msg.format(self.start, self.end)
 
     def __eq__(self, other):

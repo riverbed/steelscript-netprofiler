@@ -17,15 +17,15 @@ import types
 import logging
 import itertools
 
-from rvbd.common.utils import DictObject
-from rvbd.common.api_helpers import APIVersion
-from rvbd.profiler import _api1
-from rvbd.profiler import _constants
-from rvbd.common._fs import FlyscriptDir
-from rvbd.profiler._types import Column, AreaContainer, ColumnContainer
-from rvbd.common.exceptions import RvbdException
+from steelscript.common.utils import DictObject
+from steelscript.common.api_helpers import APIVersion
+from steelscript.profiler import _api1
+from steelscript.profiler import _constants
+from steelscript.common._fs import SteelScriptDir
+from steelscript.profiler._types import Column, AreaContainer, ColumnContainer
+from steelscript.common.exceptions import RvbdException
 
-import rvbd.common.service
+import steelscript.common.service
 
 __all__ = ['Profiler']
 
@@ -38,7 +38,7 @@ def make_hash(realm, centricity, groupby):
     return realm + centricity + groupby
 
 
-class Profiler(rvbd.common.service.Service):
+class Profiler(steelscript.common.service.Service):
     """The Profiler class is the main interface to interact with a Profiler
     Appliance.  Primarily this provides an interface to reporting.
     """
@@ -54,7 +54,7 @@ class Profiler(rvbd.common.service.Service):
 
         `auth` defines the authentication method and credentials to use
                  to access the Profiler.  It should be an instance of
-                 rvbd.common.UserAuth or rvbd.common.OAuth.
+                 steelscript.common.UserAuth or steelscript.common.OAuth.
 
         `force_version` is the API version to use when communicating.
                  if unspecified, this will use the latest version supported
@@ -85,7 +85,7 @@ class Profiler(rvbd.common.service.Service):
         We want to avoid making any calls for column data here
         and just load what has been stored locally for now
         """
-        self._fs_data = FlyscriptDir('Profiler', 'data')
+        self._fs_data = SteelScriptDir('Profiler', 'data')
 
         columns_filename = 'columns-' + self.version + '.pcl'
         self._columns_file = self._fs_data.get_data(columns_filename)

@@ -6,11 +6,11 @@
 # This software is distributed "AS IS" as set forth in the License.
 
 
-from rvbd.profiler import Profiler
-from rvbd.profiler.filters import TimeFilter, TrafficFilter
-from rvbd.common.service import UserAuth
-from rvbd.common.exceptions import RvbdException
-from rvbd.profiler.report import (WANSummaryReport, WANTimeSeriesReport, TrafficSummaryReport,
+from steelscript.profiler import Profiler
+from steelscript.profiler.filters import TimeFilter, TrafficFilter
+from steelscript.common.service import UserAuth
+from steelscript.common.exceptions import RvbdException
+from steelscript.profiler.report import (WANSummaryReport, WANTimeSeriesReport, TrafficSummaryReport,
                                   TrafficOverallTimeSeriesReport, TrafficFlowListReport,
                                   IdentityReport)
 

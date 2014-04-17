@@ -10,5 +10,5 @@
 The Profiler package offers a set of interfaces to control and work with
 a Cascade Profiler Appliance.
 """
-from rvbd.profiler.profiler import *
-from rvbd.profiler.report import *
+from steelscript.profiler.profiler import *
+from steelscript.profiler.report import *

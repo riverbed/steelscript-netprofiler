@@ -6,8 +6,8 @@
 # This software is distributed "AS IS" as set forth in the License.
 
 
-from rvbd.common.app import Application
-import rvbd.profiler
+from steelscript.common.app import Application
+import steelscript.profiler
 
 
 class ProfilerApp(Application):
@@ -22,7 +22,7 @@ class ProfilerApp(Application):
         self.host = self.args[0]
 
     def setup(self):
-        self.profiler = rvbd.profiler.Profiler(self.host,
+        self.profiler = steelscript.profiler.Profiler(self.host,
                                                port=self.options.port,
                                                auth=self.auth)
 
