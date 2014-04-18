@@ -1,13 +1,12 @@
-Riverbed FlyScript
-==================
+Riverbed SteelScript for Cascade Profiler
+=========================================
 
-This is the top-level directory for the Riverbed FlyScript Python SDK, a
-collection of libraries and scripts in Python and JavaScript for
-interacting with Riverbed devices and other network infrastructure.
+This package provides device specific bindings for interacting
+with Riverbed Cascade Profiler devices as part of the Riverbed
+Steelscript for Python.
 
-For a complete guide to installation, see:
-
-  [http://pythonhosted.org/flyscript/](http://pythonhosted.org/flyscript/)
+See [http://github.com/riverbed/steelscript.common](steelscript.common) for
+installation instructions.
 
 Quick Start
 ===========
@@ -38,7 +37,7 @@ The easiest way to install pytest is through
     pip install pytest testscenarios
 
 This will download and install py.test and the testscenarios packages along
-with all of their dependencies. 
+with all of their dependencies.
 
 In order to run the tests you nedd a configuration file in which there are
 specified the hosts to run against. The file must look like
@@ -49,7 +48,7 @@ specified the hosts to run against. The file must look like
     config = {
        '4.0': [
         ('vshark-xebec', {'host': 'vdorothy10.lab.nbttech.com'})],
-                        
+
        '5.0': [
         ('vshark-latest', {'host':'vdorothy5.lab.nbttech.com'}),
         ('shark-latest', {'host':'oak-mako10.lab.nbttech.com'})
@@ -68,12 +67,12 @@ are in the 5.0 group will be tested against common calls and specific 5.0 calls.
 To run the tests do:
 
     py.test
-    
+
 You will see an output like:
 
     ================================= test session starts ==================================
     platform linux2 -- Python 2.7.4 -- pytest-2.3.2
-    collected 76 items 
+    collected 76 items
 
     examples/test_examples.py ..
     rvbd/common/test/test_jsondict.py .........

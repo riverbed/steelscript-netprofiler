@@ -1,8 +1,8 @@
 # Copyright (c) 2013 Riverbed Technology, Inc.
 #
-# This software is licensed under the terms and conditions of the 
+# This software is licensed under the terms and conditions of the
 # MIT License set forth at:
-#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").  
+#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
 
@@ -16,7 +16,7 @@ import re
 import time
 import cStringIO as StringIO
 
-from steelscript.profiler.filters import TimeFilter, TrafficFilter
+from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import (parse_timedelta, datetime_to_seconds,
                                    timedelta_total_seconds)
 from steelscript.common.utils import RecursiveUpdateDict
@@ -129,7 +129,7 @@ class Query(object):
         """
         self._get_querydata(columns)
         return self._to_native(self.querydata['totals'])
-        
+
     def all_columns(self):
         """Returns all the columns available for this query.
         Used in conjunction with :py:meth:`Query.get_data` or :py:meth:`Query.get_iterdata`
@@ -189,7 +189,7 @@ class Report(object):
         `template_id` is the numeric id of the template to use for the report
 
         `timefilter` is the range of time to query, a TimeFilter object
-        
+
         `resolution` is the data resolution (1min, 15min, etc.), defaults to 'auto'
 
         `query` is the query object containing criteria
@@ -535,7 +535,7 @@ class TrafficSummaryReport(SingleQueryReport):
     """
     def __init__(self, profiler):
         """Create a traffic summary report.  The data is organized by the requested
-        groupby, and retrieves the selected columns. 
+        groupby, and retrieves the selected columns.
 
         """
         super(TrafficSummaryReport, self).__init__(profiler)
@@ -563,7 +563,7 @@ class TrafficOverallTimeSeriesReport(SingleQueryReport):
             resolution="auto", centricity="hos", area=None, sync=True):
         """
         See `SingleQueryReport` for a description of the arguments.  (Note that
-        `sort_col`, `groupby`, and `host_group_type` are not applicable to 
+        `sort_col`, `groupby`, and `host_group_type` are not applicable to
         this report type).
         """
         return super(TrafficOverallTimeSeriesReport, self).run(
@@ -627,7 +627,7 @@ class WANReport(SingleQueryReport):
     def get_interfaces(self, device_ip):
         """ Query profiler to attempt to automatically determine
             LAN and WAN interface ids.
-        """ 
+        """
         cols = self.profiler.get_columns(['interface_dns', 'interface'])
         super(WANReport, self).run(realm='traffic_summary',
                                    groupby='ifc',
@@ -719,7 +719,7 @@ class WANReport(SingleQueryReport):
         return lan_columns, wan_columns
 
     def _convert_columns(self):
-        """ Takes list of columns and replaces any available ones with in/out 
+        """ Takes list of columns and replaces any available ones with in/out
             versions if available.
         """
         result = []
@@ -728,7 +728,7 @@ class WANReport(SingleQueryReport):
         keys = set(a.key for a in available)
 
         self.columns = self.profiler.get_columns(self.columns)
-        
+
         for c in self.columns:
             # normalize the name
             if c.key.startswith('in_') or c.key.startswith('out_'):
@@ -758,9 +758,9 @@ class WANReport(SingleQueryReport):
     def _run_reports(self, lan_interfaces, wan_interfaces):
         """ Verify cache and run reports for both interfaces """
 
-        if not (self._timefilter and self._timefilter == self.timefilter and 
+        if not (self._timefilter and self._timefilter == self.timefilter and
                 self._columns == self.columns):
-            
+
             # store for cache verification later
             self._timefilter = self.timefilter
             self._columns = self.columns
@@ -803,8 +803,8 @@ class WANSummaryReport(WANReport):
         self.realm = 'traffic_summary'
         self.centricity = 'int'
 
-    def run(self, lan_interfaces, wan_interfaces, direction, 
-            columns=None, timefilter='last 1 h', trafficexpr=None, 
+    def run(self, lan_interfaces, wan_interfaces, direction,
+            columns=None, timefilter='last 1 h', trafficexpr=None,
             groupby='ifc', resolution='auto'):
         """ Run WAN Report
 
@@ -859,8 +859,8 @@ class WANTimeSeriesReport(WANReport):
         self.centricity = 'int'
         self.groupby = 'tim'
 
-    def run(self, lan_interfaces, wan_interfaces, direction, 
-            columns=None, timefilter='last 1 h', trafficexpr=None, 
+    def run(self, lan_interfaces, wan_interfaces, direction,
+            columns=None, timefilter='last 1 h', trafficexpr=None,
             groupby=None, resolution='auto'):
         """ Run WAN Time Series Report
 
@@ -904,7 +904,7 @@ class WANTimeSeriesReport(WANReport):
 
         # remove and rename columns appropriately
         lan_columns, wan_columns = self._align_columns(direction, df_lan, df_wan)
-        
+
         self.table = lan_columns.join(wan_columns, how='inner')
 
     def get_data(self, as_list=True):
@@ -914,7 +914,7 @@ class WANTimeSeriesReport(WANReport):
                             defaults to True (list of lists)
         """
         return super(WANTimeSeriesReport, self).get_data(as_list=as_list,
-                                                         calc_reduction=False, 
+                                                         calc_reduction=False,
                                                          calc_percentage=False)
 
 class IdentityReport(SingleQueryReport):

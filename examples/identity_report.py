@@ -2,16 +2,16 @@
 
 # Copyright (c) 2013 Riverbed Technology, Inc.
 #
-# This software is licensed under the terms and conditions of the 
+# This software is licensed under the terms and conditions of the
 # MIT License set forth at:
-#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").  
+#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
 
 
-from steelscript.profiler.app import ProfilerApp
-from steelscript.profiler.filters import TimeFilter, TrafficFilter
-from steelscript.profiler.report import (IdentityReport,
+from steelscript.profiler.core.app import ProfilerApp
+from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.profiler.core.report import (IdentityReport,
                                   TrafficOverallTimeSeriesReport,
                                   TrafficSummaryReport)
 from steelscript.common.utils import Formatter
@@ -197,14 +197,14 @@ class IdentityApp(ProfilerApp):
         if report_type == 'timeseries':
             columns = [c[0] for c in TCOLUMNS]
             report = TrafficOverallTimeSeriesReport(self.profiler)
-            report.run(columns, 
-                       timefilter=timefilter, 
-                       trafficexpr=texpr, 
+            report.run(columns,
+                       timefilter=timefilter,
+                       trafficexpr=texpr,
                        resolution=self.options.resolution)
         elif report_type == 'summary':
             columns = [c[0] for c in SCOLUMNS]
             report = TrafficSummaryReport(self.profiler)
-            
+
             if self.options.groupby_application:
                 columns.insert(0, 'app_name')
                 groupby = 'app'
@@ -215,9 +215,9 @@ class IdentityApp(ProfilerApp):
             else:
                 groupby = 'hos'
 
-            report.run(groupby, 
-                       columns, 
-                       timefilter=timefilter, 
+            report.run(groupby,
+                       columns,
+                       timefilter=timefilter,
                        trafficexpr=texpr,
                        resolution=self.options.resolution)
         else:
@@ -237,7 +237,7 @@ class IdentityApp(ProfilerApp):
     def analyze_login_data(self, all_data, legend_columns, single_ip=True):
         """ Identify periods user logged into each host
 
-            `single-ip` indicates that a user may only have one IP at a time. 
+            `single-ip` indicates that a user may only have one IP at a time.
                 Logins indicating a different IP address will mean previous
                 IP address has been released.
         """
@@ -331,7 +331,7 @@ class IdentityApp(ProfilerApp):
                 combined_activity.append(list(event) + ['--'] * len(legend))
 
         traffic_legend = [c.key for c in legend]
-        
+
         legend = legend_keys + traffic_legend
         return legend, combined_activity
 
@@ -360,7 +360,7 @@ class IdentityApp(ProfilerApp):
             headers, tbl_data = self.generate_traffic(activity, legend, 'summary')
         else:
             headers = ('Host IP', 'Login Time', 'Logout Time', 'Duration')
-            tbl_data = [(x[0], format_time(x[1]), format_time(x[2]), x[3]) 
+            tbl_data = [(x[0], format_time(x[1]), format_time(x[2]), x[3])
                                                                 for x in activity]
 
         if self.options.csv:
@@ -373,4 +373,3 @@ class IdentityApp(ProfilerApp):
 
 if __name__ == '__main__':
     IdentityApp().run()
-

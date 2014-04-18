@@ -2,9 +2,9 @@
 
 # Copyright (c) 2013 Riverbed Technology, Inc.
 #
-# This software is licensed under the terms and conditions of the 
+# This software is licensed under the terms and conditions of the
 # MIT License set forth at:
-#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").  
+#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
 
@@ -12,7 +12,7 @@
 
 Example:
 
- python profiler-columns.py dev-staging2.lab.nbttech.com -r traffic_summary --centricity hos 
+ python profiler-columns.py dev-staging2.lab.nbttech.com -r traffic_summary --centricity hos
 
 Column                                 Label                                  Id
 app_name                               Application                            17
@@ -23,33 +23,33 @@ avg_bytes_app_persecconn               Avg App Bytes/s per Conn               57
 avg_bytes_persecconn                   Avg Bytes/s per Conn                   556
 avg_bytes_rtx                          Avg Retrans Bytes/s                    391
 avg_conns_active                       Avg Active Connections/s               532
-avg_conns_new                          Avg New Connections/s                 
+avg_conns_new                          Avg New Connections/s
 
 python profiler-columns.py -i 729,848,40,41,158,4,14,44,10,45,46,47,50,124,48,49,51,123,39 dev-staging2.lab.nbttech.com
-Column                      Label                       Id                          
+Column                      Label                       Id
 
-c2s_flags                   C2S_FLAGS                   50                          
-c2s_total_bytes             Total Bits (cli -> srv)     46                          
-c2s_total_pkts              Total Packets (cli -> srv)  47                          
-cli_host_dns                Client                      14                          
-cli_port                    Client Port                 44                          
-cli_topo_dns                Topology (cli -> srv)       124                         
-duration                    Duration                    158                         
-end_time                    End Time                    41                          
-flow_parts                  Row                         729                         
-parent_id                   Parent FID                  39                          
-protocol_name               Protocol                    4                           
-s2c_flags                   S2C_FLAGS                   51                          
-s2c_total_bytes             Total Bits (srv -> cli)     48                          
-s2c_total_pkts              Total Packets (srv -> cli)  49                          
-srv_host_dns                Server                      10                          
-srv_port                    Server Port                 45                          
-srv_topo_dns                Topology (srv -> cli)       123                         
-start_time                  Start Time                  40                          
-vxlan_name                  Virtual Network Tunnel      848                
+c2s_flags                   C2S_FLAGS                   50
+c2s_total_bytes             Total Bits (cli -> srv)     46
+c2s_total_pkts              Total Packets (cli -> srv)  47
+cli_host_dns                Client                      14
+cli_port                    Client Port                 44
+cli_topo_dns                Topology (cli -> srv)       124
+duration                    Duration                    158
+end_time                    End Time                    41
+flow_parts                  Row                         729
+parent_id                   Parent FID                  39
+protocol_name               Protocol                    4
+s2c_flags                   S2C_FLAGS                   51
+s2c_total_bytes             Total Bits (srv -> cli)     48
+s2c_total_pkts              Total Packets (srv -> cli)  49
+srv_host_dns                Server                      10
+srv_port                    Server Port                 45
+srv_topo_dns                Topology (srv -> cli)       123
+start_time                  Start Time                  40
+vxlan_name                  Virtual Network Tunnel      848
 """
 
-from steelscript.profiler.app import ProfilerApp
+from steelscript.profiler.core.app import ProfilerApp
 from steelscript.common.utils import Formatter
 import optparse
 
@@ -72,7 +72,7 @@ class ProfilerInfo(ProfilerApp):
         group.add_option('-f', '--filter',
                          help="filter columns on this string")
         parser.add_option_group(group)
-            
+
     def print_columns(self, columns):
         keys = []
         values = []

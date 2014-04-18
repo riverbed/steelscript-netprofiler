@@ -1,16 +1,16 @@
 # Copyright (c) 2013 Riverbed Technology, Inc.
 #
-# This software is licensed under the terms and conditions of the 
+# This software is licensed under the terms and conditions of the
 # MIT License set forth at:
-#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").  
+#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
 
-from steelscript.profiler import Profiler
-from steelscript.profiler.filters import TimeFilter, TrafficFilter
+from steelscript.profiler.core import Profiler
+from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.service import UserAuth
 from steelscript.common.exceptions import RvbdException
-from steelscript.profiler.report import (WANSummaryReport, WANTimeSeriesReport, TrafficSummaryReport,
+from steelscript.profiler.core.report import (WANSummaryReport, WANTimeSeriesReport, TrafficSummaryReport,
                                   TrafficOverallTimeSeriesReport, TrafficFlowListReport,
                                   IdentityReport)
 
@@ -164,7 +164,7 @@ class ProfilerTests(unittest.TestCase):
         columns = [self.profiler.columns.key.time,
                    self.profiler.columns.value.avg_bytes,
                    self.profiler.columns.value.avg_pkts]
-        
+
         timerange = TimeFilter.parse_range("last 1 h")
         trafficexpr = TrafficFilter("host 10/8")
         resolution = "15min"

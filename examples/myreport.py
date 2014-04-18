@@ -2,9 +2,9 @@
 
 # Copyright (c) 2013 Riverbed Technology, Inc.
 #
-# This software is licensed under the terms and conditions of the 
+# This software is licensed under the terms and conditions of the
 # MIT License set forth at:
-#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").  
+#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
 
@@ -12,11 +12,11 @@ import sys
 import pprint
 
 import steelscript
-import steelscript.profiler
+from steelscript.profiler.core import Profiler
 
 from steelscript.common.service import UserAuth
-from steelscript.profiler.filters import TimeFilter
-from steelscript.profiler.report import TrafficSummaryReport
+from steelscript.profiler.core.filters import TimeFilter
+from steelscript.profiler.core.report import TrafficSummaryReport
 
 # connection information
 username = '<username>'
@@ -31,7 +31,7 @@ if (username == '<username>' or
 
 auth = UserAuth(username, password)
 
-p = steelscript.profiler.Profiler(host, auth=auth)
+p = Profiler(host, auth=auth)
 report = TrafficSummaryReport(p)
 
 columns = [p.columns.key.host_ip,
@@ -46,5 +46,3 @@ legend = report.get_legend()
 report.delete()
 
 pprint.pprint(data[:10])
-
-

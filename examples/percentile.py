@@ -2,9 +2,9 @@
 
 # Copyright (c) 2013 Riverbed Technology, Inc.
 #
-# This software is licensed under the terms and conditions of the 
+# This software is licensed under the terms and conditions of the
 # MIT License set forth at:
-#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").  
+#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
 
@@ -20,38 +20,38 @@ from scipy import stats
 
 import matplotlib.pyplot as plt
 
-from steelscript.profiler.app import ProfilerApp
-from steelscript.profiler import *
-from steelscript.profiler.filters import TimeFilter, TrafficFilter
+from steelscript.profiler.core.app import ProfilerApp
+from steelscript.profiler.core import *
+from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
 
 def findStartEnd(data):
     if extendZero == True:
         start = 0
     else:
         start = int(min(data)) - 1
-        
+
     end = int(max(data)) + 1
-    
+
     qty = ((end - start) / data.__len__() + 1)
-            
+
     #x_series = range(start, end, qty)
     x_series = []
     x = 0
     while x < data.__len__():
         x_series.append([])
         x = x + 1
-        
-    
+
+
     return(x_series)
 
 def genGraph(data, dataList, percentileVal):
     fig = plt.figure()
-    
+
     # Clean up the list
     newData = []
     for y in data:
         newData.append(y[0])
-        
+
     #dataListPercentile = []
     #dataListMedian = []
     #for y in dataList:
@@ -60,28 +60,28 @@ def genGraph(data, dataList, percentileVal):
         #print "Median {}".format(y[0])
         #print y[1]
 
-    
+
     x_series = findStartEnd(newData)
     #x_series1 = findStartEnd(newDataList)
-    
+
     percentileAvg = stats.scoreatpercentile(dataList[0], percentileVal)[0]
     median = stats.scoreatpercentile(dataList[0], 50)[0]
     individual = stats.scoreatpercentile(dataList[1], percentileVal)[0]
-    
+
     # data is y series 1
     # dataList is y series 2
-    
+
     plt.plot(x_series, newData, label="Raw Data")
     #plt.plot(x_series, dataList, label="Bucketed Data")
-    
+
     plt.xlabel("Time")
     plt.xticks(rotation="vertical")
     plt.ylabel("Bytes")
     plt.title("Percentile Graph")
- 
+
     #create legend
     plt.legend(loc="upper left")
- 
+
     #save figure to png
     plt.savefig(graphFilename)
 
@@ -101,7 +101,7 @@ def generatePercentile(columns, theTimeFilter, trafficFilter, centricity, dataRe
 
     print "Getting data"
     dataList = fixBucket(data, int(sumTime))
-    
+
     if outputData == True and clean == False:
         print "Data points:"
         for x in dataList[1]:
@@ -116,7 +116,7 @@ def generatePercentile(columns, theTimeFilter, trafficFilter, centricity, dataRe
     if Min == True and clean == False: print 'Minimum Average Bytes is {}'.format(min(data)[0])
     if Median == True and clean == False: print 'Median Average Bytes is {}'.format(stats.scoreatpercentile(data, 50)[0])
     if clean == True: print '{} {}'.format(trafficFilter, stats.scoreatpercentile(dataList[0], percentileVal)[0])
-        
+
 def fixBucket(data, sumTime):
     # We need to average the data to the correct bucket
     y = 0
@@ -208,7 +208,7 @@ parser.add_option("--trafficExpressionHelp", help="Traffic expression help", act
 #parser.add_option("-a", "--allIndexes", help="Show the percentile for every interface on the system", action='store_true')
 
 group1 = optparse.OptionGroup(parser,'time frame')
-group1.add_option("-t", "--timeFilter", help="Time Filter in the form of either 'last x {m|h|d|w}' or '10-30-2012 10:30am to 10-31-2012 10:02am'", default="last 5 m") 
+group1.add_option("-t", "--timeFilter", help="Time Filter in the form of either 'last x {m|h|d|w}' or '10-30-2012 10:30am to 10-31-2012 10:02am'", default="last 5 m")
 parser.add_option_group(group1)
 
 group2 = optparse.OptionGroup(parser,'traffic filter')
@@ -292,7 +292,7 @@ def checkSet(value, label):
     if value is None:
         print "'%s' must be passed for this command" % label
         exit(1)
-        
+
 # Process every index on the system
 if listInterfaceGroups == True or listHostGroupTypes == True or trafficExpressionHelp:
     # List the interface or host groups
@@ -323,7 +323,7 @@ if allIndexes == True:
     print 'Reporting on All Interfaces'
     # Get a list of the possible interfaces
     report = TrafficSummaryReport(profiler)
-    
+
     report.run(groupby = profiler.groupbys.interface,
                columns = [profiler.columns.key.interface,
                           profiler.columns.key.interface_dns],
@@ -331,7 +331,7 @@ if allIndexes == True:
                timefilter = theTimeFilter,
                                   trafficexpr = TrafficFilter(trafficFilter)
                )
-    
+
     # Retrieve the data
     data = report.get_data()
     report.delete()
@@ -349,7 +349,7 @@ if allIndexes == True:
                     centricity = "int",
                     resolution = dataRes
                     )
-        
+
         report.get_legend()
         dataY = report.get_data()
         report.delete()
@@ -428,4 +428,3 @@ else:
             y = y + 1
     else:
         generatePercentile(columns, theTimeFilter, trafficFilter, centricity, dataRes)
-

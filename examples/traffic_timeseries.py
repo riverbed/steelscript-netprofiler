@@ -2,24 +2,26 @@
 
 # Copyright (c) 2013 Riverbed Technology, Inc.
 #
-# This software is licensed under the terms and conditions of the 
+# This software is licensed under the terms and conditions of the
 # MIT License set forth at:
-#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").  
+#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
-from steelscript.profiler.app import ProfilerApp
-from steelscript.profiler.report import TrafficFlowListReport
-from steelscript.profiler.filters import TimeFilter, TrafficFilter
+from steelscript.profiler.core.app import ProfilerApp
+from steelscript.profiler.core.report import TrafficOverallTimeSeriesReport
+from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.utils import Formatter
 
 import optparse
 
 
-class TrafficFlowListApp(ProfilerApp):
+class TrafficTimeSeriesApp(ProfilerApp):
 
     def add_options(self, parser):
         group = optparse.OptionGroup(parser, "Report Parameters")
-        group.add_option('--columns', dest='columns', 
+        group.add_option('--centricity', dest='centricity', default='host',
+                         help='"host" vs "interface" centricity (default "host")')
+        group.add_option('--columns', dest='columns',
                          help='Comma-separated list of column names and/or '
                               'ID numbers, required')
         parser.add_option_group(group)
@@ -35,8 +37,6 @@ class TrafficFlowListApp(ProfilerApp):
         parser.add_option_group(group)
 
         group = optparse.OptionGroup(parser, "Output options")
-        group.add_option('--sort', dest='sortby', default=None, 
-                         help='Column name to sort by (defaults to None)')
         group.add_option('--csv', dest='as_csv', default=False, action='store_true',
                          help='Return values in CSV format instead of tabular')
         parser.add_option_group(group)
@@ -44,7 +44,16 @@ class TrafficFlowListApp(ProfilerApp):
     def validate_args(self):
         """ Ensure columns are included
         """
-        super(TrafficFlowListApp, self).validate_args()
+        super(TrafficTimeSeriesApp, self).validate_args()
+
+        if self.options.centricity == 'host':
+            self.centricity = 'hos'
+        elif self.options.centricity == 'interface':
+            self.centricity = 'int'
+        elif self.options.centricity not in ['hos', 'int']:
+            self.optparse.error('Centricity option must be either "int" or "hos".')
+        else:
+            self.centricity = self.options.centricity
 
         if not self.options.columns:
             self.optparse.error('Comma-separated list of columns is required.')
@@ -62,16 +71,16 @@ class TrafficFlowListApp(ProfilerApp):
         else:
             self.trafficexpr = None
 
-        with TrafficFlowListReport(self.profiler) as report:
+        with TrafficOverallTimeSeriesReport(self.profiler) as report:
             report.run(columns=self.options.columns.split(','),
-                       sort_col=self.options.sortby,
                        timefilter=self.timefilter,
-                       trafficexpr=self.trafficexpr)
+                       trafficexpr=self.trafficexpr,
+                       centricity=self.centricity)
             data = report.get_data()
             legend = [c.label for c in report.get_legend()]
-        
+
         self.print_data(data, legend)
 
 
 if __name__ == '__main__':
-    TrafficFlowListApp().run()
+    TrafficTimeSeriesApp().run()

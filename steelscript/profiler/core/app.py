@@ -1,13 +1,13 @@
 # Copyright (c) 2013 Riverbed Technology, Inc.
 #
-# This software is licensed under the terms and conditions of the 
+# This software is licensed under the terms and conditions of the
 # MIT License set forth at:
-#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").  
+#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
 
 from steelscript.common.app import Application
-import steelscript.profiler
+from steelscript.profiler.core import Profiler
 
 
 class ProfilerApp(Application):
@@ -22,9 +22,9 @@ class ProfilerApp(Application):
         self.host = self.args[0]
 
     def setup(self):
-        self.profiler = steelscript.profiler.Profiler(self.host,
-                                               port=self.options.port,
-                                               auth=self.auth)
+        self.profiler = Profiler(self.host,
+                                 port=self.options.port,
+                                 auth=self.auth)
 
     def validate_args(self):
         if len(self.args) < 1:

@@ -2,14 +2,14 @@
 
 # Copyright (c) 2013 Riverbed Technology, Inc.
 #
-# This software is licensed under the terms and conditions of the 
+# This software is licensed under the terms and conditions of the
 # MIT License set forth at:
-#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").  
+#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
-from steelscript.profiler.app import ProfilerApp
-from steelscript.profiler.report import WANSummaryReport, WANTimeSeriesReport
-from steelscript.profiler.filters import TimeFilter
+from steelscript.profiler.core.app import ProfilerApp
+from steelscript.profiler.core.report import WANSummaryReport, WANTimeSeriesReport
+from steelscript.profiler.core.filters import TimeFilter
 
 import sys
 import optparse
@@ -64,7 +64,7 @@ class WANReportApp(ProfilerApp):
         """
         super(WANReportApp, self).validate_args()
 
-        if (not self.options.device_address and 
+        if (not self.options.device_address and
                 not self.options.device_name and
                 not (self.options.lan_address and self.options.wan_address)):
             self.optparse.error('Either device-address, device-name or '

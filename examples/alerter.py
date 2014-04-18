@@ -2,9 +2,9 @@
 
 # Copyright (c) 2013 Riverbed Technology, Inc.
 #
-# This software is licensed under the terms and conditions of the 
+# This software is licensed under the terms and conditions of the
 # MIT License set forth at:
-#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").  
+#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
 """
@@ -21,9 +21,9 @@ python alerter.py tm08-1.lab.nbttech.com -u admin -p admin --expr1 'app WEB' --t
 import sys
 import datetime
 
-from steelscript.profiler.app import ProfilerApp
-from steelscript.profiler.filters import TrafficFilter
-from steelscript.profiler.report import TrafficSummaryReport
+from steelscript.profiler.core.app import ProfilerApp
+from steelscript.profiler.core.filters import TrafficFilter
+from steelscript.profiler.core.report import TrafficSummaryReport
 from steelscript.common.utils import Formatter
 from steelscript.common import timeutils
 
@@ -59,16 +59,16 @@ class AlerterApp(ProfilerApp):
         parser.add_option_group(group)
 
         group = optparse.OptionGroup(parser, "TRAP Options")
-        group.add_option('--eoid', help="Enterprise OID (defaults to Cascade Profiler ID: '1.3.6.1.4.1.7054.70.0.' )", 
+        group.add_option('--eoid', help="Enterprise OID (defaults to Cascade Profiler ID: '1.3.6.1.4.1.7054.70.0.' )",
                          default='1.3.6.1.4.1.7054.70.0.')
         group.add_option('--trapid', help="Trap code indicator (default: 99)", default='99')
         group.add_option('--community', help="Community name (default: 'public')", default='public')
-        group.add_option('--manager_ip', help="Destination server for Traps (default: '127.0.0.1')", 
+        group.add_option('--manager_ip', help="Destination server for Traps (default: '127.0.0.1')",
                          default='127.0.0.1')
-        group.add_option('--trap-description', help="Description to use within Trap (default: 'FlyScript SDK Trap Alert')", 
+        group.add_option('--trap-description', help="Description to use within Trap (default: 'FlyScript SDK Trap Alert')",
                          default='FlyScript SDK Trap Alert')
         group.add_option('--severity', help="Severity of Trap (default: '70')", default=70)
-        group.add_option('--trap-url', help="URL to include in Trap Message (default: 'http://localhost')", 
+        group.add_option('--trap-url', help="URL to include in Trap Message (default: 'http://localhost')",
                          default='http://localhost')
         group.add_option('--alert-level', help="Alert level of Trap (1=Low, 2=Medium, 3=High) (default: 2)", default=2)
         parser.add_option_group(group)
@@ -101,7 +101,7 @@ class AlerterApp(ProfilerApp):
         err = ntf.sendNotification(ntforg.CommunityData(community),
                                    ntforg.UdpTransportTarget((manager_ip, 162)),
                                    'trap',
-                                   trapname, 
+                                   trapname,
                                    ('1.3.6.1.2.1.1.3.0', rfc1902.Integer(0)),                         # Uptime
                                    ('1.3.6.1.4.1.7054.71.2.1.0', rfc1902.Integer(severity)),            # Severity
                                    ('1.3.6.1.4.1.7054.71.2.3.0', rfc1902.OctetString(description)),
@@ -112,7 +112,7 @@ class AlerterApp(ProfilerApp):
                                    ('1.3.6.1.4.1.7054.71.2.16.0', rfc1902.Integer(0)),                  # Source Count
                                    ('1.3.6.1.4.1.7054.71.2.18.0', rfc1902.Integer(0)),                  # Destination Count
                                    ('1.3.6.1.4.1.7054.71.2.20.0', rfc1902.Integer(0)),                  # Protocol Count
-                                   ('1.3.6.1.4.1.7054.71.2.22.0', rfc1902.Integer(0)),                  # Port Count                                
+                                   ('1.3.6.1.4.1.7054.71.2.22.0', rfc1902.Integer(0)),                  # Port Count
                                    )
 
     def run_query(self, report, column, trafficexpr, trigger):
@@ -160,15 +160,15 @@ class AlerterApp(ProfilerApp):
                 result2 = None
 
                 result = self.run_query(self.report1,
-                                        self.columns_report1, 
-                                        self.tfilter1, 
+                                        self.columns_report1,
+                                        self.tfilter1,
                                         self.trigger1)
                 if result:
                     if self.trigger2:
                         print 'Trigger 1 passed, running report 2 ...'
                         result2 = self.run_query(self.report2,
-                                                 self.columns_report2, 
-                                                 self.tfilter2, 
+                                                 self.columns_report2,
+                                                 self.tfilter2,
                                                  self.trigger2)
                         if result2:
                             print 'Trigger 2 passed ...'

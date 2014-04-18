@@ -1,8 +1,8 @@
 # Copyright (c) 2013 Riverbed Technology, Inc.
 #
-# This software is licensed under the terms and conditions of the 
+# This software is licensed under the terms and conditions of the
 # MIT License set forth at:
-#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").  
+#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
 
@@ -23,16 +23,16 @@ class Column(object):
         self.iskey = json['category'] != 'data'
 
     def __eq__(self, other):
-        return self.key == other 
+        return self.key == other
 
     def __cmp__(self, other):
         return cmp(self.key, other.key)
 
     def __hash__(self):
         return hash(tuple(self.json.values()))
-        
+
     def __repr__(self):
-        msg = '<steelscript.profiler._types.Column(id={0}, key={1}, iskey={2} label={3})>'
+        msg = '<steelscript.profiler.core._types.Column(id={0}, key={1}, iskey={2} label={3})>'
         return msg.format(self.id, self.key, self.iskey, self.label)
 
 
@@ -109,4 +109,3 @@ class ColumnContainer(object):
             return self.value.__dict__.values()
         except AttributeError:
             return None
-

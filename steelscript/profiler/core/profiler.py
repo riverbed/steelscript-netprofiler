@@ -1,8 +1,8 @@
 # Copyright (c) 2013 Riverbed Technology, Inc.
 #
-# This software is licensed under the terms and conditions of the 
+# This software is licensed under the terms and conditions of the
 # MIT License set forth at:
-#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").  
+#   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
 
@@ -19,10 +19,10 @@ import itertools
 
 from steelscript.common.utils import DictObject
 from steelscript.common.api_helpers import APIVersion
-from steelscript.profiler import _api1
-from steelscript.profiler import _constants
+from steelscript.profiler.core import _api1
+from steelscript.profiler.core import _constants
 from steelscript.common._fs import SteelScriptDir
-from steelscript.profiler._types import Column, AreaContainer, ColumnContainer
+from steelscript.profiler.core._types import Column, AreaContainer, ColumnContainer
 from steelscript.common.exceptions import RvbdException
 
 import steelscript.common.service
@@ -229,7 +229,7 @@ class Profiler(steelscript.common.service.Service):
                 raise RvbdException('{0} is not a valid column '
                                     'for groupby {1}'.format(column, groupby))
             res.append(self.columns[cname])
-                
+
         return res
 
     def get_columns_by_ids(self, ids):
