@@ -15,7 +15,7 @@ import steelscript
 from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import timedelta_total_seconds
 
-from rvbd_portal.apps.devices.devicemanager import DeviceManager
+from steelscript.appfw.core.apps.devices.devicemanager import DeviceManager
 from steelscript.profiler.appfw.datasources.profiler import ProfilerTable
 
 logger = logging.getLogger(__name__)

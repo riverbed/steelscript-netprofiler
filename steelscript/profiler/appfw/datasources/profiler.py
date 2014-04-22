@@ -14,14 +14,14 @@ import steelscript.profiler.core
 from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import (parse_timedelta,
                                           timedelta_total_seconds)
-from rvbd_portal.apps.datasource.models import DatasourceTable, Column
+from steelscript.appfw.core.apps.datasource.models import DatasourceTable, Column
 
-from rvbd_portal.apps.datasource.models import TableField
-from rvbd_portal.apps.devices.forms import fields_add_device_selection
-from rvbd_portal.apps.devices.devicemanager import DeviceManager
-from rvbd_portal.apps.datasource.forms import (fields_add_time_selection,
+from steelscript.appfw.core.apps.datasource.models import TableField
+from steelscript.appfw.core.apps.devices.forms import fields_add_device_selection
+from steelscript.appfw.core.apps.devices.devicemanager import DeviceManager
+from steelscript.appfw.core.apps.datasource.forms import (fields_add_time_selection,
                                                fields_add_resolution)
-from rvbd_portal.libs.fields import Function
+from steelscript.appfw.core.libs.fields import Function
 
 logger = logging.getLogger(__name__)
 lock = threading.Lock()

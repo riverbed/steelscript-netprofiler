@@ -9,10 +9,10 @@ import logging
 import pandas
 import datetime
 
-from rvbd_portal.apps.datasource.models import DatasourceTable
-from rvbd_portal.apps.devices.devicemanager import DeviceManager
-from rvbd_portal.apps.devices.forms import fields_add_device_selection
-from rvbd_portal.libs.fields import Function
+from steelscript.appfw.core.apps.datasource.models import DatasourceTable
+from steelscript.appfw.core.apps.devices.devicemanager import DeviceManager
+from steelscript.appfw.core.apps.devices.forms import fields_add_device_selection
+from steelscript.appfw.core.libs.fields import Function
 
 import steelscript
 from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
