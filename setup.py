@@ -12,7 +12,7 @@ except ImportError:
     def find_packages(path='steelscript'):
         return [p for p, files, dirs in os.walk(path) if '__init__.py' in files]
 
-from versioning import get_version
+from gitpy_versioning import get_version
 
 setup_args = {
     'name':               'steelscript.netprofiler',
@@ -21,6 +21,7 @@ setup_args = {
     'author':             'Riverbed Technology',
     'author_email':       'cwhite@riverbed.com',
     'url':                'http://pythonhosted.org/steelscript',
+    'license':            'MIT',
     'description':        'Python module for interacting with Riverbed Profiler with SteelScript',
 
     'long_description': '''SteelScript for NetProfiler
