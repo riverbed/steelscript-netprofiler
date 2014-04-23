@@ -7,7 +7,7 @@
 
 
 """
-This module contains classes to define and collect profiler data types
+This module contains classes to define and collect netprofiler data types
 of Column, and Area.
 """
 class Container(object):
@@ -32,7 +32,7 @@ class Column(object):
         return hash(tuple(self.json.values()))
 
     def __repr__(self):
-        msg = '<steelscript.profiler.core._types.Column(id={0}, key={1}, iskey={2} label={3})>'
+        msg = '<steelscript.netprofiler.core._types.Column(id={0}, key={1}, iskey={2} label={3})>'
         return msg.format(self.id, self.key, self.iskey, self.label)
 
 

@@ -20,9 +20,9 @@ from scipy import stats
 
 import matplotlib.pyplot as plt
 
-from steelscript.profiler.core.app import ProfilerApp
-from steelscript.profiler.core import *
-from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.netprofiler.core.app import NetProfilerApp
+from steelscript.netprofiler.core import *
+from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 
 def findStartEnd(data):
     if extendZero == True:
@@ -87,7 +87,7 @@ def genGraph(data, dataList, percentileVal):
 
 def generatePercentile(columns, theTimeFilter, trafficFilter, centricity, dataRes):
     print "Running timeseries report"
-    report = TrafficOverallTimeSeriesReport(profiler)
+    report = TrafficOverallTimeSeriesReport(netprofiler)
 
     report.run( columns = columns,
                 timefilter = theTimeFilter,
@@ -189,7 +189,7 @@ def listGroupTypes(host, sshUsername, sshPassword):
 
 
 def dispTrafficExpressionHelp(host):
-    print "Look at http://" + host + "/help/profiler/reports/traffic_reports/expressions/c_expressions.htm"
+    print "Look at http://" + host + "/help/netprofiler/reports/traffic_reports/expressions/c_expressions.htm"
 
 def is_int(s):
     try:
@@ -199,7 +199,7 @@ def is_int(s):
         return False
 
 # Parse command line options -- run with '-h' to see additional standard options
-app = ProfilerApp()
+app = NetProfilerApp()
 parser = app.optparse
 
 parser.add_option("-s", "--sumTime", help="Number of minutes data should be bucketed in (normally 5)", default=5)
@@ -318,16 +318,16 @@ if clean == False: print 'Averaging based on buckets of {} minutes'.format(sumTi
 if clean == False and graph == True: print 'Creating a graph stored in {}'.format(graphFilename)
 
 if allIndexes == True:
-    # Create a Profiler object
-    profiler = Profiler(host, auth=app.options.auth)
+    # Create a NetProfiler object
+    profiler = NetProfiler(host, auth=app.options.auth)
     print 'Reporting on All Interfaces'
     # Get a list of the possible interfaces
-    report = TrafficSummaryReport(profiler)
+    report = TrafficSummaryReport(netprofiler)
 
-    report.run(groupby = profiler.groupbys.interface,
-               columns = [profiler.columns.key.interface,
-                          profiler.columns.key.interface_dns],
-               sort_col = profiler.columns.key.interface,
+    report.run(groupby = netprofiler.groupbys.interface,
+               columns = [netprofiler.columns.key.interface,
+                          netprofiler.columns.key.interface_dns],
+               sort_col = netprofiler.columns.key.interface,
                timefilter = theTimeFilter,
                                   trafficexpr = TrafficFilter(trafficFilter)
                )
@@ -342,8 +342,8 @@ if allIndexes == True:
         intExpr = TrafficFilter("interface " + x[0])
 
         # Create a new report based on the list of interfaces we received
-        report = TrafficOverallTimeSeriesReport(profiler)
-        report.run( columns = [profiler.columns.value.avg_bytes],
+        report = TrafficOverallTimeSeriesReport(netprofiler)
+        report.run( columns = [netprofiler.columns.value.avg_bytes],
                     timefilter = theTimeFilter,
                     trafficexpr = intExpr,
                     centricity = "int",
@@ -382,29 +382,29 @@ else:
 #    If the traffic expression is of type "device" or "interface" the query will be run against that specific device or interface
 #    Other types and complex expressions are not currently supported
 
-    # Create a Profiler object
-    profiler = Profiler(app.host, auth=app.auth)
+    # Create a NetProfiler object
+    profiler = NetProfiler(app.host, auth=app.auth)
     expType = trafficFilter.split(" ")
 
     if expType[0] == "host":
         # This is a host type expression
-        groupby = profiler.groupbys.host
+        groupby = netprofiler.groupbys.host
         centricity = "hos"
     elif expType[0] == "hostgroup":
         # This is a host group type expression
-        groupby = profiler.groupbys.group
+        groupby = netprofiler.groupbys.group
         centricity = "hos"
         # We will need to run a report by group to see all the sub-groups IF there is no group specified
     elif expType[0] == "interfacegroup":
         # This is an interface group type expression
-        groupby = profiler.groupbys.interface
+        groupby = netprofiler.groupbys.interface
         centricity = "int"
     elif expType[0] == "device" or expType[0] == "interface":
         # This is a device or interface expression
-        groupby = profiler.groupbys.interface
+        groupby = netprofiler.groupbys.interface
         centricity = "int"
 
-    columns = [profiler.columns.value.avg_bytes]
+    columns = [netprofiler.columns.value.avg_bytes]
 
     if expType[0] == "hostgroup" and not re.match('.+:.+', expType[1]):
         # Only the group type is specified so we need to get the list of hostgroups by SSH'ing to the host

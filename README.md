@@ -1,8 +1,8 @@
-Riverbed SteelScript for Cascade Profiler
+Riverbed SteelScript for Cascade NetProfiler
 =========================================
 
 This package provides device specific bindings for interacting
-with Riverbed Cascade Profiler devices as part of the Riverbed
+with Riverbed Cascade NetProfiler devices as part of the Riverbed
 Steelscript for Python.
 
 See [http://github.com/riverbed/steelscript.common](steelscript.common) for

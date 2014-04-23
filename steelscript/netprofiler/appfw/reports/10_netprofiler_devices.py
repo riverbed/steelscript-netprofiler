@@ -9,9 +9,9 @@
 from steelscript.appfw.core.apps.report.models import Report
 import steelscript.appfw.core.apps.report.modules.yui3 as yui3
 
-from steelscript.profiler.appfw.datasources.profiler_devices import ProfilerDeviceTable
+from steelscript.netprofiler.appfw.datasources.netprofiler_devices import ProfilerDeviceTable
 
-report = Report.create("Profiler Device List", position=10)
+report = Report.create("NetProfiler Device List", position=10)
 
 report.add_section()
 

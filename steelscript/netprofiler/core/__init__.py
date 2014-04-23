@@ -7,8 +7,8 @@
 
 
 """
-The Profiler package offers a set of interfaces to control and work with
-a Cascade Profiler Appliance.
+The NetProfiler package offers a set of interfaces to control and work with
+a Cascade NetProfiler Appliance.
 """
-from steelscript.profiler.core.profiler import *
-from steelscript.profiler.core.report import *
+from steelscript.netprofiler.core.netprofiler import *
+from steelscript.netprofiler.core.report import *

@@ -9,7 +9,7 @@
 
 
 
-from steelscript.profiler.core.app import ProfilerApp
+from steelscript.netprofiler.core.app import NetProfilerApp
 from steelscript.common.utils import Formatter
 
 import optparse
@@ -18,7 +18,7 @@ from itertools import izip
 import logging
 logger = logging.getLogger(__name__)
 
-class DeviceReport(ProfilerApp):
+class DeviceReport(NetProfilerApp):
 
     def add_options(self, parser):
         group = optparse.OptionGroup(parser, "Device List Options")

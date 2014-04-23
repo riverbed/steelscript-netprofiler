@@ -12,17 +12,17 @@ import datetime
 import pandas
 
 import steelscript
-from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import timedelta_total_seconds
 
 from steelscript.appfw.core.apps.devices.devicemanager import DeviceManager
-from steelscript.profiler.appfw.datasources.profiler import ProfilerTable
+from steelscript.netprofiler.appfw.datasources.netprofiler import NetProfilerTable
 
 logger = logging.getLogger(__name__)
 lock = threading.Lock()
 
 
-class ProfilerTemplateTable(ProfilerTable):
+class NetProfilerTemplateTable(NetProfilerTable):
     class Meta:
         proxy = True
 
@@ -40,17 +40,17 @@ class TableQuery:
         criteria = self.job.criteria
 
         if criteria.profiler_device == '':
-            logger.debug('%s: No profiler device selected' % self.table)
-            self.job.mark_error("No Profiler Device Selected")
+            logger.debug('%s: No netprofiler device selected' % self.table)
+            self.job.mark_error("No NetProfiler Device Selected")
             return False
             
         profiler = DeviceManager.get_device(criteria.profiler_device)
-        report = steelscript.profiler.core.report.MultiQueryReport(profiler)
+        report = steelscript.netprofiler.core.report.MultiQueryReport(profiler)
 
         tf = TimeFilter(start=criteria.starttime,
                         end=criteria.endtime)
 
-        logger.info("Running ProfilerTemplateTable table %d report "
+        logger.info("Running NetProfilerTemplateTable table %d report "
                     "for timeframe %s" % (self.table.id, str(tf)))
 
         trafficexpr = TrafficFilter(
@@ -58,15 +58,15 @@ class TableQuery:
         )
 
         # Incoming criteria.resolution is a timedelta
-        logger.debug('Profiler report got criteria resolution %s (%s)' %
+        logger.debug('NetProfiler report got criteria resolution %s (%s)' %
                      (criteria.resolution, type(criteria.resolution)))
         if criteria.resolution != 'auto':
             rsecs = int(timedelta_total_seconds(criteria.resolution))
-            resolution = steelscript.profiler.core.report.Report.RESOLUTION_MAP[rsecs]
+            resolution = steelscript.netprofiler.core.report.Report.RESOLUTION_MAP[rsecs]
         else:
             resolution = 'auto'
         
-        logger.debug('Profiler report using resolution %s (%s)' %
+        logger.debug('NetProfiler report using resolution %s (%s)' %
                      (resolution, type(resolution)))
 
         with lock:

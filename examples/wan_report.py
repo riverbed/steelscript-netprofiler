@@ -7,9 +7,9 @@
 #   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
-from steelscript.profiler.core.app import ProfilerApp
-from steelscript.profiler.core.report import WANSummaryReport, WANTimeSeriesReport
-from steelscript.profiler.core.filters import TimeFilter
+from steelscript.netprofiler.core.app import NetProfilerApp
+from steelscript.netprofiler.core.report import WANSummaryReport, WANTimeSeriesReport
+from steelscript.netprofiler.core.filters import TimeFilter
 
 import sys
 import optparse
@@ -20,7 +20,7 @@ import warnings
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
 
-class WANReportApp(ProfilerApp):
+class WANReportApp(NetProfilerApp):
 
     def add_options(self, parser):
         group = optparse.OptionGroup(parser, "Device List Options")
@@ -105,7 +105,7 @@ class WANReportApp(ProfilerApp):
                     self.ip_address = d['ipaddr']
                     break
             else:
-                print 'Device %s cannot be found in Profiler device list' % name
+                print 'Device %s cannot be found in NetProfiler device list' % name
                 print 'Try specifying the name differently or use an IP address'
                 sys.exit(1)
         else:

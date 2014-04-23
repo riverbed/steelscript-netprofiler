@@ -7,8 +7,8 @@
 
 
 """
-This module defines Profiler Report and Query objects which provide
-access to running reports and retrieving data from a Profiler.
+This module defines NetProfiler Report and Query objects which provide
+access to running reports and retrieving data from a NetProfiler.
 """
 
 import logging
@@ -16,7 +16,7 @@ import re
 import time
 import cStringIO as StringIO
 
-from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import (parse_timedelta, datetime_to_seconds,
                                    timedelta_total_seconds)
 from steelscript.common.utils import RecursiveUpdateDict
@@ -33,7 +33,7 @@ logger = logging.getLogger(__name__)
 
 
 class Query(object):
-    """This class represents a profiler query instance.
+    """This class represents a netprofiler query instance.
     """
     def __init__(self, report, query, column_ids=None, custom_columns=False):
         self.report = report
@@ -43,7 +43,7 @@ class Query(object):
         self.custom_columns = custom_columns
 
         if self.custom_columns:
-            # ignore the columns stored in Profiler, create new objects
+            # ignore the columns stored in NetProfiler, create new objects
             # based on what comes back in query
             query_columns = [q for q in query['columns'] if q['available']]
             self.available_columns = self.report.profiler._gencolumns(query_columns)
@@ -74,7 +74,7 @@ class Query(object):
         for i, x in enumerate(row):
             if (legend[i].json['type'] == 'float' or
                 legend[i].json['type'] in 'reltime' or
-                legend[i].json['rate'] == 'opt'):          # profiler bug, %reduct columns labeled as ints
+                legend[i].json['rate'] == 'opt'):          # netprofiler bug, %reduct columns labeled as ints
                 try:
                     row[i] = float(x)
                 except ValueError:
@@ -141,7 +141,7 @@ class Query(object):
 
 
 class Report(object):
-    """This class represents a Profiler report.  This class is normally not
+    """This class represents a NetProfiler report.  This class is normally not
     used directly, but instead via subclasses for specific report types.
     """
 
@@ -155,11 +155,11 @@ class Report(object):
     # Note that report parameters such as the template id are not set
     # on initialization, but not until run().  This is to accommodate
     # a future load() command which will take a report id and load the
-    # parameters of an existing report from Profiler.
+    # parameters of an existing report from NetProfiler.
 
     def __init__(self, profiler):
         """Initialize a report object.  A report
-        object is bound to an instance of a Profiler at creation.
+        object is bound to an instance of a NetProfiler at creation.
         """
 
         self.profiler = profiler
@@ -181,7 +181,7 @@ class Report(object):
     def run(self, template_id,
             timefilter=None, resolution="auto",
             query=None, trafficexpr=None, data_filter=None, sync=True):
-        """Create the report on Profiler and begin running
+        """Create the report on NetProfiler and begin running
         the report.  If the `sync` option is True, periodically
         poll until the report is complete, otherwise return
         immediately.
@@ -374,7 +374,7 @@ class Report(object):
         return query.get_totals(columns)
 
     def delete(self):
-        """Issue a call to Profiler delete this report."""
+        """Issue a call to NetProfiler delete this report."""
         try:
             self.profiler.api.report.delete(self.id)
         except:
@@ -382,10 +382,10 @@ class Report(object):
 
 
 class MultiQueryReport(Report):
-    """ Used to generate Profiler standard template reports
+    """ Used to generate NetProfiler standard template reports
     """
     def __init__(self, profiler):
-        """Create a report using standard Profiler template ids which will
+        """Create a report using standard NetProfiler template ids which will
         include multiple queries, one for each widget on a report page.
         """
         super(MultiQueryReport, self).__init__(profiler)
@@ -440,7 +440,7 @@ class SingleQueryReport(Report):
         """Create a report consisting of a single query.  This class is not normally
         instantiated directly.  See child classes such as `TrafficSummaryReport`.
 
-        `profiler` is the Profiler object that will run this report
+        `netprofiler` is the NetProfiler object that will run this report
         """
 
         super(SingleQueryReport, self).__init__(profiler)
@@ -452,9 +452,9 @@ class SingleQueryReport(Report):
         """
         `realm` is the type of query, this is automatically set by subclasses
 
-        `groupby` sets the way in which data should be grouped (use profiler.groupby.*)
+        `groupby` sets the way in which data should be grouped (use netprofiler.groupby.*)
 
-        `columns` is the list of key and value columns to retrieve (use profiler.columns.*)
+        `columns` is the list of key and value columns to retrieve (use netprofiler.columns.*)
 
         `sort_col` is the column within `columns` to sort by
 
@@ -625,7 +625,7 @@ class WANReport(SingleQueryReport):
         return header
 
     def get_interfaces(self, device_ip):
-        """ Query profiler to attempt to automatically determine
+        """ Query netprofiler to attempt to automatically determine
             LAN and WAN interface ids.
         """
         cols = self.profiler.get_columns(['interface_dns', 'interface'])

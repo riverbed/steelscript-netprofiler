@@ -5,9 +5,9 @@
 #   https://github.com/riverbed/flyscript-portal/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
-from steelscript.profiler.core.profiler import Profiler
+from steelscript.netprofiler.core.netprofiler import NetProfiler
 
 
 def new_device_instance(*args, **kwargs):
-    # Used by DeviceManager to create a Profiler instance
-    return Profiler(*args, **kwargs)
+    # Used by DeviceManager to create a NetProfiler instance
+    return NetProfiler(*args, **kwargs)

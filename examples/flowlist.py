@@ -9,14 +9,14 @@
 
 
 
-from steelscript.profiler.core.app import ProfilerApp
-from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
-from steelscript.profiler.core.report import TrafficFlowListReport
+from steelscript.netprofiler.core.app import NetProfilerApp
+from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.netprofiler.core.report import TrafficFlowListReport
 from steelscript.common.utils import Formatter
 
 import optparse
 
-class ProfilerReport(ProfilerApp):
+class NetProfilerReport(NetProfilerApp):
 
     def add_options(self, parser):
         group = optparse.OptionGroup(parser, "Traffic Flow Options")
@@ -33,7 +33,7 @@ class ProfilerReport(ProfilerApp):
     def validate_args(self):
         """ Check that either both t0 and t1 are used or timerange
         """
-        super(ProfilerReport, self).validate_args()
+        super(NetProfilerReport, self).validate_args()
 
         if self.options.timerange and (self.options.time0 or
                                        self.options.time1):
@@ -70,4 +70,4 @@ class ProfilerReport(ProfilerApp):
 
 
 if __name__ == '__main__':
-    ProfilerReport().run()
+    NetProfilerReport().run()

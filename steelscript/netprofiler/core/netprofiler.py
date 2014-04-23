@@ -7,9 +7,9 @@
 
 
 """
-This module contains the Profiler class, which is the main interface to
-a Cascade Profiler Appliance. It allows, among other things, retrieving
-the state of the Profiler, modifying its settings and performing operations
+This module contains the NetProfiler class, which is the main interface to
+a Cascade NetProfiler Appliance. It allows, among other things, retrieving
+the state of the NetProfiler, modifying its settings and performing operations
 like creating running reports.
 """
 
@@ -19,15 +19,15 @@ import itertools
 
 from steelscript.common.utils import DictObject
 from steelscript.common.api_helpers import APIVersion
-from steelscript.profiler.core import _api1
-from steelscript.profiler.core import _constants
+from steelscript.netprofiler.core import _api1
+from steelscript.netprofiler.core import _constants
 from steelscript.common._fs import SteelScriptDir
-from steelscript.profiler.core._types import Column, AreaContainer, ColumnContainer
+from steelscript.netprofiler.core._types import Column, AreaContainer, ColumnContainer
 from steelscript.common.exceptions import RvbdException
 
 import steelscript.common.service
 
-__all__ = ['Profiler']
+__all__ = ['NetProfiler']
 
 API_VERSIONS = ["1.0"]
 
@@ -38,32 +38,32 @@ def make_hash(realm, centricity, groupby):
     return realm + centricity + groupby
 
 
-class Profiler(steelscript.common.service.Service):
-    """The Profiler class is the main interface to interact with a Profiler
+class NetProfiler(steelscript.common.service.Service):
+    """The NetProfiler class is the main interface to interact with a NetProfiler
     Appliance.  Primarily this provides an interface to reporting.
     """
 
     def __init__(self, host, port=None, auth=None):
-        """Establishes a connection to a Profiler appliance.
+        """Establishes a connection to a NetProfiler appliance.
 
-        `host` is the name or IP address of the Profiler to connect to
+        `host` is the name or IP address of the NetProfiler to connect to
 
-        `port` is the TCP port on which the Profiler appliance listens.
+        `port` is the TCP port on which the NetProfiler appliance listens.
                  if this parameter is not specified, the function will
                  try to automatically determine the port.
 
         `auth` defines the authentication method and credentials to use
-                 to access the Profiler.  It should be an instance of
+                 to access the NetProfiler.  It should be an instance of
                  steelscript.common.UserAuth or steelscript.common.OAuth.
 
         `force_version` is the API version to use when communicating.
                  if unspecified, this will use the latest version supported
-                 by both this implementation and the Profiler appliance.
+                 by both this implementation and the NetProfiler appliance.
 
         See the base [Service](common.html#service) class for more information
         about additional functionality supported.
         """
-        super(Profiler, self).__init__("profiler", host, port,
+        super(NetProfiler, self).__init__("netprofiler", host, port,
                                        auth=auth,
                                        versions=[APIVersion("1.0")])
 
@@ -85,7 +85,7 @@ class Profiler(steelscript.common.service.Service):
         We want to avoid making any calls for column data here
         and just load what has been stored locally for now
         """
-        self._fs_data = SteelScriptDir('Profiler', 'data')
+        self._fs_data = SteelScriptDir('NetProfiler', 'data')
 
         columns_filename = 'columns-' + self.version + '.pcl'
         self._columns_file = self._fs_data.get_data(columns_filename)
@@ -167,7 +167,7 @@ class Profiler(steelscript.common.service.Service):
         if isinstance(area, types.StringTypes):
             if area not in self._areas_dict:
                 raise ValueError('{0} is not a valid area type for this'
-                                 'profiler'.format(area))
+                                 'netprofiler'.format(area))
             return self._areas_dict[area]
 
     def _gencolumns(self, columns):
@@ -191,7 +191,7 @@ class Profiler(steelscript.common.service.Service):
 
     @property
     def version(self):
-        """Returns the software version of the Profiler"""
+        """Returns the software version of the NetProfiler"""
         self._fetch_info()
         return self._info['sw_version']
 
@@ -224,7 +224,7 @@ class Profiler(steelscript.common.service.Service):
 
             if cname not in colnames:
                 raise RvbdException('{0} is not a valid column '
-                                    'for this profiler'.format(column))
+                                    'for this netprofiler'.format(column))
             if groupby_cols and cname not in groupby_cols:
                 raise RvbdException('{0} is not a valid column '
                                     'for groupby {1}'.format(column, groupby))
@@ -275,11 +275,11 @@ class Profiler(steelscript.common.service.Service):
         return list(result)
 
     def logout(self):
-        """Issue logout command to profiler machine.
+        """Issue logout command to netprofiler machine.
         """
         if self.conn:
             try:
                 self.api.common.logout()
             except AttributeError:
                 pass
-            super(Profiler, self).logout()
+            super(NetProfiler, self).logout()

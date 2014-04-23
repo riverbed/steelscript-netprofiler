@@ -9,9 +9,9 @@
 
 
 
-from steelscript.profiler.core import *
-from steelscript.profiler.core.app import ProfilerApp
-from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.netprofiler.core import *
+from steelscript.netprofiler.core.app import NetProfilerApp
+from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 
 import pprint
 
@@ -39,4 +39,4 @@ def main(app):
 
 
 if __name__ == '__main__':
-    ProfilerApp(main).run()
+    NetProfilerApp(main).run()

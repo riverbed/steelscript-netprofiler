@@ -21,9 +21,9 @@ python alerter.py tm08-1.lab.nbttech.com -u admin -p admin --expr1 'app WEB' --t
 import sys
 import datetime
 
-from steelscript.profiler.core.app import ProfilerApp
-from steelscript.profiler.core.filters import TrafficFilter
-from steelscript.profiler.core.report import TrafficSummaryReport
+from steelscript.netprofiler.core.app import NetProfilerApp
+from steelscript.netprofiler.core.filters import TrafficFilter
+from steelscript.netprofiler.core.report import TrafficSummaryReport
 from steelscript.common.utils import Formatter
 from steelscript.common import timeutils
 
@@ -45,7 +45,7 @@ def safe_lambda(trigger):
     return None
 
 
-class AlerterApp(ProfilerApp):
+class AlerterApp(NetProfilerApp):
 
     def add_options(self, parser):
         group = optparse.OptionGroup(parser, "Trigger Options")
@@ -59,7 +59,7 @@ class AlerterApp(ProfilerApp):
         parser.add_option_group(group)
 
         group = optparse.OptionGroup(parser, "TRAP Options")
-        group.add_option('--eoid', help="Enterprise OID (defaults to Cascade Profiler ID: '1.3.6.1.4.1.7054.70.0.' )",
+        group.add_option('--eoid', help="Enterprise OID (defaults to Cascade NetProfiler ID: '1.3.6.1.4.1.7054.70.0.' )",
                          default='1.3.6.1.4.1.7054.70.0.')
         group.add_option('--trapid', help="Trap code indicator (default: 99)", default='99')
         group.add_option('--community', help="Community name (default: 'public')", default='public')

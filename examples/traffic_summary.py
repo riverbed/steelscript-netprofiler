@@ -7,15 +7,15 @@
 #   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
-from steelscript.profiler.core.app import ProfilerApp
-from steelscript.profiler.core.report import TrafficSummaryReport
-from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.netprofiler.core.app import NetProfilerApp
+from steelscript.netprofiler.core.report import TrafficSummaryReport
+from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.utils import Formatter
 
 import optparse
 
 
-class TrafficSummaryApp(ProfilerApp):
+class TrafficSummaryApp(NetProfilerApp):
 
     def add_options(self, parser):
         group = optparse.OptionGroup(parser, "Report Parameters")
@@ -70,7 +70,7 @@ class TrafficSummaryApp(ProfilerApp):
 
     def main(self):
         # groupby validation should be part of validate_args, but there
-        # is no Profiler initialized at that part of the initialization
+        # is no NetProfiler initialized at that part of the initialization
         try:
             self.groupby = self.profiler.groupbys[self.options.groupby]
         except KeyError:

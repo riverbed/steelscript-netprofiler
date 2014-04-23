@@ -15,8 +15,8 @@ from steelscript.appfw.core.apps.devices.forms import fields_add_device_selectio
 from steelscript.appfw.core.libs.fields import Function
 
 import steelscript
-from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
-from steelscript.profiler.appfw.datasources.profiler import lock
+from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.netprofiler.appfw.datasources.netprofiler import lock
 
 logger = logging.getLogger(__name__)
 
@@ -29,7 +29,7 @@ class ProfilerDeviceTable(DatasourceTable):
         self.criteria_handle_func = Function(criteria_handle)
         self.save()
         fields_add_device_selection(self, keyword='profiler_device',
-                                    label='Profiler', module='profiler',
+                                    label='NetProfiler', module='netprofiler',
                                     enabled=True)
 
 
@@ -59,8 +59,8 @@ class TableQuery:
         criteria = self.job.criteria
 
         if criteria.profiler_device == '':
-            logger.debug('%s: No profiler device selected' % (self.table))
-            self.job.mark_error("No Profiler Device Selected")
+            logger.debug('%s: No netprofiler device selected' % (self.table))
+            self.job.mark_error("No NetProfiler Device Selected")
             return False
 
         profiler = DeviceManager.get_device(criteria.profiler_device)

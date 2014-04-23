@@ -9,9 +9,9 @@
 
 
 
-from steelscript.profiler.core.app import ProfilerApp
-from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
-from steelscript.profiler.core.report import (IdentityReport,
+from steelscript.netprofiler.core.app import NetProfilerApp
+from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.netprofiler.core.report import (IdentityReport,
                                   TrafficOverallTimeSeriesReport,
                                   TrafficSummaryReport)
 from steelscript.common.utils import Formatter
@@ -61,7 +61,7 @@ def format_time(value):
     return t.isoformat(' ')
 
 
-class IdentityApp(ProfilerApp):
+class IdentityApp(NetProfilerApp):
 
     def add_options(self, parser):
         group = optparse.OptionGroup(parser, 'Identity Report Options')
@@ -111,7 +111,7 @@ class IdentityApp(ProfilerApp):
 
         group.add_option('--testfile', dest='testfile', default=None,
                          help='Optional test file with identity events to use in place of '
-                              'actual profiler queries.')
+                              'actual netprofiler queries.')
         group.add_option('--usecache', dest='usecache', default=False, action='store_true',
                          help='Use internal cache to help with large traffic query sets')
 

@@ -10,8 +10,8 @@ import logging
 import threading
 import datetime
 
-import steelscript.profiler.core
-from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
+import steelscript.netprofiler.core
+from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import (parse_timedelta,
                                           timedelta_total_seconds)
 from steelscript.appfw.core.apps.datasource.models import DatasourceTable, Column
@@ -20,7 +20,7 @@ from steelscript.appfw.core.apps.datasource.models import TableField
 from steelscript.appfw.core.apps.devices.forms import fields_add_device_selection
 from steelscript.appfw.core.apps.devices.devicemanager import DeviceManager
 from steelscript.appfw.core.apps.datasource.forms import (fields_add_time_selection,
-                                               fields_add_resolution)
+                                                          fields_add_resolution)
 from steelscript.appfw.core.libs.fields import Function
 
 logger = logging.getLogger(__name__)
@@ -49,7 +49,7 @@ def _post_process_combine_filterexprs(form, id, criteria, params):
     criteria['profiler_filterexpr'] = val
 
 
-class ProfilerTable(DatasourceTable):
+class NetProfilerTable(DatasourceTable):
     class Meta:
         proxy = True
 
@@ -74,11 +74,11 @@ class ProfilerTable(DatasourceTable):
                 res = resolution
             else:
                 res = int(timedelta_total_seconds(parse_timedelta(resolution)))
-            resolution = steelscript.profiler.core.report.Report.RESOLUTION_MAP[res]
+            resolution = steelscript.netprofiler.core.report.Report.RESOLUTION_MAP[res]
             field_options['resolution'] = resolution
 
         fields_add_device_selection(self, keyword='profiler_device',
-                                    label='Profiler', module='profiler',
+                                    label='NetProfiler', module='netprofiler',
                                     enabled=True)
 
         duration = field_options['duration']
@@ -98,8 +98,8 @@ class ProfilerTable(DatasourceTable):
     def fields_add_filterexpr(self, keyword='profiler_filterexpr',
                               initial=None):
         field = TableField(keyword=keyword,
-                           label='Profiler Filter Expression',
-                           help_text=('Traffic expression using Profiler '
+                           label='NetProfiler Filter Expression',
+                           help_text=('Traffic expression using NetProfiler '
                                       'Advanced Traffic Expression syntax'),
                            initial=initial,
                            required=False)
@@ -143,7 +143,7 @@ class ProfilerTable(DatasourceTable):
         criteria['profiler_filterexpr'] = val
 
 
-class ProfilerTimeseriesTable(ProfilerTable):
+class NetProfilerTimeseriesTable(NetProfilerTable):
     class Meta:
         proxy = True
 
@@ -152,7 +152,7 @@ class ProfilerTimeseriesTable(ProfilerTable):
                      'interface': None}
 
 
-class ProfilerGroupbyTable(ProfilerTable):
+class NetProfilerGroupbyTable(NetProfilerTable):
     class Meta:
         proxy = True
 
@@ -177,15 +177,15 @@ class TableQuery:
         criteria = self.job.criteria
 
         if criteria.profiler_device == '':
-            logger.debug('%s: No profiler device selected' % self.table)
-            self.job.mark_error("No Profiler Device Selected")
+            logger.debug('%s: No netprofiler device selected' % self.table)
+            self.job.mark_error("No NetProfiler Device Selected")
             return False
             
         #self.fake_run()
         #return True
 
         profiler = DeviceManager.get_device(criteria.profiler_device)
-        report = steelscript.profiler.core.report.SingleQueryReport(profiler)
+        report = steelscript.netprofiler.core.report.SingleQueryReport(profiler)
 
         columns = [col.name for col in self.table.get_columns(synthetic=False)]
 
@@ -196,7 +196,7 @@ class TableQuery:
         tf = TimeFilter(start=criteria.starttime,
                         end=criteria.endtime)
 
-        logger.info("Running Profiler table %d report for timeframe %s" %
+        logger.info("Running NetProfiler table %d report for timeframe %s" %
                     (self.table.id, str(tf)))
 
         if ('datafilter' in criteria) and (criteria.datafilter is not None):
@@ -209,15 +209,15 @@ class TableQuery:
         )
 
         # Incoming criteria.resolution is a timedelta
-        logger.debug('Profiler report got criteria resolution %s (%s)' %
+        logger.debug('NetProfiler report got criteria resolution %s (%s)' %
                      (criteria.resolution, type(criteria.resolution)))
         if criteria.resolution != 'auto':
             rsecs = int(timedelta_total_seconds(criteria.resolution))
-            resolution = steelscript.profiler.core.report.Report.RESOLUTION_MAP[rsecs]
+            resolution = steelscript.netprofiler.core.report.Report.RESOLUTION_MAP[rsecs]
         else:
             resolution = 'auto'
         
-        logger.debug('Profiler report using resolution %s (%s)' %
+        logger.debug('NetProfiler report using resolution %s (%s)' %
                      (resolution, type(resolution)))
 
         with lock:

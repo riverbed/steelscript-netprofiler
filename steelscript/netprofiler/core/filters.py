@@ -19,7 +19,7 @@ class TimeFilter:
         self.end = end
 
     def __repr__(self):
-        msg = '<steelscript.profiler.core.filters.TimeFilter(start={0}, end={1}>'
+        msg = '<steelscript.netprofiler.core.filters.TimeFilter(start={0}, end={1}>'
         return msg.format(self.start, self.end)
 
     def __eq__(self, other):
@@ -39,7 +39,7 @@ class TimeFilter:
             object
 
             `resolution` is the number of seconds to use for rounding.  Since
-            Profiler stores data in one-minute increments, typically this
+            NetProfiler stores data in one-minute increments, typically this
             should allow reasonable comparisons to report outputs.  Passing
             zero (`0`) in here will enforce strict comparisons.
         """
@@ -72,7 +72,7 @@ class TimeFilter:
             `aslocal` set to True will apply local timezone to datetime
             objects (defaults to UTC).
 
-            Profiler reports out in whole minute increments, and for time
+            NetProfiler reports out in whole minute increments, and for time
             deltas less than one minute (60 seconds) it will use the rounded
             minute from the latest timestamp.  For time deltas over one
             minute, lowest and highest rounded minutes are used, along with

@@ -22,7 +22,7 @@ setup_args = {
     'author_email':       'cwhite@riverbed.com',
     'url':                'http://pythonhosted.org/steelscript',
     'license':            'MIT',
-    'description':        'Python module for interacting with Riverbed Profiler with SteelScript',
+    'description':        'Python module for interacting with Riverbed NetProfiler with SteelScript',
 
     'long_description': '''SteelScript for NetProfiler
 ===========================
@@ -60,7 +60,7 @@ http://pythonhosted.org/steelscript/install.html
 
     'entry_points': {
         'portal.plugins': [
-            'profiler = steelscript.profiler.appfw.plugin:ProfilerPlugin'
+            'netprofiler = steelscript.netprofiler.appfw.plugin:NetProfilerPlugin'
         ],
     },
 }

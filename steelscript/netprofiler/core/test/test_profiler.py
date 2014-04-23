@@ -6,11 +6,11 @@
 # This software is distributed "AS IS" as set forth in the License.
 
 
-from steelscript.profiler.core import Profiler
-from steelscript.profiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.netprofiler.core import NetProfiler
+from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.service import UserAuth
 from steelscript.common.exceptions import RvbdException
-from steelscript.profiler.core.report import (WANSummaryReport, WANTimeSeriesReport, TrafficSummaryReport,
+from steelscript.netprofiler.core.report import (WANSummaryReport, WANTimeSeriesReport, TrafficSummaryReport,
                                   TrafficOverallTimeSeriesReport, TrafficFlowListReport,
                                   IdentityReport)
 
@@ -37,10 +37,10 @@ logging.basicConfig(level=logging.DEBUG,
 
 
 def create_profiler():
-    """ Create Profiler instance given configuration data
+    """ Create NetProfiler instance given configuration data
     """
     if 'profilerhost' not in config:
-        raise unittest.SkipTest('no profiler hostname provided')
+        raise unittest.SkipTest('no netprofiler hostname provided')
     try:
         username = config['username']
     except KeyError:
@@ -50,7 +50,7 @@ def create_profiler():
     except KeyError:
         password = 'admin'
     auth = UserAuth(username, password)
-    return Profiler(config['profilerhost'], auth=auth)
+    return NetProfiler(config['profilerhost'], auth=auth)
 
 
 class ProfilerTests(unittest.TestCase):
@@ -300,7 +300,7 @@ class ProfilerTests(unittest.TestCase):
             return
 
         # we don't have a way to find WAN interfaces yet, so this test is
-        # dependent on a profiler running the demo traffic program
+        # dependent on a netprofiler running the demo traffic program
         # if we can't find the 'Austin' interface, just end test
         ip_address = None
         devices = self.profiler.api.devices.get_all()
@@ -340,7 +340,7 @@ class ProfilerTests(unittest.TestCase):
             return
 
         # we don't have a way to find WAN interfaces yet, so this test is
-        # dependent on a profiler running the demo traffic program
+        # dependent on a netprofiler running the demo traffic program
         # if we can't find the 'Austin' interface, just end test
         ip_address = None
         devices = self.profiler.api.devices.get_all()
@@ -430,7 +430,7 @@ class ProfilerDevicesTests(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    # for standalone use take one command-line argument: the profiler host
+    # for standalone use take one command-line argument: the netprofiler host
     import sys
     assert len(sys.argv) == 2
 

@@ -12,26 +12,26 @@ import sys
 import pprint
 
 import steelscript
-from steelscript.profiler.core import Profiler
+from steelscript.netprofiler.core import NetProfiler
 
 from steelscript.common.service import UserAuth
-from steelscript.profiler.core.filters import TimeFilter
-from steelscript.profiler.core.report import TrafficSummaryReport
+from steelscript.netprofiler.core.filters import TimeFilter
+from steelscript.netprofiler.core.report import TrafficSummaryReport
 
 # connection information
 username = '<username>'
 password = '<password>'
-host = '<profiler.ip.address>'
+host = '<netprofiler.ip.address>'
 
 if (username == '<username>' or
         password == '<password>' or
-        host == '<profiler.ip.address>'):
-    print "Update the username, password, and profiler host values before running this script."
+        host == '<netprofiler.ip.address>'):
+    print "Update the username, password, and netprofiler host values before running this script."
     sys.exit(0)
 
 auth = UserAuth(username, password)
 
-p = Profiler(host, auth=auth)
+p = NetProfiler(host, auth=auth)
 report = TrafficSummaryReport(p)
 
 columns = [p.columns.key.host_ip,
