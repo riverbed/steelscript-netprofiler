@@ -53,11 +53,11 @@ class DeviceReport(NetProfilerApp):
         logger.info('running main')
 
         if self.options.ipaddr:
-            self.data = self.profiler.api.devices.get_details(self.options.ipaddr)
+            self.data = self.netprofiler.api.devices.get_details(self.options.ipaddr)
         elif self.options.typelist:
-            self.data = self.profiler.api.devices.get_types()
+            self.data = self.netprofiler.api.devices.get_types()
         else:
-            self.data = self.profiler.api.devices.get_all(self.options.typeid,
+            self.data = self.netprofiler.api.devices.get_all(self.options.typeid,
                                                           self.options.cidr)
 
         #from IPython import embed; embed()

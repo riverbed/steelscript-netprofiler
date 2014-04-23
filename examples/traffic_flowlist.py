@@ -62,7 +62,7 @@ class TrafficFlowListApp(NetProfilerApp):
         else:
             self.trafficexpr = None
 
-        with TrafficFlowListReport(self.profiler) as report:
+        with TrafficFlowListReport(self.netprofiler) as report:
             report.run(columns=self.options.columns.split(','),
                        sort_col=self.options.sortby,
                        timefilter=self.timefilter,

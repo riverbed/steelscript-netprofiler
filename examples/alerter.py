@@ -140,14 +140,14 @@ class AlerterApp(NetProfilerApp):
 
     def main(self):
         self.tfilter1 = TrafficFilter(self.options.expr1)
-        self.report1 = TrafficSummaryReport(self.profiler)
-        self.columns_report1 = self.profiler.get_columns([self.options.column1])
+        self.report1 = TrafficSummaryReport(self.netprofiler)
+        self.columns_report1 = self.netprofiler.get_columns([self.options.column1])
         self.trigger1 = safe_lambda(self.options.trigger1)
 
         if self.options.trigger2 and self.options.column2 and self.options.expr2:
             self.tfilter2 = TrafficFilter(self.options.expr2)
-            self.report2 = TrafficSummaryReport(self.profiler)
-            self.columns_report2 = self.profiler.get_columns([self.options.column2])
+            self.report2 = TrafficSummaryReport(self.netprofiler)
+            self.columns_report2 = self.netprofiler.get_columns([self.options.column2])
             self.trigger2 = safe_lambda(self.options.trigger2)
         else:
             self.trigger2 = None

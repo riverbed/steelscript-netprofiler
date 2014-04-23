@@ -149,7 +149,7 @@ class IdentityApp(NetProfilerApp):
         if not testfile:
             # run report against all users
             print 'Running IdentityReport ...'
-            report = IdentityReport(self.profiler)
+            report = IdentityReport(self.netprofiler)
             report.run(timefilter=timefilter, trafficexpr=trafficexpr)
             print 'Report complete, gathering data ...'
             data = report.get_data()
@@ -172,7 +172,7 @@ class IdentityApp(NetProfilerApp):
                 f, path, desc = imp.find_module(testfile)
                 test = imp.load_module(testfile, f, path, desc)
                 data = test.data
-                legend = self.profiler.get_columns(test.legend)
+                legend = self.netprofiler.get_columns(test.legend)
             except ImportError:
                 print 'Error importing test file %s' % testfile
                 print 'Ensure it is in the PYTHONPATH, and contains a valid data object.'
@@ -196,14 +196,14 @@ class IdentityApp(NetProfilerApp):
 
         if report_type == 'timeseries':
             columns = [c[0] for c in TCOLUMNS]
-            report = TrafficOverallTimeSeriesReport(self.profiler)
+            report = TrafficOverallTimeSeriesReport(self.netprofiler)
             report.run(columns,
                        timefilter=timefilter,
                        trafficexpr=texpr,
                        resolution=self.options.resolution)
         elif report_type == 'summary':
             columns = [c[0] for c in SCOLUMNS]
-            report = TrafficSummaryReport(self.profiler)
+            report = TrafficSummaryReport(self.netprofiler)
 
             if self.options.groupby_application:
                 columns.insert(0, 'app_name')

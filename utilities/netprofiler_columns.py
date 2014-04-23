@@ -95,19 +95,19 @@ class NetProfilerInfo(NetProfilerApp):
     def main(self):
         if self.options.list_groupbys:
             header = ["GroupBy", "Id"]
-            data = [(k, v) for k,v in self.profiler.groupbys.iteritems()]
+            data = [(k, v) for k,v in self.netprofiler.groupbys.iteritems()]
             data.sort()
             Formatter.print_table(data, header)
         else:
             if self.options.ids:
-                columns = self.profiler.get_columns_by_ids(self.options.ids)
+                columns = self.netprofiler.get_columns_by_ids(self.options.ids)
             else:
                 o = self.options
 
                 # find groupby looking in keys and values
-                if o.groupby in self.profiler.groupbys:
-                    groupby = self.profiler.groupbys[o.groupby]
-                elif o.groupby in self.profiler.groupbys.values():
+                if o.groupby in self.netprofiler.groupbys:
+                    groupby = self.netprofiler.groupbys[o.groupby]
+                elif o.groupby in self.netprofiler.groupbys.values():
                     groupby = o.groupby
                 else:
                     groupby = None
@@ -117,7 +117,7 @@ class NetProfilerInfo(NetProfilerApp):
                     'centricities': [o.centricity] if o.centricity else None,
                     'groupbys': [groupby] if groupby else None,
                     }
-                columns = self.profiler.search_columns(**args)
+                columns = self.netprofiler.search_columns(**args)
 
             columns.sort(key=lambda x: x.key)
             self.print_columns(columns)

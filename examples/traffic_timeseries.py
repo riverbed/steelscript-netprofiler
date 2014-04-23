@@ -71,7 +71,7 @@ class TrafficTimeSeriesApp(NetProfilerApp):
         else:
             self.trafficexpr = None
 
-        with TrafficOverallTimeSeriesReport(self.profiler) as report:
+        with TrafficOverallTimeSeriesReport(self.netprofiler) as report:
             report.run(columns=self.options.columns.split(','),
                        timefilter=self.timefilter,
                        trafficexpr=self.trafficexpr,

@@ -50,16 +50,16 @@ class NetProfilerReport(NetProfilerApp):
             timefilter = TimeFilter(self.options.time0, self.options.time1)
         trafficexpr = TrafficFilter(self.options.trafficexpr)
 
-        columns = [self.profiler.columns.key.srv_host_ip,
-                   self.profiler.columns.key.app_info,
-                   self.profiler.columns.key.start_time,
-                   self.profiler.columns.key.end_time,
-                   self.profiler.columns.value.s2c_total_bytes,
-                   self.profiler.columns.value.s2c_total_pkts,
-                   self.profiler.columns.value.response_time,
-                   self.profiler.columns.value.server_delay]
+        columns = [self.netprofiler.columns.key.srv_host_ip,
+                   self.netprofiler.columns.key.app_info,
+                   self.netprofiler.columns.key.start_time,
+                   self.netprofiler.columns.key.end_time,
+                   self.netprofiler.columns.value.s2c_total_bytes,
+                   self.netprofiler.columns.value.s2c_total_pkts,
+                   self.netprofiler.columns.value.response_time,
+                   self.netprofiler.columns.value.server_delay]
 
-        report = TrafficFlowListReport(self.profiler)
+        report = TrafficFlowListReport(self.netprofiler)
         report.run(columns, timefilter=timefilter, trafficexpr=trafficexpr)
         data = report.get_data()
         report.delete()

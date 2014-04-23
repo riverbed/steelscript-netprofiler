@@ -99,7 +99,7 @@ class WANReportApp(NetProfilerApp):
             self.wan_address = [self.options.wan_address]
         elif self.options.device_name:
             name = self.options.device_name
-            devices = self.profiler.api.devices.get_all()
+            devices = self.netprofiler.api.devices.get_all()
             for d in devices:
                 if name.lower() in d['name'].lower():
                     self.ip_address = d['ipaddr']
@@ -125,7 +125,7 @@ class WANReportApp(NetProfilerApp):
             self.groupby = None
             ReportClass = WANTimeSeriesReport
 
-        with ReportClass(self.profiler) as report:
+        with ReportClass(self.netprofiler) as report:
             if not self.lan_address:
                 # query for the interfaces
                 self.lan_address, self.wan_address = report.get_interfaces(self.ip_address)

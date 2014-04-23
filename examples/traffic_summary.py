@@ -72,9 +72,9 @@ class TrafficSummaryApp(NetProfilerApp):
         # groupby validation should be part of validate_args, but there
         # is no NetProfiler initialized at that part of the initialization
         try:
-            self.groupby = self.profiler.groupbys[self.options.groupby]
+            self.groupby = self.netprofiler.groupbys[self.options.groupby]
         except KeyError:
-            if self.options.groupby not in self.profiler.groupbys.values():
+            if self.options.groupby not in self.netprofiler.groupbys.values():
                 self.optparse.error('Invalid groupby chosen.')
             else:
                 self.groupby = self.options.groupby
@@ -85,7 +85,7 @@ class TrafficSummaryApp(NetProfilerApp):
         else:
             self.trafficexpr = None
 
-        with TrafficSummaryReport(self.profiler) as report:
+        with TrafficSummaryReport(self.netprofiler) as report:
             report.run(columns=self.options.columns.split(','),
                        groupby=self.groupby,
                        sort_col=self.options.sortby,

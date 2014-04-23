@@ -63,9 +63,9 @@ class NetProfiler(steelscript.common.service.Service):
         See the base [Service](common.html#service) class for more information
         about additional functionality supported.
         """
-        super(NetProfiler, self).__init__("netprofiler", host, port,
-                                       auth=auth,
-                                       versions=[APIVersion("1.0")])
+        super(NetProfiler, self).__init__("profiler", host, port,
+                                          auth=auth,
+                                          versions=[APIVersion("1.0")])
 
         self.api = _api1.Handler(self)
 

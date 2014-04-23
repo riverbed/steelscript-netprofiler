@@ -15,16 +15,16 @@ class NetProfilerApp(Application):
     def __init__(self, *args, **kwargs):
         super(NetProfilerApp, self).__init__(*args, **kwargs)
         self.optparse.set_usage('%prog NETPROFILER_HOSTNAME <options>')
-        self.profiler = None
+        self.netprofiler = None
 
     def parse_args(self):
         super(NetProfilerApp, self).parse_args()
         self.host = self.args[0]
 
     def setup(self):
-        self.profiler = NetProfiler(self.host,
-                                    port=self.options.port,
-                                    auth=self.auth)
+        self.netprofiler = NetProfiler(self.host,
+                                       port=self.options.port,
+                                       auth=self.auth)
 
     def validate_args(self):
         if len(self.args) < 1:
