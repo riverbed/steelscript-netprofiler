@@ -9,7 +9,7 @@
 from steelscript.appfw.core.apps.report.models import Report
 import steelscript.appfw.core.apps.report.modules.yui3 as yui3
 
-from steelscript.netprofiler.appfw.datasources.netprofiler_devices import ProfilerDeviceTable
+from steelscript.netprofiler.appfw.datasources.netprofiler_devices import NetProfilerDeviceTable
 
 report = Report.create("NetProfiler Device List", position=10)
 
@@ -18,7 +18,7 @@ report.add_section()
 #
 # Device Table
 
-p = ProfilerDeviceTable.create('devtable')
+p = NetProfilerDeviceTable.create('devtable')
 p.add_column('ipaddr', 'Device IP', iskey=True, datatype="string")
 p.add_column('name', 'Device Name', datatype="string")
 p.add_column('type', 'Flow Type', datatype="string")

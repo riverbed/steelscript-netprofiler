@@ -21,21 +21,21 @@ from steelscript.netprofiler.appfw.datasources.netprofiler import lock
 logger = logging.getLogger(__name__)
 
 
-class ProfilerDeviceTable(DatasourceTable):
+class NetProfilerDeviceTable(DatasourceTable):
     class Meta:
         proxy = True
 
     def post_process_table(self, field_options):
         self.criteria_handle_func = Function(criteria_handle)
         self.save()
-        fields_add_device_selection(self, keyword='profiler_device',
+        fields_add_device_selection(self, keyword='netprofiler_device',
                                     label='NetProfiler', module='netprofiler',
                                     enabled=True)
 
 
 def criteria_handle(criteria, **kwargs):
     kvs = {}
-    kvs['profiler_device'] = criteria.profiler_device
+    kvs['netprofiler_device'] = criteria.netprofiler_device
     today = datetime.datetime.now().replace(hour=0, minute=0,
                                             second=0, microsecond=0)
     kvs['date'] = today
@@ -58,12 +58,12 @@ class TableQuery:
 
         criteria = self.job.criteria
 
-        if criteria.profiler_device == '':
+        if criteria.netprofiler_device == '':
             logger.debug('%s: No netprofiler device selected' % (self.table))
             self.job.mark_error("No NetProfiler Device Selected")
             return False
 
-        profiler = DeviceManager.get_device(criteria.profiler_device)
+        profiler = DeviceManager.get_device(criteria.netprofiler_device)
 
         columns = [col.name for col in self.table.get_columns(synthetic=False)]
 

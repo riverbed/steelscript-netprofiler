@@ -29,9 +29,9 @@ lock = threading.Lock()
 
 def _post_process_combine_filterexprs(form, id, criteria, params):
     exprs = []
-    if ('profiler_filterexpr' in criteria and
-            criteria.profiler_filterexpr != ''):
-        exprs.append(criteria.profiler_filterexpr)
+    if ('netprofiler_filterexpr' in criteria and
+            criteria.netprofiler_filterexpr != ''):
+        exprs.append(criteria.netprofiler_filterexpr)
 
     field = form.get_tablefield(id)
     for parent in field.parent_keywords:
@@ -46,7 +46,7 @@ def _post_process_combine_filterexprs(form, id, criteria, params):
     else:
         val = "(" + ") and (".join(exprs) + ")"
 
-    criteria['profiler_filterexpr'] = val
+    criteria['netprofiler_filterexpr'] = val
 
 
 class NetProfilerTable(DatasourceTable):
@@ -77,7 +77,7 @@ class NetProfilerTable(DatasourceTable):
             resolution = steelscript.netprofiler.core.report.Report.RESOLUTION_MAP[res]
             field_options['resolution'] = resolution
 
-        fields_add_device_selection(self, keyword='profiler_device',
+        fields_add_device_selection(self, keyword='netprofiler_device',
                                     label='NetProfiler', module='netprofiler',
                                     enabled=True)
 
@@ -95,7 +95,7 @@ class NetProfilerTable(DatasourceTable):
                               special_values=['auto'])
         self.fields_add_filterexpr()
 
-    def fields_add_filterexpr(self, keyword='profiler_filterexpr',
+    def fields_add_filterexpr(self, keyword='netprofiler_filterexpr',
                               initial=None):
         field = TableField(keyword=keyword,
                            label='NetProfiler Filter Expression',
@@ -108,7 +108,7 @@ class NetProfilerTable(DatasourceTable):
 
     def fields_add_filterexprs_field(self, keyword):
 
-        field = self.fields.get(keyword='profiler_filterexpr')
+        field = self.fields.get(keyword='netprofiler_filterexpr')
         field.post_process_func = Function(
             function=_post_process_combine_filterexprs
         )
@@ -123,9 +123,9 @@ class NetProfilerTable(DatasourceTable):
     @staticmethod
     def _post_process_combine_filterexprs(form, id, criteria, params):
         exprs = []
-        if ('profiler_filterexpr' in criteria and
-                criteria.profiler_filterexpr != ''):
-            exprs.append(criteria.profiler_filterexpr)
+        if ('netprofiler_filterexpr' in criteria and
+                criteria.netprofiler_filterexpr != ''):
+            exprs.append(criteria.netprofiler_filterexpr)
 
         field = form.get_tablefield(id)
         for parent in field.parent_keywords:
@@ -140,7 +140,7 @@ class NetProfilerTable(DatasourceTable):
         else:
             val = "(" + ") and (".join(exprs) + ")"
 
-        criteria['profiler_filterexpr'] = val
+        criteria['netprofiler_filterexpr'] = val
 
 
 class NetProfilerTimeseriesTable(NetProfilerTable):
@@ -176,7 +176,7 @@ class TableQuery:
         """
         criteria = self.job.criteria
 
-        if criteria.profiler_device == '':
+        if criteria.netprofiler_device == '':
             logger.debug('%s: No netprofiler device selected' % self.table)
             self.job.mark_error("No NetProfiler Device Selected")
             return False
@@ -184,7 +184,7 @@ class TableQuery:
         #self.fake_run()
         #return True
 
-        profiler = DeviceManager.get_device(criteria.profiler_device)
+        profiler = DeviceManager.get_device(criteria.netprofiler_device)
         report = steelscript.netprofiler.core.report.SingleQueryReport(profiler)
 
         columns = [col.name for col in self.table.get_columns(synthetic=False)]
@@ -205,7 +205,7 @@ class TableQuery:
             datafilter = None
 
         trafficexpr = TrafficFilter(
-            self.job.combine_filterexprs(exprs=criteria.profiler_filterexpr)
+            self.job.combine_filterexprs(exprs=criteria.netprofiler_filterexpr)
         )
 
         # Incoming criteria.resolution is a timedelta

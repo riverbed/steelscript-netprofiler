@@ -39,12 +39,12 @@ class TableQuery:
         """ Main execution method. """
         criteria = self.job.criteria
 
-        if criteria.profiler_device == '':
+        if criteria.netprofiler_device == '':
             logger.debug('%s: No netprofiler device selected' % self.table)
             self.job.mark_error("No NetProfiler Device Selected")
             return False
             
-        profiler = DeviceManager.get_device(criteria.profiler_device)
+        profiler = DeviceManager.get_device(criteria.netprofiler_device)
         report = steelscript.netprofiler.core.report.MultiQueryReport(profiler)
 
         tf = TimeFilter(start=criteria.starttime,

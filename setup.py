@@ -51,7 +51,7 @@ http://pythonhosted.org/steelscript/install.html
     'packages': find_packages(),
 
     'scripts': (
-        'utilities/profiler_columns.py',
+        'utilities/netprofiler_columns.py',
     ),
 
     'install_requires': (

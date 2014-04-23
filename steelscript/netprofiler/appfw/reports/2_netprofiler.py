@@ -10,7 +10,7 @@ from steelscript.appfw.core.apps.report.models import Report
 import steelscript.appfw.core.apps.report.modules.yui3 as yui3
 
 from steelscript.netprofiler.appfw.datasources.netprofiler import (NetProfilerTimeseriesTable,
-                                                             NetProfilerGroupbyTable)
+                                                                   NetProfilerGroupbyTable)
 #
 # NetProfiler report
 #
@@ -29,7 +29,7 @@ report.add_widget(yui3.TimeSeriesWidget, p, "Overall Traffic", width=12)
 
 # Define a TimeSeries showing Avg Bytes/s for tcp/80
 p = NetProfilerTimeseriesTable.create('ts-tcp80', duration=60,
-                                   filterexpr='tcp/80', cacheable=False)
+                                      filterexpr='tcp/80', cacheable=False)
 
 p.add_column('time', 'Time', datatype='time', iskey=True)
 p.add_column('avg_bytes', 'Avg Bytes/s', units='B/s')
