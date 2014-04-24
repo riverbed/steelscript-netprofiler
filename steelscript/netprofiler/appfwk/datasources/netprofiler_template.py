@@ -15,8 +15,8 @@ import steelscript
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import timedelta_total_seconds
 
-from steelscript.appfw.core.apps.devices.devicemanager import DeviceManager
-from steelscript.netprofiler.appfw.datasources.netprofiler import NetProfilerTable
+from steelscript.appfwk.core.apps.devices.devicemanager import DeviceManager
+from steelscript.netprofiler.appfwk.datasources.netprofiler import NetProfilerTable
 
 logger = logging.getLogger(__name__)
 lock = threading.Lock()

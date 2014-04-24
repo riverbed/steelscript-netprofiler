@@ -9,14 +9,14 @@ import logging
 import pandas
 import datetime
 
-from steelscript.appfw.core.apps.datasource.models import DatasourceTable
-from steelscript.appfw.core.apps.devices.devicemanager import DeviceManager
-from steelscript.appfw.core.apps.devices.forms import fields_add_device_selection
-from steelscript.appfw.core.libs.fields import Function
+from steelscript.appfwk.core.apps.datasource.models import DatasourceTable
+from steelscript.appfwk.core.apps.devices.devicemanager import DeviceManager
+from steelscript.appfwk.core.apps.devices.forms import fields_add_device_selection
+from steelscript.appfwk.core.libs.fields import Function
 
 import steelscript
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
-from steelscript.netprofiler.appfw.datasources.netprofiler import lock
+from steelscript.netprofiler.appfwk.datasources.netprofiler import lock
 
 logger = logging.getLogger(__name__)
 

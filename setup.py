@@ -60,7 +60,7 @@ http://pythonhosted.org/steelscript/install.html
 
     'entry_points': {
         'portal.plugins': [
-            'netprofiler = steelscript.netprofiler.appfw.plugin:NetProfilerPlugin'
+            'netprofiler = steelscript.netprofiler.appfwk.plugin:NetProfilerPlugin'
         ],
     },
 }

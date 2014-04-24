@@ -7,7 +7,7 @@
 
 import pkg_resources
 
-from steelscript.appfw.core.apps.plugins import Plugin
+from steelscript.appfwk.core.apps.plugins import Plugin
 
 
 class NetProfilerPlugin(Plugin):

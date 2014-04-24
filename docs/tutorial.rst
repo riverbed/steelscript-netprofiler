@@ -98,7 +98,7 @@ exception.  Also, if this is the first time initializing a
 columns are fetched from the appliance and cached locally.
 
 The ``p`` object is the basis for all communication with the NetProfiler appliance.
-We can get some basic version information by simply looking at the 'version' attrubute:
+We can get some basic version information by simply looking at the 'version' attribute:
 
 .. code-block:: python
 
