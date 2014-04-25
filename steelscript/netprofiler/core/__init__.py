@@ -8,7 +8,7 @@
 
 """
 The NetProfiler package offers a set of interfaces to control and work with
-a Cascade NetProfiler Appliance.
+a SteelCentral NetProfiler appliance.
 """
 from steelscript.netprofiler.core.netprofiler import *
 from steelscript.netprofiler.core.report import *

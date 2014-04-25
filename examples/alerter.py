@@ -59,7 +59,7 @@ class AlerterApp(NetProfilerApp):
         parser.add_option_group(group)
 
         group = optparse.OptionGroup(parser, "TRAP Options")
-        group.add_option('--eoid', help="Enterprise OID (defaults to Cascade NetProfiler ID: '1.3.6.1.4.1.7054.70.0.' )",
+        group.add_option('--eoid', help="Enterprise OID (defaults to SteelCentral NetProfiler ID: '1.3.6.1.4.1.7054.70.0.' )",
                          default='1.3.6.1.4.1.7054.70.0.')
         group.add_option('--trapid', help="Trap code indicator (default: 99)", default='99')
         group.add_option('--community', help="Community name (default: 'public')", default='public')
