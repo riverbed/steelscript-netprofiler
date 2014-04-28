@@ -13,7 +13,7 @@ import calendar
 import datetime
 
 
-class TimeFilter:
+class TimeFilter(object):
     def __init__(self, start, end):
         self.start = start
         self.end = end
@@ -27,8 +27,7 @@ class TimeFilter:
 
     @classmethod
     def parse_range(cls, s):
-        """ Take a range string `s` and return a TimeFilter object
-        """
+        """Take a range string `s` and return a TimeFilter object."""
         (start, end) = timeutils.parse_range(s)
         return cls(start, end)
 
@@ -63,20 +62,20 @@ class TimeFilter:
                 abs(end - t) < delta)
 
     def profiler_minutes(self, astimestamp=False, aslocal=False):
-        """ Provide best guess of whole minutes for current time range
+        """Provide best guess of whole minutes for current time range.
 
-            `astimestamp` determines whether to return results in Unix
-            timestamp format or as datetime.datetime objects (defaults
-            to datetime objects).
+        `astimestamp` determines whether to return results in Unix
+        timestamp format or as datetime.datetime objects (defaults
+        to datetime objects).
 
-            `aslocal` set to True will apply local timezone to datetime
-            objects (defaults to UTC).
+        `aslocal` set to True will apply local timezone to datetime
+        objects (defaults to UTC).
 
-            NetProfiler reports out in whole minute increments, and for time
-            deltas less than one minute (60 seconds) it will use the rounded
-            minute from the latest timestamp.  For time deltas over one
-            minute, lowest and highest rounded minutes are used, along with
-            all in between.
+        NetProfiler reports out in whole minute increments, and for time
+        deltas less than one minute (60 seconds) it will use the rounded
+        minute from the latest timestamp.  For time deltas over one
+        minute, lowest and highest rounded minutes are used, along with
+        all in between.
         """
         def round_to_minute(t):
             return t - datetime.timedelta(seconds=t.second,
@@ -111,6 +110,10 @@ class TimeFilter:
             return result
 
 
-class TrafficFilter:
+class TrafficFilter(object):
+    """Wrapper class for NetProfiler Traffic expressions.
+
+    View more information on Traffic expressions via NetProfiler help.
+    """
     def __init__(self, filter):
         self.filter = filter

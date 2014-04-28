@@ -12,13 +12,12 @@ access to running reports and retrieving data from a NetProfiler.
 """
 
 import logging
-import re
 import time
 import cStringIO as StringIO
 
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import (parse_timedelta, datetime_to_seconds,
-                                   timedelta_total_seconds)
+                                          timedelta_total_seconds)
 from steelscript.common.utils import RecursiveUpdateDict
 from steelscript.common.exceptions import RvbdException
 
@@ -63,6 +62,7 @@ class Query(object):
         self.data_selected_columns = None
 
     def get_legend(self, columns=None):
+        """Get the legend data."""
         if columns:
             return self.report.profiler.get_columns(columns)
         if self.selected_columns:
@@ -84,8 +84,7 @@ class Query(object):
         return row
 
     def _get_querydata(self, columns=None):
-        """Get the query data.
-        """
+        """Get the query data."""
         if columns:
             columns = self.report.profiler.get_columns(columns)
         elif self.selected_columns is not None:
@@ -115,25 +114,26 @@ class Query(object):
             'query id {0} and column {1}'.format(self.id, columns))
 
     def get_iterdata(self, columns=None):
-        """Iterate over the query data
-        """
+        """Iterate over the query data."""
         self._get_querydata(columns)
         for row in self.data:
             yield self._to_native(row)
 
     def get_data(self, columns=None):
+        """Generate list from get_iterdata."""
         return list(self.get_iterdata(columns))
 
     def get_totals(self, columns=None):
-        """Return the totals associated with the requested columns.
-        """
+        """Return the totals associated with the requested columns."""
         self._get_querydata(columns)
         return self._to_native(self.querydata['totals'])
 
     def all_columns(self):
         """Returns all the columns available for this query.
-        Used in conjunction with :py:meth:`Query.get_data` or :py:meth:`Query.get_iterdata`
-        allows to retrieve all the data available for the query. Eg:
+
+        Used in conjunction with :py:meth:`Query.get_data` or
+        :py:meth:`Query.get_iterdata` allows to retrieve all the data available
+        for the query. Eg:
 
         query.get_iterdata(columns=query.all_columns())
         """
@@ -141,8 +141,10 @@ class Query(object):
 
 
 class Report(object):
-    """This class represents a NetProfiler report.  This class is normally not
-    used directly, but instead via subclasses for specific report types.
+    """Base class for all NetProfiler reports.
+
+    This class is normally not used directly, but instead via subclasses
+    :class:`SingleQueryReport` and :class:`MultiQueryReport`.
     """
 
     RESOLUTION_MAP = {60: "1min",
@@ -158,8 +160,9 @@ class Report(object):
     # parameters of an existing report from NetProfiler.
 
     def __init__(self, profiler):
-        """Initialize a report object.  A report
-        object is bound to an instance of a NetProfiler at creation.
+        """Initialize a report object.
+
+        A report object is bound to an instance of a NetProfiler at creation.
         """
 
         self.profiler = profiler
@@ -178,27 +181,28 @@ class Report(object):
     def __exit__(self, instype, value, traceback):
         self.delete()
 
-    def run(self, template_id,
-            timefilter=None, resolution="auto",
+    def run(self, template_id, timefilter=None, resolution="auto",
             query=None, trafficexpr=None, data_filter=None, sync=True):
-        """Create the report on NetProfiler and begin running
-        the report.  If the `sync` option is True, periodically
-        poll until the report is complete, otherwise return
-        immediately.
+        """Create the report and begin running the report on NetProfiler.
 
-        `template_id` is the numeric id of the template to use for the report
+        If the `sync` option is True, periodically poll until the report is
+        complete, otherwise return immediately.
 
-        `timefilter` is the range of time to query, a TimeFilter object
+        :param int template_id: numeric id of the template to use for the report
 
-        `resolution` is the data resolution (1min, 15min, etc.), defaults to 'auto'
+        :param timefilter: range of time to query,
+            instance of :class:`TimeFilter`
 
-        `query` is the query object containing criteria
+        :param str resolution: data resolution, such as (1min, 15min, etc.),
+             defaults to 'auto'
 
-        `trafficexpr` is a TrafficFilter object
+        :param str query: query object containing criteria
 
-        `data_filter` is a deprecated filter to run against report data
+        :param trafficexpr: instance of :class:`TrafficFilter`
 
-        `sync` if True, poll for status until the report is complete
+        :param str data_filter: deprecated filter to run against report data
+
+        :param bool sync: if True, poll for status until the report is complete
         """
 
         self.template_id = template_id
@@ -267,7 +271,7 @@ class Report(object):
             self.wait_for_complete()
 
     def wait_for_complete(self, interval=1, timeout=600):
-        """ Periodically checks report status and returns when 100% complete
+        """Periodically checks report status and returns when 100% complete.
         """
         complete = False
         percent = 100
@@ -300,11 +304,9 @@ class Report(object):
 
         The return value is a dict containing:
 
-        `status` indicating `completed` when finished
-
-        `percent` indicating the percentage complete (0-100)
-
-        `remaining_seconds` is an estimate of the time left until complete
+        - `status` indicating `completed` when finished
+        - `percent` indicating the percentage complete (0-100)
+        - `remaining_seconds` is an estimate of the time left until complete
         """
         if not self.id:
             return None
@@ -326,9 +328,7 @@ class Report(object):
                      % (self.id, len(data)))
 
     def get_query_by_index(self, index=0):
-        """Returns the query_id by specifying the index,
-        default to 0 (the first query)
-        """
+        """Returns the query_id by specifying the index, defaults to 0."""
         if not self.id:
             raise ValueError("No id set, must run a report"
                              "or attach to an existing report first")
@@ -344,31 +344,37 @@ class Report(object):
         return query
 
     def get_legend(self, index=0, columns=None):
-        """Return a legend describing the columns that are associated with
-        this report.  If `columns` is specified, restrict the legend to
-        the list of requested columns.
+        """Return legend describing the columns in this report.
+
+        If `columns` is specified, restrict the legend to the list of
+        requested columns.
         """
         query = self.get_query_by_index(index)
         return query.get_legend(columns)
 
     def get_iterdata(self, index=0, columns=None):
-        """Retrieve an iterator on the the data for this report. If
-        `columns` is specified, restrict the legend to the list of
+        """Retrieve iterator for the result data.
+
+        If `columns` is specified, restrict the legend to the list of
         requested columns.
         """
         query = self.get_query_by_index(index)
         return query.get_iterdata(columns)
 
     def get_data(self, index=0, columns=None):
-        """Retrieve the data for this report. If `columns` is specified,
-        restrict the data to the list of requested columns.
+        """Retrieve data for this report.
+
+        If `columns` is specified, restrict the data to the list of
+        requested columns.
         """
         query = self.get_query_by_index(index)
         return query.get_data(columns)
 
     def get_totals(self, index=0, columns=None):
-        """Retrieve the totals for this report. If `columns` is specified,
-        restrict the totals to the list of requested columns.
+        """Retrieve the totals for this report.
+
+        If `columns` is specified, restrict the totals to the list of
+        requested columns.
         """
         query = self.get_query_by_index(index)
         return query.get_totals(columns)
@@ -382,8 +388,8 @@ class Report(object):
 
 
 class MultiQueryReport(Report):
-    """ Used to generate NetProfiler standard template reports
-    """
+    """Used to generate NetProfiler standard template reports."""
+
     def __init__(self, profiler):
         """Create a report using standard NetProfiler template ids which will
         include multiple queries, one for each widget on a report page.
@@ -393,18 +399,21 @@ class MultiQueryReport(Report):
 
     def run(self, template_id, timefilter=None, trafficexpr=None,
             data_filter=None, resolution="auto"):
-        """
-        The primary driver of these reports come from the `template_id` which
-        defines the query sources.  Thus no query input or realm/centricity/groupby
-        is necessary.
+        """The primary driver of these reports come from the `template_id` which
+        defines the query sources.  Thus, no query input or
+        realm/centricity/groupby keywords are necessary.
 
-        `timefilter` is the range of time to query, a TimeFilter object
+        :param int template_id: numeric id of the template to use for the report
 
-        `trafficexpr` is a TrafficFilter object
+        :param timefilter: range of time to query,
+            instance of :class:`TimeFilter`
 
-        `resolution` is the data resolution (1min, 15min, etc.)
+        :param trafficexpr: instance of :class:`TrafficFilter`
 
-        `data_filter` is a deprecated filter to run against report data
+        :param str data_filter: deprecated filter to run against report data
+
+        :param str resolution: data resolution, such as (1min, 15min, etc.),
+             defaults to 'auto'
         """
         self.template_id = template_id
 
@@ -417,15 +426,13 @@ class MultiQueryReport(Report):
                                           sync=True)
 
     def get_query_names(self):
-        """Return full name of each query in report
-        """
+        """Return full name of each query in report."""
         if not self.queries:
             self.get_data()
         return [q.id for q in self.queries]
 
     def get_data_by_name(self, query_name):
-        """Return data and legend for query matching `query_name`
-        """
+        """Return data and legend for query matching `query_name`."""
         for i, name in enumerate(self.get_query_names()):
             if name == query_name:
                 legend = self.queries[i].get_legend()
@@ -435,44 +442,53 @@ class MultiQueryReport(Report):
 
 
 class SingleQueryReport(Report):
+    """Base class for NetProfiler REST API reports.
+
+    This class is not normally instantiated directly.  See child classes such
+    as :class:`TrafficSummaryReport`.
+    """
 
     def __init__(self, profiler):
-        """Create a report consisting of a single query.  This class is not normally
-        instantiated directly.  See child classes such as `TrafficSummaryReport`.
-
-        `netprofiler` is the NetProfiler object that will run this report
-        """
-
         super(SingleQueryReport, self).__init__(profiler)
 
     def run(self, realm,
             groupby="hos", columns=None, sort_col=None,
             timefilter=None, trafficexpr=None, host_group_type="ByLocation",
-            resolution="auto", centricity="hos", area=None, data_filter=None, sync=True):
+            resolution="auto", centricity="hos", area=None,
+            data_filter=None, sync=True):
         """
-        `realm` is the type of query, this is automatically set by subclasses
+        :param str realm: type of query, this is automatically set by subclasses
 
-        `groupby` sets the way in which data should be grouped (use netprofiler.groupby.*)
+        :param str groupby: sets the way in which data should be grouped
+            (use netprofiler.groupby.*)
 
-        `columns` is the list of key and value columns to retrieve (use netprofiler.columns.*)
+        :param list columns: list of key and value columns to retrieve
+            (use netprofiler.columns.*)
 
-        `sort_col` is the column within `columns` to sort by
+        :param sort_col: :class:`Column` reference to sort by
 
-        `timefilter` is the range of time to query, a TimeFilter object
+        :param timefilter: range of time to query,
+            instance of :class:`TimeFilter`
 
-        `trafficexpr` is a TrafficFilter object
+        :param trafficexpr: instance of :class:`TrafficFilter`
 
-        `resolution` is the data resolution (1min, 15min, etc.)
+        :param str host_group_type: sets the host group type to use
+            when the groupby is related to groups
+            (such as 'group' or 'peer_group').
 
-        `host_group_type` sets the host group type to use when the groupby is
-            related to groups (such as 'group' or 'peer_group')
+        :param str resolution: data resolution, such as (1min, 15min, etc.),
+             defaults to 'auto'
 
-        `centricity` is either 'hos' for host-based counts, or 'int' for interface
-            based counts, this only affects directional columns
+        :param str centricity: 'hos' for host-based counts,
+            or 'int' for interface based counts, only affects
+            directional columns
+        :type centricity: 'hos' or 'int'
 
-        `area` sets the appropriate scope for the report
+        :param str area: sets the appropriate scope for the report
 
-        `data_filter` is a deprecated filter to run against report data
+        :param str data_filter: deprecated filter to run against report data
+
+        :param bool sync: if True, poll for status until the report is complete
         """
 
         # query related parameters
@@ -506,8 +522,10 @@ class SingleQueryReport(Report):
             query['host_group_type'] = self.host_group_type
 
         super(SingleQueryReport, self).run(template_id=184,
-                                           timefilter=timefilter, resolution=resolution,
-                                           query=query, trafficexpr=trafficexpr,
+                                           timefilter=timefilter,
+                                           resolution=resolution,
+                                           query=query,
+                                           trafficexpr=trafficexpr,
                                            data_filter=data_filter,
                                            sync=sync)
 
@@ -543,7 +561,9 @@ class TrafficSummaryReport(SingleQueryReport):
     def run(self, groupby, columns, sort_col=None,
             timefilter=None, trafficexpr=None, host_group_type="ByLocation",
             resolution="auto", centricity="hos", area=None, sync=True):
-        """ See `SingleQueryReport` for a description of the arguments. """
+        """See :meth:`SingleQueryReport.run` for a description of the keyword
+        arguments.
+        """
         return super(TrafficSummaryReport, self).run(
             realm='traffic_summary',
             groupby=groupby, columns=columns, sort_col=sort_col,
@@ -561,10 +581,11 @@ class TrafficOverallTimeSeriesReport(SingleQueryReport):
     def run(self, columns,
             timefilter=None, trafficexpr=None,
             resolution="auto", centricity="hos", area=None, sync=True):
-        """
-        See `SingleQueryReport` for a description of the arguments.  (Note that
-        `sort_col`, `groupby`, and `host_group_type` are not applicable to
-        this report type).
+        """See :meth:`SingleQueryReport.run` for a description of the keyword
+        arguments.
+
+        Note that `sort_col`, `groupby`, and `host_group_type` are not
+        applicable to this report type.
         """
         return super(TrafficOverallTimeSeriesReport, self).run(
             realm='traffic_overall_time_series',
@@ -582,10 +603,11 @@ class TrafficFlowListReport(SingleQueryReport):
 
     def run(self, columns, sort_col=None,
             timefilter=None, trafficexpr=None, sync=True):
-        """
-        See `SingleQueryReport` for a description of the arguments.  (Note that
-        only `columns, `sort_col`, `timefilter`, and `trafficexpr` apply to this
-        report type).
+        """See :meth:`SingleQueryReport.run` for a description of the keyword
+        arguments.
+
+        Note that only `columns, `sort_col`, `timefilter`, and `trafficexpr`
+        apply to this report type.
         """
         return super(TrafficFlowListReport, self).run(
             realm='traffic_flow_list',
@@ -648,12 +670,13 @@ class WANReport(SingleQueryReport):
         return lan, wan
 
     def get_data(self, as_list=True, calc_reduction=False, calc_percentage=False):
-        """ Retrieve WAN report data
+        """Retrieve WAN report data.
 
-        `as_list`           return results as list of lists or pandas DataFrame
-                            defaults to True (list of lists)
-        `calc_reduction`    include extra column displaying optimization reductions
-        `calc_percentage`   include extra column displaying optimization percent reductions
+        :param bool as_list: return list of lists or pandas DataFrame
+        :param bool calc_reduction: include extra column with optimization
+            reductions
+        :param bool calc_percentage: include extra column with optimization
+            percent reductions
         """
         def reduction(x, y):
             return x - y
@@ -687,8 +710,8 @@ class WANReport(SingleQueryReport):
             return self.table
 
     def _align_columns(self, direction, df_lan, df_wan):
-        """ Replace lan and wan dataframe columns with those appropriate for
-            inbound/outbound data
+        """Replace lan and wan dataframe columns with those appropriate for
+        inbound/outbound data.
         """
         # To help illustrate, column prefixes are as follows:
         #
@@ -719,12 +742,12 @@ class WANReport(SingleQueryReport):
         return lan_columns, wan_columns
 
     def _convert_columns(self):
-        """ Takes list of columns and replaces any available ones with in/out
-            versions if available.
-        """
+        """Replace columns with in/out variants if available."""
         result = []
         seen = set()
-        available = self.profiler.search_columns([self.realm], [self.centricity], [self.groupby])
+        available = self.profiler.search_columns([self.realm],
+                                                 [self.centricity],
+                                                 [self.groupby])
         keys = set(a.key for a in available)
 
         self.columns = self.profiler.get_columns(self.columns)
@@ -752,11 +775,11 @@ class WANReport(SingleQueryReport):
         self.columns = result
 
     def _get_data(self):
-        """ Normal get_data, used internally """
+        """Normal get_data, used internally."""
         return super(WANReport, self).get_data()
 
     def _run_reports(self, lan_interfaces, wan_interfaces):
-        """ Verify cache and run reports for both interfaces """
+        """Verify cache and run reports for both interfaces."""
 
         if not (self._timefilter and self._timefilter == self.timefilter and
                 self._columns == self.columns):
@@ -774,7 +797,7 @@ class WANReport(SingleQueryReport):
         return self._lan_data, self._wan_data
 
     def _run(self, interfaces):
-        """ Internal run method, calls super with class attributes """
+        """Internal run method, calls super with class attributes."""
         return super(WANReport, self).run(realm=self.realm,
                                           groupby=self.groupby,
                                           columns=self.columns,
@@ -786,13 +809,12 @@ class WANReport(SingleQueryReport):
                                           sync=True)
 
     def run(self, **kwargs):
-        """ Unimplemented for subclass to override """
+        """Unimplemented for subclass to override."""
         pass
 
 
 class WANSummaryReport(WANReport):
-    """ Tabular or summary WAN Report data
-    """
+    """Tabular or summary WAN Report data."""
     def __init__(self, profiler):
         """ Create a WAN Traffic Summary report """
         super(WANSummaryReport, self).__init__(profiler)
@@ -806,15 +828,16 @@ class WANSummaryReport(WANReport):
     def run(self, lan_interfaces, wan_interfaces, direction,
             columns=None, timefilter='last 1 h', trafficexpr=None,
             groupby='ifc', resolution='auto'):
-        """ Run WAN Report
+        """Run WAN Report.
 
-        `lan_interfaces`    list of full interface name for LAN interface, e.g. ['10.99.16.252:1']
-        `wan_interfaces`    list of full interface name for WAN interface
-        `direction`         'inbound' / 'outbound'
-        `columns`           list of columns available in both 'in_' and 'out_' versions,
-                            for example, ['avg_bytes', 'total_bytes'], instead of
-                            ['in_avg_bytes', 'out_avg_bytes']
-
+        :param lan_interfaces: list of full interface name for LAN
+            interface, e.g. ['10.99.16.252:1']
+        :param wan_interfaces: list of full interface name for WAN interface
+        :param direction:
+        :type direction: 'inbound' or 'outbound'
+        :param columns: list of columns available in both 'in' and 'out'
+            versions, for example, ['avg_bytes', 'total_bytes'], instead of
+            ['in_avg_bytes', 'out_avg_bytes']
         """
         # we need some heavier data analysis tools for this report
         import pandas as pd
@@ -849,7 +872,7 @@ class WANTimeSeriesReport(WANReport):
     """
     """
     def __init__(self, profiler):
-        """ Create a WAN Time Series report """
+        """Create a WAN Time Series report."""
         super(WANTimeSeriesReport, self).__init__(profiler)
         self._configure()
 
@@ -864,14 +887,20 @@ class WANTimeSeriesReport(WANReport):
             groupby=None, resolution='auto'):
         """ Run WAN Time Series Report
 
-        `lan_interfaces`     full interface name for LAN interface, e.g. '10.99.16.252:1'
-        `wan_interfaces`     full interface name for WAN interface
-        `direction`         'inbound' / 'outbound'
-        `columns`           list of columns available in both 'in_' and 'out_' versions,
-                            for example, ['avg_bytes', 'total_bytes'], instead of
-                            ['in_avg_bytes', 'out_avg_bytes']
-        `groupby`           Ignored for this report type, included for interface compatibility
+        :param lan_interfaces: list of full interface name for LAN
+            interface, e.g. ['10.99.16.252:1']
 
+        :param wan_interfaces: list of full interface name for WAN interface
+
+        :param direction:
+        :type direction: 'inbound' or 'outbound'
+
+        :param columns: list of columns available in both 'in_' and 'out_'
+            versions, for example, ['avg_bytes', 'total_bytes'], instead of
+            ['in_avg_bytes', 'out_avg_bytes']
+
+        :param str groupby: Ignored for this report type, included for
+            interface compatibility
         """
         # we need some heavier data analysis tools for this report
         import pandas as pd
@@ -908,21 +937,21 @@ class WANTimeSeriesReport(WANReport):
         self.table = lan_columns.join(wan_columns, how='inner')
 
     def get_data(self, as_list=True):
-        """ Retrieve WAN report data
+        """Retrieve WAN report data as list of lists or pandas DataFrame.
 
-        `as_list`           return results as list of lists or pandas DataFrame
-                            defaults to True (list of lists)
+        If `as_list` is True, return list of lists, False will return
+        pandas DataFrame.
         """
         return super(WANTimeSeriesReport, self).get_data(as_list=as_list,
                                                          calc_reduction=False,
                                                          calc_percentage=False)
 
+
 class IdentityReport(SingleQueryReport):
     """
     """
     def __init__(self, profiler):
-        """ Create a report for Active Directory events.
-        """
+        """Create a report for Active Directory events."""
         super(IdentityReport, self).__init__(profiler)
 
         self.id_realm = 'identity_list'
@@ -939,7 +968,7 @@ class IdentityReport(SingleQueryReport):
                                                 'domain'])
 
     def run(self, username=None, timefilter=None, trafficexpr=None, sync=True):
-        """Run complete user identity report over the requested timeframe
+        """Run complete user identity report over the requested timeframe.
 
         `username` specific id to filter results by
 

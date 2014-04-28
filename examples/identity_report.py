@@ -8,12 +8,11 @@
 # This software is distributed "AS IS" as set forth in the License.
 
 
-
 from steelscript.netprofiler.core.app import NetProfilerApp
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.netprofiler.core.report import (IdentityReport,
-                                  TrafficOverallTimeSeriesReport,
-                                  TrafficSummaryReport)
+                                                 TrafficOverallTimeSeriesReport,
+                                                 TrafficSummaryReport)
 from steelscript.common.utils import Formatter
 from steelscript.common.timeutils import string_to_datetime
 
@@ -24,10 +23,10 @@ import optparse
 import itertools
 
 
-AGGREGATION = {'total': lambda x:sum(x),
-               'avg'  : lambda x:sum(x)/len(x),
-               'peak' : lambda x:max(x),
-               'min'  : lambda x:min(x)}
+AGGREGATION = {'total': lambda x: sum(x),
+               'avg'  : lambda x: sum(x) / len(x),
+               'peak' : lambda x: max(x),
+               'min'  : lambda x: min(x)}
 
 # Columns for Time Series Report
 TCOLUMNS = [('time',              AGGREGATION['min']),

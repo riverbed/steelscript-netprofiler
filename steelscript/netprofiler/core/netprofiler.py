@@ -8,7 +8,7 @@
 
 """
 This module contains the NetProfiler class, which is the main interface to
-a Cascade NetProfiler Appliance. It allows, among other things, retrieving
+a SteelCentral NetProfiler appliance. It allows, among other things, retrieving
 the state of the NetProfiler, modifying its settings and performing operations
 like creating running reports.
 """
@@ -39,29 +39,31 @@ def make_hash(realm, centricity, groupby):
 
 
 class NetProfiler(steelscript.common.service.Service):
-    """The NetProfiler class is the main interface to interact with a NetProfiler
-    Appliance.  Primarily this provides an interface to reporting.
+    """The NetProfiler class is the main interface to interact with a
+    NetProfiler appliance.  Primarily this provides an interface to reporting.
     """
 
     def __init__(self, host, port=None, auth=None):
         """Establishes a connection to a NetProfiler appliance.
 
-        `host` is the name or IP address of the NetProfiler to connect to
+        :param str host: name or IP address of the NetProfiler to
+            connect to
 
-        `port` is the TCP port on which the NetProfiler appliance listens.
-                 if this parameter is not specified, the function will
-                 try to automatically determine the port.
+        :param int port: TCP port on which the NetProfiler appliance
+            listens.  If this parameter is not specified, the function will try
+            to automatically determine the port.
 
-        `auth` defines the authentication method and credentials to use
-                 to access the NetProfiler.  It should be an instance of
-                 steelscript.common.UserAuth or steelscript.common.OAuth.
+        :param auth: defines the authentication method and credentials
+            to use to access the NetProfiler.  It should be an instance of
+            :py:class:`UserAuth<steelscript.common.service.UserAuth>` or
+            :py:class:`OAuth<steelscript.common.service.OAuth>`
 
-        `force_version` is the API version to use when communicating.
-                 if unspecified, this will use the latest version supported
-                 by both this implementation and the NetProfiler appliance.
+        :param str force_version: API version to use when communicating.
+            if unspecified, this will use the latest version supported by both
+            this implementation and the NetProfiler appliance.
 
-        See the base [Service](common.html#service) class for more information
-        about additional functionality supported.
+        See the base :py:class:`Service<steelscript.common.service.Service>` class
+        for more information about additional functionality supported.
         """
         super(NetProfiler, self).__init__("profiler", host, port,
                                           auth=auth,
@@ -110,8 +112,8 @@ class NetProfiler(steelscript.common.service.Service):
         the current local cache file, and any missing keys will be
         retrieved from the server.
 
-        `refetch` will force an api refresh call from the machine even if
-                the data can be found in local cache.
+        :param bool refetch: will force an api refresh call from the
+            machine even if the data can be found in local cache.
         """
         columns = list()
         write = False
@@ -134,7 +136,8 @@ class NetProfiler(steelscript.common.service.Service):
                 for groupby in groupbys:
                     _hash = make_hash(realm, centricity, groupby)
                     if refetch or _hash not in self._columns_file.data:
-                        logger.debug('Requesting columns for triplet: %s, %s, %s' % (realm, centricity, groupby))
+                        logger.debug('Requesting columns for triplet: '
+                                     '%s, %s, %s' % (realm, centricity, groupby))
                         api_call = self.api.report.columns(realm,
                                                            centricity, groupby)
                         # generate Column objects from json
@@ -151,8 +154,7 @@ class NetProfiler(steelscript.common.service.Service):
             self._columns_file.write()
 
     def _unique_columns(self):
-        """Pull unique columns from _columns_file (a dict of lists)
-        """
+        """Pull unique columns from _columns_file (a dict of lists). """
         def unique(seq):
             seen = set()
             for lst in seq:
@@ -171,8 +173,7 @@ class NetProfiler(steelscript.common.service.Service):
             return self._areas_dict[area]
 
     def _gencolumns(self, columns):
-        """Return a list of Column objects from a list of json columns
-        """
+        """Return a list of Column objects from a list of json columns. """
         res = []
         for c in columns:
             key = c['strid'].lower()[3:]
@@ -198,10 +199,10 @@ class NetProfiler(steelscript.common.service.Service):
     def get_columns(self, columns, groupby=None):
         """Return valid Column objects for list of columns
 
-        `columns` is a list of strings and/or Column objects
+        :param list columns: list of strings and/or Column objects
 
-        `groupby` will optionally ensure that the selected
-                  columns are valid for the given groupby
+        :param str groupby: will optionally ensure that the selected columns
+            are valid for the given groupby
         """
         res = list()
         if groupby:
@@ -235,7 +236,7 @@ class NetProfiler(steelscript.common.service.Service):
     def get_columns_by_ids(self, ids):
         """Return Column objects that have ids in list of strings `ids`.
 
-        `ids` is a list of integer ids
+        :param list ids: list of integer ids
         """
         res = [self.columns[i] for i in ids]
         return res
@@ -243,16 +244,20 @@ class NetProfiler(steelscript.common.service.Service):
     def search_columns(self, realms=None, centricities=None, groupbys=None):
         """Identify columns given one or more values for the triplet.
 
+        :param list realms: list of strings
+        :param list centricities: list of strings
+        :param list groupbys: list of strings
+
         Results will be based on the following relationship table:
 
-            |-----------------------------+------------+----------------------|
-            | realm                       | centricity | groupby              |
-            |-----------------------------+------------+----------------------|
-            | traffic_summary             | hos,int    | all (except thu)     |
-            | traffic_overall_time_series | hos,int    | tim                  |
-            | traffic_flow_list           | hos        | hos                  |
-            | identity_list               | hos        | thu                  |
-            |-----------------------------+------------+----------------------|
+        ============================= ============ ==================
+        realm                         centricity   groupby
+        ============================= ============ ==================
+        traffic_summary               hos,int      all (except thu)
+        traffic_overall_time_series   hos,int      tim
+        traffic_flow_list             hos          hos
+        identity_list                 hos          thu
+        ============================= ============ ==================
 
         """
         result = set()
@@ -275,8 +280,7 @@ class NetProfiler(steelscript.common.service.Service):
         return list(result)
 
     def logout(self):
-        """Issue logout command to netprofiler machine.
-        """
+        """ Issue logout command to netprofiler machine. """
         if self.conn:
             try:
                 self.api.common.logout()
