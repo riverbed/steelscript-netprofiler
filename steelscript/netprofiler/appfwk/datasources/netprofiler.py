@@ -14,14 +14,14 @@ import steelscript.netprofiler.core
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import (parse_timedelta,
                                           timedelta_total_seconds)
-from steelscript.appfwk.core.apps.datasource.models import DatasourceTable, Column
-
-from steelscript.appfwk.core.apps.datasource.models import TableField
-from steelscript.appfwk.core.apps.devices.forms import fields_add_device_selection
-from steelscript.appfwk.core.apps.devices.devicemanager import DeviceManager
-from steelscript.appfwk.core.apps.datasource.forms import (fields_add_time_selection,
+from steelscript.appfwk.apps.datasource.models import DatasourceTable, Column
+from steelscript.appfwk.apps.datasource.models import TableField
+from steelscript.appfwk.apps.devices.forms import fields_add_device_selection
+from steelscript.appfwk.apps.devices.devicemanager import DeviceManager
+from steelscript.appfwk.apps.datasource.forms import (fields_add_time_selection,
                                                           fields_add_resolution)
-from steelscript.appfwk.core.libs.fields import Function
+from steelscript.appfwk.libs.fields import Function
+
 
 logger = logging.getLogger(__name__)
 lock = threading.Lock()

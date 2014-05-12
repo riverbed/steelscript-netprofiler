@@ -6,8 +6,8 @@
 #   https://github.com/riverbed/flyscript-portal/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
-from steelscript.appfwk.core.apps.report.models import Report
-import steelscript.appfwk.core.apps.report.modules.yui3 as yui3
+from steelscript.appfwk.apps.report.models import Report
+import steelscript.appfwk.apps.report.modules.yui3 as yui3
 
 from steelscript.netprofiler.appfwk.datasources.netprofiler import (NetProfilerTimeseriesTable,
                                                                    NetProfilerGroupbyTable)

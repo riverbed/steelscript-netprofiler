@@ -6,17 +6,16 @@
 # This software is distributed "AS IS" as set forth in the License.
 
 import logging
-import pandas
 import datetime
 
-from steelscript.appfwk.core.apps.datasource.models import DatasourceTable
-from steelscript.appfwk.core.apps.devices.devicemanager import DeviceManager
-from steelscript.appfwk.core.apps.devices.forms import fields_add_device_selection
-from steelscript.appfwk.core.libs.fields import Function
+import pandas
 
-import steelscript
-from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.appfwk.apps.datasource.models import DatasourceTable
+from steelscript.appfwk.apps.devices.devicemanager import DeviceManager
+from steelscript.appfwk.apps.devices.forms import fields_add_device_selection
+from steelscript.appfwk.libs.fields import Function
 from steelscript.netprofiler.appfwk.datasources.netprofiler import lock
+
 
 logger = logging.getLogger(__name__)
 

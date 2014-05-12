@@ -5,18 +5,18 @@
 #   https://github.com/riverbed/flyscript-portal/blob/master/LICENSE ("License").  
 # This software is distributed "AS IS" as set forth in the License.
 
-import time
 import logging
 import threading
 import datetime
+
 import pandas
 
 import steelscript
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import timedelta_total_seconds
-
-from steelscript.appfwk.core.apps.devices.devicemanager import DeviceManager
+from steelscript.appfwk.apps.devices.devicemanager import DeviceManager
 from steelscript.netprofiler.appfwk.datasources.netprofiler import NetProfilerTable
+
 
 logger = logging.getLogger(__name__)
 lock = threading.Lock()
