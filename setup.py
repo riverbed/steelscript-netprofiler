@@ -55,10 +55,6 @@ http://pythonhosted.org/steelscript/install.html
         ('share/doc/steelscript/examples/netprofiler', glob('examples/*')),
     ),
 
-    'scripts': (
-        'utilities/netprofiler_columns.py',
-    ),
-
     'install_requires': (
         'steelscript>=0.6',
     ),
