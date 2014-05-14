@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 
 # Copyright (c) 2013 Riverbed Technology, Inc.
@@ -7,6 +8,7 @@
 #   https://github.com/riverbed/flyscript/blob/master/LICENSE ("License").
 # This software is distributed "AS IS" as set forth in the License.
 
+from steelscript.commands.steel import BaseCommand
 
 """This program retrieves a list of valid columns for the current netprofiler.
 
@@ -54,7 +56,8 @@ from steelscript.common.utils import Formatter
 import optparse
 
 
-class NetProfilerInfo(NetProfilerApp):
+class Command(NetProfilerApp):
+    help = 'List columns available for NetProfiler reports'
 
     def add_options(self, parser):
 
@@ -73,6 +76,8 @@ class NetProfilerInfo(NetProfilerApp):
         group.add_option('-f', '--filter',
                          help="filter columns on this string")
         parser.add_option_group(group)
+
+        super(Command,self).add_options(parser)
 
     def print_columns(self, columns):
         keys = []
@@ -121,7 +126,3 @@ class NetProfilerInfo(NetProfilerApp):
 
             columns.sort(key=lambda x: x.key)
             self.print_columns(columns)
-
-
-if __name__ == '__main__':
-    NetProfilerInfo().run()

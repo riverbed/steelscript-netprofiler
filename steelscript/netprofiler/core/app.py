@@ -14,18 +14,20 @@ class NetProfilerApp(Application):
     """Simple class to wrap common command line parsing"""
     def __init__(self, *args, **kwargs):
         super(NetProfilerApp, self).__init__(*args, **kwargs)
-        self.optparse.set_usage('%prog NETPROFILER_HOSTNAME <options>')
         self.netprofiler = None
 
     def parse_args(self):
         super(NetProfilerApp, self).parse_args()
-        self.host = self.args[0]
+
+    def add_positional_args(self):
+        self.add_positional_arg('host', 'NetProfiler hostname or IP address')
+
+    def add_options(self, parser):
+        super(NetProfilerApp, self).add_options(parser)
+        self.add_standard_options()
 
     def setup(self):
-        self.netprofiler = NetProfiler(self.host,
+        super(NetProfilerApp, self).setup()
+        self.netprofiler = NetProfiler(self.options.host,
                                        port=self.options.port,
                                        auth=self.auth)
-
-    def validate_args(self):
-        if len(self.args) < 1:
-            self.optparse.error('missing NETPROFILER_HOSTNAME')

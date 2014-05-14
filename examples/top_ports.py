@@ -15,28 +15,28 @@ from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 
 import pprint
 
-def main(app):
-    # Create and run a traffic summary report of all server ports in use
-    # by hosts in 10/8
-    report = TrafficSummaryReport(app.profiler)
+class TopPortsApp(NetProfilerApp):
 
-    # Run the report
-    report.run(
-        groupby = app.profiler.groupbys.port,
-        columns = [app.profiler.columns.key.protoport,
-                   app.profiler.columns.key.protoport_name,
-                   app.profiler.columns.value.avg_bytes,
-                   app.profiler.columns.value.network_rtt],
-        sort_col = app.profiler.columns.value.avg_bytes,
-        timefilter = TimeFilter.parse_range("last 15 m"),
-        trafficexpr = TrafficFilter("host 10/8")
-        )
+    def main(self):
+        # Create and run a traffic summary report of all server ports in use
+        # by hosts in 10/8
+        report = TrafficSummaryReport(self.netprofiler)
 
-    # Retrieve and print data
-    data = report.get_data()
-    printer = pprint.PrettyPrinter(2)
-    printer.pprint(data[:20])
+        # Run the report
+        report.run(
+            groupby = self.netprofiler.groupbys.port,
+            columns = [self.netprofiler.columns.key.protoport,
+                       self.netprofiler.columns.key.protoport_name,
+                       self.netprofiler.columns.value.avg_bytes,
+                       self.netprofiler.columns.value.network_rtt],
+            sort_col = self.netprofiler.columns.value.avg_bytes,
+            timefilter = TimeFilter.parse_range("last 15 m"),
+            trafficexpr = TrafficFilter("host 10/8")
+            )
 
+        # Retrieve and print data
+        data = report.get_data()
+        printer = pprint.PrettyPrinter(2)
+        printer.pprint(data[:20])
 
-if __name__ == '__main__':
-    NetProfilerApp(main).run()
+TopPortsApp().run()
