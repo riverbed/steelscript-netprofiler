@@ -5,7 +5,7 @@ This package provides device specific bindings for interacting
 with Riverbed Cascade NetProfiler devices as part of the Riverbed
 Steelscript for Python.
 
-See [http://github.com/riverbed/steelscript](steelscript) for
+See [https://github.com/riverbed/steelscript](https://github.com/riverbed/steelscript) for
 installation instructions.
 
 Quick Start
