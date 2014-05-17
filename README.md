@@ -1,11 +1,11 @@
-Riverbed SteelScript for Cascade NetProfiler
-=========================================
+Riverbed SteelScript for SteelCentral NetProfiler
+=================================================
 
 This package provides device specific bindings for interacting
 with Riverbed Cascade NetProfiler devices as part of the Riverbed
 Steelscript for Python.
 
-See [http://github.com/riverbed/steelscript.common](steelscript.common) for
+See [http://github.com/riverbed/steelscript](steelscript) for
 installation instructions.
 
 Quick Start
