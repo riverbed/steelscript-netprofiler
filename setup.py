@@ -25,7 +25,7 @@ setup_args = {
     'namespace_packages': ['steelscript'],
     'version':            get_version(),
     'author':             'Riverbed Technology',
-    'author_email':       'cwhite@riverbed.com',
+    'author_email':       'eng-github@riverbed.com',
     'url':                'http://pythonhosted.org/steelscript',
     'license':            'MIT',
     'description':        'Python module for interacting with Riverbed NetProfiler with SteelScript',
