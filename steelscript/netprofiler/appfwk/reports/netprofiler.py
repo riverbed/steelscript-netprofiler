@@ -14,7 +14,7 @@ from steelscript.netprofiler.appfwk.datasources.netprofiler import (NetProfilerT
 # NetProfiler report
 #
 
-report = Report.create("NetProfiler", position=2)
+report = Report.create("NetProfiler", position=10)
 
 report.add_section()
 
