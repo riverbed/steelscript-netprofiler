@@ -1,18 +1,11 @@
-:py:mod:`steelscript.netprofiler.core`
+NetProfiler and Reporting
 ======================================
-
-All interaction with a NetProfiler requires an instance of
-:py:class:`NetProfiler <steelscript.netprofiler.core.Netprofiler>` This class
-establishes a connection to the NetProfiler.
-
-If you are new to SteelScript for NetProfiler, see the :doc:`Tutorial
-<tutorial>`.
 
 .. automodule:: steelscript.netprofiler.core
 
 .. currentmodule:: steelscript.netprofiler.core.netprofiler
 
-:py:class:`NetProfiler` objects
+:py:class:`NetProfiler` Objects
 -------------------------------
 
 .. autoclass:: NetProfiler
@@ -22,7 +15,7 @@ If you are new to SteelScript for NetProfiler, see the :doc:`Tutorial
 
 .. currentmodule:: steelscript.netprofiler.core.report
 
-:py:class:`Report` objects
+:py:class:`Report` Objects
 ---------------------------
 
 .. autoclass:: Report
@@ -30,7 +23,7 @@ If you are new to SteelScript for NetProfiler, see the :doc:`Tutorial
 
    .. automethod:: __init__
 
-:py:class:`SingleQueryReport` objects
+:py:class:`SingleQueryReport` Objects
 -------------------------------------
 
 .. autoclass:: SingleQueryReport
@@ -39,8 +32,8 @@ If you are new to SteelScript for NetProfiler, see the :doc:`Tutorial
 
    .. automethod:: __init__
 
-:py:class:`TrafficSummaryReport`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:py:class:`TrafficSummaryReport` Objects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. autoclass:: TrafficSummaryReport
    :members:
@@ -49,8 +42,8 @@ If you are new to SteelScript for NetProfiler, see the :doc:`Tutorial
 
    .. automethod:: __init__
 
-:py:class:`TrafficOverallTimeSeriesReport`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:py:class:`TrafficOverallTimeSeriesReport` Objects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. autoclass:: TrafficOverallTimeSeriesReport
    :members:
@@ -59,8 +52,8 @@ If you are new to SteelScript for NetProfiler, see the :doc:`Tutorial
 
    .. automethod:: __init__
 
-:py:class:`TrafficFlowListReport`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:py:class:`TrafficFlowListReport` Objects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. autoclass:: TrafficFlowListReport
    :members:
@@ -69,8 +62,8 @@ If you are new to SteelScript for NetProfiler, see the :doc:`Tutorial
 
    .. automethod:: __init__
 
-:py:class:`IdentityReport`
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+:py:class:`IdentityReport` Objects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. autoclass:: IdentityReport
    :members:
@@ -79,8 +72,8 @@ If you are new to SteelScript for NetProfiler, see the :doc:`Tutorial
 
    .. automethod:: __init__
 
-:py:class:`WANSummaryReport`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:py:class:`WANSummaryReport` Objects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. autoclass:: WANSummaryReport
    :members:
@@ -88,8 +81,8 @@ If you are new to SteelScript for NetProfiler, see the :doc:`Tutorial
 
    .. automethod:: __init__
 
-:py:class:`WANTimeSeriesReport`
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+:py:class:`WANTimeSeriesReport` Objects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. autoclass:: WANTimeSeriesReport
    :members:
@@ -97,8 +90,8 @@ If you are new to SteelScript for NetProfiler, see the :doc:`Tutorial
 
    .. automethod:: __init__
 
-:py:class:`MultiQueryReport` objects
--------------------------------------
+:py:class:`MultiQueryReport` Objects
+------------------------------------
 
 .. autoclass:: MultiQueryReport
    :members:
@@ -113,16 +106,16 @@ If you are new to SteelScript for NetProfiler, see the :doc:`Tutorial
 
 .. currentmodule:: steelscript.netprofiler.core.filters
 
-:py:class:`TimeFilter`
---------------------------
+:py:class:`TimeFilter` Objects
+------------------------------
 
 .. autoclass:: TimeFilter
    :members:
 
    .. automethod:: __init__
 
-:py:class:`TrafficFilter`
---------------------------
+:py:class:`TrafficFilter` Objects
+---------------------------------
 
 .. autoclass:: TrafficFilter
    :members:
