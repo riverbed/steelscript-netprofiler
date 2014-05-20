@@ -50,7 +50,7 @@ report.add_widget(yui3.TimeSeriesWidget, p, "Bandwidth for tcp/443")
 p = NetProfilerGroupbyTable.create('location-bytes', groupby='host_group', duration=60)
 
 p.add_column('group_name', 'Group Name', iskey=True)
-p.add_column('avg_bytes', 'Avg Bytes/s', units='B/s', issortcol=True)
+p.add_column('avg_bytes', 'Avg Bytes/s', units='B/s', sortdesc=True)
 
 report.add_widget(yui3.PieWidget, p, "Locations by Bytes")
 
@@ -58,6 +58,6 @@ report.add_widget(yui3.PieWidget, p, "Locations by Bytes")
 p = NetProfilerGroupbyTable.create('location-resptime', groupby='host_group', duration=60)
 
 p.add_column('group_name', 'Group Name', iskey=True)
-p.add_column('response_time', 'Response Time', units='ms', issortcol=True)
+p.add_column('response_time', 'Response Time', units='ms', sortdesc=True)
 
 report.add_widget(yui3.BarWidget, p, "Locations by Response Time")

@@ -170,7 +170,7 @@ class TableQuery:
     def fake_run(self):
         import fake_data
         self.data = fake_data.make_data(self.table, self.job)
-        
+
     def run(self):
         """ Main execution method
         """
@@ -180,7 +180,7 @@ class TableQuery:
             logger.debug('%s: No netprofiler device selected' % self.table)
             self.job.mark_error("No NetProfiler Device Selected")
             return False
-            
+
         #self.fake_run()
         #return True
 
@@ -190,8 +190,8 @@ class TableQuery:
         columns = [col.name for col in self.table.get_columns(synthetic=False)]
 
         sortcol = None
-        if self.table.sortcol is not None:
-            sortcol = self.table.sortcol.name
+        if self.table.sortcols is not None:
+            sortcol = self.table.sortcols[0]
 
         tf = TimeFilter(start=criteria.starttime,
                         end=criteria.endtime)
@@ -216,7 +216,7 @@ class TableQuery:
             resolution = steelscript.netprofiler.core.report.Report.RESOLUTION_MAP[rsecs]
         else:
             resolution = 'auto'
-        
+
         logger.debug('NetProfiler report using resolution %s (%s)' %
                      (resolution, type(resolution)))
 
@@ -226,7 +226,7 @@ class TableQuery:
                        groupby=profiler.groupbys[self.table.options.groupby],
                        centricity=centricity,
                        columns=columns,
-                       timefilter=tf, 
+                       timefilter=tf,
                        trafficexpr=trafficexpr,
                        data_filter=datafilter,
                        resolution=resolution,

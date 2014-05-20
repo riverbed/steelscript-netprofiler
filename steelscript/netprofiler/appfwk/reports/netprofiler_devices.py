@@ -19,7 +19,7 @@ report.add_section()
 
 p = NetProfilerDeviceTable.create('devtable')
 p.add_column('ipaddr', 'Device IP', iskey=True, datatype="string")
-p.add_column('name', 'Device Name', datatype="string")
+p.add_column('name', 'Device Name', datatype="string", sortasc=True)
 p.add_column('type', 'Flow Type', datatype="string")
 p.add_column('version', 'Flow Version', datatype="string")
 

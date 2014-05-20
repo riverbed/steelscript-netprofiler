@@ -43,7 +43,7 @@ class TableQuery:
             logger.debug('%s: No netprofiler device selected' % self.table)
             self.job.mark_error("No NetProfiler Device Selected")
             return False
-            
+
         profiler = DeviceManager.get_device(criteria.netprofiler_device)
         report = steelscript.netprofiler.core.report.MultiQueryReport(profiler)
 
@@ -65,7 +65,7 @@ class TableQuery:
             resolution = steelscript.netprofiler.core.report.Report.RESOLUTION_MAP[rsecs]
         else:
             resolution = 'auto'
-        
+
         logger.debug('NetProfiler report using resolution %s (%s)' %
                      (resolution, type(resolution)))
 
@@ -102,12 +102,6 @@ class TableQuery:
         # now filter down to the columns requested by the table
         columns = [col.name for col in self.table.get_columns(synthetic=False)]
         self.data = df[columns]
-
-        if self.table.sortcol is not None:
-            self.data = self.data.sort(self.table.sortcol.name)
-
-        if self.table.rows > 0:
-            self.data = self.data[:self.table.rows]
 
         logger.info("Report %s returned %s rows" % (self.job, len(self.data)))
         return True

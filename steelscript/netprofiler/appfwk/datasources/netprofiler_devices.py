@@ -81,12 +81,6 @@ class TableQuery:
 
         df = df.ix[:,columns]
 
-        if self.table.sortcol is not None:
-            df = df.sort(self.table.sortcol.name)
-
-        if self.table.rows > 0:
-            df = df[:self.table.rows]
-
         self.data = df
 
         logger.info("DeviceTable job %s returning %d devices" % (self.job, len(self.data)))
