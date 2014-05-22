@@ -5,7 +5,6 @@
 # as set forth in the License.
 
 
-
 """
 This module defines NetProfiler Report and Query objects which provide
 access to running reports and retrieving data from a NetProfiler.
@@ -895,7 +894,7 @@ class WANTimeSeriesReport(WANReport):
         :param direction:
         :type direction: 'inbound' or 'outbound'
 
-        :param columns: list of columns available in both 'in_' and 'out_'
+        :param columns: list of columns available in both `in_` and `out_`
             versions, for example, ['avg_bytes', 'total_bytes'], instead of
             ['in_avg_bytes', 'out_avg_bytes']
 
