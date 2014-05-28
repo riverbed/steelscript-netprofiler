@@ -8,7 +8,7 @@
 from steelscript.appfwk.apps.report.models import Report
 import steelscript.appfwk.apps.report.modules.yui3 as yui3
 
-from steelscript.netprofiler.appfwk.datasources.netprofiler import (NetProfilerTimeseriesTable,
+from steelscript.netprofiler.appfwk.datasources.netprofiler import (NetProfilerTimeSeriesTable,
                                                                    NetProfilerGroupbyTable)
 #
 # NetProfiler report
@@ -19,7 +19,7 @@ report = Report.create("NetProfiler", position=10)
 report.add_section()
 
 # Define a Overall TimeSeries showing Avg Bytes/s
-p = NetProfilerTimeseriesTable.create('ts-overall', duration=60, resolution="1min")
+p = NetProfilerTimeSeriesTable.create('ts-overall', duration=60, resolution="1min")
 
 p.add_column('time', 'Time', datatype='time', iskey=True)
 p.add_column('avg_bytes', 'Avg Bytes/s', units='B/s')
@@ -27,7 +27,7 @@ p.add_column('avg_bytes', 'Avg Bytes/s', units='B/s')
 report.add_widget(yui3.TimeSeriesWidget, p, "Overall Traffic", width=12)
 
 # Define a TimeSeries showing Avg Bytes/s for tcp/80
-p = NetProfilerTimeseriesTable.create('ts-tcp80', duration=60,
+p = NetProfilerTimeSeriesTable.create('ts-tcp80', duration=60,
                                       filterexpr='tcp/80', cacheable=False)
 
 p.add_column('time', 'Time', datatype='time', iskey=True)
@@ -38,7 +38,7 @@ report.add_widget(yui3.TimeSeriesWidget, p, "Bandwidth for tcp/80",
                   altaxis=['avg_bytes_rtx'])
 
 # Define a TimeSeries showing Avg Bytes/s for tcp/443
-p = NetProfilerTimeseriesTable.create('ts-tcp443', duration=60, filterexpr='tcp/443')
+p = NetProfilerTimeSeriesTable.create('ts-tcp443', duration=60, filterexpr='tcp/443')
 
 p.add_column('time', 'Time', datatype='time', iskey=True)
 p.add_column('avg_bytes', 'Avg Bytes/s', units='B/s')

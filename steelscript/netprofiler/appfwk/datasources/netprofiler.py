@@ -143,7 +143,7 @@ class NetProfilerTable(DatasourceTable):
         criteria['netprofiler_filterexpr'] = val
 
 
-class NetProfilerTimeseriesTable(NetProfilerTable):
+class NetProfilerTimeSeriesTable(NetProfilerTable):
     class Meta:
         proxy = True
 
