@@ -7,17 +7,18 @@ This tutorial will walk through the main components of the SteelScript
 interfaces for Riverbed SteelCentral NetProfiler.  It is assumed that
 you have a basic understanding of the Python programming language.
 
-The tutorial has been organized so you can follow it sequentially.  Throughout
-the examples, you will be expected to fill in details specific to your
-environment.  These will be called out using a dollar sign ``$<name>`` -- for
-example ``$host`` indicates you should fill in the host name or IP address
-of a NetProfiler appliance.
+The tutorial has been organized so you can follow it sequentially.
+Throughout the examples, you will be expected to fill in details
+specific to your environment.  These will be called out using a dollar
+sign ``$<name>`` -- for example ``$host`` indicates you should fill in
+the host name or IP address of a NetProfiler appliance.
 
-Whenever you see ``>>>``, this indicates an interactive session using the Python
-shell.  The command that you are expected to type follows the ``>>>``.  The
-result of the command follows.  Any lines with a ``#`` are just comments to
-describe what is happening.  In many cases the exact output will depend on your
-environment, so it may not match precisely what you see in this tutorial.
+Whenever you see ``>>>``, this indicates an interactive session using
+the Python shell.  The command that you are expected to type follows
+the ``>>>``.  The result of the command follows.  Any lines with a
+``#`` are just comments to describe what is happening.  In many cases
+the exact output will depend on your environment, so it may not match
+precisely what you see in this tutorial.
 
 Background
 ----------
@@ -97,8 +98,9 @@ exception.  Also, if this is the first time initializing a
 ``NetProfiler`` object, there will be a short delay while all of the
 columns are fetched from the appliance and cached locally.
 
-The ``p`` object is the basis for all communication with the NetProfiler appliance.
-We can get some basic version information by simply looking at the 'version' attribute:
+The ``p`` object is the basis for all communication with the
+NetProfiler appliance.  We can get some basic version information by
+simply looking at the 'version' attribute:
 
 .. code-block:: python
 
@@ -129,8 +131,8 @@ and insert the following lines:
    from steelscript.netprofiler.core import NetProfiler
 
    from steelscript.common.service import UserAuth
-   from steelscript.netprofiler.filters import TimeFilter
-   from steelscript.netprofiler.report import TrafficSummaryReport
+   from steelscript.netprofiler.core.filters import TimeFilter
+   from steelscript.netprofiler.core.report import TrafficSummaryReport
 
    # connection information
    username = '$username'
@@ -188,8 +190,8 @@ We've created our first report!  Let's take a closer look at what we just did.
    from steelscript.netprofiler.core import NetProfiler
 
    from steelscript.common.service import UserAuth
-   from steelscript.netprofiler.filters import TimeFilter
-   from steelscript.netprofiler.report import TrafficSummaryReport
+   from steelscript.netprofiler.core.filters import TimeFilter
+   from steelscript.netprofiler.core.report import TrafficSummaryReport
 
 These first few lines import our SteelScript modules and prepare them
 for use in the rest of the script.  The Python Style guide (`PEP8
@@ -265,21 +267,18 @@ We chose only a small subset of the available columns for our example script.
 We could include any columns applicable for this report type.  To help identify
 which columns are available, we could start up a python console and try some of
 the commands discussed in the `Profile Columns <columns.html>`_
-section, or we could use one of the provided example scripts called
-``netprofiler_columns.py``.
+section, or we could use the helper command ``steel netprofiler columns``.
 
-Let's try using the example script and then we can enhance our example a bit
-more.
-
-The example script should have been installed in one of your local ``bin``
-directories.  Try the following command to see if its on your path:
+The ``steel`` sommand should have been installed in one of your local
+``bin`` directories (``Scripts`` on Windows).  Try the following
+command to see if its on your path:
 
 .. code-block:: bash
 
-   $ where netprofiler_columns.py
+   $ which steel
 
-If that doesn't return a path, then you will need to add the directory it
-has been installed to to your shell's system path.
+If that doesn't return a path, then you will need to add the directory where
+has been installed to your shell's system path.
 
 Now that you are setup, let's find some columns.
 
@@ -298,14 +297,18 @@ Enter the following:
 
 .. code-block:: bash
 
-   $ netprofiler_columns.py -h
-   Usage: netprofiler_columns.py NETPROFILER_HOSTNAME <options>
+   $ steel netprofiler columns -h
+   Usage: steel netprofiler columns HOST [options] ...
+
+   List columns available for NetProfiler reports
+   Required Arguments:
+
+     HOST        NetProfiler hostname or IP address
 
    Options:
      -h, --help            show this help message and exit
 
    [...text continues...]
-
 
 And you will see all of the available options to the script.  One thing you
 will see are options for host, username, and password.  Where we had
@@ -313,14 +316,14 @@ those hardcoded in our example, now we pass them as options to the script.
 
 .. code-block:: bash
 
-   $ netprofiler_columns.py $hostname -u $username -p $password
+   $ steel netprofiler columns $hostname -u $username -p $password
 
 This will just execute and print nothing out if it was able to successfully
 connect.  Now, let's add our triplet information:
 
 .. code-block:: bash
 
-   $ netprofiler_columns.py $hostname -u $username -p $password -r traffic_summary
+   $ steel netprofiler columns $hostname -u $username -p $password -r traffic_summary
      -c hos -g host --list-columns
 
    Key Columns        Label                  ID
@@ -343,7 +346,7 @@ use the '--list-groupbys' option:
 
 .. code-block:: bash
 
-   $ netprofiler_columns.py $hostname -u $username -p $password --list-groupbys
+   $ steel netprofiler columns $hostname -u $username -p $password --list-groupbys
 
    GroupBy                      Id
    ------------------------------------
@@ -352,8 +355,8 @@ use the '--list-groupbys' option:
    port_group                   pgr
    [...text continues...]
 
-Note that the correct value to pass in the netprofiler_columns.py script is the
-groupby name, not the Id.
+Note that the correct value to pass in the ``steel netprofiler
+columns`` script is the groupby name, not the Id.
 
 Once you have found the set of columns you are interested in, you will now have
 a means of including them in your report request.  The following syntax would
@@ -386,9 +389,9 @@ script below, then walk through key differences that add the features we are loo
 
    import optparse
 
-   from steelscript.netprofiler.filters import TimeFilter
-   from steelscript.netprofiler.report import TrafficSummaryReport
-   from steelscript.netprofiler.app import NetProfilerApp
+   from steelscript.netprofiler.core.filters import TimeFilter
+   from steelscript.netprofiler.core.report import TrafficSummaryReport
+   from steelscript.netprofiler.core.app import NetProfilerApp
    from steelscript.common.utils import Formatter
 
    class ExampleApp(NetProfilerApp):
@@ -421,16 +424,17 @@ script below, then walk through key differences that add the features we are loo
 
    ExampleApp().run()
 
-Copy that code into a new file, and run it with a timerange option, and you
-will find the same base set of options used for netprofiler_columns.py are now
-included in this script.  Primarily, ``hostname``, ``username``, ``password`` are now
-all items to be passed to the script.
+Copy that code into a new file, and run it with a timerange option,
+and you will find the same base set of options used for ``steel
+netprofiler columns`` are now included in this script.  Primarily,
+``hostname``, ``username``, ``password`` are now all items to be
+passed to the script.
 
 For example:
 
 .. code-block:: python
 
-   > python myreport2.py <ip> -u <username> -p <password> -r "last 10 min"
+   > python myreport2.py $hosthame -u $username -p $password -r "last 10 min"
 
    host_ip           avg_bytes        network_rtt
    --------------------------------------------------
@@ -453,9 +457,9 @@ First we needed to import some new items:
 
    #!/usr/bin/env python
 
-   from steelscript.netprofiler.filters import TimeFilter
-   from steelscript.netprofiler.report import TrafficSummaryReport
-   from steelscript.netprofiler.app import NetProfilerApp
+   from steelscript.netprofiler.core.filters import TimeFilter
+   from steelscript.netprofiler.core.report import TrafficSummaryReport
+   from steelscript.netprofiler.core.app import NetProfilerApp
    from steelscript.common.utils import Formatter
 
    import optparse
@@ -479,8 +483,8 @@ This section begins the definition of a new class, which inherits from the
 class NetProfilerApp.  This is some of the magic of object-oriented programming,
 a lot of functionality is defined as part of NetProfilerApp, including the
 basics of authentication, and setting up a NetProfiler instance, and we get all
-of that for _free_, just by inheriting from it.  In fact, we go beyond that,
-and _extend_ its functionality by defining the function ``add_options``.  Here,
+of that for *free*, just by inheriting from it.  In fact, we go beyond that,
+and *extend* its functionality by defining the function ``add_options``.  Here,
 we add a new option to pass in a timerange on the commandline.
 
 .. code-block:: python
