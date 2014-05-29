@@ -10,7 +10,8 @@ import datetime
 
 import pandas
 
-from steelscript.appfwk.apps.datasource.models import DatasourceTable
+from steelscript.appfwk.apps.datasource.models import \
+    DatasourceTable, TableQueryBase
 from steelscript.appfwk.apps.devices.devicemanager import DeviceManager
 from steelscript.appfwk.apps.devices.forms import fields_add_device_selection
 from steelscript.appfwk.libs.fields import Function
@@ -21,8 +22,9 @@ logger = logging.getLogger(__name__)
 
 
 class NetProfilerDeviceTable(DatasourceTable):
-    class Meta:
-        proxy = True
+    class Meta: proxy = True
+
+    _query_class = 'NetProfilerDeviceQuery'
 
     def post_process_table(self, field_options):
         self.criteria_handle_func = Function(criteria_handle)
@@ -41,15 +43,7 @@ def criteria_handle(criteria, **kwargs):
     return kvs
 
 
-class TableQuery:
-    # Used by Table to actually run a query
-    def __init__(self, table, job):
-        self.table = table
-        self.job = job
-
-    def fake_run(self):
-        import fake_data
-        self.data = fake_data.make_data(self.table)
+class NetProfilerDeviceQuery(TableQueryBase):
 
     def run(self):
         """ Main execution method

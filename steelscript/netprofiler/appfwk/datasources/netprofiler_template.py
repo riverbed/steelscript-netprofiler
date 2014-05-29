@@ -26,10 +26,12 @@ class NetProfilerTemplateTable(NetProfilerTable):
     class Meta:
         proxy = True
 
+    _query_class = 'NetProfilerTemplateQuery'
+
     TABLE_OPTIONS = {'template_id': None}
 
 
-class TableQuery:
+class NetProfilerTemplateQuery(TableQueryBase):
     # Used by Table to actually run a query
     def __init__(self, table, job):
         self.table = table

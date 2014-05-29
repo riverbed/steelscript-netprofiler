@@ -14,7 +14,8 @@ import steelscript.netprofiler.core
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import (parse_timedelta,
                                           timedelta_total_seconds)
-from steelscript.appfwk.apps.datasource.models import DatasourceTable, Column
+from steelscript.appfwk.apps.datasource.models import \
+    DatasourceTable, Column, TableQueryBase
 from steelscript.appfwk.apps.datasource.models import TableField
 from steelscript.appfwk.apps.devices.forms import fields_add_device_selection
 from steelscript.appfwk.apps.devices.devicemanager import DeviceManager
@@ -50,10 +51,10 @@ def _post_process_combine_filterexprs(form, id, criteria, params):
 
 
 class NetProfilerTable(DatasourceTable):
+
     class Meta:
         proxy = True
-
-    _column_class = Column
+    _query_class = 'NetProfilerQuery'
 
     TABLE_OPTIONS = {'groupby': None,
                      'realm': None,
@@ -161,11 +162,7 @@ class NetProfilerGroupbyTable(NetProfilerTable):
                      'interface': None}
 
 
-class TableQuery:
-    # Used by Table to actually run a query
-    def __init__(self, table, job):
-        self.table = table
-        self.job = job
+class NetProfilerQuery(TableQueryBase):
 
     def fake_run(self):
         import fake_data
