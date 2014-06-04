@@ -18,6 +18,7 @@ import optparse
 class TrafficTimeSeriesApp(NetProfilerApp):
 
     def add_options(self, parser):
+        super(TrafficTimeSeriesApp, self).add_options(parser)
         group = optparse.OptionGroup(parser, "Report Parameters")
         group.add_option('--centricity', dest='centricity', default='host',
                          help='"host" vs "interface" centricity (default "host")')
@@ -51,12 +52,12 @@ class TrafficTimeSeriesApp(NetProfilerApp):
         elif self.options.centricity == 'interface':
             self.centricity = 'int'
         elif self.options.centricity not in ['hos', 'int']:
-            self.optparse.error('Centricity option must be either "int" or "hos".')
+            self.parser.error('Centricity option must be either "int" or "hos".')
         else:
             self.centricity = self.options.centricity
 
         if not self.options.columns:
-            self.optparse.error('Comma-separated list of columns is required.')
+            self.parser.error('Comma-separated list of columns is required.')
 
     def print_data(self, data, header):
         if self.options.as_csv:

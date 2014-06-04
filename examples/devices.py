@@ -7,20 +7,19 @@
 # as set forth in the License.
 
 
-
-
 from steelscript.netprofiler.core.app import NetProfilerApp
 from steelscript.common.utils import Formatter
 
 import optparse
-from itertools import izip
 
 import logging
 logger = logging.getLogger(__name__)
 
+
 class DeviceReport(NetProfilerApp):
 
     def add_options(self, parser):
+        super(DeviceReport, self).add_options(parser)
         group = optparse.OptionGroup(parser, "Device List Options")
         group.add_option('-t', '--typeid', dest='typeid', default=None,
                          help='filter by type id integer')
@@ -28,8 +27,8 @@ class DeviceReport(NetProfilerApp):
                          help='filter by cidr subnets')
         group.add_option('-i', '--ipaddr', dest='ipaddr', default=None,
                          help='return details for specific ip address')
-        group.add_option('--typelist', action='store_true', dest='typelist', default=False,
-                         help='return type information')
+        group.add_option('--typelist', action='store_true', dest='typelist',
+                         default=False, help='return type information')
         parser.add_option_group(group)
         logger.info('added option group')
 
@@ -43,9 +42,9 @@ class DeviceReport(NetProfilerApp):
         if sum([self.options.ipaddr is not None,
                 (self.options.typeid is not None or self.options.cidr is not None),
                 self.options.typelist]) > 1:
-            self.optparse.error('ipaddr, (typeid/cidr), and typelist '
-                                'are mutually exclusive, '
-                                'choose from only one group.')
+            self.parser.error('ipaddr, (typeid/cidr), and typelist '
+                              'are mutually exclusive, '
+                              'choose from only one group.')
 
     def main(self):
         """ Setup query and run report with default column set
@@ -58,7 +57,7 @@ class DeviceReport(NetProfilerApp):
             self.data = self.netprofiler.api.devices.get_types()
         else:
             self.data = self.netprofiler.api.devices.get_all(self.options.typeid,
-                                                          self.options.cidr)
+                                                             self.options.cidr)
 
         #from IPython import embed; embed()
         self.print_columns()

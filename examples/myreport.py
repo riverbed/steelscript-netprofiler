@@ -7,7 +7,6 @@
 # as set forth in the License.
 
 
-
 import sys
 import pprint
 
@@ -26,7 +25,8 @@ host = '<netprofiler.ip.address>'
 if (username == '<username>' or
         password == '<password>' or
         host == '<netprofiler.ip.address>'):
-    print "Update the username, password, and netprofiler host values before running this script."
+    print ("Update the username, password, and netprofiler host values "
+           "before running this script.")
     sys.exit(0)
 
 auth = UserAuth(username, password)

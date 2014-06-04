@@ -7,13 +7,12 @@
 # as set forth in the License.
 
 
-
-
 from steelscript.netprofiler.core import *
 from steelscript.netprofiler.core.app import NetProfilerApp
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 
 import pprint
+
 
 class TopPortsApp(NetProfilerApp):
 
@@ -24,15 +23,15 @@ class TopPortsApp(NetProfilerApp):
 
         # Run the report
         report.run(
-            groupby = self.netprofiler.groupbys.port,
-            columns = [self.netprofiler.columns.key.protoport,
-                       self.netprofiler.columns.key.protoport_name,
-                       self.netprofiler.columns.value.avg_bytes,
-                       self.netprofiler.columns.value.network_rtt],
-            sort_col = self.netprofiler.columns.value.avg_bytes,
-            timefilter = TimeFilter.parse_range("last 15 m"),
-            trafficexpr = TrafficFilter("host 10/8")
-            )
+            groupby=self.netprofiler.groupbys.port,
+            columns=[self.netprofiler.columns.key.protoport,
+                     self.netprofiler.columns.key.protoport_name,
+                     self.netprofiler.columns.value.avg_bytes,
+                     self.netprofiler.columns.value.network_rtt],
+            sort_col=self.netprofiler.columns.value.avg_bytes,
+            timefilter=TimeFilter.parse_range("last 15 m"),
+            trafficexpr=TrafficFilter("host 10/8")
+        )
 
         # Retrieve and print data
         data = report.get_data()

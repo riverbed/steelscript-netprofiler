@@ -18,6 +18,7 @@ import optparse
 class TrafficSummaryApp(NetProfilerApp):
 
     def add_options(self, parser):
+        super(TrafficSummaryApp, self).add_options(parser)
         group = optparse.OptionGroup(parser, "Report Parameters")
         group.add_option('--centricity', dest='centricity', default='host',
                          help='"host" vs "interface" centricity (default "host")')
@@ -55,12 +56,12 @@ class TrafficSummaryApp(NetProfilerApp):
         elif self.options.centricity == 'interface':
             self.centricity = 'int'
         elif self.options.centricity not in ['hos', 'int']:
-            self.optparse.error('Centricity option must be either "int" or "hos".')
+            self.parser.error('Centricity option must be either "int" or "hos".')
         else:
             self.centricity = self.options.centricity
 
         if not self.options.columns:
-            self.optparse.error('Comma-separated list of columns is required.')
+            self.parser.error('Comma-separated list of columns is required.')
 
     def print_data(self, data, header):
         if self.options.as_csv:
@@ -75,7 +76,7 @@ class TrafficSummaryApp(NetProfilerApp):
             self.groupby = self.netprofiler.groupbys[self.options.groupby]
         except KeyError:
             if self.options.groupby not in self.netprofiler.groupbys.values():
-                self.optparse.error('Invalid groupby chosen.')
+                self.parser.error('Invalid groupby chosen.')
             else:
                 self.groupby = self.options.groupby
 
