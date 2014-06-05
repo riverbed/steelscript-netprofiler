@@ -5,7 +5,6 @@
 # as set forth in the License.
 
 
-
 class APIGroup(object):
     """Wrapper for API functions
     """
@@ -124,8 +123,112 @@ class Devices(API1Group):
         return self.type_cache
 
 
+class HostGroupType(API1Group):
+    def __init__(self, *args, **kwargs):
+        super(HostGroupType, self).__init__(*args, **kwargs)
+        self.device_cache = None        # currently unused
+        self.type_cache = None
+
+    def get_all(self, favorite=None, offset=None, sortby=None, sort=None, type=None, limit=None): 
+        """ Get a list of all host grouping types
+        """
+        params = {}
+        if favorite:
+            params['favorite'] = favorite
+        if offset:
+            params['offset'] = offset
+        if sortby:
+            params['sortby'] = sortby
+        if sort:
+            params['sort'] = sort
+        if type:
+            params['type'] = type
+        if limit:
+            params['limit'] = limit
+        return self._json_request('', params=params)
+
+    def get_all_groups(self, type_id, offset=None, sortby=None,sort=None,limit=None):
+        """ Get a list of all host groups for a given host grouping type
+        """
+        params = {}
+        if offset:
+            params['offset'] = offset
+        if sortby:
+            params['sortby'] = sortby
+        if sort:
+            params['sort'] = sort
+        if limit:
+            params['limit'] = limit
+        return self._json_request('/{0}/groups'.format(str(type_id)), params=params)
+
+    def get_config(self, type_id):
+        """ Get host grouping type configuration
+        """
+        params = {}
+        return self._json_request('/{0}/config'.format(str(type_id)), params=params)
+
+    def get(self, type_id):
+        """ Get a specific group type element
+        """
+        params = {}
+        return self._json_request('/{0}'.format(str(type_id)), params=params)
+
+    def get_group(self, type_id, group_id):
+        """ Get a specific group type element
+        """
+        params = {}
+        return self._json_request('/{0}/groups/{1}'.format(str(type_id),str(group_id)), params=params)
+
+    def get_group_members(self, type_id, group_id, offset=None, sort=None,limit=None):
+        """ Get a list of hosts in a specified host group 
+        """
+        params = {}
+        if offset:
+            params['offset'] = offset
+        if sort:
+            params['sort'] = sort
+        if limit:
+            params['limit'] = limit
+        return self._json_request('/{0}/groups/{1}/members'.format(str(type_id),str(group_id)), params=params)
+
+    def create(self, name, desc, favorite, config):
+        """ Create a new host grouping type 
+        """
+        params = {}
+        data = {}
+        data['name'] = name
+        data['description'] = desc
+        data['favorite'] = favorite
+        data['config'] = config
+        return self._json_request('', method='POST', data=data, params=params)
+
+    def set_config(self, type_id, config):
+        """ Update host grouping type configuration 
+        """
+        params = {}
+        return self._json_request('/{0}/config'.format(str(type_id)),method='PUT', data=config, params=params)
+
+    def set(self, type_id, name, desc, favorite, config):
+        """ Update one host grouping type
+        """
+        params = {}
+        data = {}
+        data['name'] = name
+        data['description'] = desc
+        data['favorite'] = favorite
+        data['config'] = config
+        return self._json_request('/{0}'.format(str(type_id)), method='PUT', data=data, params=params)
+
+    def delete(self, type_id):
+        """ Delete one host grouping type
+        """
+        params = {}
+        return self._json_request('/{0}'.format(str(type_id)), method='DELETE', params=params)
+
+
 class Handler(object):
     def __init__(self, profiler):
         self.report = Report('/api/profiler/1.0/reporting', profiler)
         self.devices = Devices('/api/profiler/1.0/devices', profiler)
         self.common = Common('/api/common/1.0', profiler)
+        self.host_group_type = HostGroupType('/api/profiler/1.2/host_group_types', profiler)
