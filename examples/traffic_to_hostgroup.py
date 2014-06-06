@@ -76,7 +76,6 @@ class TrafficToHostGroupApp(NetProfilerApp):
         host_types = self.netprofiler.api.host_group_types.get_all()
         target_type_id = -1
         for i, host_type in enumerate(host_types):
-
             if type_name == host_type['name']:
                 target_type_id = host_type['id']
                 break
