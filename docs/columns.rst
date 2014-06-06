@@ -45,9 +45,9 @@ new instance of your Python interpreter, similar to before:
    [GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2335.15.00)] on darwin
    Type "help", "copyright", "credits" or "license" for more information.
 
-   >>> import rvbd.profiler
-   >>> from rvbd.common.service import UserAuth
-   >>> p = rvbd.profiler.Profiler('$hostname', auth=UserAuth('$username', '$password'))
+   >>> from steelscript.netprofiler.core import NetProfiler
+   >>> from steelscript.common.service import UserAuth
+   >>> p = NetProfiler('$hostname', auth=UserAuth('$username', '$password'))
 
 Now, lets investigate which columns are available for a specific type
 of report:
@@ -80,8 +80,8 @@ specific version of Profiler you are running.
 .. code-block:: bash
 
    >>> columns[:2]
-   [<rvbd.profiler._types.Column(cid=31, key=total_pkts, iskey=False label=Total Packets)>,
-    <rvbd.profiler._types.Column(cid=427, key=in_avg_conns_rsts, iskey=False label=Avg Resets/s (Rx))>]
+   [<Column(cid=31, key=total_pkts, iskey=False label=Total Packets)>,
+    <Column(cid=427, key=in_avg_conns_rsts, iskey=False label=Avg Resets/s (Rx))>]
 
 This command uses `slicing
 <http://stackoverflow.com/questions/509211/the-python-slice-notation>`_
@@ -98,10 +98,10 @@ object as an attribute:
 .. code-block:: bash
 
    >>> print p.columns.value.total_pkts
-   <rvbd.profiler._types.Column(cid=31, key=total_pkts, iskey=False label=Total Packets)>
+   <Column(cid=31, key=total_pkts, iskey=False label=Total Packets)>
 
    >>> print p.columns.key.time
-   <rvbd.profiler._types.Column(cid=98, key=time, iskey=True label=Time)>
+   <Column(cid=98, key=time, iskey=True label=Time)>
 
 To see the complete list of all column keys you could enter the following:
 
