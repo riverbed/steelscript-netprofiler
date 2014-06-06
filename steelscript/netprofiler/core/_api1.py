@@ -123,13 +123,14 @@ class Devices(API1Group):
         return self.type_cache
 
 
-class HostGroupType(API1Group):
+class HostGroupTypes(API1Group):
     def __init__(self, *args, **kwargs):
-        super(HostGroupType, self).__init__(*args, **kwargs)
+        super(HostGroupTypes, self).__init__(*args, **kwargs)
         self.device_cache = None        # currently unused
         self.type_cache = None
 
-    def get_all(self, favorite=None, offset=None, sortby=None, sort=None, type=None, limit=None): 
+    def get_all(self, favorite=None, offset=None, sortby=None,
+                sort=None, type=None, limit=None):
         """ Get a list of all host grouping types
         """
         params = {}
@@ -147,7 +148,8 @@ class HostGroupType(API1Group):
             params['limit'] = limit
         return self._json_request('', params=params)
 
-    def get_all_groups(self, type_id, offset=None, sortby=None,sort=None,limit=None):
+    def get_all_groups(self, type_id, offset=None, sortby=None,
+                       sort=None, limit=None):
         """ Get a list of all host groups for a given host grouping type
         """
         params = {}
@@ -159,13 +161,15 @@ class HostGroupType(API1Group):
             params['sort'] = sort
         if limit:
             params['limit'] = limit
-        return self._json_request('/{0}/groups'.format(str(type_id)), params=params)
+        return self._json_request('/{0}/groups'.format(str(type_id)),
+                                  params=params)
 
     def get_config(self, type_id):
         """ Get host grouping type configuration
         """
         params = {}
-        return self._json_request('/{0}/config'.format(str(type_id)), params=params)
+        return self._json_request('/{0}/config'.format(str(type_id)),
+                                  params=params)
 
     def get(self, type_id):
         """ Get a specific group type element
@@ -177,9 +181,12 @@ class HostGroupType(API1Group):
         """ Get a specific group type element
         """
         params = {}
-        return self._json_request('/{0}/groups/{1}'.format(str(type_id),str(group_id)), params=params)
+        return self._json_request('/{0}/groups/{1}'
+                                  .format(str(type_id), str(group_id)),
+                                  params=params)
 
-    def get_group_members(self, type_id, group_id, offset=None, sort=None,limit=None):
+    def get_group_members(self, type_id, group_id,
+                          offset=None, sort=None,limit=None):
         """ Get a list of hosts in a specified host group 
         """
         params = {}
@@ -189,7 +196,9 @@ class HostGroupType(API1Group):
             params['sort'] = sort
         if limit:
             params['limit'] = limit
-        return self._json_request('/{0}/groups/{1}/members'.format(str(type_id),str(group_id)), params=params)
+        return self._json_request('/{0}/groups/{1}/members'
+                                  .format(str(type_id), str(group_id)),
+                                  params=params)
 
     def create(self, name, desc, favorite, config):
         """ Create a new host grouping type 
@@ -206,7 +215,8 @@ class HostGroupType(API1Group):
         """ Update host grouping type configuration 
         """
         params = {}
-        return self._json_request('/{0}/config'.format(str(type_id)),method='PUT', data=config, params=params)
+        return self._json_request('/{0}/config'.format(str(type_id)),
+                                  method='PUT', data=config, params=params)
 
     def set(self, type_id, name, desc, favorite, config):
         """ Update one host grouping type
@@ -217,13 +227,15 @@ class HostGroupType(API1Group):
         data['description'] = desc
         data['favorite'] = favorite
         data['config'] = config
-        return self._json_request('/{0}'.format(str(type_id)), method='PUT', data=data, params=params)
+        return self._json_request('/{0}'.format(str(type_id)),
+                                  method='PUT', data=data, params=params)
 
     def delete(self, type_id):
         """ Delete one host grouping type
         """
         params = {}
-        return self._json_request('/{0}'.format(str(type_id)), method='DELETE', params=params)
+        return self._json_request('/{0}'.format(str(type_id)),
+                                  method='DELETE', params=params)
 
 
 class Handler(object):
@@ -231,4 +243,4 @@ class Handler(object):
         self.report = Report('/api/profiler/1.0/reporting', profiler)
         self.devices = Devices('/api/profiler/1.0/devices', profiler)
         self.common = Common('/api/common/1.0', profiler)
-        self.host_group_type = HostGroupType('/api/profiler/1.2/host_group_types', profiler)
+        self.host_group_types = HostGroupTypes('/api/profiler/1.2/host_group_types', profiler)
