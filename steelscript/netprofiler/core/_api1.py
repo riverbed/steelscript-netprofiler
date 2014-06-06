@@ -243,4 +243,5 @@ class Handler(object):
         self.report = Report('/api/profiler/1.0/reporting', profiler)
         self.devices = Devices('/api/profiler/1.0/devices', profiler)
         self.common = Common('/api/common/1.0', profiler)
-        self.host_group_types = HostGroupTypes('/api/profiler/1.2/host_group_types', profiler)
+        self.host_group_types = HostGroupTypes(
+            '/api/profiler/1.2/host_group_types', profiler)

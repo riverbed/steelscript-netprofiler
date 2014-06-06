@@ -57,10 +57,8 @@ class TrafficToHostGroupApp(NetProfilerApp):
 
         # Store the report's data
         data = report.get_data()
-        # Fix the group param's format and break it into parts for readability
-        type_and_group = self.options.group.replace(':', '|')
-        type_name = type_and_group.split('|', 1)[0]
-        group_name = type_and_group.split('|', 1)[1]
+        # Grab the type_name and group_name from options.group
+        (type_name, group_name) = self.options.group.split(':', 1)
         # Create an array to store the new config data
         new_config_entries = []
 
@@ -77,9 +75,11 @@ class TrafficToHostGroupApp(NetProfilerApp):
         # Get the ID of the host type specified by name
         host_types = self.netprofiler.api.host_group_types.get_all()
         target_type_id = -1
-        for i in range(len(host_types)):
-            if type_name == host_types[i]['name']:
-                target_type_id = host_types[i]['id']
+        for i, host_type in enumerate(host_types):
+
+            if type_name == host_type['name']:
+                target_type_id = host_type['id']
+                break
         # If target_type_id is still -1, then we didn't find that host
         if target_type_id == -1:
             print('ERROR: Host Group Type: "' + type_name + '" was not found.')
@@ -95,7 +95,6 @@ class TrafficToHostGroupApp(NetProfilerApp):
 
         config.extend(new_config_entries)
         new_config_size = len(config)
-        printer = pprint.PrettyPrinter(2)
         self.netprofiler.api.host_group_types.set_config(target_type_id, config)
         print("Successfully updated type: " + type_name +
               ", group: " + group_name)
