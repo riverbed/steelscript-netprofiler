@@ -7,8 +7,7 @@
 # as set forth in the License.
 
 
-
-# Submitted by Joshau Chessman <jchessman@riverbed.com>
+# Submitted by Joshua Chessman <jchessman@riverbed.com>
 
 import pprint
 import numpy

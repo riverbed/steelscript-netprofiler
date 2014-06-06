@@ -48,36 +48,55 @@ def safe_lambda(trigger):
 class AlerterApp(NetProfilerApp):
 
     def add_options(self, parser):
+        super(AlerterApp, self).add_options(parser)
         group = optparse.OptionGroup(parser, "Trigger Options")
-        group.add_option('--expr1', help="Initial traffic expression to trigger on")
-        group.add_option('--trigger1', help="First Trigger (e.g. '> 1000')")
-        group.add_option('--column1', help="Column to apply trigger against (e.g. 'avg_bytes')")
-        group.add_option('--expr2', help="(Optional) Secondary traffic expression to trigger on")
-        group.add_option('--trigger2', help="(Optional) Second Trigger (e.g. '< 10')")
-        group.add_option('--column2', help="(Optional) Column to apply trigger against (e.g. 'network_rtt')")
-        group.add_option('--refresh', help="Refresh interval for queries in Seconds (default: 5)", default=5)
+        group.add_option('--expr1',
+                         help="Initial traffic expression to trigger on")
+        group.add_option('--trigger1',
+                         help="First Trigger (e.g. '> 1000')")
+        group.add_option('--column1',
+                         help="Column to apply trigger against (e.g. 'avg_bytes')")
+        group.add_option('--expr2',
+                         help="(Optional) Secondary traffic expression to trigger on")
+        group.add_option('--trigger2',
+                         help="(Optional) Second Trigger (e.g. '< 10')")
+        group.add_option('--column2',
+                         help="(Optional) Column to apply trigger against (e.g. 'network_rtt')")
+        group.add_option('--refresh',
+                         help="Refresh interval for queries in Seconds (default: 5)",
+                         default=5)
         parser.add_option_group(group)
 
         group = optparse.OptionGroup(parser, "TRAP Options")
-        group.add_option('--eoid', help="Enterprise OID (defaults to SteelCentral NetProfiler ID: '1.3.6.1.4.1.7054.70.0.' )",
+        group.add_option('--eoid',
+                         help="Enterprise OID (defaults to SteelCentral NetProfiler ID: '1.3.6.1.4.1.7054.70.0.' )",
                          default='1.3.6.1.4.1.7054.70.0.')
-        group.add_option('--trapid', help="Trap code indicator (default: 99)", default='99')
-        group.add_option('--community', help="Community name (default: 'public')", default='public')
-        group.add_option('--manager_ip', help="Destination server for Traps (default: '127.0.0.1')",
+        group.add_option('--trapid', help="Trap code indicator (default: 99)",
+                         default='99')
+        group.add_option('--community',
+                         help="Community name (default: 'public')",
+                         default='public')
+        group.add_option('--manager_ip',
+                         help="Destination server for Traps (default: '127.0.0.1')",
                          default='127.0.0.1')
-        group.add_option('--trap-description', help="Description to use within Trap (default: 'FlyScript SDK Trap Alert')",
+        group.add_option('--trap-description',
+                         help="Description to use within Trap (default: 'SteelScript SDK Trap Alert')",
                          default='FlyScript SDK Trap Alert')
-        group.add_option('--severity', help="Severity of Trap (default: '70')", default=70)
-        group.add_option('--trap-url', help="URL to include in Trap Message (default: 'http://localhost')",
+        group.add_option('--severity', help="Severity of Trap (default: '70')",
+                         default=70)
+        group.add_option('--trap-url',
+                         help="URL to include in Trap Message (default: 'http://localhost')",
                          default='http://localhost')
-        group.add_option('--alert-level', help="Alert level of Trap (1=Low, 2=Medium, 3=High) (default: 2)", default=2)
+        group.add_option('--alert-level',
+                         help="Alert level of Trap (1=Low, 2=Medium, 3=High) (default: 2)",
+                         default=2)
         parser.add_option_group(group)
 
     def validate_args(self):
         super(AlerterApp, self).validate_args()
 
         if not self.options.trigger1:
-            self.optparse.error('At least trigger1 must be specified.')
+            self.parser.error('At least trigger1 must be specified.')
 
     def send_trap(self):
         """ Send a SNMP trap with id `trapid` to the IP address `manager`
@@ -98,22 +117,23 @@ class AlerterApp(NetProfilerApp):
 
         ntf = ntforg.NotificationOriginator()
 
-        err = ntf.sendNotification(ntforg.CommunityData(community),
-                                   ntforg.UdpTransportTarget((manager_ip, 162)),
-                                   'trap',
-                                   trapname,
-                                   ('1.3.6.1.2.1.1.3.0', rfc1902.Integer(0)),                         # Uptime
-                                   ('1.3.6.1.4.1.7054.71.2.1.0', rfc1902.Integer(severity)),            # Severity
-                                   ('1.3.6.1.4.1.7054.71.2.3.0', rfc1902.OctetString(description)),
-                                   ('1.3.6.1.4.1.7054.71.2.4.0', rfc1902.Integer(0)),                   # Event ID
-                                   ('1.3.6.1.4.1.7054.71.2.5.0', rfc1902.OctetString(url)),
-                                   ('1.3.6.1.4.1.7054.71.2.7.0', rfc1902.Integer(alert_level)),         # Alert Level
-                                   ('1.3.6.1.4.1.7054.71.2.8.0', rfc1902.Integer(now)),                 # Start Time
-                                   ('1.3.6.1.4.1.7054.71.2.16.0', rfc1902.Integer(0)),                  # Source Count
-                                   ('1.3.6.1.4.1.7054.71.2.18.0', rfc1902.Integer(0)),                  # Destination Count
-                                   ('1.3.6.1.4.1.7054.71.2.20.0', rfc1902.Integer(0)),                  # Protocol Count
-                                   ('1.3.6.1.4.1.7054.71.2.22.0', rfc1902.Integer(0)),                  # Port Count
-                                   )
+        err = ntf.sendNotification(
+            ntforg.CommunityData(community),
+            ntforg.UdpTransportTarget((manager_ip, 162)),
+            'trap',
+            trapname,
+            ('1.3.6.1.2.1.1.3.0', rfc1902.Integer(0)),                       # Uptime
+            ('1.3.6.1.4.1.7054.71.2.1.0', rfc1902.Integer(severity)),        # Severity
+            ('1.3.6.1.4.1.7054.71.2.3.0', rfc1902.OctetString(description)),
+            ('1.3.6.1.4.1.7054.71.2.4.0', rfc1902.Integer(0)),               # Event ID
+            ('1.3.6.1.4.1.7054.71.2.5.0', rfc1902.OctetString(url)),
+            ('1.3.6.1.4.1.7054.71.2.7.0', rfc1902.Integer(alert_level)),     # Alert Level
+            ('1.3.6.1.4.1.7054.71.2.8.0', rfc1902.Integer(now)),             # Start Time
+            ('1.3.6.1.4.1.7054.71.2.16.0', rfc1902.Integer(0)),              # Source Count
+            ('1.3.6.1.4.1.7054.71.2.18.0', rfc1902.Integer(0)),              # Destination Count
+            ('1.3.6.1.4.1.7054.71.2.20.0', rfc1902.Integer(0)),              # Protocol Count
+            ('1.3.6.1.4.1.7054.71.2.22.0', rfc1902.Integer(0)),              # Port Count
+        )
 
     def run_query(self, report, column, trafficexpr, trigger):
         report.run(columns=column, groupby='hos', trafficexpr=trafficexpr)

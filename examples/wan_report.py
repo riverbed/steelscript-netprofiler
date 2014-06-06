@@ -23,6 +23,7 @@ warnings.simplefilter(action="ignore", category=FutureWarning)
 class WANReportApp(NetProfilerApp):
 
     def add_options(self, parser):
+        super(WANReportApp, self).add_options(parser)
         group = optparse.OptionGroup(parser, "Device List Options")
         group.add_option('--device-address', dest='device_address', default=None,
                          help='IP address for WAN device')
@@ -67,16 +68,15 @@ class WANReportApp(NetProfilerApp):
         if (not self.options.device_address and
                 not self.options.device_name and
                 not (self.options.lan_address and self.options.wan_address)):
-            self.optparse.error('Either device-address, device-name or '
-                                'both lan-address and wan-address required')
+            self.parser.error('Either device-address, device-name or '
+                              'both lan-address and wan-address required')
         elif not self.options.summary and not self.options.time_series:
-            self.optparse.error('Either summary or time_series option required')
+            self.parser.error('Either summary or time_series option required')
         elif not any([self.options.out_inbound,
                       self.options.out_outbound,
                       self.options.out_combined]):
-            self.optparse.error('Choose at least one output option: '
-                                '--inbound, --outbound, --combined')
-
+            self.parser.error('Choose at least one output option: '
+                              '--inbound, --outbound, --combined')
 
     def print_data(self, data, header):
         if self.options.as_csv:

@@ -29,29 +29,31 @@ AGGREGATION = {'total': lambda x: sum(x),
                'min'  : lambda x: min(x)}
 
 # Columns for Time Series Report
-TCOLUMNS = [('time',              AGGREGATION['min']),
-            ('total_bytes',       AGGREGATION['total']),
-            ('avg_bytes',         AGGREGATION['avg']),
-            ('network_rtt',       AGGREGATION['peak']),
-            ('response_time',     AGGREGATION['peak']),
-            ('server_delay',      AGGREGATION['peak']),
-            ('avg_conns_rsts',    AGGREGATION['avg']),
-            ('avg_pkts_rtx',      AGGREGATION['avg']),
-            ('avg_rsec_jitter',   AGGREGATION['avg']),
-            ('avg_vqual_mos',     AGGREGATION['min']),
-            ]
+TCOLUMNS = [
+    ('time',              AGGREGATION['min']),
+    ('total_bytes',       AGGREGATION['total']),
+    ('avg_bytes',         AGGREGATION['avg']),
+    ('network_rtt',       AGGREGATION['peak']),
+    ('response_time',     AGGREGATION['peak']),
+    ('server_delay',      AGGREGATION['peak']),
+    ('avg_conns_rsts',    AGGREGATION['avg']),
+    ('avg_pkts_rtx',      AGGREGATION['avg']),
+    ('avg_rsec_jitter',   AGGREGATION['avg']),
+    ('avg_vqual_mos',     AGGREGATION['min']),
+]
 
 # Columns for Traffic Summary Report
-SCOLUMNS = [('total_bytes',       AGGREGATION['total']),
-            ('avg_bytes',         AGGREGATION['avg']),
-            ('network_rtt',       AGGREGATION['peak']),
-            ('response_time',     AGGREGATION['peak']),
-            ('server_delay',      AGGREGATION['peak']),
-            ('avg_conns_rsts',    AGGREGATION['avg']),
-            ('avg_pkts_rtx',      AGGREGATION['avg']),
-            ('avg_rsec_jitter',   AGGREGATION['avg']),
-            ('avg_vqual_mos',     AGGREGATION['min']),
-            ]
+SCOLUMNS = [
+    ('total_bytes',       AGGREGATION['total']),
+    ('avg_bytes',         AGGREGATION['avg']),
+    ('network_rtt',       AGGREGATION['peak']),
+    ('response_time',     AGGREGATION['peak']),
+    ('server_delay',      AGGREGATION['peak']),
+    ('avg_conns_rsts',    AGGREGATION['avg']),
+    ('avg_pkts_rtx',      AGGREGATION['avg']),
+    ('avg_rsec_jitter',   AGGREGATION['avg']),
+    ('avg_vqual_mos',     AGGREGATION['min']),
+]
 
 
 def format_time(value):
@@ -63,6 +65,7 @@ def format_time(value):
 class IdentityApp(NetProfilerApp):
 
     def add_options(self, parser):
+        super(IdentityApp, self).add_options(parser)
         group = optparse.OptionGroup(parser, 'Identity Report Options')
         group.add_option('-n', '--identity-name', dest='identity_name',
                          help='Login name to use for search')
@@ -123,22 +126,22 @@ class IdentityApp(NetProfilerApp):
 
         if self.options.timerange and (self.options.time0 or
                                        self.options.time1):
-            self.optparse.error('timerange and t0/t1 are mutually exclusive, '
-                                'choose only one.')
+            self.parser.error('timerange and t0/t1 are mutually exclusive, '
+                              'choose only one.')
 
         elif (not self.options.timerange and
               not self.options.time0 and
               not self.options.time1):
-            self.optparse.error('A timerange must be chosen.')
+            self.parser.error('A timerange must be chosen.')
 
         elif not self.options.identity_name:
-            self.optparse.error('An identity_name must be chosen.')
+            self.parser.error('An identity_name must be chosen.')
 
         elif int(self.options.backsearch) > 24:
-            self.optparse.error('Time for back search cannot exceed "24" hours.')
+            self.parser.error('Time for back search cannot exceed "24" hours.')
 
         elif self.options.timeseries_report and self.options.summary_report:
-            self.optparse.error('Only one report type may be selected at a time.')
+            self.parser.error('Only one report type may be selected at a time.')
 
     def identity_report(self, timefilter=None, trafficexpr=None, testfile=None):
         """ Run IdentityReport and return data
@@ -291,22 +294,31 @@ class IdentityApp(NetProfilerApp):
         cache = {}
         combined_activity = []
         for event in activity:
-            host = event[0]
+            # handle dns names in host along with IP address
+            host = event[0].split('|', 1)[0]
+
             timefilter = TimeFilter(string_to_datetime(event[1]),
                                     string_to_datetime(event[2]))
+            # if event occurs in less than a minute, add extra minute to report
+            while len(timefilter.profiler_minutes()) == 1:
+                timefilter.end += datetime.timedelta(minutes=1)
+
+            # normalize times to minute increments
+            mins = timefilter.profiler_minutes()
+            tf = TimeFilter(mins[0], mins[-1])
 
             if self.options.usecache and report_type == 'timeseries':
-                # check cache - only consider a hit when whole time period is covered
-                minutes = timefilter.profiler_minutes(astimestamp=True)
+                # only consider a hit when whole time period is covered
+                minutes = tf.profiler_minutes(astimestamp=True)
 
                 if host in cache and all(t in cache[host] for t in minutes):
                     data = [cache[host][t] for t in minutes]
                 else:
-                    legend, data = self.traffic_report(host, timefilter, report_type)
+                    legend, data = self.traffic_report(host, tf, report_type)
                     # store results in cache by host->times->data
                     cache.setdefault(host, {}).update((int(x[0]), x) for x in data)
             else:
-                legend, data = self.traffic_report(host, timefilter, report_type)
+                legend, data = self.traffic_report(host, tf, report_type)
 
             if data:
                 if self.options.aggregate and report_type == 'timeseries':
@@ -353,9 +365,9 @@ class IdentityApp(NetProfilerApp):
 
         legend, activity = self.analyze_login_data(all_data, legend_columns)
 
-        if self.options.timeseries_report:
+        if activity and self.options.timeseries_report:
             headers, tbl_data = self.generate_traffic(activity, legend, 'timeseries')
-        elif self.options.summary_report:
+        elif activity and self.options.summary_report:
             headers, tbl_data = self.generate_traffic(activity, legend, 'summary')
         else:
             headers = ('Host IP', 'Login Time', 'Logout Time', 'Duration')

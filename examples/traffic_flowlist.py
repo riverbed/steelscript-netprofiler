@@ -18,6 +18,7 @@ import optparse
 class TrafficFlowListApp(NetProfilerApp):
 
     def add_options(self, parser):
+        super(TrafficFlowListApp, self).add_options(parser)
         group = optparse.OptionGroup(parser, "Report Parameters")
         group.add_option('--columns', dest='columns',
                          help='Comma-separated list of column names and/or '
@@ -47,7 +48,7 @@ class TrafficFlowListApp(NetProfilerApp):
         super(TrafficFlowListApp, self).validate_args()
 
         if not self.options.columns:
-            self.optparse.error('Comma-separated list of columns is required.')
+            self.parser.error('Comma-separated list of columns is required.')
 
     def print_data(self, data, header):
         if self.options.as_csv:

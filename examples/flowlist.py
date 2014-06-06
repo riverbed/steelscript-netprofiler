@@ -7,8 +7,6 @@
 # as set forth in the License.
 
 
-
-
 from steelscript.netprofiler.core.app import NetProfilerApp
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.netprofiler.core.report import TrafficFlowListReport
@@ -16,9 +14,11 @@ from steelscript.common.utils import Formatter
 
 import optparse
 
+
 class NetProfilerReport(NetProfilerApp):
 
     def add_options(self, parser):
+        super(NetProfilerReport, self).add_options(parser)
         group = optparse.OptionGroup(parser, "Traffic Flow Options")
         group.add_option('--time0', dest='time0', default=None,
                          help='Start time for report')
@@ -26,8 +26,8 @@ class NetProfilerReport(NetProfilerApp):
                          help='End time for report')
         group.add_option('-r', '--timerange', dest='timerange', default=None,
                          help='Optional time range in place of t0 and t1')
-        group.add_option('-e', '--traffic-expression', dest='trafficexpr', default=None,
-                         help='Traffic Expression to query on')
+        group.add_option('-e', '--traffic-expression', dest='trafficexpr',
+                         default=None, help='Traffic Expression to query on')
         parser.add_option_group(group)
 
     def validate_args(self):
@@ -37,9 +37,8 @@ class NetProfilerReport(NetProfilerApp):
 
         if self.options.timerange and (self.options.time0 or
                                        self.options.time1):
-            self.optparse.error('timerange and t0/t1 are mutually exclusive, '
-                                'choose only one.')
-
+            self.parser.error('timerange and t0/t1 are mutually exclusive, '
+                              'choose only one.')
 
     def main(self):
         """ Setup query and run report with default column set
