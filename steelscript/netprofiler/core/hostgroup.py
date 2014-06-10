@@ -4,7 +4,8 @@
 # accompanying the software ("License").  This software is distributed "AS IS"
 # as set forth in the License.
 
-from steelscript.common.exceptions import RvbdException
+from steelscript.common.exceptions import RvbdException, RvbdHTTPException
+import logging
 
 # Examples:
 #
@@ -21,6 +22,8 @@ from steelscript.common.exceptions import RvbdException
 #
 #   >>> byloc.save()
 #
+
+logger = logging.getLogger(__name__)
 
 
 class HostGroupType(object):
@@ -44,7 +47,7 @@ class HostGroupType(object):
     @classmethod
     def find_by_name(cls, netprofiler, name):
         """Find and load a host group type by name."""
-        type_id = HostGroupType.__find_id(netprofiler, name)
+        type_id = HostGroupType._find_id(netprofiler, name)
         host_group_type = HostGroupType(netprofiler, type_id)
         host_group_type.load()
         return host_group_type
@@ -57,8 +60,8 @@ class HostGroupType(object):
         when save() is called.
 
         """
-        # host_group_type.id is set to -1 until it gets saved
-        host_group_type = HostGroupType(netprofiler, -1)
+        # host_group_type.id is set to None until it gets saved
+        host_group_type = HostGroupType(netprofiler, None)
         host_group_type.name = name
         host_group_type.favorite = favorite
         host_group_type.description = description
@@ -66,7 +69,7 @@ class HostGroupType(object):
 
     def load(self):
         """Load settings and groups."""
-        if self.id == -1:
+        if self.id is None:
             raise RvbdException('Type: "{0}" has not yet been saved to the '
                                 'Netprofiler, so there is nothing to load. '
                                 'Call $host_group_type.save() first to save it.'
@@ -76,16 +79,23 @@ class HostGroupType(object):
         self.favorite = info['favorite']
         self.description = info['description']
 
-        # Get the config, if it is empty then it will throw an exception.
         try:
             self.config = self.netprofiler.api.host_group_types.get_config(self.id)
-        except RvbdException:
-            pass
+        except RvbdHTTPException as e:
+            # When you call get_config a RESOURCE_NOT_FOUND error is raised if
+            # the config of that type is empty, even if the host group type
+            # exists. Because of this we except that error and move on with load
+            if e.error_id == 'RESOURCE_NOT_FOUND':
+                logger.debug('RESOURCE_NOT_FOUND exception raised because the '
+                             'config is empty. It was excepted because we '
+                             'still want the HostGroupType.')
+                self.config = []
+                self.groups = []
+            else:
+                raise e
 
         # Get the groups, we will need to reformat the output to fit our dict.
-        groups_data = self.netprofiler.api.host_group_types.get_all_groups(
-            self.id)
-        for i, host_group in enumerate(groups_data):
+        for host_group in self.config:
             self.groups[host_group['name']] = HostGroup(self, host_group['name'])
 
     def save(self):
@@ -95,10 +105,12 @@ class HostGroupType(object):
         """
 
         # If this is a new HostGroupType, then create it
-        if self.id == -1:
+        if self.id is None:
             type_info = self.netprofiler.api.host_group_types.create(
                 self.name, self.description, self.favorite, self.config)
             self.id = type_info['id']
+            logger.debug("New HostGroupType created with Name: {0} and ID: {1}"
+                         .format(self.name, self.id))
             return
         # Otherwise just set the preexisting HostGroupType with the new info
         self.netprofiler.api.host_group_types.set(self.name, self.description,
@@ -110,9 +122,6 @@ class HostGroupType(object):
         :param new_host_group: the new HostGroup to be added
 
         """
-        if not isinstance(new_host_group.name, basestring):
-            raise RvbdException('The host group: "{0}" name is not a string.'
-                                .format(new_host_group))
         if new_host_group.name in self.groups.keys():
             raise RvbdException('Host group: "{0}" already exists.'
                                 .format(self.name))
@@ -121,24 +130,25 @@ class HostGroupType(object):
 
     def delete(self):
         """Delete this host group type and all groups."""
-        if self.id == -1:
+        if self.id is None:
             raise RvbdException('Type: "{0}" has not yet been saved to the '
                                 'Netprofiler, so there is nothing to delete. '
                                 'Call $host_group_type.save() first to save it.'
                                 .format(self.name))
         self.netprofiler.api.host_group_types.delete(self.id)
+        self.id = None
 
     @classmethod
-    def __find_id(cls, netprofiler, name):
+    def _find_id(cls, netprofiler, name):
         # Get the ID of the host type specified by name
         host_types = netprofiler.api.host_group_types.get_all()
-        target_type_id = -1
-        for i, host_type in enumerate(host_types):
+        target_type_id = None
+        for host_type in host_types:
             if name == host_type['name']:
                 target_type_id = host_type['id']
                 break
         # If target_type_id is still -1, then we didn't find that host
-        if target_type_id == -1:
+        if target_type_id is None:
             raise RvbdException('{0} is not a valid type name '
                                 'for this netprofiler'.format(name))
         return target_type_id
@@ -156,6 +166,8 @@ class HostGroup(object):
 
     def __init__(self, hostgrouptype, name):
         """New object representing a host group by name."""
+        if not isinstance(name, basestring):
+            raise RvbdException("This host group's name is not a string.")
         self.host_group_type = hostgrouptype
         self.name = name
 
@@ -212,10 +224,11 @@ class HostGroup(object):
 
         if replace:
             self.clear()
+
         # Format the cidrs to be in the correct format for the config
         old_config = self.host_group_type.config
         new_config = []
-        for i, cidr in enumerate(cidrs):
+        for cidr in cidrs:
             new_config.append({'cidr': cidr, 'name': self.name})
 
         # Add the new_config in the correct location
@@ -242,11 +255,14 @@ class HostGroup(object):
         """
         if isinstance(cidrs, basestring):
             cidrs = [cidrs]
-        self.host_group_type.config = filter(lambda a: a['cidr'] not in cidrs or a['name'] != self.name, self.host_group_type.config)
+        self.host_group_type.config = filter(
+            lambda a: a['cidr'] not in cidrs or a['name'] != self.name,
+            self.host_group_type.config)
 
     def clear(self):
         """Clear all definitions for this host group."""
-        self.host_group_type.config = filter(lambda a: a['name'] != self.name, self.host_group_type.config)
+        self.host_group_type.config = filter(lambda a: a['name'] != self.name,
+                                             self.host_group_type.config)
 
     def get(self):
         """Return a list of CIDRs assigned to this host group."""
