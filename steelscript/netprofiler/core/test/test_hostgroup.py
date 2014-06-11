@@ -64,7 +64,7 @@ class HostGroupTests(unittest.TestCase):
         """ Check that when you create a new group type that it is added """
         host_group_type = HostGroupType.create(self.profiler, "TestType4057")
         host_group_type.save()
-        host_copy = HostGroupType.find_by_name(self.profiler, "TestType4057")
+        HostGroupType.find_by_name(self.profiler, "TestType4057")
         host_group_type.delete()
         self.assertIsNone(host_group_type.id)
 
@@ -80,7 +80,6 @@ class HostGroupTests(unittest.TestCase):
             new_host_groups.append(HostGroup(host_group_type, 'Test'+str(i)))
             new_host_groups[i].add("10.9{0}.11.0/24".format(i),
                                    keep_together=True, prepend=False)
-            host_group_type.add_host_group(new_host_groups[i])
         # Add our special host group that will be what we focus on
         new_host_groups[9].add("10.10.21.0/24", keep_together=True, prepend=False)
         host_group_type.save()
@@ -100,7 +99,6 @@ class HostGroupTests(unittest.TestCase):
             new_host_groups.append(HostGroup(host_group_type, 'Test'+str(i)))
             new_host_groups[i].add("10.9{0}.11.0/24".format(i),
                                    keep_together=True, prepend=False)
-            host_group_type.add_host_group(new_host_groups[i])
         # Add our special host group that will be what we focus on
         new_host_groups[0].add("10.10.21.0/24", keep_together=True, prepend=True)
         host_group_type.save()
@@ -116,11 +114,9 @@ class HostGroupTests(unittest.TestCase):
         host_group_type = HostGroupType.create(self.profiler, "TestType4057")
         prepend_group = HostGroup(host_group_type, "PrependGroup")
         prepend_group.add("10.91.11.0/24", keep_together=False, prepend=True)
-        host_group_type.add_host_group(prepend_group)
 
         append_group = HostGroup(host_group_type, "AppendGroup")
         append_group.add("10.91.11.0/24", keep_together=False, prepend=False)
-        host_group_type.add_host_group(append_group)
 
         self.assertEqual(host_group_type.config[0]['name'], 'PrependGroup')
         self.assertEqual(host_group_type.config[1]['name'], 'AppendGroup')
@@ -136,7 +132,6 @@ class HostGroupTests(unittest.TestCase):
             new_host_groups.append(HostGroup(host_group_type, 'Test'+str(i)))
             new_host_groups[i].add("10.9{0}.11.0/24".format(i),
                                    keep_together=True, prepend=False)
-            host_group_type.add_host_group(new_host_groups[i])
         # Add our special host group that will be what we focus on
         new_host_groups[9].add("10.10.21.0/24", keep_together=True,
                                prepend=False, replace=True)
@@ -160,7 +155,6 @@ class HostGroupTests(unittest.TestCase):
             new_host_groups.append(HostGroup(host_group_type, 'Test'+str(i)))
             new_host_groups[i].add("10.9{0}.11.0/24".format(i),
                                    keep_together=True, prepend=False)
-            host_group_type.add_host_group(new_host_groups[i])
         # Add our special host group that will be what we focus on
         new_host_groups[9].add("10.10.21.0/24", keep_together=True,
                                prepend=False)
@@ -186,9 +180,9 @@ class HostGroupTests(unittest.TestCase):
         host_group_type.save()
         host_group_type.delete()
         self.assertRaises(RvbdException, host_group_type.delete)
-        host_group_type.create(self.profiler, "AnotherTestType4057", False, "PODLE")
+        host_group_type.create(self.profiler, "AnotherTestType4057", False, "PLE")
         self.assertRaises(RvbdException, host_group_type.load)
-        host_group_type.add_host_group(HostGroup(host_group_type, "TestGroup"))
+        HostGroup(host_group_type, "TestGroup")
         host_group_type.groups['TestGroup'].get()
         host_group_type.config = host_group_type.groups['TestGroup'].get()
 
@@ -204,8 +198,8 @@ class HostGroupTests(unittest.TestCase):
         """
         host_group_type = HostGroupType.create(self.profiler, "TestType4057")
         prepend_group = HostGroup(host_group_type, "PrependGroup")
-        prepend_group.add(["10.91.11.0/24", "10.92.11.0/24"], keep_together=False, prepend=True)
-        host_group_type.add_host_group(prepend_group)
+        prepend_group.add(["10.91.11.0/24", "10.92.11.0/24"],
+                          keep_together=False, prepend=True)
 
         self.assertEqual(host_group_type.config[0]['cidr'], '10.91.11.0/24')
         self.assertEqual(host_group_type.config[1]['cidr'], '10.92.11.0/24')
@@ -220,4 +214,3 @@ if __name__ == '__main__':
     sys.argv = [sys.argv[0]]
 
     unittest.main()
-

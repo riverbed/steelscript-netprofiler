@@ -96,7 +96,7 @@ class HostGroupType(object):
 
         # Get the groups, we will need to reformat the output to fit our dict.
         for host_group in self.config:
-            self.groups[host_group['name']] = HostGroup(self, host_group['name'])
+            HostGroup(self, host_group['name'])
 
     def save(self):
         """Save settings and groups.
@@ -116,7 +116,17 @@ class HostGroupType(object):
         self.netprofiler.api.host_group_types.set(self.name, self.description,
                                                   self.favorite, self.config)
 
-    def add_host_group(self, new_host_group):
+    def delete(self):
+        """Delete this host group type and all groups."""
+        if self.id is None:
+            raise RvbdException('Type: "{0}" has not yet been saved to the '
+                                'Netprofiler, so there is nothing to delete. '
+                                'Call $host_group_type.save() first to save it.'
+                                .format(self.name))
+        self.netprofiler.api.host_group_types.delete(self.id)
+        self.id = None
+
+    def _add_host_group(self, new_host_group):
         """ Add a new host group to groups dictionary.
 
         :param new_host_group: the new HostGroup to be added
@@ -128,16 +138,6 @@ class HostGroupType(object):
 
         self.groups[new_host_group.name] = new_host_group
 
-    def delete(self):
-        """Delete this host group type and all groups."""
-        if self.id is None:
-            raise RvbdException('Type: "{0}" has not yet been saved to the '
-                                'Netprofiler, so there is nothing to delete. '
-                                'Call $host_group_type.save() first to save it.'
-                                .format(self.name))
-        self.netprofiler.api.host_group_types.delete(self.id)
-        self.id = None
-
     @classmethod
     def _find_id(cls, netprofiler, name):
         # Get the ID of the host type specified by name
@@ -147,7 +147,7 @@ class HostGroupType(object):
             if name == host_type['name']:
                 target_type_id = host_type['id']
                 break
-        # If target_type_id is still -1, then we didn't find that host
+        # If target_type_id is still None, then we didn't find that host
         if target_type_id is None:
             raise RvbdException('{0} is not a valid type name '
                                 'for this netprofiler'.format(name))
@@ -170,6 +170,7 @@ class HostGroup(object):
             raise RvbdException("This host group's name is not a string.")
         self.host_group_type = hostgrouptype
         self.name = name
+        self.host_group_type._add_host_group(self)
 
     def add(self, cidrs, prepend=False, keep_together=True,
             replace=False):
