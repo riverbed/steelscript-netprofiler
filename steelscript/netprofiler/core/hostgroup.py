@@ -96,7 +96,8 @@ class HostGroupType(object):
 
         # Get the groups, we will need to reformat the output to fit our dict.
         for host_group in self.config:
-            HostGroup(self, host_group['name'])
+            if host_group['name'] not in self.config:
+                HostGroup(self, host_group['name'])
 
     def save(self):
         """Save settings and groups.
