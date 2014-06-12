@@ -1,8 +1,14 @@
+"""
+The Host Group module provides an interface for manipulating host group types
+and their host groups and hosts.
+"""
+
 # Copyright (c) 2014 Riverbed Technology, Inc.
 #
 # This software is licensed under the terms and conditions of the MIT License
 # accompanying the software ("License").  This software is distributed "AS IS"
 # as set forth in the License.
+
 
 from steelscript.common.exceptions import RvbdException, RvbdHTTPException
 import logging
@@ -27,7 +33,42 @@ logger = logging.getLogger(__name__)
 
 
 class HostGroupType(object):
+    """ Convenience class to allow easy access to host group types.
+
+    Use this class to create new and access existing host group types. 
+    Within a host group type you can add and remove it's :class:`HostGroups` 
+    and their members. All changes to host group types will be *local* 
+    until :func:`save` is called. 
+
+    Example **accessing** an existing :class:`HostGroupType` and 
+    adding a new :class:`HostGroup` member to it:: 
+      >>> byloc = HostGroupType.find_by_name(netprofiler, 'ByLocation')
+      >>> sanfran = byloc.group['sanfran']
+      <HostGroup 'sanfran'>
+      >>> sanfran.get()
+      ['10.99.1/24']
+      >>> sanfran.add('10.99.2/24')
+      ['10.99.1/24', '10.99.2/24']
+      >>> byloc.save()
+
+
+    Example **creating** a new :class:`HostGroupType`, :class:`HostGroup`, 
+    and group member:: 
+      >>> by_region = HostGroupType.create(netprofiler, 'ByRegion')
+      >>> north_america = HostGroup(by_region, 'north_america') 
+      <HostGroup 'north_america'>
+      >>> north_america.get()
+      []
+      >>> north_america.add(['10.99.1/24', '10.99.2/24'])
+      ['10.99.1/24', '10.99.2/24']
+      >>> by_region.save()
+    """
+
     def __init__(self, netprofiler, id):
+        """ 
+        :class:`HostGroupType` should not be instantiated directly,
+        instead use :func:`create` or :func:`find_by_name`. 
+        """
         # Host group id
         self.id = id
         # NetProfiler
@@ -56,8 +97,13 @@ class HostGroupType(object):
     def create(cls, netprofiler, name, favorite=False, description=''):
         """Create a new hostgroup type.
 
+        :param Netprofiler netprofiler: The Netprofiler you are using.
+        :param str name: The name of the new :class:`HostGroupType`.
+        :param bool favorite: if True, this type will be listed as a favorite.
+        :param str description: The hostgroup type's description. 
+
         The new host group type will be created on the NetProfiler
-        when save() is called.
+        when :func:`save` is called.
 
         """
         # host_group_type.id is set to None until it gets saved
@@ -166,7 +212,13 @@ class HostGroup(object):
     # operate on hostgrouptype.config
 
     def __init__(self, hostgrouptype, name):
-        """New object representing a host group by name."""
+        """New object representing a host group by name.
+        
+        The new :class:`HostGroup` will be automatically added to the
+        provided :class:`HostGroupType` and can be accessed with::
+          host_group_type.groups['group_name']
+
+        """
         if not isinstance(name, basestring):
             raise RvbdException("This host group's name is not a string.")
         self.host_group_type = hostgrouptype
@@ -177,7 +229,7 @@ class HostGroup(object):
             replace=False):
         """Add a CIDR to this definition.
 
-        :param str or list cidrs: CIDR or list of CIDRS to add to this
+        :param string/list cidrs: CIDR or list of CIDRS to add to this
             host group
 
         :param bool prepend: if True, prepend instead of append
@@ -251,7 +303,7 @@ class HostGroup(object):
     def remove(self, cidrs):
         """Remove a CIDR from this host group.
 
-        :param str or list cidrs: CIDR or list of CIDRS to remove from
+        :param string/list cidrs: CIDR or list of CIDRS to remove from
             this host group
 
         """
