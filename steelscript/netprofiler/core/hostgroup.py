@@ -1,14 +1,13 @@
-"""
-The Host Group module provides an interface for manipulating host group types
-and their host groups and hosts.
-"""
-
 # Copyright (c) 2014 Riverbed Technology, Inc.
 #
 # This software is licensed under the terms and conditions of the MIT License
 # accompanying the software ("License").  This software is distributed "AS IS"
 # as set forth in the License.
 
+"""
+The Host Group module provides an interface for manipulating host group types
+and their host groups and hosts.
+"""
 
 from steelscript.common.exceptions import RvbdException, RvbdHTTPException
 import logging
