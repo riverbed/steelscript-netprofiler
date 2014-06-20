@@ -12,7 +12,7 @@ and their host groups and hosts.
 from steelscript.common.exceptions import RvbdException, RvbdHTTPException
 import logging
 
-# Examples:
+# Examples: 
 #
 # >>> byloc = HostGroupType.find_by_name(netprofiler, 'ByLocation')
 #
