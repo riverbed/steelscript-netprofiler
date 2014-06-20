@@ -4,8 +4,13 @@ from steelscript.netprofiler.core.hostgroup import HostGroup, HostGroupType
 from steelscript.common.service import UserAuth
 from steelscript.common.exceptions import RvbdException
 
-import unittest
+import sys
 import logging
+
+if sys.version_info < (2, 7):
+    import unittest2 as unittest
+else:
+    import unittest
 
 try:
     from testconfig import config
