@@ -121,3 +121,27 @@ NetProfiler and Reporting
    :members:
 
    .. automethod:: __init__
+
+:py:mod:`steelscript.netprofiler.core.hostgroup`
+================================================
+
+.. automodule:: steelscript.netprofiler.core.hostgroup
+
+.. currentmodule:: steelscript.netprofiler.core.hostgroup
+
+:py:class:`HostGroupType` Objects
+---------------------------------
+
+.. autoclass:: HostGroupType
+   :members:
+
+   .. automethod:: __init__
+
+:py:class:`HostGroup` Objects
+-----------------------------
+
+.. autoclass:: HostGroup
+   :members:
+
+   .. automethod:: __init__
+
