@@ -46,7 +46,6 @@ groupbys = dict([
                     ('port', 'por'),
                     ('port_group', 'pgr'),
                     ('protocol', 'pro'),
-                    ('qos', 'qos'),
                     ('segment', 'seg'),
 #                    ('service', 'svc'),
 #                    ('service_component', 'scm'),
