@@ -75,7 +75,15 @@ class NetProfiler(steelscript.common.service.Service):
 
         self._info = None
 
-        _key, _value = ('dsc', 'dsc') if self.support_dscp else ('qos', 'qos')
+        # checking if the profiler supports 1.2
+        # if yes, then use column dsc
+        # otherwise, use column qos
+        import pdb;pdb.set_trace()
+        if (self.supported_versions is None or
+           APIVersion("1.2") in self.supported_versions):
+            _key, _value = ('dsc', 'dsc')
+        else:
+            _key, _value = ('qos', 'qos')
         self.groupbys[_key] = _value
 
         self._load_file_caches()
