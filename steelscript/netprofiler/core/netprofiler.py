@@ -78,7 +78,6 @@ class NetProfiler(steelscript.common.service.Service):
         # checking if the profiler supports 1.2
         # if yes, then use column dsc
         # otherwise, use column qos
-        import pdb;pdb.set_trace()
         if (self.supported_versions is None or
            APIVersion("1.2") in self.supported_versions):
             _key, _value = ('dsc', 'dsc')
