@@ -198,14 +198,14 @@ class PercentileApp(NetProfilerApp):
                   numpy.percentile(bucketed_data, percentile))
 
             if self.options.median:
-                print "Median average bytes: {}".format(numpy.percentile(rawdata, 50))
+                print "Median average bytes: {}".format(numpy.percentile(bucketed_data, 50))
 
             if self.options.max or self.options.min:
                 print
                 if self.options.max:
-                    print "Max average bytes: {}".format(max(rawdata))
+                    print "Max average bytes: {}".format(max(bucketed_data))
                 if self.options.min:
-                    print "Min average bytes: {}".format(min(rawdata))
+                    print "Min average bytes: {}".format(min(bucketed_data))
 
     def main(self):
         if self.options.listinterfacegroups:
