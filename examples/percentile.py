@@ -49,7 +49,7 @@ class PercentileApp(NetProfilerApp):
         group.add_option(
             '-i', '--timeresolution', default="1min",
             help=("Force this time resolution. (Options include 1min, 15min, "
-                 "hour, 6hour, day, and week. Default: 1min."))
+                  "hour, 6hour, day, and week. Default: 1min."))
         parser.add_option_group(group)
 
         group = optparse.OptionGroup(parser, 'output')
@@ -83,7 +83,7 @@ class PercentileApp(NetProfilerApp):
                   "--sshusername and --sshpassword to be defined.)"))
         group.add_option('--listhostgroups', action='store_true', default=False,
                          help=("List all available host groups, organized by "
-                              "group type"))
+                               "group type"))
         parser.add_option_group(group)
 
         group = optparse.OptionGroup(parser, 'graph options')
@@ -112,7 +112,9 @@ class PercentileApp(NetProfilerApp):
 
         if self.options.startzero:
             plt.ylim(ymin=0)
-        plt.ylim(ymax=int(int(max(bucketed_data) * 1.2))) # Add a little vertical space for legend
+
+        # Add a little vertical space for legend
+        plt.ylim(ymax=int(int(max(bucketed_data) * 1.2)))
 
         if self.options.percentileline:
             plt.axhline(percentile_val, color='r',
@@ -189,7 +191,7 @@ class PercentileApp(NetProfilerApp):
 
         if self.options.clean:
             print "{} {}".format(self.options.trafficfilter,
-                numpy.percentile(bucketed_data, percentile))
+                                 numpy.percentile(bucketed_data, percentile))
         else:
             if self.options.rawdata:
                 print "Raw data points:", ", ".join(str(val) for val in rawdata)
@@ -231,7 +233,8 @@ class PercentileApp(NetProfilerApp):
             print "Using the traffic filter: {}".format(self.options.trafficfilter)
             print "With this time resolution: {}".format(self.options.timeresolution)
             print "Calculating data at percentile {}".format(self.options.percentile)
-            print "Averaging based on buckets of {} minutes".format(self.options.buckettime)
+            print ("Averaging based on buckets of {} "
+                  "minutes").format(self.options.buckettime)
             if self.options.graph:
                 print "Saving a graph to {}".format(self.options.graph)
             print
