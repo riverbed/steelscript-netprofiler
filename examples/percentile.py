@@ -115,6 +115,9 @@ class PercentileApp(NetProfilerApp):
                  label=self.options.trafficfilter)
         plt.axhline(percentile_val, color='r',
                     label="{}% = {}".format(percentile, percentile_val)) 
+        plt.xlim(0, end)
+        plt.ylim(ymax=int(int(max(bucketed_data) * 1.2))) # Add a little vertical space for legend
+
 
         plt.xlabel("Time (minutes)")
         plt.xticks(rotation="vertical")
