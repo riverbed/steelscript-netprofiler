@@ -9,11 +9,11 @@
 
 # Submitted by Joshua Chessman <jchessman@riverbed.com>
 
-import pprint
 import numpy
 import paramiko
 import optparse
 import matplotlib.pyplot as plt
+from matplotlib.font_manager import FontProperties
 
 from steelscript.netprofiler.core.app import NetProfilerApp
 from steelscript.netprofiler.core import *
@@ -87,7 +87,7 @@ class PercentileApp(NetProfilerApp):
                               "group type"))
         parser.add_option_group(group)
 
-        group = optparse.OptionGroup(parser,'graph options')
+        group = optparse.OptionGroup(parser, 'graph options')
         group.add_option('--graph',
                          help="Save a time series graph in the provided path.")
         group.add_option('--overall', action='store_true', default=False,
@@ -108,27 +108,21 @@ class PercentileApp(NetProfilerApp):
                               "and --sshpassword must be provided.")
 
     def gen_graph(self, rawdata, bucketed_data, percentile):
-        pprint.pprint(bucketed_data)
-        fig = plt.figure()
-
-        percentileval = numpy.percentile(bucketed_data, percentile)
-        median = numpy.percentile(bucketed_data, 50)
-        individual = numpy.percentile(bucketed_data, percentile)
-
+        percentile_val = numpy.percentile(bucketed_data, percentile)
 
         end = len(bucketed_data) * self.options.buckettime
         plt.plot(xrange(0, end, self.options.buckettime), bucketed_data,
                  label=self.options.trafficfilter)
-        plt.axhline(percentileval, color='r',
-                    label="{}% = {}".format(percentile, percentileval)) 
+        plt.axhline(percentile_val, color='r',
+                    label="{}% = {}".format(percentile, percentil_eval)) 
 
-        plt.xlabel("Time")
+        plt.xlabel("Time (minutes)")
         plt.xticks(rotation="vertical")
 
         plt.ylabel("Bytes")
         plt.title("NetProfiler Traffic Data")
 
-        plt.legend(loc="upper left")
+        plt.legend()
 
         plt.savefig(self.options.graph)
 
@@ -244,5 +238,5 @@ class PercentileApp(NetProfilerApp):
                          self.options.timeresolution, self.options.buckettime,
                          self.options.percentile)
 
-if __name__  == "__main__":
+if __name__ == "__main__":
     PercentileApp().run()
