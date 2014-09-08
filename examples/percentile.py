@@ -114,7 +114,7 @@ class PercentileApp(NetProfilerApp):
         plt.plot(xrange(0, end, self.options.buckettime), bucketed_data,
                  label=self.options.trafficfilter)
         plt.axhline(percentile_val, color='r',
-                    label="{}% = {}".format(percentile, percentil_eval)) 
+                    label="{}% = {}".format(percentile, percentile_val)) 
 
         plt.xlabel("Time (minutes)")
         plt.xticks(rotation="vertical")
