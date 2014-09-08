@@ -13,7 +13,6 @@ import numpy
 import paramiko
 import optparse
 import matplotlib.pyplot as plt
-from matplotlib.font_manager import FontProperties
 
 from steelscript.netprofiler.core.app import NetProfilerApp
 from steelscript.netprofiler.core import *
@@ -90,10 +89,10 @@ class PercentileApp(NetProfilerApp):
         group = optparse.OptionGroup(parser, 'graph options')
         group.add_option('--graph',
                          help="Save a time series graph in the provided path.")
-        group.add_option('--overall', action='store_true', default=False,
+        group.add_option('--percentileline', action='store_true', default=True,
                          help="Display a line at the chosen percentile")
         group.add_option('--startzero', action='store_true', default=False,
-                         help="Extend the graph to zero")
+                         help="Start y axis at zero")
         parser.add_option_group(group)
 
     def validate_args(self):
@@ -109,27 +108,28 @@ class PercentileApp(NetProfilerApp):
 
     def gen_graph(self, rawdata, bucketed_data, percentile):
         percentile_val = numpy.percentile(bucketed_data, percentile)
+        endx = len(bucketed_data) * self.options.buckettime
 
-        end = len(bucketed_data) * self.options.buckettime
-        plt.plot(xrange(0, end, self.options.buckettime), bucketed_data,
-                 label=self.options.trafficfilter)
-        plt.axhline(percentile_val, color='r',
-                    label="{}% = {}".format(percentile, percentile_val)) 
-        plt.xlim(0, end)
+        if self.options.startzero:
+            plt.ylim(ymin=0)
         plt.ylim(ymax=int(int(max(bucketed_data) * 1.2))) # Add a little vertical space for legend
 
+        if self.options.percentileline:
+            plt.axhline(percentile_val, color='r',
+                        label="{}% = {}".format(percentile, percentile_val))
+        plt.xlim(xmax=endx)
 
         plt.xlabel("Time (minutes)")
         plt.xticks(rotation="vertical")
-
         plt.ylabel("Bytes")
-        plt.title("NetProfiler Traffic Data")
 
+        plt.title("NetProfiler Traffic Data")
         plt.legend()
 
-        plt.savefig(self.options.graph)
+        plt.plot(xrange(0, endx, self.options.buckettime), bucketed_data,
+                 label=self.options.trafficfilter)
 
-        print "Graph saved to", self.options.graph
+        plt.savefig(self.options.graph)
 
     def bucket_data(self, rawdata, buckettime):
         bucketed_data = []
@@ -181,18 +181,19 @@ class PercentileApp(NetProfilerApp):
         rawdata = [avg_bytes for (avg_bytes, ) in data]
         bucketed_data = self.bucket_data(rawdata, buckettime)
 
-        if self.options.rawdata and not self.options.clean:
-            print
-            print "Raw data points:", ", ".join(str(val) for val in rawdata)
-
         if self.options.graph:
             self.gen_graph(rawdata, bucketed_data, percentile)
+            if not self.options.clean:
+                print "Graph saved to", self.options.graph
+
 
         if self.options.clean:
             print "{} {}".format(self.options.trafficfilter,
                 numpy.percentile(bucketed_data, percentile))
         else:
-            print
+            if self.options.rawdata:
+                print "Raw data points:", ", ".join(str(val) for val in rawdata)
+
             print "Average bytes at percentile {}: {}".format(
                   self.options.percentile,
                   numpy.percentile(bucketed_data, percentile))
@@ -233,7 +234,7 @@ class PercentileApp(NetProfilerApp):
             print "Averaging based on buckets of {} minutes".format(self.options.buckettime)
             if self.options.graph:
                 print "Saving a graph to {}".format(self.options.graph)
-        print
+            print
 
         trafficfilter = TrafficFilter(self.options.trafficfilter)
 
