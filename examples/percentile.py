@@ -110,12 +110,6 @@ class PercentileApp(NetProfilerApp):
         percentile_val = numpy.percentile(bucketed_data, percentile)
         endx = len(bucketed_data) * self.options.buckettime
 
-        if self.options.startzero:
-            plt.ylim(ymin=0)
-
-        # Add a little vertical space for legend
-        plt.ylim(ymax=int(max(bucketed_data) * 1.2))
-
         if self.options.percentileline:
             plt.axhline(percentile_val, color='r',
                         label="{}% = {}".format(percentile, percentile_val))
@@ -130,6 +124,15 @@ class PercentileApp(NetProfilerApp):
 
         plt.plot(xrange(0, endx, self.options.buckettime), bucketed_data,
                  label=self.options.trafficfilter)
+
+        # If --startzero is set, start y axis at zero (naturally). Otherwise
+        # keep the min value set by the autoscale feature of plot()
+        ymin = 0 if self.options.startzero else plt.ylim()[0]
+
+        # Add a little vertical space for legend
+        ymax = int(max(bucketed_data) * 1.2)
+
+        plt.ylim(ymin, ymax)
 
         plt.savefig(self.options.graph)
 
