@@ -4,8 +4,6 @@
 # accompanying the software ("License").  This software is distributed "AS IS"
 # as set forth in the License.
 
-
-
 """
 This module contains the NetProfiler class, which is the main interface to
 a SteelCentral NetProfiler appliance. It allows, among other things, retrieving
@@ -76,6 +74,16 @@ class NetProfiler(steelscript.common.service.Service):
         self.centricities = _constants.centricities
 
         self._info = None
+
+        # checking if the profiler supports 1.2
+        # if yes, then use column dsc
+        # otherwise, use column qos
+        if (self.supported_versions is None or
+           APIVersion("1.2") in self.supported_versions):
+            _key, _value = ('dsc', 'dsc')
+        else:
+            _key, _value = ('qos', 'qos')
+        self.groupbys[_key] = _value
 
         self._load_file_caches()
         self.columns = ColumnContainer(self._unique_columns())
