@@ -7,8 +7,6 @@
 # as set forth in the License.
 
 
-# Submitted by Joshua Chessman <jchessman@riverbed.com>
-
 import numpy
 import paramiko
 import optparse
@@ -23,10 +21,11 @@ class PercentileApp(NetProfilerApp):
     def add_options(self, parser):
         super(PercentileApp, self).add_options(parser)
 
-        parser.add_option(
+        group = optparse.OptionGroup(parser, 'data processing')
+        group.add_option(
             '-b', '--buckettime', default=5, type='int',
             help="Number of minutes data should be bucketed in (default: 5)")
-        parser.add_option(
+        group.add_option(
             '-e', '--percentile', default=95, type='int',
             help="Percentile to display data at (default: 95)")
 
@@ -45,13 +44,6 @@ class PercentileApp(NetProfilerApp):
                   "group type (e.g., \"hostgroup ByLocation\")."))
         parser.add_option_group(group)
 
-        group = optparse.OptionGroup(parser, 'time resolution')
-        group.add_option(
-            '-i', '--timeresolution', default="1min",
-            help=("Force this time resolution. (Options include 1min, 15min, "
-                  "hour, 6hour, day, and week. Default: 1min.)"))
-        parser.add_option_group(group)
-
         group = optparse.OptionGroup(parser, 'output')
         group.add_option('--median', action='store_true', default=False,
                          help="Show the median from the data set")
@@ -59,12 +51,6 @@ class PercentileApp(NetProfilerApp):
                          help="Show the minimum from the data set")
         group.add_option('--max', action='store_true', default=False,
                          help="Show the maximum from the data set")
-
-        group = optparse.OptionGroup(parser, 'ssh options')
-        group.add_option("--sshusername", help="Username for SSH")
-        group.add_option("--sshpassword", help="Password for SSH")
-        parser.add_option_group(group)
-
         group.add_option(
             '--clean', action='store_true', default=False,
             help="Show only the name and percentile value")
@@ -74,6 +60,13 @@ class PercentileApp(NetProfilerApp):
             help="Additionally display the raw data used to determine the "
                  "percentile values")
         parser.add_option_group(group)
+
+        group = optparse.OptionGroup(parser, 'ssh options')
+        group.add_option("--sshusername", help="Username for SSH")
+        group.add_option("--sshpassword", help="Password for SSH")
+        parser.add_option_group(group)
+
+
 
         group = optparse.OptionGroup(parser, 'list groups')
         group.add_option(
@@ -112,14 +105,15 @@ class PercentileApp(NetProfilerApp):
 
         if self.options.percentileline:
             plt.axhline(percentile_val, color='r',
-                        label="{}% = {}".format(percentile, percentile_val))
-        plt.xlim(xmax=endx)
+                        label="{0}% = {1:,.2f} bytes".format(percentile, percentile_val))
 
+        plt.xlim(xmax=endx)
         plt.xlabel("Time (minutes)")
         plt.xticks(rotation="vertical")
+
         plt.ylabel("Bytes")
 
-        plt.title("NetProfiler Traffic Data")
+        plt.title("NetProfiler Traffic Data: " + self.options.trafficfilter)
         plt.legend()
 
         plt.plot(xrange(0, endx, self.options.buckettime), bucketed_data,
@@ -163,7 +157,7 @@ class PercentileApp(NetProfilerApp):
             for group in profiler.api.host_group_types.get_all_groups(grouptype['id']):
                 print " " + group['name']
 
-    def report_item(self, profiler, timefilter, trafficfilter, timeres,
+    def report_item(self, profiler, timefilter, trafficfilter,
                     buckettime, percentile):
         """ Calculate and display the percentile report for one item
             (host, interface, hostgroup, etc.)"""
@@ -176,7 +170,7 @@ class PercentileApp(NetProfilerApp):
                        timefilter=timefilter,
                        trafficexpr=trafficfilter,
                        centricity=centricity,
-                       resolution=timeres)
+                       resolution='1min')
             report.wait_for_complete()
             data = report.get_data()
 
@@ -184,25 +178,26 @@ class PercentileApp(NetProfilerApp):
         bucketed_data = self.bucket_data(rawdata, buckettime)
 
         if self.options.clean:
-            print "{} {}".format(self.options.trafficfilter,
-                                 numpy.percentile(bucketed_data, percentile))
+            print "{} {:,.2f}".format(self.options.trafficfilter,
+                                      numpy.percentile(bucketed_data, percentile))
         else:
             if self.options.rawdata:
                 print "Raw data points:", ", ".join(str(val) for val in rawdata)
 
-            print "Average bytes at percentile {}: {}".format(
+            print "Average bytes at percentile {0}: {1:,.2f}".format(
                   self.options.percentile,
                   numpy.percentile(bucketed_data, percentile))
 
             if self.options.median:
-                print "Median average bytes: {}".format(numpy.percentile(bucketed_data, 50))
+                print ("Median average bytes: "
+                       "{0:,.2f}").format(numpy.percentile(bucketed_data, 50))
 
             if self.options.max or self.options.min:
                 print
                 if self.options.max:
-                    print "Max average bytes: {}".format(max(bucketed_data))
+                    print "Max average bytes: {0:,.2f}".format(max(bucketed_data))
                 if self.options.min:
-                    print "Min average bytes: {}".format(min(bucketed_data))
+                    print "Min average bytes: {0:,.2f}".format(min(bucketed_data))
 
         if self.options.graph:
             self.gen_graph(rawdata, bucketed_data, percentile)
@@ -231,10 +226,9 @@ class PercentileApp(NetProfilerApp):
         if not self.options.clean:
             print "Reporting on the period: {}".format(self.options.timefilter)
             print "Using the traffic filter: {}".format(self.options.trafficfilter)
-            print "With this time resolution: {}".format(self.options.timeresolution)
             print "Calculating data at percentile {}".format(self.options.percentile)
             print ("Averaging based on buckets of {} "
-                  "minutes").format(self.options.buckettime)
+                   "minutes").format(self.options.buckettime)
             if self.options.graph:
                 print "Saving a graph to {}".format(self.options.graph)
             print
@@ -242,8 +236,7 @@ class PercentileApp(NetProfilerApp):
         trafficfilter = TrafficFilter(self.options.trafficfilter)
 
         self.report_item(profiler, timefilter, trafficfilter,
-                         self.options.timeresolution, self.options.buckettime,
-                         self.options.percentile)
+                         self.options.buckettime, self.options.percentile)
 
 if __name__ == "__main__":
     PercentileApp().run()
