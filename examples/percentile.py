@@ -114,7 +114,7 @@ class PercentileApp(NetProfilerApp):
             plt.ylim(ymin=0)
 
         # Add a little vertical space for legend
-        plt.ylim(ymax=int(int(max(bucketed_data) * 1.2)))
+        plt.ylim(ymax=int(max(bucketed_data) * 1.2))
 
         if self.options.percentileline:
             plt.axhline(percentile_val, color='r',
