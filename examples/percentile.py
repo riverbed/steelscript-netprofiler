@@ -49,7 +49,7 @@ class PercentileApp(NetProfilerApp):
         group.add_option(
             '-i', '--timeresolution', default="1min",
             help=("Force this time resolution. (Options include 1min, 15min, "
-                  "hour, 6hour, day, and week. Default: 1min."))
+                  "hour, 6hour, day, and week. Default: 1min.)"))
         parser.add_option_group(group)
 
         group = optparse.OptionGroup(parser, 'output')
@@ -155,7 +155,6 @@ class PercentileApp(NetProfilerApp):
         print stdout.read()
         ssh.close()
 
-
     def list_host_groups(self, profiler):
         for grouptype in profiler.api.host_group_types.get_all():
             print "Group type:", grouptype['name']
@@ -183,12 +182,6 @@ class PercentileApp(NetProfilerApp):
         rawdata = [avg_bytes for (avg_bytes, ) in data]
         bucketed_data = self.bucket_data(rawdata, buckettime)
 
-        if self.options.graph:
-            self.gen_graph(rawdata, bucketed_data, percentile)
-            if not self.options.clean:
-                print "Graph saved to", self.options.graph
-
-
         if self.options.clean:
             print "{} {}".format(self.options.trafficfilter,
                                  numpy.percentile(bucketed_data, percentile))
@@ -209,6 +202,12 @@ class PercentileApp(NetProfilerApp):
                     print "Max average bytes: {}".format(max(bucketed_data))
                 if self.options.min:
                     print "Min average bytes: {}".format(min(bucketed_data))
+
+        if self.options.graph:
+            self.gen_graph(rawdata, bucketed_data, percentile)
+            if not self.options.clean:
+                print
+                print "Graph saved to", self.options.graph
 
     def main(self):
         if self.options.listinterfacegroups:
