@@ -128,10 +128,8 @@ class PercentileApp(NetProfilerApp):
         # If --startzero is set, start y axis at zero (naturally). Otherwise
         # keep the min value set by the autoscale feature of plot()
         ymin = 0 if self.options.startzero else plt.ylim()[0]
-
         # Add a little vertical space for legend
         ymax = int(max(bucketed_data) * 1.2)
-
         plt.ylim(ymin, ymax)
 
         plt.savefig(self.options.graph)
