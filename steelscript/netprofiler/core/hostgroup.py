@@ -138,14 +138,19 @@ class HostGroupType(object):
                              'config is empty. It was excepted because we '
                              'still want the HostGroupType.')
                 self.config = []
-                self.groups = []
+                self.groups = {}
             else:
                 raise e
 
         # Get the groups, we will need to reformat the output to fit our dict.
-        for host_group in self.config:
-            if host_group['name'] not in self.config:
-                HostGroup(self, host_group['name'])
+        for entry in self.config:
+            if entry['name'] not in self.groups:
+                # Note -- only need to create a HostGroup for the *first*
+                # entry found for a given name, as HostGroup doesn't actually
+                # store data, it reference back to this objects 'config'
+                # property
+                HostGroup(self, entry['name'])
+
 
     def save(self):
         """Save settings and groups.
@@ -183,7 +188,7 @@ class HostGroupType(object):
         """
         if new_host_group.name in self.groups.keys():
             raise RvbdException('Host group: "{0}" already exists.'
-                                .format(self.name))
+                                .format(new_host_group.name))
 
         self.groups[new_host_group.name] = new_host_group
 
