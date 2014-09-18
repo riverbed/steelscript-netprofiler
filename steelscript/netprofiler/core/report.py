@@ -22,6 +22,7 @@ from steelscript.common.exceptions import RvbdException
 
 __all__ = ['TrafficSummaryReport',
            'TrafficOverallTimeSeriesReport',
+           'TrafficTimeSeriesReport',
            'TrafficFlowListReport',
            'WANSummaryReport',
            'WANTimeSeriesReport',
@@ -61,12 +62,64 @@ class Query(object):
         self.data_selected_columns = None
 
     def get_legend(self, columns=None):
-        """Get the legend data."""
+        """Return the list columns associated with this query or by request."""
+
         if columns:
-            return self.report.profiler.get_columns(columns)
-        if self.selected_columns:
-            return self.selected_columns
-        return self.available_columns
+            cols = self.report.profiler.get_columns(columns)
+        elif self.selected_columns:
+            cols = self.selected_columns
+        else:
+            cols = self.available_columns
+
+        # Selected columns as well as the argument columns may include
+        # columns that are not listed as "available".  This is because
+        # NetProfiler seems to not properly return all available columns
+        # (For example, groupby=port lets you ask for the "protoport"
+        # column id=18, but it is missing from available)
+        #
+        # However, ephemeral columns (like those for the
+        # TrafficTimeSeriesReport) will only show up in the available
+        # columns.  In this case we want to see if the the baseid
+        # is in the requested set of columns, and if so add each
+        # available column in it's place.
+        #
+        # For example, when a TrafficTimeSeriesReport is created, it takes
+        # a time column (optionally) and one and only one value column.
+        # Like:
+        #
+        # TrafficTimeSeriesReport.run(
+        #     columns=[p.columns.key.time,
+        #              p.columns.value.avg_bytes],
+        #     query_columns_groupby="ports",
+        #     query_columns=[{"name": "tcp/41017"},{"name":"udp/6343"}])
+        #
+        # The POST to NetProfiler will include only column 33 (avg_bytes),
+        # because time is implied (don't ask...).
+        #
+        # Later when retrieving data via get_data(), the available_columns
+        # will not include 33, but instead will include one ephemeral column
+        # for each of the query_columns.  These are all going to be of type
+        # strid="ID_AVG_BYTES", but the id will be some unknown large number
+        # unique for each of tcp/4017 and udp/6343.
+        #
+        # But -- the caller of get_data() doesn't know the ephemeral ids,
+        # they will likely just say "get me column 33", and this will
+        # be translated to all available columns that have a *baseid* of 33.
+        #
+        ephemeral_cols = {}
+        for col in self.available_columns:
+            if col.id != col.baseid:
+                if col.baseid not in ephemeral_cols:
+                    ephemeral_cols[col.baseid] = []
+                ephemeral_cols[col.baseid].append(col)
+
+        final_cols = []
+        for col in cols:
+            if col.id in ephemeral_cols:
+                final_cols.extend(ephemeral_cols[col.id])
+            else:
+                final_cols.append(col)
+        return final_cols
 
     def _to_native(self, row):
         legend = self.get_legend()
@@ -85,12 +138,7 @@ class Query(object):
 
     def _get_querydata(self, columns=None):
         """Get the query data."""
-        if columns:
-            columns = self.report.profiler.get_columns(columns)
-        elif self.selected_columns is not None:
-            columns = self.selected_columns
-        elif self.custom_columns:
-            columns = self.available_columns
+        columns = self.get_legend(columns)
 
         # if we already got this data do not get it again
         changed = (self.data_selected_columns is None or
@@ -99,8 +147,7 @@ class Query(object):
             return
 
         if columns:
-            params = {"columns": (",".join(str(col.id)
-                                           for col in columns))}
+            params = {"columns": (",".join(str(col.id) for col in columns))}
         else:
             params = None
 
@@ -182,7 +229,8 @@ class Report(object):
         self.delete()
 
     def run(self, template_id, timefilter=None, resolution="auto",
-            query=None, trafficexpr=None, data_filter=None, sync=True):
+            query=None, trafficexpr=None, data_filter=None, sync=True,
+            custom_columns=False):
         """Create the report and begin running the report on NetProfiler.
 
         If the `sync` option is True, periodically poll until the report is
@@ -203,11 +251,16 @@ class Report(object):
         :param str data_filter: deprecated filter to run against report data
 
         :param bool sync: if True, poll for status until the report is complete
+
+        :param bool custom_columns: if True, generate new Columns for each
+            available column rather than assuming requested columns is the
+            available columns
+
         """
 
         self.template_id = template_id
         self.custom_columns = False
-        if self.template_id != 184:
+        if self.template_id != 184 or custom_columns:
             # the columns in this report won't match, use custom columns instead
             self.custom_columns = True
 
@@ -454,7 +507,10 @@ class SingleQueryReport(Report):
             groupby="hos", columns=None, sort_col=None,
             timefilter=None, trafficexpr=None, host_group_type="ByLocation",
             resolution="auto", centricity="hos", area=None,
-            data_filter=None, sync=True):
+            data_filter=None, sync=True,
+            query_columns_groupby=None, query_columns=None,
+            custom_columns=False
+            ):
         """
         :param str realm: type of query, this is automatically set by subclasses
 
@@ -488,6 +544,16 @@ class SingleQueryReport(Report):
         :param str data_filter: deprecated filter to run against report data
 
         :param bool sync: if True, poll for status until the report is complete
+
+        :param list query_columns_groupby: the groupby for time columns
+
+        :param list query_columns: list of unique values associated with
+            query_columns_groupby
+
+        :param bool custom_columsn: if True, generate new Columns for each
+            available column rather than assuming requested columns is the
+            available columns
+
         """
 
         # query related parameters
@@ -499,14 +565,30 @@ class SingleQueryReport(Report):
         self.host_group_type = host_group_type
         self.area = area
 
-        self._column_ids = [x.id for x in
-                            self.profiler.get_columns(self.columns, self.groupby)]
-
         query = {"realm": self.realm,
                  "centricity": self.centricity,
-                 "group_by": self.groupby,
-                 "columns": self._column_ids,
                  }
+
+        self._column_ids = (
+            [col.id for col in
+             self.profiler.get_columns(self.columns, self.groupby)])
+
+        if realm == 'traffic_time_series':
+            # The traffic_time_series realm allows 1 and only 1
+            # value column -- but the user may or may not want the time
+            # column.  If the time column was specified, drop it from
+            # what gets sent in the POST
+            non_time_column = (
+                list(set(self.columns) -
+                     set([self.profiler.columns.key.time]))[0])
+            query['columns'] = (
+                [x.id for x in
+                 self.profiler.get_columns([non_time_column], self.groupby)])
+        else:
+            query['columns'] = self._column_ids
+
+        if self.groupby is not None:
+            query["group_by"] = self.groupby
 
         if self.sort_col is not None:
             query["sort_column"] = [x.id for x in
@@ -520,13 +602,18 @@ class SingleQueryReport(Report):
         if self.groupby in ['gro', 'gpp', 'gpr', 'pgp', 'pgr']:
             query['host_group_type'] = self.host_group_type
 
+        if query_columns_groupby is not None:
+            query[query_columns_groupby] = query_columns
+            query['host_group_type'] = self.host_group_type
+
         super(SingleQueryReport, self).run(template_id=184,
                                            timefilter=timefilter,
                                            resolution=resolution,
                                            query=query,
                                            trafficexpr=trafficexpr,
                                            data_filter=data_filter,
-                                           sync=sync)
+                                           sync=sync,
+                                           custom_columns=custom_columns)
 
     def _load_queries(self):
         super(SingleQueryReport, self)._load_queries(self._column_ids)
@@ -591,6 +678,47 @@ class TrafficOverallTimeSeriesReport(SingleQueryReport):
             groupby='tim', columns=columns, sort_col=None,
             timefilter=timefilter, trafficexpr=trafficexpr, host_group_type=None,
             resolution=resolution, centricity=centricity, area=area, sync=sync)
+
+
+class TrafficTimeSeriesReport(SingleQueryReport):
+    """
+    """
+    def __init__(self, profiler):
+        """Create a top-N style time series report."""
+        super(TrafficTimeSeriesReport, self).__init__(profiler)
+
+    def run(self, columns, query_columns_groupby, query_columns,
+            timefilter=None, trafficexpr=None, host_group_type=None,
+            resolution="auto", centricity="hos", area=None, sync=True):
+        """
+        :param str query_columns_groupby: defines the type of data for
+            each unique column
+
+        :param list query_columns: list of expressions that define each
+            column.  The specific format of each expression depends
+            on `query_columns_groupby`.
+
+        See :meth:`SingleQueryReport.run` for a description of the rest
+        of the possible parameters.
+
+        Note that `sort_col`, `groupby`, are not applicable to this
+        report type.  `host_group_type` only applies if `query_columns_groupby`
+        is `host_groups`.
+
+        """
+
+        if len(set(columns) - set([self.profiler.columns.key.time])) != 1:
+            raise ValueError("Columns must be a list of only one column "
+                             "for this type of report")
+
+        return super(TrafficTimeSeriesReport, self).run(
+            realm='traffic_time_series',
+            groupby='tim', columns=columns, sort_col=None,
+            timefilter=timefilter, trafficexpr=trafficexpr,
+            host_group_type=host_group_type,
+            resolution=resolution, centricity=centricity, area=area, sync=sync,
+            query_columns_groupby=query_columns_groupby,
+            query_columns=query_columns, custom_columns=True)
 
 
 class TrafficFlowListReport(SingleQueryReport):

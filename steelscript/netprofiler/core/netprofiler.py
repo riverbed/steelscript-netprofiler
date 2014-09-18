@@ -99,7 +99,10 @@ class NetProfiler(steelscript.common.service.Service):
 
         columns_filename = 'columns-' + self.version + '.pcl'
         self._columns_file = self._fs_data.get_data(columns_filename)
-        if self._columns_file.data is None:
+        if (self._columns_file.data is None or
+                not hasattr(self._columns_file.data.values()[0][0], 'baseid')):
+            # if baseid is missing in any column, we must have an *old* version
+            # blow away.   TBD -- need a more explicit versioning scheme
             self._columns_file.data = dict()
 
         areas_filename = 'areas-' + self.version + '.json'
@@ -181,11 +184,26 @@ class NetProfiler(steelscript.common.service.Service):
             return self._areas_dict[area]
 
     def _gencolumns(self, columns):
-        """Return a list of Column objects from a list of json columns. """
+        """Return a list of Column objects from a list of json columns.
+
+        :param columns: list of column defintions as JSON
+
+        This function parses the JSON as received from NetProfiler
+        and generates new Column classes that represent them.
+
+        In the event that a given column definition is ephemeral,
+        column.baseid will be determined based on the strid.
+        """
         res = []
         for c in columns:
             key = c['strid'].lower()[3:]
-            res.append(Column(c['id'], key, c['name'], json=c))
+            baseid = c['id']
+            if hasattr(self, 'columns'):
+                try:
+                    baseid = self.columns[key].id
+                except KeyError:
+                    pass
+            res.append(Column(c['id'], key, c['name'], json=c, baseid=baseid))
         return res
 
     def _genareas(self, areas):
@@ -211,6 +229,10 @@ class NetProfiler(steelscript.common.service.Service):
 
         :param str groupby: will optionally ensure that the selected columns
             are valid for the given groupby
+
+        Note that this function will never return 'ephemeral' columns,
+        plus the list may be incomplete for any given groupby.
+
         """
         res = list()
         if groupby:

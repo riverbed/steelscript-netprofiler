@@ -15,12 +15,27 @@ class Container(object):
 
 
 class Column(object):
-    def __init__(self, cid, key, label, json):
+    """A column object represents a single data column in Profiler terms"""
+    def __init__(self, cid, key, label, json, baseid=None):
+        # Numeric column id.  This may be ephemeral -- meaning
+        # its a really big number like 100000+.  For a given report
+        # all columns in the report must have different ids.
+        #
+        # Non-ephemeral ids are static, like avg_bytes is always 33
+        #
+        # Ephemeral ids are dynamic and assigned for a specific
+        # report only.  They are used in cases like top-N reporting
+        # where there are multiple 'avg_bytes' columns, one for each
+        # proto/port (for example).  In this case baseid refers to
+        # the base columns type that tells you the general information
+        # about the column, and the id will be what you use to request
+        # data from the report.
         self.id = cid
         self.key = key
         self.label = label
         self.json = json
         self.iskey = json['category'] != 'data'
+        self.baseid = (baseid or cid)
 
     def __eq__(self, other):
         return self.key == other
@@ -32,8 +47,15 @@ class Column(object):
         return hash(tuple(self.json.values()))
 
     def __repr__(self):
-        msg = '<steelscript.netprofiler.core._types.Column(id={0}, key={1}, iskey={2} label={3})>'
-        return msg.format(self.id, self.key, self.iskey, self.label)
+        if self.baseid and self.baseid != self.id:
+            msg = ('<steelscript.netprofiler.core._types.Column(id={0} '
+                   'key={1} iskey={2} label={3} baseid={4})>')
+            return msg.format(self.id, self.key, self.iskey, self.label,
+                              self.baseid)
+        else:
+            msg = ('<steelscript.netprofiler.core._types.Column(id={0} '
+                   'key={1} iskey={2} label={3})>')
+            return msg.format(self.id, self.key, self.iskey, self.label)
 
 
 
