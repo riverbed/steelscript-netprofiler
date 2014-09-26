@@ -17,7 +17,7 @@ import cStringIO as StringIO
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import (parse_timedelta, datetime_to_seconds,
                                           timedelta_total_seconds)
-from steelscript.common.RecursiveUpdateDict import RecursiveUpdateDict
+from steelscript.common.datastructures import RecursiveUpdateDict
 from steelscript.common.exceptions import RvbdException
 
 __all__ = ['TrafficSummaryReport',
