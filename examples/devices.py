@@ -8,7 +8,7 @@
 
 
 from steelscript.netprofiler.core.app import NetProfilerApp
-from steelscript.common.utils import Formatter
+from steelscript.common.datautils import Formatter
 
 import optparse
 
@@ -59,7 +59,7 @@ class DeviceReport(NetProfilerApp):
             self.data = self.netprofiler.api.devices.get_all(self.options.typeid,
                                                              self.options.cidr)
 
-        #from IPython import embed; embed()
+        # from IPython import embed; embed()
         self.print_columns()
 
     def print_columns(self, paginate=None):

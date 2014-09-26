@@ -10,7 +10,7 @@
 from steelscript.netprofiler.core.app import NetProfilerApp
 from steelscript.netprofiler.core.report import TrafficFlowListReport
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
-from steelscript.common.utils import Formatter
+from steelscript.common.datautils import Formatter
 
 import optparse
 

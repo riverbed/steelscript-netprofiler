@@ -13,7 +13,7 @@ from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.netprofiler.core.report import (IdentityReport,
                                                  TrafficOverallTimeSeriesReport,
                                                  TrafficSummaryReport)
-from steelscript.common.utils import Formatter
+from steelscript.common.datautils import Formatter
 from steelscript.common.timeutils import string_to_datetime
 
 import sys
@@ -30,29 +30,29 @@ AGGREGATION = {'total': lambda x: sum(x),
 
 # Columns for Time Series Report
 TCOLUMNS = [
-    ('time',              AGGREGATION['min']),
-    ('total_bytes',       AGGREGATION['total']),
-    ('avg_bytes',         AGGREGATION['avg']),
-    ('network_rtt',       AGGREGATION['peak']),
-    ('response_time',     AGGREGATION['peak']),
-    ('server_delay',      AGGREGATION['peak']),
-    ('avg_conns_rsts',    AGGREGATION['avg']),
-    ('avg_pkts_rtx',      AGGREGATION['avg']),
-    ('avg_rsec_jitter',   AGGREGATION['avg']),
-    ('avg_vqual_mos',     AGGREGATION['min']),
+    ('time', AGGREGATION['min']),
+    ('total_bytes', AGGREGATION['total']),
+    ('avg_bytes', AGGREGATION['avg']),
+    ('network_rtt', AGGREGATION['peak']),
+    ('response_time', AGGREGATION['peak']),
+    ('server_delay', AGGREGATION['peak']),
+    ('avg_conns_rsts', AGGREGATION['avg']),
+    ('avg_pkts_rtx', AGGREGATION['avg']),
+    ('avg_rsec_jitter', AGGREGATION['avg']),
+    ('avg_vqual_mos', AGGREGATION['min']),
 ]
 
 # Columns for Traffic Summary Report
 SCOLUMNS = [
-    ('total_bytes',       AGGREGATION['total']),
-    ('avg_bytes',         AGGREGATION['avg']),
-    ('network_rtt',       AGGREGATION['peak']),
-    ('response_time',     AGGREGATION['peak']),
-    ('server_delay',      AGGREGATION['peak']),
-    ('avg_conns_rsts',    AGGREGATION['avg']),
-    ('avg_pkts_rtx',      AGGREGATION['avg']),
-    ('avg_rsec_jitter',   AGGREGATION['avg']),
-    ('avg_vqual_mos',     AGGREGATION['min']),
+    ('total_bytes', AGGREGATION['total']),
+    ('avg_bytes', AGGREGATION['avg']),
+    ('network_rtt', AGGREGATION['peak']),
+    ('response_time', AGGREGATION['peak']),
+    ('server_delay', AGGREGATION['peak']),
+    ('avg_conns_rsts', AGGREGATION['avg']),
+    ('avg_pkts_rtx', AGGREGATION['avg']),
+    ('avg_rsec_jitter', AGGREGATION['avg']),
+    ('avg_vqual_mos', AGGREGATION['min']),
 ]
 
 
@@ -243,9 +243,9 @@ class IdentityApp(NetProfilerApp):
                 Logins indicating a different IP address will mean previous
                 IP address has been released.
         """
-        logins = {}         # scratch lookup table
-        current_ip = None   # last ip of user
-        activity = []       # sequence of events
+        logins = {}  # scratch lookup table
+        current_ip = None  # last ip of user
+        activity = []  # sequence of events
 
         identity = self.options.identity_name
 

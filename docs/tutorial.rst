@@ -392,7 +392,7 @@ script below, then walk through key differences that add the features we are loo
    from steelscript.netprofiler.core.filters import TimeFilter
    from steelscript.netprofiler.core.report import TrafficSummaryReport
    from steelscript.netprofiler.core.app import NetProfilerApp
-   from steelscript.common.utils import Formatter
+   from steelscript.common.datautils import Formatter
 
    class ExampleApp(NetProfilerApp):
 
@@ -460,7 +460,7 @@ First we needed to import some new items:
    from steelscript.netprofiler.core.filters import TimeFilter
    from steelscript.netprofiler.core.report import TrafficSummaryReport
    from steelscript.netprofiler.core.app import NetProfilerApp
-   from steelscript.common.utils import Formatter
+   from steelscript.common.datautils import Formatter
 
    import optparse
 

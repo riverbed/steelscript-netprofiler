@@ -17,7 +17,7 @@ import cStringIO as StringIO
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import (parse_timedelta, datetime_to_seconds,
                                           timedelta_total_seconds)
-from steelscript.common.utils import RecursiveUpdateDict
+from steelscript.common.RecursiveUpdateDict import RecursiveUpdateDict
 from steelscript.common.exceptions import RvbdException
 
 __all__ = ['TrafficSummaryReport',
@@ -73,7 +73,7 @@ class Query(object):
         for i, x in enumerate(row):
             if (legend[i].json['type'] == 'float' or
                 legend[i].json['type'] in 'reltime' or
-                legend[i].json['rate'] == 'opt'):          # netprofiler bug, %reduct columns labeled as ints
+                legend[i].json['rate'] == 'opt'):  # netprofiler bug, %reduct columns labeled as ints
                 try:
                     row[i] = float(x)
                 except ValueError:
@@ -91,7 +91,7 @@ class Query(object):
         elif self.custom_columns:
             columns = self.available_columns
 
-        #if we already got this data do not get it again
+        # if we already got this data do not get it again
         changed = (self.data_selected_columns is None or
                    self.data_selected_columns != columns)
         if not changed:
@@ -147,11 +147,11 @@ class Report(object):
     """
 
     RESOLUTION_MAP = {60: "1min",
-                      60*15: "15min",
-                      60*60: "hour",
-                      60*60*6: "6hour",
-                      60*60*24: "day",
-                      60*60*24*7: "week"}
+                      60 * 15: "15min",
+                      60 * 60: "hour",
+                      60 * 60 * 6: "6hour",
+                      60 * 60 * 24: "day",
+                      60 * 60 * 24 * 7: "week"}
 
     # Note that report parameters such as the template id are not set
     # on initialization, but not until run().  This is to accommodate
@@ -233,7 +233,7 @@ class Report(object):
         start = datetime_to_seconds(self.timefilter.start)
         end = datetime_to_seconds(self.timefilter.end)
 
-        #using a RecursiveUpdateDict
+        # using a RecursiveUpdateDict
         criteria = RecursiveUpdateDict(**{"time_frame": {"start": int(start),
                                                          "end": int(end)}
                                           })

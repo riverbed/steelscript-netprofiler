@@ -15,7 +15,7 @@ import types
 import logging
 import itertools
 
-from steelscript.common.utils import DictObject
+from steelscript.common.datastructures import DictObject
 from steelscript.common.api_helpers import APIVersion
 from steelscript.netprofiler.core import _api1
 from steelscript.netprofiler.core import _constants

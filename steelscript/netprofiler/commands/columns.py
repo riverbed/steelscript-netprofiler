@@ -52,7 +52,7 @@ vxlan_name                  Virtual Network Tunnel      848
 """
 
 from steelscript.netprofiler.core.app import NetProfilerApp
-from steelscript.common.utils import Formatter
+from steelscript.common.datautils import Formatter
 import optparse
 
 
@@ -77,7 +77,7 @@ class Command(NetProfilerApp):
                          help="filter columns on this string")
         parser.add_option_group(group)
 
-        super(Command,self).add_options(parser)
+        super(Command, self).add_options(parser)
 
     def print_columns(self, columns):
         keys = []
@@ -100,7 +100,7 @@ class Command(NetProfilerApp):
     def main(self):
         if self.options.list_groupbys:
             header = ["GroupBy", "Id"]
-            data = [(k, v) for k,v in self.netprofiler.groupbys.iteritems()]
+            data = [(k, v) for k, v in self.netprofiler.groupbys.iteritems()]
             data.sort()
             Formatter.print_table(data, header)
         else:
