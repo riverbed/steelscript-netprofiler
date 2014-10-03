@@ -24,7 +24,6 @@ import datetime
 from steelscript.netprofiler.core.app import NetProfilerApp
 from steelscript.netprofiler.core.filters import TrafficFilter
 from steelscript.netprofiler.core.report import TrafficSummaryReport
-from steelscript.common.datautils import Formatter
 from steelscript.common import timeutils
 
 from pysnmp.entity.rfc3413.oneliner import ntforg
@@ -122,17 +121,17 @@ class AlerterApp(NetProfilerApp):
             ntforg.UdpTransportTarget((manager_ip, 162)),
             'trap',
             trapname,
-            ('1.3.6.1.2.1.1.3.0', rfc1902.Integer(0)),  # Uptime
-            ('1.3.6.1.4.1.7054.71.2.1.0', rfc1902.Integer(severity)),  # Severity
+            ('1.3.6.1.2.1.1.3.0', rfc1902.Integer(0)),                        # Uptime
+            ('1.3.6.1.4.1.7054.71.2.1.0', rfc1902.Integer(severity)),         # Severity
             ('1.3.6.1.4.1.7054.71.2.3.0', rfc1902.OctetString(description)),
-            ('1.3.6.1.4.1.7054.71.2.4.0', rfc1902.Integer(0)),  # Event ID
+            ('1.3.6.1.4.1.7054.71.2.4.0', rfc1902.Integer(0)),                # Event ID
             ('1.3.6.1.4.1.7054.71.2.5.0', rfc1902.OctetString(url)),
-            ('1.3.6.1.4.1.7054.71.2.7.0', rfc1902.Integer(alert_level)),  # Alert Level
-            ('1.3.6.1.4.1.7054.71.2.8.0', rfc1902.Integer(now)),  # Start Time
-            ('1.3.6.1.4.1.7054.71.2.16.0', rfc1902.Integer(0)),  # Source Count
-            ('1.3.6.1.4.1.7054.71.2.18.0', rfc1902.Integer(0)),  # Destination Count
-            ('1.3.6.1.4.1.7054.71.2.20.0', rfc1902.Integer(0)),  # Protocol Count
-            ('1.3.6.1.4.1.7054.71.2.22.0', rfc1902.Integer(0)),  # Port Count
+            ('1.3.6.1.4.1.7054.71.2.7.0', rfc1902.Integer(alert_level)),      # Alert Level
+            ('1.3.6.1.4.1.7054.71.2.8.0', rfc1902.Integer(now)),              # Start Time
+            ('1.3.6.1.4.1.7054.71.2.16.0', rfc1902.Integer(0)),               # Source Count
+            ('1.3.6.1.4.1.7054.71.2.18.0', rfc1902.Integer(0)),               # Destination Count
+            ('1.3.6.1.4.1.7054.71.2.20.0', rfc1902.Integer(0)),               # Protocol Count
+            ('1.3.6.1.4.1.7054.71.2.22.0', rfc1902.Integer(0)),               # Port Count
         )
 
     def run_query(self, report, column, trafficexpr, trigger):

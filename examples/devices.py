@@ -59,7 +59,6 @@ class DeviceReport(NetProfilerApp):
             self.data = self.netprofiler.api.devices.get_all(self.options.typeid,
                                                              self.options.cidr)
 
-        # from IPython import embed; embed()
         self.print_columns()
 
     def print_columns(self, paginate=None):

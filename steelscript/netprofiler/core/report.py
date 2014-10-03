@@ -72,8 +72,9 @@ class Query(object):
         legend = self.get_legend()
         for i, x in enumerate(row):
             if (legend[i].json['type'] == 'float' or
-                legend[i].json['type'] in 'reltime' or
-                legend[i].json['rate'] == 'opt'):  # netprofiler bug, %reduct columns labeled as ints
+                    legend[i].json['type'] in 'reltime' or
+                    legend[i].json['rate'] == 'opt'):
+                # netprofiler bug, %reduct columns labeled as ints
                 try:
                     row[i] = float(x)
                 except ValueError:
@@ -233,7 +234,6 @@ class Report(object):
         start = datetime_to_seconds(self.timefilter.start)
         end = datetime_to_seconds(self.timefilter.end)
 
-        # using a RecursiveUpdateDict
         criteria = RecursiveUpdateDict(**{"time_frame": {"start": int(start),
                                                          "end": int(end)}
                                           })
