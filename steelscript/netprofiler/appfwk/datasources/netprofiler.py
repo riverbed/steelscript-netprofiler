@@ -121,6 +121,23 @@ class NetProfilerTable(DatasourceTable):
 
         return field
 
+    @classmethod
+    def extend_filterexpr(cls, obj, keyword, template):
+
+        field = obj.fields.get(keyword='netprofiler_filterexpr')
+        field.post_process_func = Function(
+            function=_post_process_combine_filterexprs
+        )
+
+        TableField.create(
+            keyword=keyword, obj=obj, hidden=True,
+            post_process_template=template)
+
+        parent_keywords = set(field.parent_keywords or [])
+        parent_keywords.add(keyword)
+        field.parent_keywords = list(parent_keywords)
+        field.save()
+
     @staticmethod
     def _post_process_combine_filterexprs(form, id, criteria, params):
         exprs = []
