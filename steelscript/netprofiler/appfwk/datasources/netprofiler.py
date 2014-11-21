@@ -62,7 +62,9 @@ class NetProfilerTable(DatasourceTable):
 
     # default field parameters
     FIELD_OPTIONS = {'duration': 60,
-                     'durations': None,
+                     'durations': ('15 min', '1 hour',
+                                   '2 hours', '4 hours', '12 hours',
+                                   '1 day', '1 week', '4 weeks'),
                      'resolution': 'auto',
                      'resolutions': (('auto', 'Automatic'),
                                      '1min', '15min', 'hour', '6hour'),
