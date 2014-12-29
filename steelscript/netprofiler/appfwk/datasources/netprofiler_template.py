@@ -12,9 +12,10 @@ import datetime
 import pandas
 
 import steelscript
-from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import timedelta_total_seconds
+from steelscript.appfwk.apps.datasource.models import TableQueryBase
 from steelscript.appfwk.apps.devices.devicemanager import DeviceManager
+from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.netprofiler.appfwk.datasources.netprofiler import NetProfilerTable
 
 

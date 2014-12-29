@@ -6,7 +6,7 @@ from steelscript.netprofiler.core.app import NetProfilerApp
 from steelscript.netprofiler.core.filters import TimeFilter
 from steelscript.netprofiler.core.report import \
     TrafficSummaryReport, TrafficTimeSeriesReport
-from steelscript.common.utils import Formatter
+from steelscript.common.datautils import Formatter
 
 
 class TopPortsTime(NetProfilerApp):
