@@ -1,0 +1,99 @@
+CHANGELOG
+=========
+
+[0.9.5]
+ * Fix some imports
+ * Update manifest
+ * Replace default durations and remove 1min as option
+
+[0.9.4]
+ * Update minimum steelscript version
+ * Add support for new realm 'traffic_time_series' for top-N sttyle time graphs
+ * Fix HostGroupType.load() when multiple lines refer to the same host group
+ * Add extend_filterexpr to datasource
+ * Update to gitpy_versioning to 0.2.1
+ * update imports due to refactor of steelscript.common.utils
+
+[0.9.3]
+ * Cleanup percentile.py example
+ * Use supported_versions to check either 'dscp' or 'qos' should be used
+ * Use support_dscp flag to populate group_bys dict using either 'dsc' or 'qos'
+ * Cleanup table of contents in docs
+ * Add host_group_type to docs
+ * Added py 2.6 support for the test
+
+[0.9.2]
+ * Add user friendly host group manipulation
+ * Added support for creating and viewing Netprofiler host groups
+ * Cleanup and fix example scripts
+ * Added better documentation
+
+[0.9.1]
+ * Update setup.py info
+
+[0.9.0]
+ * Rename to steelscript
+ * Refactor shark to netshark
+ * Refactor profiler to netprofiler
+ * Add app framework support
+ * Refactor rvbd_portal to steelscript.appfw.core
+ * Refactor package directories
+ * Update README, LICENSE, tutorial, and other documentation
+ * Renamed NetProfilerTimeseriesTable to NetProfilerTimeSeriesTable
+ * Implement multi-column sorting with sortcols/sortdir
+ * Change position to be a decimal, renumber reports
+ * Make versioning a submodule of gitpy-versioning
+ * Move utilities/netprofiler_columns to 'steel netprofiler columns'
+ * Update setup.py dependencies
+
+[0.6.0]
+ * Update docs for installing requests package too
+ * Update setup.py to add requests dependency
+ * Remove response as instance variable, report.py no longer looks to header for report ID
+ * Switch to sleepwalker Connection class - all Profiler tests passing
+ * Fix total_seconds python2.6 issue, add test
+ * Fix support for resolutions about 15min
+
+[0.5.8]
+ * Fix setup.py using core distutils
+ * Added documentation in how to run tests
+
+[0.5.7]
+ * Cleanup shark example scripts
+ * Add execute bit for utility scripts
+
+[0.5.6]
+ * Fix tests for WAN summary and jsondict
+
+[0.5.5]
+ * Move example scripts to docs directory
+ * Fix support for Profiler groupby peer_group
+ * Add wan_report example script to setup.py
+ * Fix encoding and setup config
+ * Updated README and LICENSE
+
+[0.5.4]
+ * Add new scripts to setup.py
+ * Add traffic example scripts for flowlist, summary and timeseries
+ * Fix test datetime calculation
+ * Enhance WAN reporting, add MultiQueryReport class
+ * Add Profiler wan_report.py example script
+ * Add WANTimeSeriesReport
+ * Refactor WANReport
+ * Implement calculation columns for WAN Reports
+ * Add initial WAN Report class for Profiler
+ * Update MANIFEST
+
+[0.5.3]
+ * Remove references to virtualenv's from install docs
+ * Update README for FlyScript regarding docs/html/index.html
+ * Update setup.py to include better metadata
+
+[0.5.2]
+ * Better timeutils.parse_timedelta support for different syntax
+ * Add gitignore file
+
+[0.5.1]
+ * Setup LICENSE and AUTHORS files
+ * Initial import of project files
+ * Initial commit
