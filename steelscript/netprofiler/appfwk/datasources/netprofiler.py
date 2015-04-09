@@ -257,7 +257,7 @@ class NetProfilerQuery(TableQueryBase):
             with lock:
                 s = report.status()
 
-            self.job.safe_update(progress=int(s['percent']))
+            self.job.mark_progress(progress=int(s['percent']))
             done = (s['status'] == 'completed')
 
         # Retrieve the data
