@@ -159,7 +159,7 @@ class Query(object):
 
         if not params:
             params = None
-
+        print params
         self.querydata = self.report.profiler.api.report.queries(self.report.id,
                                                                  self.id,
                                                                  params=params)
@@ -933,7 +933,7 @@ class WANReport(SingleQueryReport):
         """Normal get_data, used internally."""
         return super(WANReport, self).get_data()
 
-    def _run_reports(self, lan_interfaces, wan_interfaces, **kwargs):
+    def _run_reports(self, lan_interfaces, wan_interfaces):
         """Verify cache and run reports for both interfaces."""
 
         if not (self._timefilter and self._timefilter == self.timefilter and
@@ -944,14 +944,14 @@ class WANReport(SingleQueryReport):
             self._columns = self.columns
 
             # fetch data for both interfaces
-            self._run(wan_interfaces, **kwargs)
+            self._run(wan_interfaces)
             self._wan_data = self._get_data()
             self._run(lan_interfaces)
             self._lan_data = self._get_data()
 
         return self._lan_data, self._wan_data
 
-    def _run(self, interfaces, **kwargs):
+    def _run(self, interfaces):
         """Internal run method, calls super with class attributes."""
         return super(WANReport, self).run(realm=self.realm,
                                           groupby=self.groupby,
@@ -961,7 +961,7 @@ class WANReport(SingleQueryReport):
                                           centricity=self.centricity,
                                           resolution=self.resolution,
                                           data_filter=('interfaces_a', ','.join(interfaces)),
-                                          sync=True, **kwargs)
+                                          sync=True)
 
     def run(self, **kwargs):
         """Unimplemented for subclass to override."""
@@ -982,7 +982,7 @@ class WANSummaryReport(WANReport):
 
     def run(self, lan_interfaces, wan_interfaces, direction,
             columns=None, timefilter='last 1 h', trafficexpr=None,
-            groupby='ifc', resolution='auto', **kwargs):
+            groupby='ifc', resolution='auto'):
         """Run WAN Report.
 
         :param lan_interfaces: list of full interface name for LAN
@@ -1006,7 +1006,7 @@ class WANSummaryReport(WANReport):
         self._configure()
         self._convert_columns()
 
-        lan_data, wan_data = self._run_reports(lan_interfaces, wan_interfaces, **kwargs)
+        lan_data, wan_data = self._run_reports(lan_interfaces, wan_interfaces)
 
         key_columns = [c for c in self.columns if c.iskey]
 
@@ -1039,7 +1039,7 @@ class WANTimeSeriesReport(WANReport):
 
     def run(self, lan_interfaces, wan_interfaces, direction,
             columns=None, timefilter='last 1 h', trafficexpr=None,
-            groupby=None, resolution='auto', **kwargs):
+            groupby=None, resolution='auto'):
         """ Run WAN Time Series Report
 
         :param lan_interfaces: list of full interface name for LAN
@@ -1068,7 +1068,8 @@ class WANTimeSeriesReport(WANReport):
 
         self._configure()
         self._convert_columns()
-        lan_data, wan_data = self._run_reports(lan_interfaces, wan_interfaces, **kwargs)
+
+        lan_data, wan_data = self._run_reports(lan_interfaces, wan_interfaces)
 
         key_columns = [c.key for c in self.columns if c.iskey]
         if key_columns[0] != 'time':
