@@ -238,7 +238,7 @@ class NetProfilerQuery(TableQueryBase):
         logger.debug('NetProfiler report using resolution %s (%s)' %
                      (resolution, type(resolution)))
 
-        limit = (self.table.options.limit 
+        limit = (self.table.options.limit
                  if hasattr(self.table.options, 'limit') else None)
 
         with lock:

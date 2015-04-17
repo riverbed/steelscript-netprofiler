@@ -677,8 +677,9 @@ class TrafficSummaryReport(SingleQueryReport):
         return super(TrafficSummaryReport, self).run(
             realm='traffic_summary',
             groupby=groupby, columns=columns, sort_col=sort_col,
-            timefilter=timefilter, trafficexpr=trafficexpr, host_group_type=host_group_type,
-            resolution=resolution, centricity=centricity, area=area, sync=sync, **kwargs)
+            timefilter=timefilter, trafficexpr=trafficexpr,
+            host_group_type=host_group_type, resolution=resolution,
+            centricity=centricity, area=area, sync=sync, **kwargs)
 
 
 class TrafficOverallTimeSeriesReport(SingleQueryReport):
@@ -1122,7 +1123,8 @@ class IdentityReport(SingleQueryReport):
                                                 'host_switch_dns',
                                                 'domain'])
 
-    def run(self, username=None, timefilter=None, trafficexpr=None, sync=True, **kwargs):
+    def run(self, username=None, timefilter=None, trafficexpr=None, sync=True,
+            **kwargs):
         """Run complete user identity report over the requested timeframe.
 
         `username` specific id to filter results by
