@@ -159,7 +159,7 @@ class Query(object):
 
         if not params:
             params = None
-        print params
+
         self.querydata = self.report.profiler.api.report.queries(self.report.id,
                                                                  self.id,
                                                                  params=params)
