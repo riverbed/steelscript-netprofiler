@@ -169,7 +169,8 @@ class NetProfilerTimeSeriesTable(NetProfilerTable):
 
     TABLE_OPTIONS = {'groupby': 'time',
                      'realm': 'traffic_overall_time_series',
-                     'interface': None}
+                     'interface': None,
+                     'limit': None}
 
 
 class NetProfilerGroupbyTable(NetProfilerTable):
@@ -178,7 +179,8 @@ class NetProfilerGroupbyTable(NetProfilerTable):
 
     TABLE_OPTIONS = {'groupby': None,
                      'realm': 'traffic_summary',
-                     'interface': None}
+                     'interface': None,
+                     'limit': None}
 
 
 class NetProfilerQuery(TableQueryBase):
@@ -236,6 +238,9 @@ class NetProfilerQuery(TableQueryBase):
         logger.debug('NetProfiler report using resolution %s (%s)' %
                      (resolution, type(resolution)))
 
+        limit = (self.table.options.limit 
+                 if hasattr(self.table.options, 'limit') else None)
+
         with lock:
             centricity = 'int' if self.table.options.interface else 'hos'
             report.run(realm=self.table.options.realm,
@@ -247,7 +252,8 @@ class NetProfilerQuery(TableQueryBase):
                        data_filter=datafilter,
                        resolution=resolution,
                        sort_col=sortcol,
-                       sync=False
+                       sync=False,
+                       limit=limit
                        )
 
         done = False
