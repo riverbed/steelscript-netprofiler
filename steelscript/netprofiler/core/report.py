@@ -159,7 +159,6 @@ class Query(object):
 
         if not params:
             params = None
-
         self.querydata = self.report.profiler.api.report.queries(self.report.id,
                                                                  self.id,
                                                                  params=params)
@@ -418,6 +417,8 @@ class Report(object):
 
         If `columns` is specified, restrict the legend to the list of
         requested columns.
+
+        :param integer limit: Upper limit of rows of the result data.
         """
         query = self.get_query_by_index(index)
         return query.get_iterdata(columns, limit)
@@ -427,6 +428,8 @@ class Report(object):
 
         If `columns` is specified, restrict the data to the list of
         requested columns.
+
+        :param integer limit: Upper limit of rows of the result data.
         """
         query = self.get_query_by_index(index)
         return query.get_data(columns, limit)
@@ -564,6 +567,7 @@ class SingleQueryReport(Report):
             available column rather than assuming requested columns is the
             available columns
 
+        :param integer limit: Upper limit of rows of the result data.
         """
 
         # query related parameters
@@ -670,7 +674,7 @@ class TrafficSummaryReport(SingleQueryReport):
     def run(self, groupby, columns, sort_col=None,
             timefilter=None, trafficexpr=None, host_group_type="ByLocation",
             resolution="auto", centricity="hos", area=None, sync=True,
-            **kwargs):
+            limit=None):
         """See :meth:`SingleQueryReport.run` for a description of the keyword
         arguments.
         """
@@ -679,7 +683,7 @@ class TrafficSummaryReport(SingleQueryReport):
             groupby=groupby, columns=columns, sort_col=sort_col,
             timefilter=timefilter, trafficexpr=trafficexpr,
             host_group_type=host_group_type, resolution=resolution,
-            centricity=centricity, area=area, sync=sync, **kwargs)
+            centricity=centricity, area=area, sync=sync, limit=limit)
 
 
 class TrafficOverallTimeSeriesReport(SingleQueryReport):
@@ -691,8 +695,7 @@ class TrafficOverallTimeSeriesReport(SingleQueryReport):
 
     def run(self, columns,
             timefilter=None, trafficexpr=None,
-            resolution="auto", centricity="hos", area=None, sync=True,
-            **kwargs):
+            resolution="auto", centricity="hos", area=None, sync=True):
         """See :meth:`SingleQueryReport.run` for a description of the keyword
         arguments.
 
@@ -704,7 +707,7 @@ class TrafficOverallTimeSeriesReport(SingleQueryReport):
             groupby='tim', columns=columns, sort_col=None,
             timefilter=timefilter, trafficexpr=trafficexpr,
             host_group_type=None, resolution=resolution,
-            centricity=centricity, area=area, sync=sync, **kwargs)
+            centricity=centricity, area=area, sync=sync)
 
 
 class TrafficTimeSeriesReport(SingleQueryReport):
@@ -716,8 +719,7 @@ class TrafficTimeSeriesReport(SingleQueryReport):
 
     def run(self, columns, query_columns_groupby, query_columns,
             timefilter=None, trafficexpr=None, host_group_type=None,
-            resolution="auto", centricity="hos", area=None, sync=True,
-            **kwargs):
+            resolution="auto", centricity="hos", area=None, sync=True):
         """
         :param str query_columns_groupby: defines the type of data for
             each unique column
@@ -746,7 +748,7 @@ class TrafficTimeSeriesReport(SingleQueryReport):
             host_group_type=host_group_type,
             resolution=resolution, centricity=centricity, area=area, sync=sync,
             query_columns_groupby=query_columns_groupby,
-            query_columns=query_columns, custom_columns=True, **kwargs)
+            query_columns=query_columns, custom_columns=True)
 
 
 class TrafficFlowListReport(SingleQueryReport):
@@ -757,19 +759,19 @@ class TrafficFlowListReport(SingleQueryReport):
         super(TrafficFlowListReport, self).__init__(profiler)
 
     def run(self, columns, sort_col=None,
-            timefilter=None, trafficexpr=None, sync=True, **kwargs):
+            timefilter=None, trafficexpr=None, sync=True, limit=None):
         """See :meth:`SingleQueryReport.run` for a description of the keyword
         arguments.
 
-        Note that only `columns, `sort_col`, `timefilter`, and `trafficexpr`
-        apply to this report type.
+        Note that only `columns, `sort_col`, `timefilter`, `trafficexpr` and
+        `limit` apply to this report type.
         """
         return super(TrafficFlowListReport, self).run(
             realm='traffic_flow_list',
             groupby='hos', columns=columns, sort_col=sort_col,
             timefilter=timefilter, trafficexpr=trafficexpr, host_group_type=None,
             centricity="hos", area=None, sync=sync,
-            **kwargs)
+            limit=limit)
 
 
 class WANReport(SingleQueryReport):
@@ -1124,7 +1126,7 @@ class IdentityReport(SingleQueryReport):
                                                 'domain'])
 
     def run(self, username=None, timefilter=None, trafficexpr=None, sync=True,
-            **kwargs):
+            limit=None):
         """Run complete user identity report over the requested timeframe.
 
         `username` specific id to filter results by
@@ -1132,6 +1134,8 @@ class IdentityReport(SingleQueryReport):
         `timefilter` is the range of time to query, a TimeFilter object
 
         `trafficexpr` is an optional TrafficFilter object
+
+        :param integer limit: Upper limit of rows of the result data
         """
         if username:
             data_filter = ('user', username)
@@ -1147,5 +1151,5 @@ class IdentityReport(SingleQueryReport):
             centricity=self.id_centricity,
             data_filter=data_filter,
             sync=sync,
-            **kwargs
+            limit=limit
         )
