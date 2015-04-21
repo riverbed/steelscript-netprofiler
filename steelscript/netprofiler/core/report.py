@@ -14,11 +14,14 @@ import logging
 import time
 import cStringIO as StringIO
 
-from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.common.api_helpers import APIVersion
 from steelscript.common.timeutils import (parse_timedelta, datetime_to_seconds,
                                           timedelta_total_seconds)
 from steelscript.common.datastructures import RecursiveUpdateDict
 from steelscript.common.exceptions import RvbdException
+
+from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.netprofiler.core._exceptions import ProfilerException
 
 __all__ = ['TrafficSummaryReport',
            'TrafficOverallTimeSeriesReport',
@@ -136,7 +139,7 @@ class Query(object):
                 row[i] = int(x)
         return row
 
-    def _get_querydata(self, columns=None):
+    def _get_querydata(self, columns=None, limit=None):
         """Get the query data."""
         columns = self.get_legend(columns)
 
@@ -146,11 +149,16 @@ class Query(object):
         if not changed:
             return
 
-        if columns:
-            params = {"columns": (",".join(str(col.id) for col in columns))}
-        else:
-            params = None
+        params = {}
 
+        if columns:
+            params['columns'] = (','.join(str(col.id) for col in columns))
+
+        if limit:
+            params['limit'] = limit
+
+        if not params:
+            params = None
         self.querydata = self.report.profiler.api.report.queries(self.report.id,
                                                                  self.id,
                                                                  params=params)
@@ -160,15 +168,15 @@ class Query(object):
             'Retrieved query data for '
             'query id {0} and column {1}'.format(self.id, columns))
 
-    def get_iterdata(self, columns=None):
+    def get_iterdata(self, columns=None, limit=None):
         """Iterate over the query data."""
-        self._get_querydata(columns)
+        self._get_querydata(columns, limit)
         for row in self.data:
             yield self._to_native(row)
 
-    def get_data(self, columns=None):
+    def get_data(self, columns=None, limit=None):
         """Generate list from get_iterdata."""
-        return list(self.get_iterdata(columns))
+        return list(self.get_iterdata(columns, limit))
 
     def get_totals(self, columns=None):
         """Return the totals associated with the requested columns."""
@@ -404,23 +412,27 @@ class Report(object):
         query = self.get_query_by_index(index)
         return query.get_legend(columns)
 
-    def get_iterdata(self, index=0, columns=None):
+    def get_iterdata(self, index=0, columns=None, limit=None):
         """Retrieve iterator for the result data.
 
         If `columns` is specified, restrict the legend to the list of
         requested columns.
+
+        :param integer limit: Upper limit of rows of the result data.
         """
         query = self.get_query_by_index(index)
-        return query.get_iterdata(columns)
+        return query.get_iterdata(columns, limit)
 
-    def get_data(self, index=0, columns=None):
+    def get_data(self, index=0, columns=None, limit=None):
         """Retrieve data for this report.
 
         If `columns` is specified, restrict the data to the list of
         requested columns.
+
+        :param integer limit: Upper limit of rows of the result data.
         """
         query = self.get_query_by_index(index)
-        return query.get_data(columns)
+        return query.get_data(columns, limit)
 
     def get_totals(self, index=0, columns=None):
         """Retrieve the totals for this report.
@@ -502,6 +514,7 @@ class SingleQueryReport(Report):
 
     def __init__(self, profiler):
         super(SingleQueryReport, self).__init__(profiler)
+        self._limit = None
 
     def run(self, realm,
             groupby="hos", columns=None, sort_col=None,
@@ -509,7 +522,7 @@ class SingleQueryReport(Report):
             resolution="auto", centricity="hos", area=None,
             data_filter=None, sync=True,
             query_columns_groupby=None, query_columns=None,
-            custom_columns=False
+            custom_columns=False, limit=None
             ):
         """
         :param str realm: type of query, this is automatically set by subclasses
@@ -550,10 +563,14 @@ class SingleQueryReport(Report):
         :param list query_columns: list of unique values associated with
             query_columns_groupby
 
-        :param bool custom_columsn: if True, generate new Columns for each
+        :param bool custom_columns: if True, generate new Columns for each
             available column rather than assuming requested columns is the
             available columns
 
+        :param integer limit: Upper limit of rows of the result data.
+            NetProfiler will return by default a maximum of 10,000 rows,
+            but with this argument that limit can be raised up to '1000000',
+            if needed.
         """
 
         # query related parameters
@@ -606,6 +623,17 @@ class SingleQueryReport(Report):
             query[query_columns_groupby] = query_columns
             query['host_group_type'] = self.host_group_type
 
+        self._limit = limit
+        if limit is not None:
+            if (APIVersion("1.4") not in self.profiler.supported_versions):
+                raise ProfilerException(
+                    "'limit' not supported by this NetProfiler API version")
+
+            elif realm.endswith('time_series'):
+                raise ProfilerException("'limit' option is not allowed in "
+                                        "time series report")
+
+            query['limit'] = limit
         super(SingleQueryReport, self).run(template_id=184,
                                            timefilter=timefilter,
                                            resolution=resolution,
@@ -623,15 +651,17 @@ class SingleQueryReport(Report):
             columns = self.columns
         return super(SingleQueryReport, self).get_legend(0, columns)
 
-    def get_iterdata(self, columns=None):
+    def get_iterdata(self, columns=None, limit=None):
         if columns is None:
             columns = self.columns
-        return super(SingleQueryReport, self).get_iterdata(0, columns)
+        return super(SingleQueryReport, self).get_iterdata(
+            0, columns, limit or self._limit)
 
-    def get_data(self, columns=None):
+    def get_data(self, columns=None, limit=None):
         if columns is None:
             columns = self.columns
-        return super(SingleQueryReport, self).get_data(0, columns)
+        return super(SingleQueryReport, self).get_data(
+            0, columns, limit or self._limit)
 
 
 class TrafficSummaryReport(SingleQueryReport):
@@ -646,15 +676,17 @@ class TrafficSummaryReport(SingleQueryReport):
 
     def run(self, groupby, columns, sort_col=None,
             timefilter=None, trafficexpr=None, host_group_type="ByLocation",
-            resolution="auto", centricity="hos", area=None, sync=True):
+            resolution="auto", centricity="hos", area=None, sync=True,
+            limit=None):
         """See :meth:`SingleQueryReport.run` for a description of the keyword
         arguments.
         """
         return super(TrafficSummaryReport, self).run(
             realm='traffic_summary',
             groupby=groupby, columns=columns, sort_col=sort_col,
-            timefilter=timefilter, trafficexpr=trafficexpr, host_group_type=host_group_type,
-            resolution=resolution, centricity=centricity, area=area, sync=sync)
+            timefilter=timefilter, trafficexpr=trafficexpr,
+            host_group_type=host_group_type, resolution=resolution,
+            centricity=centricity, area=area, sync=sync, limit=limit)
 
 
 class TrafficOverallTimeSeriesReport(SingleQueryReport):
@@ -676,8 +708,9 @@ class TrafficOverallTimeSeriesReport(SingleQueryReport):
         return super(TrafficOverallTimeSeriesReport, self).run(
             realm='traffic_overall_time_series',
             groupby='tim', columns=columns, sort_col=None,
-            timefilter=timefilter, trafficexpr=trafficexpr, host_group_type=None,
-            resolution=resolution, centricity=centricity, area=area, sync=sync)
+            timefilter=timefilter, trafficexpr=trafficexpr,
+            host_group_type=None, resolution=resolution,
+            centricity=centricity, area=area, sync=sync)
 
 
 class TrafficTimeSeriesReport(SingleQueryReport):
@@ -729,18 +762,19 @@ class TrafficFlowListReport(SingleQueryReport):
         super(TrafficFlowListReport, self).__init__(profiler)
 
     def run(self, columns, sort_col=None,
-            timefilter=None, trafficexpr=None, sync=True):
+            timefilter=None, trafficexpr=None, sync=True, limit=None):
         """See :meth:`SingleQueryReport.run` for a description of the keyword
         arguments.
 
-        Note that only `columns, `sort_col`, `timefilter`, and `trafficexpr`
-        apply to this report type.
+        Note that only `columns, `sort_col`, `timefilter`, `trafficexpr` and
+        `limit` apply to this report type.
         """
         return super(TrafficFlowListReport, self).run(
             realm='traffic_flow_list',
             groupby='hos', columns=columns, sort_col=sort_col,
             timefilter=timefilter, trafficexpr=trafficexpr, host_group_type=None,
-            resolution="1min", centricity="hos", area=None, sync=sync)
+            centricity="hos", area=None, sync=sync,
+            limit=limit)
 
 
 class WANReport(SingleQueryReport):
@@ -1094,7 +1128,8 @@ class IdentityReport(SingleQueryReport):
                                                 'host_switch_dns',
                                                 'domain'])
 
-    def run(self, username=None, timefilter=None, trafficexpr=None, sync=True):
+    def run(self, username=None, timefilter=None, trafficexpr=None, sync=True,
+            limit=None):
         """Run complete user identity report over the requested timeframe.
 
         `username` specific id to filter results by
@@ -1102,6 +1137,8 @@ class IdentityReport(SingleQueryReport):
         `timefilter` is the range of time to query, a TimeFilter object
 
         `trafficexpr` is an optional TrafficFilter object
+
+        :param integer limit: Upper limit of rows of the result data
         """
         if username:
             data_filter = ('user', username)
@@ -1116,5 +1153,6 @@ class IdentityReport(SingleQueryReport):
             trafficexpr=trafficexpr,
             centricity=self.id_centricity,
             data_filter=data_filter,
-            sync=sync
+            sync=sync,
+            limit=limit
         )
