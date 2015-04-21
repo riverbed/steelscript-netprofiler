@@ -568,6 +568,9 @@ class SingleQueryReport(Report):
             available columns
 
         :param integer limit: Upper limit of rows of the result data.
+            NetProfiler will return by default a maximum of 10,000 rows,
+            but with this argument that limit can be raised up to '1000000',
+            if needed.
         """
 
         # query related parameters
