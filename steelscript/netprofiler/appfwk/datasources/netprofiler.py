@@ -88,10 +88,7 @@ def netprofiler_hostgroups(form, id, field_kwargs, params):
             hgt = HostGroupType.find_by_name(netprofiler,
                                              hostgroup_type)
 
-        choices = []
-
-        for group in hgt.groups.keys():
-            choices.append((group, group))
+        choices = [(group, group) for group in hgt.groups.keys()]
 
     field_kwargs['label'] = 'HostGroup'
     field_kwargs['choices'] = choices
@@ -107,8 +104,8 @@ def add_netprofiler_hostgroup_field(report, section, hg_type=None):
     The optional ``hg_type`` argument can be either a single string or a list
     of strings for each HostGroupType.  If a single string, the
     'HostGroupType' field will be hidden and automatically filter HostGroups
-    to the given HostGroupType.  If a list, the elements of that list will
-    be fixed to those in the list; this can be helpful if certain
+    to the given HostGroupType.  If a list, the elements of the HostGroupType
+    list will be fixed to those in the list; this can be helpful if certain
     HostGroupTypes may be sensitive or not applicable to the report.
     """
     # add default filter expr to extend against
