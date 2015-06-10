@@ -10,6 +10,8 @@ import logging
 import threading
 import datetime
 
+from django import forms
+
 import steelscript.netprofiler.core
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import (parse_timedelta,
@@ -20,9 +22,9 @@ from steelscript.appfwk.apps.datasource.models import TableField
 from steelscript.appfwk.apps.devices.forms import fields_add_device_selection
 from steelscript.appfwk.apps.devices.devicemanager import DeviceManager
 from steelscript.appfwk.apps.datasource.forms import (fields_add_time_selection,
-                                                          fields_add_resolution)
+                                                      fields_add_resolution)
 from steelscript.appfwk.libs.fields import Function
-
+from steelscript.netprofiler.core.hostgroup import HostGroupType
 
 logger = logging.getLogger(__name__)
 lock = threading.Lock()
@@ -48,6 +50,120 @@ def _post_process_combine_filterexprs(form, id, criteria, params):
         val = "(" + ") and (".join(exprs) + ")"
 
     criteria['netprofiler_filterexpr'] = val
+
+
+def netprofiler_hostgroup_types(form, id, field_kwargs, params):
+    """ Query netprofiler for all hostgroup types. """
+    netprofiler_device = form.get_field_value('netprofiler_device', id)
+
+    if netprofiler_device == '':
+        choices = [('', '<No netprofiler device>')]
+    else:
+        netprofiler = DeviceManager.get_device(netprofiler_device)
+
+        choices = []
+
+        for hgt in netprofiler.api.host_group_types.get_all():
+            choices.append((hgt['name'], hgt['name']))
+
+    field_kwargs['label'] = 'HostGroupType'
+    field_kwargs['choices'] = choices
+
+
+def netprofiler_hostgroups(form, id, field_kwargs, params):
+    """ Query netprofiler for groups within a given hostgroup. """
+    netprofiler_device = form.get_field_value('netprofiler_device', id)
+
+    if netprofiler_device == '':
+        choices = [('', '<No netprofiler device>')]
+    else:
+        netprofiler = DeviceManager.get_device(netprofiler_device)
+
+        if params is not None and 'hostgroup_type' in params:
+            hgt = HostGroupType.find_by_name(netprofiler,
+                                             params['hostgroup_type'])
+        else:
+            hostgroup_type = form.get_field_value('hostgroup_type', id)
+
+            hgt = HostGroupType.find_by_name(netprofiler,
+                                             hostgroup_type)
+
+        choices = [(group, group) for group in hgt.groups.keys()]
+
+    field_kwargs['label'] = 'HostGroup'
+    field_kwargs['choices'] = choices
+
+
+def add_netprofiler_hostgroup_field(report, section, hg_type=None):
+    """ Attach fields for dynamic HostGroup dropdowns to add as filter
+    expressions to the report.
+
+    This can be added for each section in a report where the added filter
+    expression is desired.
+
+    The optional ``hg_type`` argument can be either a single string or a list
+    of strings for each HostGroupType.  If a single string, the
+    'HostGroupType' field will be hidden and automatically filter HostGroups
+    to the given HostGroupType.  If a list, the elements of the HostGroupType
+    list will be fixed to those in the list; this can be helpful if certain
+    HostGroupTypes may be sensitive or not applicable to the report.
+    """
+    # add default filter expr to extend against
+    filterexpr = TableField.create(keyword='netprofiler_filterexpr')
+    section.fields.add(filterexpr)
+
+    # defaults if we are using hostgroup type field
+    hg_template = '{hostgroup_type}'
+    hg_parent = ['hostgroup_type']
+    hg_params = None
+
+    if hg_type is None:
+        # add hostgroup types field that queries netprofiler
+        field = TableField.create(
+            keyword='hostgroup_type',
+            label='HostGroup Type',
+            obj=report,
+            field_cls=forms.ChoiceField,
+            parent_keywords=['netprofiler_device'],
+            dynamic=True,
+            pre_process_func=Function(netprofiler_hostgroup_types)
+        )
+        section.fields.add(field)
+
+    elif type(hg_type) in (list, tuple):
+        # add hostgroup types field that uses given list
+        field = TableField.create(
+            keyword='hostgroup_type',
+            label='HostGroup Type',
+            obj=report,
+            field_cls=forms.ChoiceField,
+            field_kwargs={'choices': zip(hg_type, hg_type)},
+            parent_keywords=['netprofiler_device'],
+        )
+        section.fields.add(field)
+
+    else:
+        # no field, hardcode the given value
+        hg_template = hg_type
+        hg_parent = None
+        hg_params = {'hostgroup_type': hg_type}
+
+    # add hostgroup field
+    field = TableField.create(
+        keyword='hostgroup',
+        label='HostGroup',
+        obj=report,
+        field_cls=forms.ChoiceField,
+        parent_keywords=hg_parent,
+        dynamic=True,
+        pre_process_func=Function(netprofiler_hostgroups, params=hg_params)
+    )
+    section.fields.add(field)
+
+    NetProfilerTable.extend_filterexpr(
+        section, keyword='hg_filterexpr',
+        template='hostgroup %s:{hostgroup}' % hg_template
+    )
 
 
 class NetProfilerTable(DatasourceTable):
@@ -139,28 +255,6 @@ class NetProfilerTable(DatasourceTable):
         parent_keywords.add(keyword)
         field.parent_keywords = list(parent_keywords)
         field.save()
-
-    @staticmethod
-    def _post_process_combine_filterexprs(form, id, criteria, params):
-        exprs = []
-        if ('netprofiler_filterexpr' in criteria and
-                criteria.netprofiler_filterexpr != ''):
-            exprs.append(criteria.netprofiler_filterexpr)
-
-        field = form.get_tablefield(id)
-        for parent in field.parent_keywords:
-            expr = criteria[parent]
-            if expr is not None and expr != '':
-                exprs.append(expr)
-
-        if len(exprs) == 0:
-            val = ""
-        elif len(exprs) == 1:
-            val = exprs[0]
-        else:
-            val = "(" + ") and (".join(exprs) + ")"
-
-        criteria['netprofiler_filterexpr'] = val
 
 
 class NetProfilerTimeSeriesTable(NetProfilerTable):
