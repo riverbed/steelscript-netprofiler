@@ -87,6 +87,8 @@ class NetProfiler(steelscript.common.service.Service):
 
         self._load_file_caches()
         self.columns = ColumnContainer(self._unique_columns())
+        self.colnames = set(c.key for c in self.columns)
+
         self.areas = AreaContainer(self._areas_dict.iteritems())
 
     def _load_file_caches(self):
@@ -196,14 +198,15 @@ class NetProfiler(steelscript.common.service.Service):
         """
         res = []
         for c in columns:
-            key = c['strid'].lower()[3:]
-            baseid = c['id']
-            if hasattr(self, 'columns'):
+            col = Column.from_json(c)
+            if col.ephemeral and hasattr(self, 'columns'):
                 try:
-                    baseid = self.columns[key].id
+                    baseid = self.columns[col.key].id
+                    col.baseid = baseid
                 except KeyError:
                     pass
-            res.append(Column(c['id'], key, c['name'], json=c, baseid=baseid))
+
+            res.append(col)
         return res
 
     def _genareas(self, areas):
@@ -225,13 +228,13 @@ class NetProfiler(steelscript.common.service.Service):
     def get_columns(self, columns, groupby=None):
         """Return valid Column objects for list of columns
 
-        :param list columns: list of strings and/or Column objects
+        :param list columns: list of strings, Column objects, or
+            JSON dicts defining a column
 
         :param str groupby: will optionally ensure that the selected columns
             are valid for the given groupby
 
-        Note that this function will never return 'ephemeral' columns,
-        plus the list may be incomplete for any given groupby.
+        Note that this function may be incomplete for any given groupby.
 
         """
         res = list()
@@ -240,18 +243,25 @@ class NetProfiler(steelscript.common.service.Service):
         else:
             groupby_cols = None
 
-        colnames = set(c.key for c in self.columns)
+        colnames = self.colnames
 
         for column in columns:
             if isinstance(column, types.StringTypes):
                 cname = column
+            elif isinstance(column, Column):
+                # usually a Column class
+                cname = column.key
             else:
-                try:
-                    # usually a Column class
-                    cname = column.key
-                except AttributeError:
-                    # likely json-dict
-                    cname = column['strid'].lower()[3:]
+                # otherwise, likely a json-dict column definition
+                # as returned by a query for a report legend
+                if column['id'] >= 200000:
+                    # Ephemeral column, create a new column and don't
+                    # do any validation
+                    res.extend(self._gencolumns([column]))
+                    continue
+
+                strid = column['strid']
+                cname = strid.lower()[3:]
 
             if cname not in colnames:
                 raise RvbdException('{0} is not a valid column '

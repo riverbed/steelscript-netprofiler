@@ -87,15 +87,16 @@ class Command(NetProfilerApp):
                     self.options.filter.lower() not in c.label.lower()):
                 continue
 
-            item = (c.key, c.label, c.id)
+            item = (c.key, c.label, c.id, c.json['type'])
+
             if c.iskey:
                 keys.append(item)
             else:
                 values.append(item)
 
-        Formatter.print_table(keys, ['Key Columns', 'Label', 'ID'])
+        Formatter.print_table(keys, ['Key Columns', 'Label', 'ID', 'Type'])
         print ''
-        Formatter.print_table(values, ['Value Columns', 'Label', 'ID'])
+        Formatter.print_table(values, ['Value Columns', 'Label', 'ID', 'Type'])
 
     def main(self):
         if self.options.list_groupbys:
