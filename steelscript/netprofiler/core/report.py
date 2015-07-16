@@ -19,7 +19,7 @@ from steelscript.common.api_helpers import APIVersion
 from steelscript.common.timeutils import (parse_timedelta, datetime_to_seconds,
                                           timedelta_total_seconds)
 from steelscript.common.datastructures import RecursiveUpdateDict
-from steelscript.common.exceptions import RvbdException
+from steelscript.common.exceptions import RvbdException, RvbdHTTPException
 
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.netprofiler.core._exceptions import ProfilerException
@@ -759,19 +759,25 @@ class TrafficTimeSeriesReport(SingleQueryReport):
 
         """
 
-        if len(set(columns) - set([self.profiler.columns.key.time])) != 1:
+        if len(set(columns) - set([self.profiler.columns.key.time, 'time'])) != 1:
             raise ValueError("Columns must be a list of only one column "
                              "for this type of report")
 
-        return super(TrafficTimeSeriesReport, self).run(
-            realm='traffic_time_series',
-            groupby='tim', columns=columns, sort_col=None,
-            timefilter=timefilter, trafficexpr=trafficexpr,
-            host_group_type=host_group_type,
-            resolution=resolution, centricity=centricity, area=area, sync=sync,
-            query_columns_groupby=query_columns_groupby,
-            query_columns=query_columns,
-            custom_criteria=custom_criteria)
+        try:
+            return super(TrafficTimeSeriesReport, self).run(
+                realm='traffic_time_series',
+                groupby='tim', columns=columns, sort_col=None,
+                timefilter=timefilter, trafficexpr=trafficexpr,
+                host_group_type=host_group_type,
+                resolution=resolution, centricity=centricity, area=area, sync=sync,
+                query_columns_groupby=query_columns_groupby,
+                query_columns=query_columns,
+                custom_criteria=custom_criteria)
+        except RvbdHTTPException as e:
+            if 'Error creating element ports' in str(e):
+                raise ProfilerException(
+                    "TrafficTimeSeriesReport using 'ports' not "
+                    "supported by this NetProfiler software version")
 
 
 class TrafficFlowListReport(SingleQueryReport):

@@ -9,7 +9,9 @@
 realms = ['traffic_summary',
           'traffic_overall_time_series',
           'traffic_flow_list',
-          'identity_list']
+          'identity_list',
+          'msq'
+          ]
 
 centricities = ['hos', 'int']
 
@@ -51,7 +53,7 @@ groupbys = dict([
 #                    ('service_component', 'scm'),
 #                    ('service_full_aggregation', 'saf'),
 #                    ('service_location_aggregation', 'sal'),
-#                    ('service_location_metric_aggregation', 'slm'),
+                    ('service_location_metric_aggregation', 'slm'),
 #                    ('service_location_summary', 'sll'),
 #                    ('service_segment', 'ssg'),
 #                    ('service_segment_aggregation', 'sas'),
@@ -64,5 +66,3 @@ groupbys = dict([
 #                    ('vtep_peer', 'vpe'),
                     ('vxlan', 'vxl')
                 ])
-
-

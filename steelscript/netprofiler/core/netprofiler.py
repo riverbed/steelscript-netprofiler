@@ -33,7 +33,7 @@ logger = logging.getLogger(__name__)
 
 
 def make_hash(realm, centricity, groupby):
-    return realm + centricity + groupby
+    return str(realm) + str(centricity) + str(groupby)
 
 
 class NetProfiler(steelscript.common.service.Service):
@@ -133,16 +133,21 @@ class NetProfiler(steelscript.common.service.Service):
         for realm in self.realms:
             if realm == 'traffic_flow_list' or realm == 'identity_list':
                 centricities = ['hos']
+            elif realm == 'msq':
+                centricities = ['hos']
             else:
                 centricities = self.centricities
 
             for centricity in centricities:
                 if realm == 'traffic_summary':
-                    groupbys = [x for x in self.groupbys.values() if x != 'thu']
+                    groupbys = [x for x in self.groupbys.values() if
+                                x not in ['thu', 'slm']]
                 elif realm == 'traffic_overall_time_series':
                     groupbys = ['tim']
                 elif realm == 'identity_list':
                     groupbys = ['thu']
+                elif realm == 'msq':
+                    groupbys = ['slm']
                 else:
                     groupbys = ['hos']
 
@@ -151,8 +156,7 @@ class NetProfiler(steelscript.common.service.Service):
                     if refetch or _hash not in self._columns_file.data:
                         logger.debug('Requesting columns for triplet: '
                                      '%s, %s, %s' % (realm, centricity, groupby))
-                        api_call = self.api.report.columns(realm,
-                                                           centricity, groupby)
+                        api_call = self.api.report.columns(realm, centricity, groupby)
                         # generate Column objects from json
                         api_columns = self._gencolumns(api_call)
                         # compare against objects we've already retrieved
@@ -224,6 +228,11 @@ class NetProfiler(steelscript.common.service.Service):
         """Returns the software version of the NetProfiler"""
         self._fetch_info()
         return self._info['sw_version']
+
+    def supports_version(self, version):
+        if isinstance(version, types.StringTypes):
+            version = APIVersion(version)
+        return version in self.supported_versions
 
     def get_columns(self, columns, groupby=None):
         """Return valid Column objects for list of columns

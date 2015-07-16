@@ -9,10 +9,12 @@ import time
 import logging
 import threading
 import datetime
+import pandas
 
 from django import forms
 
 import steelscript.netprofiler.core
+from steelscript.netprofiler.core.services import ServiceLocationReport
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import (parse_timedelta,
                                           timedelta_total_seconds)
@@ -25,6 +27,7 @@ from steelscript.appfwk.apps.datasource.forms import (fields_add_time_selection,
                                                       fields_add_resolution)
 from steelscript.appfwk.libs.fields import Function
 from steelscript.netprofiler.core.hostgroup import HostGroupType
+from steelscript.appfwk.apps.jobs import QueryComplete
 
 logger = logging.getLogger(__name__)
 lock = threading.Lock()
@@ -381,3 +384,106 @@ class NetProfilerQuery(TableQueryBase):
 
         logger.info("Report %s returned %s rows" % (self.job, len(self.data)))
         return True
+
+
+#
+# Service reports
+#
+
+class NetProfilerServiceByLocTable(DatasourceTable):
+
+    class Meta:
+        proxy = True
+    _query_class = 'NetProfilerServiceByLocQuery'
+
+    # default field parameters
+    FIELD_OPTIONS = {'duration': '15min',
+                     'durations': ('15 min', '1 hour',
+                                   '2 hours', '4 hours', '12 hours',
+                                   '1 day', '1 week', '4 weeks'),
+                     }
+
+    def post_process_table(self, field_options):
+        fields_add_device_selection(self, keyword='netprofiler_device',
+                                    label='NetProfiler', module='netprofiler',
+                                    enabled=True)
+
+        duration = field_options['duration']
+
+        fields_add_time_selection(self,
+                                  initial_duration=duration,
+                                  durations=field_options['durations'])
+
+
+class NetProfilerServiceByLocQuery(TableQueryBase):
+
+    def run(self):
+        """ Main execution method
+        """
+        criteria = self.job.criteria
+
+        if criteria.netprofiler_device == '':
+            logger.debug('%s: No netprofiler device selected' % self.table)
+            self.job.mark_error("No NetProfiler Device Selected")
+            return False
+
+        profiler = DeviceManager.get_device(criteria.netprofiler_device)
+        report = ServiceLocationReport(profiler)
+
+        tf = TimeFilter(start=criteria.starttime,
+                        end=criteria.endtime)
+
+        logger.info(
+            'Running NetProfilerServiceByLocTable %d report for timeframe %s' %
+            (self.table.id, str(tf)))
+
+        with lock:
+            report.run(timefilter=tf, sync=False)
+
+        done = False
+        logger.info("Waiting for report to complete")
+        while not done:
+            time.sleep(0.5)
+            with lock:
+                s = report.status()
+
+            self.job.mark_progress(progress=int(s['percent']))
+            done = (s['status'] == 'completed')
+
+        # Retrieve the data
+        with lock:
+            data = report.get_data()
+            query = report.get_query_by_index(0)
+
+            tz = criteria.starttime.tzinfo
+            # Update criteria
+            criteria.starttime = (datetime.datetime
+                                  .utcfromtimestamp(query.actual_t0)
+                                  .replace(tzinfo=tz))
+            criteria.endtime = (datetime.datetime
+                                .utcfromtimestamp(query.actual_t1)
+                                .replace(tzinfo=tz))
+
+        self.job.safe_update(actual_criteria=criteria)
+
+        if len(data) == 0:
+            return QueryComplete(None)
+
+        # Add ephemeral columns for everything
+        Column.create(self.job.table, 'location', 'Location',
+                      ephemeral=self.job, datatype='string')
+        for k in data[0].keys():
+            if k == 'location':
+                continue
+
+            Column.create(self.job.table, k, k,
+                          ephemeral=self.job, datatype='string',
+                          formatter='rvbd.formatHealth')
+
+        df = pandas.DataFrame(data)
+
+        #df = df.replace([0, 1, 2, 3, 4, 5, 6, 7],
+        #                ['gray', 'gray', 'gray', 'green',
+        #                 'yellow', 'yellow', 'red', 'gray'])
+
+        return QueryComplete(df)
