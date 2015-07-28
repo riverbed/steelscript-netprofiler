@@ -10,21 +10,26 @@ import logging
 import threading
 import datetime
 import pandas
+import types
+import json
+from collections import namedtuple
 
 from django import forms
 
-import steelscript.netprofiler.core
-from steelscript.netprofiler.core.services import ServiceLocationReport
+from steelscript.netprofiler.core.services import \
+    Service, ServiceLocationReport
+from steelscript.netprofiler.core.report import \
+    Report, SingleQueryReport, TrafficTimeSeriesReport
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import (parse_timedelta,
                                           timedelta_total_seconds)
 from steelscript.appfwk.apps.datasource.models import \
-    DatasourceTable, Column, TableQueryBase
+    DatasourceTable, Column, TableQueryBase, Table
 from steelscript.appfwk.apps.datasource.models import TableField
 from steelscript.appfwk.apps.devices.forms import fields_add_device_selection
 from steelscript.appfwk.apps.devices.devicemanager import DeviceManager
-from steelscript.appfwk.apps.datasource.forms import (fields_add_time_selection,
-                                                      fields_add_resolution)
+from steelscript.appfwk.apps.datasource.forms import \
+    fields_add_time_selection, fields_add_resolution
 from steelscript.appfwk.libs.fields import Function
 from steelscript.netprofiler.core.hostgroup import HostGroupType
 from steelscript.appfwk.apps.jobs import QueryComplete
@@ -196,7 +201,7 @@ class NetProfilerTable(DatasourceTable):
                 res = resolution
             else:
                 res = int(timedelta_total_seconds(parse_timedelta(resolution)))
-            resolution = steelscript.netprofiler.core.report.Report.RESOLUTION_MAP[res]
+            resolution = Report.RESOLUTION_MAP[res]
             field_options['resolution'] = resolution
 
         fields_add_device_selection(self, keyword='netprofiler_device',
@@ -282,13 +287,11 @@ class NetProfilerGroupbyTable(NetProfilerTable):
 
 class NetProfilerQuery(TableQueryBase):
 
-    def fake_run(self):
-        import fake_data
-        self.data = fake_data.make_data(self.table, self.job)
+    def _prepare_report_args(self):
+        class Args(object):
+            pass
+        args = Args()
 
-    def run(self):
-        """ Main execution method
-        """
         criteria = self.job.criteria
 
         if criteria.netprofiler_device == '':
@@ -296,30 +299,27 @@ class NetProfilerQuery(TableQueryBase):
             self.job.mark_error("No NetProfiler Device Selected")
             return False
 
-        #self.fake_run()
-        #return True
+        args.profiler = DeviceManager.get_device(criteria.netprofiler_device)
 
-        profiler = DeviceManager.get_device(criteria.netprofiler_device)
-        report = steelscript.netprofiler.core.report.SingleQueryReport(profiler)
+        args.columns = [col.name for col
+                        in self.table.get_columns(synthetic=False)]
 
-        columns = [col.name for col in self.table.get_columns(synthetic=False)]
-
-        sortcol = None
+        args.sortcol = None
         if self.table.sortcols is not None:
-            sortcol = self.table.sortcols[0]
+            args.sortcol = self.table.sortcols[0]
 
-        tf = TimeFilter(start=criteria.starttime,
-                        end=criteria.endtime)
+        args.timefilter = TimeFilter(start=criteria.starttime,
+                                     end=criteria.endtime)
 
         logger.info("Running NetProfiler table %d report for timeframe %s" %
-                    (self.table.id, str(tf)))
+                    (self.table.id, str(args.timefilter)))
 
         if ('datafilter' in criteria) and (criteria.datafilter is not None):
-            datafilter = criteria.datafilter.split(',')
+            args.datafilter = criteria.datafilter.split(',')
         else:
-            datafilter = None
+            args.datafilter = None
 
-        trafficexpr = TrafficFilter(
+        args.trafficexpr = TrafficFilter(
             self.job.combine_filterexprs(exprs=criteria.netprofiler_filterexpr)
         )
 
@@ -328,31 +328,22 @@ class NetProfilerQuery(TableQueryBase):
                      (criteria.resolution, type(criteria.resolution)))
         if criteria.resolution != 'auto':
             rsecs = int(timedelta_total_seconds(criteria.resolution))
-            resolution = steelscript.netprofiler.core.report.Report.RESOLUTION_MAP[rsecs]
+            args.resolution = Report.RESOLUTION_MAP[rsecs]
         else:
-            resolution = 'auto'
+            args.resolution = 'auto'
 
         logger.debug('NetProfiler report using resolution %s (%s)' %
-                     (resolution, type(resolution)))
+                     (args.resolution, type(args.resolution)))
 
-        limit = (self.table.options.limit
-                 if hasattr(self.table.options, 'limit') else None)
+        args.limit = (self.table.options.limit
+                      if hasattr(self.table.options, 'limit') else None)
 
-        with lock:
-            centricity = 'int' if self.table.options.interface else 'hos'
-            report.run(realm=self.table.options.realm,
-                       groupby=profiler.groupbys[self.table.options.groupby],
-                       centricity=centricity,
-                       columns=columns,
-                       timefilter=tf,
-                       trafficexpr=trafficexpr,
-                       data_filter=datafilter,
-                       resolution=resolution,
-                       sort_col=sortcol,
-                       sync=False,
-                       limit=limit
-                       )
+        args.centricity = 'int' if self.table.options.interface else 'hos'
 
+        return args
+
+    def _wait_for_data(self, report, minpct=0, maxpct=100):
+        criteria = self.job.criteria
         done = False
         logger.info("Waiting for report to complete")
         while not done:
@@ -360,16 +351,18 @@ class NetProfilerQuery(TableQueryBase):
             with lock:
                 s = report.status()
 
-            self.job.mark_progress(progress=int(s['percent']))
+            logger.debug('Status: XXX %s' % str(s))
+            pct = int(float(s['percent']) * ((maxpct - minpct)/100.0) + minpct)
+            self.job.mark_progress(progress=pct)
             done = (s['status'] == 'completed')
 
         # Retrieve the data
         with lock:
-            query = report.get_query_by_index(0)
-            self.data = query.get_data()
+            data = report.get_data()
 
             tz = criteria.starttime.tzinfo
             # Update criteria
+            query = report.get_query_by_index(0)
             criteria.starttime = (datetime.datetime
                                   .utcfromtimestamp(query.actual_t0)
                                   .replace(tzinfo=tz))
@@ -378,12 +371,264 @@ class NetProfilerQuery(TableQueryBase):
                                 .replace(tzinfo=tz))
 
         self.job.safe_update(actual_criteria=criteria)
+        return data
+
+    def run(self):
+        """ Main execution method
+        """
+        args = self._prepare_report_args()
+
+        with lock:
+            report = SingleQueryReport(args.profiler)
+            report.run(realm=self.table.options.realm,
+                       groupby=args.profiler.groupbys[self.table.options.groupby],
+                       centricity=args.centricity,
+                       columns=args.columns,
+                       timefilter=args.timefilter,
+                       trafficexpr=args.trafficexpr,
+                       data_filter=args.datafilter,
+                       resolution=args.resolution,
+                       sort_col=args.sortcol,
+                       sync=False,
+                       limit=args.limit
+                       )
+
+        data = self._wait_for_data(report)
 
         if self.table.rows > 0:
-            self.data = self.data[:self.table.rows]
+            data = data[:self.table.rows]
 
-        logger.info("Report %s returned %s rows" % (self.job, len(self.data)))
-        return True
+        logger.info("Report %s returned %s rows" % (self.job, len(data)))
+        return QueryComplete(data)
+
+#
+# Traffic Time Series
+#
+# This is a timeseries report with criteria per columns, as opposed to just a time series
+#
+
+class NetProfilerTrafficTimeSeriesTable(NetProfilerTable):
+
+    class Meta:
+        proxy = True
+
+    TABLE_OPTIONS = {'base': None,
+                     'groupby': None,
+                     'col_criteria': None,
+                     'interface': None,
+                     'top_n': None,
+                     'include_other': False}
+
+    _query_class = 'NetProfilerTrafficTimeSeriesQuery'
+
+    @classmethod
+    def process_options(cls, table_options):
+        # handle direct id's, table references, or table classes
+        # from tables option and transform to simple table id value
+        table_options['base'] = Table.to_ref(table_options['base'])
+        return table_options
+
+    def post_process_table(self, field_options):
+        super(NetProfilerTrafficTimeSeriesTable, self).post_process_table(
+            field_options)
+
+        if self.options.top_n is None:
+            # If not top-n, the criteria field 'query_columns' must
+            # either be a string or an array of column definitions
+            # (a string is simply parsed as json to the latter).
+            #
+            # This criteria field must resolve to an array of
+            # field definitions, one per column to be queried
+            #
+            # An array of column defintions looks like the following:
+            #   [ {'name': <name>, 'label': <name>, 'json': <json>},
+            #     {'name': <name>, 'label': <name>, 'json': <json>},
+            #     ... ]
+            #
+            # Each element corresponds to a column requested.  <name> is
+            # used as the Column.name, <label> is for the Column.label
+            # and json is what is passed on to NetProfiler in the POST
+            # to create the report
+            #
+            TableField.create(keyword='query_columns',
+                              label='Query columns',
+                              obj=self)
+
+
+TSQ_Tuple = namedtuple('TSQ_Tuple', ['groupby', 'columns', 'parser'])
+
+class NetProfilerTrafficTimeSeriesQuery(NetProfilerQuery):
+
+    # Dictionary of config for running time-series/top-n queries for a
+    # requested groupby.  The components are:
+    #
+    #    groupby:  the groupby to use for the time-series query, which is usually
+    #              just the plural form of the standard NetProfiler groupby
+    #
+    #    columns:  the key column(s) to ask for as part of the query
+    #
+    #    parser:   the name of the row parsing function that takes a row
+    #              and converts the row/keys into the necessary form
+    #              as required by the time-series groupby report (in run())
+    #
+    CONFIG = {
+        'port': TSQ_Tuple('ports', ['protoport_parts'], 'parse_port'),
+        'application': TSQ_Tuple('applications', ['app_name', 'app_raw'], 'parse_app')
+        }
+
+    @classmethod
+    def parse_app(cls, row):
+        app_name = row[0]
+        app_raw = row[1]
+
+        return {'name': app_name,
+                'label': app_name,
+                'json': {'code': app_raw}}
+
+    @classmethod
+    def parse_port(cls, row):
+        proto, port = row[0].split('|')
+
+        return {'name': '%s%s' % (proto, port),
+                'label': '%s/%s' % (proto, port),
+                'json': {'name': '%s/%s' % (proto, port)}}
+
+    # Run a SingleQueryReport based on the requested groupby and
+    # return a list of column definitions that will be passed
+    # on to the TrafficTimeSeriesReport query_columns argument
+    def run_top_n(self, config, args, base_col, minpct, maxpct):
+        columns = config.columns + [base_col.name]
+        with lock:
+            report = SingleQueryReport(args.profiler)
+            report.run(
+                realm='traffic_summary',
+                groupby=args.profiler.groupbys[self.table.options.groupby],
+                columns=columns,
+                timefilter=args.timefilter,
+                trafficexpr=args.trafficexpr,
+                resolution=args.resolution,
+                sort_col=base_col.name,
+                sync=False
+                )
+
+        rows = self._wait_for_data(report, minpct=minpct, maxpct=maxpct)
+
+        defs = []
+        parser = getattr(self, config.parser)
+
+        for row in rows[:int(self.table.options.top_n)]:
+            defs.append(parser(row))
+
+        return defs
+
+    # This is the main run method and will run up to 3 reports
+    #
+    #   1. Top-N report -- if table.options.top_n is specified, this report
+    #      drives what columns are requested
+    #
+    #   2. TrafficTimeSeriesReport - a time-series report with one column
+    #      per requested criteria.
+    #
+    #   3. Other report -- a time-series report showing all traffic, use to
+    #      compute "other" if table.options.include_other
+    #
+    def run(self):
+        args = self._prepare_report_args()
+        base_table = Table.from_ref(self.table.options.base)
+        base_col = base_table.get_columns()[0]
+
+        if self.table.options.groupby not in self.CONFIG:
+            raise ValueError('not supported for groupby=%s' %
+                             self.table.options.groupby)
+
+        config = self.CONFIG[self.table.options.groupby]
+
+        # num_reports / cur_report are used to compute min/max pct
+        num_reports = (1
+                       + (1 if self.table.options.top_n else 0)
+                       + (1 if self.table.options.include_other else 0))
+        cur_report = 0
+
+        if self.table.options.top_n:
+            # Run a top-n report to drive the criteria for each column
+            query_column_defs = self.run_top_n(
+                config, args, base_col,
+                minpct=0, maxpct=(100/num_reports))
+            cur_report = cur_report+1
+        else:
+            query_column_defs = self.job.criteria.query_columns
+            if isinstance(query_column_defs, types.StringTypes):
+                query_column_defs = json.loads(query_column_defs)
+
+        query_columns = [col['json'] for col in query_column_defs]
+
+        with lock:
+            report = TrafficTimeSeriesReport(args.profiler)
+            columns = [args.columns[0], base_col.name]
+            logger.info("Query Columns: %s" % str(query_columns))
+            report.run(centricity=args.centricity,
+                       columns=columns,
+                       timefilter=args.timefilter,
+                       trafficexpr=args.trafficexpr,
+                       resolution=args.resolution,
+                       sync=False,
+                       query_columns_groupby=config.groupby,
+                       query_columns=query_columns
+                       )
+
+        data = self._wait_for_data(report,
+                                   minpct=cur_report * (100/num_reports),
+                                   maxpct=(cur_report + 1) * (100/num_reports))
+        cur_report = cur_report+1
+
+        df = pandas.DataFrame(data,
+                              columns=(['time'] + [col['name'] for
+                                                   col in query_column_defs]))
+
+        # Create ephemeral columns for all the data based
+        # on the related base table
+        for col in query_column_defs:
+            Column.create(self.job.table, col['name'], col['label'],
+                          ephemeral=self.job, datatype=base_col.datatype,
+                          formatter=base_col.formatter)
+
+        if self.table.options.include_other:
+            # Run a separate timeseries query with no column filters
+            # to get "totals" then use that to compute an "other" column
+
+            with lock:
+                report = SingleQueryReport(args.profiler)
+                report.run(realm='traffic_overall_time_series',
+                           groupby=args.profiler.groupbys['time'],
+                           columns=columns,
+                           timefilter=args.timefilter,
+                           trafficexpr=args.trafficexpr,
+                           resolution=args.resolution,
+                           sync=False
+                           )
+
+            totals = self._wait_for_data(report,
+                                         minpct=cur_report * (100/num_reports),
+                                         maxpct=(cur_report + 1) * (100/num_reports))
+
+            df = df.set_index('time')
+            df['subtotal'] = df.sum(axis=1)
+            totals_df = (pandas.DataFrame(totals, columns=['time', 'total'])
+                         .set_index('time'))
+
+            df = df.merge(totals_df, left_index=True, right_index=True)
+            df['other'] = df['total'] = df['subtotal']
+            colnames = ['time'] + [col['name'] for col in query_column_defs] + ['other']
+
+            # Drop the extraneous total and subtotal columns
+            df = (df.reset_index().ix[:, colnames])
+
+            Column.create(self.job.table, 'other', 'Other',
+                          ephemeral=self.job, datatype=base_col.datatype,
+                          formatter=base_col.formatter)
+
+        logger.info("Report %s returned %s rows" % (self.job, len(df)))
+        return QueryComplete(df)
 
 
 #
@@ -396,7 +641,10 @@ class NetProfilerServiceByLocTable(DatasourceTable):
         proxy = True
     _query_class = 'NetProfilerServiceByLocQuery'
 
-    # default field parameters
+    # rgb - red/yellow/green, if True return string values
+    #       instead of numbers
+    TABLE_OPTIONS = {'rgb': True}
+
     FIELD_OPTIONS = {'duration': '15min',
                      'durations': ('15 min', '1 hour',
                                    '2 hours', '4 hours', '12 hours',
@@ -482,8 +730,17 @@ class NetProfilerServiceByLocQuery(TableQueryBase):
 
         df = pandas.DataFrame(data)
 
-        #df = df.replace([0, 1, 2, 3, 4, 5, 6, 7],
-        #                ['gray', 'gray', 'gray', 'green',
-        #                 'yellow', 'yellow', 'red', 'gray'])
+        if self.job.table.options.rgb:
+            state_map = {Service.SVC_NOT_AVAILABLE: 'gray',
+                         Service.SVC_DISABLED: 'gray',
+                         Service.SVC_INIT: 'gray',
+                         Service.SVC_NORMAL: 'green',
+                         Service.SVC_LOW: 'yellow',
+                         Service.SVC_MED: 'yellow',
+                         Service.SVC_HIGH: 'red',
+                         Service.SVC_NODATA: 'gray'}
+
+            df = df.replace(state_map.keys(),
+                            state_map.values())
 
         return QueryComplete(df)

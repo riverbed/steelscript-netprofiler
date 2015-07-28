@@ -778,6 +778,7 @@ class TrafficTimeSeriesReport(SingleQueryReport):
                 raise ProfilerException(
                     "TrafficTimeSeriesReport using 'ports' not "
                     "supported by this NetProfiler software version")
+            raise
 
 
 class TrafficFlowListReport(SingleQueryReport):
