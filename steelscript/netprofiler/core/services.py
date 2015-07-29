@@ -11,10 +11,7 @@ and their host groups and hosts.
 
 import re
 
-
-from steelscript.common.api_helpers import APIVersion
-from steelscript.common.exceptions import RvbdException, RvbdHTTPException
-
+from steelscript.netprofiler.core import _constants
 from steelscript.netprofiler.core.report import SingleQueryReport
 
 service_tree_key_ctxt_re = re.compile(
@@ -87,7 +84,7 @@ class ServiceLocationReport(SingleQueryReport):
 
         pos = {'svc_health_ctxt': []}
         for i, l in enumerate(self.get_legend()):
-            if l.id < 200000:
+            if l.id < _constants.EPHEMERAL_COLID:
                 pos[l.key] = i
             else:
                 pos['svc_health_ctxt'].append([i, l.json['name']])

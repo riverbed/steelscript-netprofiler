@@ -5,6 +5,7 @@
 # as set forth in the License.
 
 
+from steelscript.netprofiler.core import _constants
 
 """
 This module contains classes to define and collect netprofiler data types
@@ -40,7 +41,7 @@ class Column(object):
 
     @classmethod
     def from_json(self, json):
-        ephemeral = json['id'] >= 200000
+        ephemeral = json['id'] >= _constants.EPHEMERAL_COLID
         strid = json['strid']
         if strid.startswith('ID_'):
             key = strid.lower()[3:]

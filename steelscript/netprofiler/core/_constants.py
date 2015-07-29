@@ -4,7 +4,9 @@
 # accompanying the software ("License").  This software is distributed "AS IS"
 # as set forth in the License.
 
-
+# When NetProfiler runs a report and generates "dynamic" or "ephemeral"
+# columns, they are given an id greater than or equal to 200000
+EPHEMERAL_COLID = 200000
 
 realms = ['traffic_summary',
           'traffic_overall_time_series',

@@ -263,7 +263,7 @@ class NetProfiler(steelscript.common.service.Service):
             else:
                 # otherwise, likely a json-dict column definition
                 # as returned by a query for a report legend
-                if column['id'] >= 200000:
+                if column['id'] >= _constants.EPHEMERAL_COLID:
                     # Ephemeral column, create a new column and don't
                     # do any validation
                     res.extend(self._gencolumns([column]))
