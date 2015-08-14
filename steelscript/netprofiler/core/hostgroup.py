@@ -151,7 +151,6 @@ class HostGroupType(object):
                 # property
                 HostGroup(self, entry['name'])
 
-
     def save(self):
         """Save settings and groups.
 
@@ -167,7 +166,8 @@ class HostGroupType(object):
                          .format(self.name, self.id))
             return
         # Otherwise just set the preexisting HostGroupType with the new info
-        self.netprofiler.api.host_group_types.set(self.name, self.description,
+        self.netprofiler.api.host_group_types.set(self.id, self.name,
+                                                  self.description,
                                                   self.favorite, self.config)
 
     def delete(self):

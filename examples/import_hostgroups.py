@@ -8,6 +8,7 @@
 
 import csv
 import sys
+import string
 import optparse
 from collections import defaultdict
 
@@ -28,12 +29,12 @@ from steelscript.common.exceptions import RvbdException
 
 
 EXAMPLE = """
-"subnet","SiteName"
-"10.143.58.64/26","CZ-Prague-HG"
-"10.194.32.0/23","MX-SantaFe-HG"
-"10.170.55.0/24","KR-Seoul-HG"
-"10.234.9.0/24","ID-Surabaya-HG"
-"10.143.58.63/23","CZ-Prague-HG"
+subnet SiteName
+10.143.58.64/26 CZ-Prague-HG
+10.194.32.0/23 MX-SantaFe-HG
+10.170.55.0/24 KR-Seoul-HG
+10.234.9.0/24 ID-Surabaya-HG
+10.143.58.63/23 CZ-Prague-HG
 """
 
 
@@ -60,12 +61,18 @@ class HostGroupImport(NetProfilerApp):
             self.parser.error('Hostgroup name is required, specify with '
                               '"--hostgroup"')
 
+    def validate(self, name):
+        valid = set(string.letters + string.digits + '.-_')
+        return all(c in valid for c in name)
+
     def import_file(self):
         """Process the input file and load into dict."""
         groups = defaultdict(list)
 
         with open(self.options.input_file, 'rb') as f:
-            reader = csv.reader(f)
+            dialect = csv.Sniffer().sniff(f.read(1024))
+            f.seek(0)
+            reader = csv.reader(f, dialect)
             header = reader.next()
             if header != ['subnet', 'SiteName']:
                 print 'Invalid file format'
@@ -73,27 +80,30 @@ class HostGroupImport(NetProfilerApp):
                 print 'example file:'
                 print EXAMPLE
 
-            for row in reader:
+            for i, row in enumerate(reader):
                 cidr, group = row
+                if not self.validate(group):
+                    print 'Invalid group name on line %d: %s' % (i+2, group)
+                    sys.exit()
                 groups[group].append(cidr)
 
         return groups
 
     def update_hostgroups(self, groups):
         """Replace existing HostGroupType with contents of groups dict."""
-        # First find any existing HostGroupType and delete it.
+        # First find any existing HostGroupType
         try:
             hgtype = HostGroupType.find_by_name(self.netprofiler,
                                                 self.options.hostgroup)
-            print ('Deleting existing HostGroupType "%s".'
+            hgtype.config = []
+            hgtype.groups = {}
+            print ('Existing HostGroupType "%s" found.'
                    % self.options.hostgroup)
-            hgtype.delete()
         except RvbdException:
-            print 'No existing HostGroupType found, will create a new one.'
-            pass
+            print 'No existing HostGroupType found, creating a new one.'
 
-        # Create a new one
-        hgtype = HostGroupType.create(self.netprofiler, self.options.hostgroup)
+            hgtype = HostGroupType.create(self.netprofiler,
+                                          self.options.hostgroup)
 
         # Add new values
         for group, cidrs in groups.iteritems():
@@ -102,11 +112,13 @@ class HostGroupImport(NetProfilerApp):
 
         # Save to NetProfiler
         hgtype.save()
+        print ('HostGroupType "%s" configuration saved.'
+               % self.options.hostgroup)
 
     def main(self):
         """Confirm overwrite then update hostgroups."""
 
-        confirm = ('The contents of hostgroup %s will be overwritten'
+        confirm = ('The contents of hostgroup %s will be overwritten '
                    'by the file %s, are you sure?'
                    % (self.options.hostgroup, self.options.input_file))
         if not prompt_yn(confirm):
