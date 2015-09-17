@@ -380,18 +380,19 @@ class NetProfilerQuery(TableQueryBase):
 
         with lock:
             report = SingleQueryReport(args.profiler)
-            report.run(realm=self.table.options.realm,
-                       groupby=args.profiler.groupbys[self.table.options.groupby],
-                       centricity=args.centricity,
-                       columns=args.columns,
-                       timefilter=args.timefilter,
-                       trafficexpr=args.trafficexpr,
-                       data_filter=args.datafilter,
-                       resolution=args.resolution,
-                       sort_col=args.sortcol,
-                       sync=False,
-                       limit=args.limit
-                       )
+            report.run(
+                realm=self.table.options.realm,
+                groupby=args.profiler.groupbys[self.table.options.groupby],
+                centricity=args.centricity,
+                columns=args.columns,
+                timefilter=args.timefilter,
+                trafficexpr=args.trafficexpr,
+                data_filter=args.datafilter,
+                resolution=args.resolution,
+                sort_col=args.sortcol,
+                sync=False,
+                limit=args.limit
+            )
 
         data = self._wait_for_data(report)
 
@@ -401,12 +402,12 @@ class NetProfilerQuery(TableQueryBase):
         logger.info("Report %s returned %s rows" % (self.job, len(data)))
         return QueryComplete(data)
 
+
 #
 # Traffic Time Series
 #
-# This is a timeseries report with criteria per columns, as opposed to just a time series
+# Timeseries report with criteria per columns, as opposed to just a time series
 #
-
 class NetProfilerTrafficTimeSeriesTable(NetProfilerTable):
 
     class Meta:
@@ -457,12 +458,13 @@ class NetProfilerTrafficTimeSeriesTable(NetProfilerTable):
 
 TSQ_Tuple = namedtuple('TSQ_Tuple', ['groupby', 'columns', 'parser'])
 
+
 class NetProfilerTrafficTimeSeriesQuery(NetProfilerQuery):
 
     # Dictionary of config for running time-series/top-n queries for a
     # requested groupby.  The components are:
     #
-    #    groupby:  the groupby to use for the time-series query, which is usually
+    #    groupby:  the groupby to use for the time-series query, usually
     #              just the plural form of the standard NetProfiler groupby
     #
     #    columns:  the key column(s) to ask for as part of the query
@@ -472,9 +474,13 @@ class NetProfilerTrafficTimeSeriesQuery(NetProfilerQuery):
     #              as required by the time-series groupby report (in run())
     #
     CONFIG = {
-        'port': TSQ_Tuple('ports', ['protoport_parts'], 'parse_port'),
-        'application': TSQ_Tuple('applications', ['app_name', 'app_raw'], 'parse_app')
-        }
+        'port':
+            TSQ_Tuple('ports', ['protoport_parts'], 'parse_port'),
+        'application':
+            TSQ_Tuple('applications', ['app_name', 'app_raw'], 'parse_app'),
+        'host_group':
+            TSQ_Tuple('host_groups', ['group_name'], 'parse_host_group'),
+    }
 
     @classmethod
     def parse_app(cls, row):
@@ -492,6 +498,14 @@ class NetProfilerTrafficTimeSeriesQuery(NetProfilerQuery):
         return {'name': '%s%s' % (proto, port),
                 'label': '%s/%s' % (proto, port),
                 'json': {'name': '%s/%s' % (proto, port)}}
+
+    @classmethod
+    def parse_host_group(cls, row):
+        group_name = row[0]
+
+        return {'name': group_name,
+                'label': group_name,
+                'json': {'name': group_name}}
 
     # Run a SingleQueryReport based on the requested groupby and
     # return a list of column definitions that will be passed
@@ -537,6 +551,11 @@ class NetProfilerTrafficTimeSeriesQuery(NetProfilerQuery):
         base_table = Table.from_ref(self.table.options.base)
         base_col = base_table.get_columns()[0]
 
+        # only calculate other when we aren't filtering data
+        include_other = self.table.options.include_other
+        if self.job.criteria.netprofiler_filterexpr:
+            include_other = False
+
         if self.table.options.groupby not in self.CONFIG:
             raise ValueError('not supported for groupby=%s' %
                              self.table.options.groupby)
@@ -544,17 +563,17 @@ class NetProfilerTrafficTimeSeriesQuery(NetProfilerQuery):
         config = self.CONFIG[self.table.options.groupby]
 
         # num_reports / cur_report are used to compute min/max pct
-        num_reports = (1
-                       + (1 if self.table.options.top_n else 0)
-                       + (1 if self.table.options.include_other else 0))
+        num_reports = (1 +
+                       (1 if self.table.options.top_n else 0) +
+                       (1 if include_other else 0))
         cur_report = 0
 
         if self.table.options.top_n:
             # Run a top-n report to drive the criteria for each column
-            query_column_defs = self.run_top_n(
-                config, args, base_col,
-                minpct=0, maxpct=(100/num_reports))
-            cur_report = cur_report+1
+            query_column_defs = self.run_top_n(config, args, base_col,
+                                               minpct=0,
+                                               maxpct=(100/num_reports))
+            cur_report += 1
         else:
             query_column_defs = self.job.criteria.query_columns
             if isinstance(query_column_defs, types.StringTypes):
@@ -566,20 +585,28 @@ class NetProfilerTrafficTimeSeriesQuery(NetProfilerQuery):
             report = TrafficTimeSeriesReport(args.profiler)
             columns = [args.columns[0], base_col.name]
             logger.info("Query Columns: %s" % str(query_columns))
-            report.run(centricity=args.centricity,
-                       columns=columns,
-                       timefilter=args.timefilter,
-                       trafficexpr=args.trafficexpr,
-                       resolution=args.resolution,
-                       sync=False,
-                       query_columns_groupby=config.groupby,
-                       query_columns=query_columns
-                       )
+
+            if self.table.options.groupby == 'host_group':
+                host_group_type = 'ByLocation'
+            else:
+                host_group_type = None
+
+            report.run(
+                centricity=args.centricity,
+                columns=columns,
+                timefilter=args.timefilter,
+                trafficexpr=args.trafficexpr,
+                resolution=args.resolution,
+                sync=False,
+                host_group_type=host_group_type,
+                query_columns_groupby=config.groupby,
+                query_columns=query_columns
+            )
 
         data = self._wait_for_data(report,
                                    minpct=cur_report * (100/num_reports),
                                    maxpct=(cur_report + 1) * (100/num_reports))
-        cur_report = cur_report+1
+        cur_report += 1
 
         df = pandas.DataFrame(data,
                               columns=(['time'] + [col['name'] for
@@ -592,20 +619,21 @@ class NetProfilerTrafficTimeSeriesQuery(NetProfilerQuery):
                           ephemeral=self.job, datatype=base_col.datatype,
                           formatter=base_col.formatter)
 
-        if self.table.options.include_other:
+        if include_other:
             # Run a separate timeseries query with no column filters
             # to get "totals" then use that to compute an "other" column
 
             with lock:
                 report = SingleQueryReport(args.profiler)
-                report.run(realm='traffic_overall_time_series',
-                           groupby=args.profiler.groupbys['time'],
-                           columns=columns,
-                           timefilter=args.timefilter,
-                           trafficexpr=args.trafficexpr,
-                           resolution=args.resolution,
-                           sync=False
-                           )
+                report.run(
+                    realm='traffic_overall_time_series',
+                    groupby=args.profiler.groupbys['time'],
+                    columns=columns,
+                    timefilter=args.timefilter,
+                    trafficexpr=args.trafficexpr,
+                    resolution=args.resolution,
+                    sync=False
+                )
 
             totals = self._wait_for_data(report,
                                          minpct=cur_report * (100/num_reports),

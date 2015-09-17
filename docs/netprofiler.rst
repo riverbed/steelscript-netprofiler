@@ -1,5 +1,5 @@
 NetProfiler and Reporting
-======================================
+=========================
 
 .. automodule:: steelscript.netprofiler.core
 
@@ -16,7 +16,7 @@ NetProfiler and Reporting
 .. currentmodule:: steelscript.netprofiler.core.report
 
 :py:class:`Report` Objects
----------------------------
+--------------------------
 
 .. autoclass:: Report
    :members:
