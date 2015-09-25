@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Riverbed Technology, Inc.
+# Copyright (c) 2015 Riverbed Technology, Inc.
 #
 # This software is licensed under the terms and conditions of the MIT License
 # accompanying the software ("License").  This software is distributed "AS IS"
@@ -12,13 +12,18 @@ access to running reports and retrieving data from a NetProfiler.
 
 import logging
 import time
+import types
 import cStringIO as StringIO
 
-from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.common.api_helpers import APIVersion
 from steelscript.common.timeutils import (parse_timedelta, datetime_to_seconds,
                                           timedelta_total_seconds)
 from steelscript.common.datastructures import RecursiveUpdateDict
-from steelscript.common.exceptions import RvbdException
+from steelscript.common.exceptions import RvbdException, RvbdHTTPException
+
+from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
+from steelscript.netprofiler.core._exceptions import ProfilerException
+from steelscript.netprofiler.core._types import Column, ColumnContainer
 
 __all__ = ['TrafficSummaryReport',
            'TrafficOverallTimeSeriesReport',
@@ -34,42 +39,27 @@ logger = logging.getLogger(__name__)
 class Query(object):
     """This class represents a netprofiler query instance.
     """
-    def __init__(self, report, query, column_ids=None, custom_columns=False):
+    def __init__(self, report, json, columns):
         self.report = report
-        self.id = query['id']
-        self.actual_t0 = query['actual_t0']
-        self.actual_t1 = query['actual_t1']
-        self.custom_columns = custom_columns
+        self.columns = columns
+        self.id = json['id']
+        self.actual_t0 = json['actual_t0']
+        self.actual_t1 = json['actual_t1']
 
-        if self.custom_columns:
-            # ignore the columns stored in NetProfiler, create new objects
-            # based on what comes back in query
-            query_columns = [q for q in query['columns'] if q['available']]
-            self.available_columns = self.report.profiler._gencolumns(query_columns)
-        else:
-            # find the columns in query which indicate they are 'available'
-            # or have been computed as part of the request
-            query_columns = [q for q in query['columns'] if q['available']]
-            self.available_columns = self.report.profiler.get_columns(query_columns)
+        # Collect the available columns
+        acols = [acol for acol in json['columns'] if acol['available']]
 
-        if column_ids:
-            self.selected_columns = self.report.profiler.get_columns_by_ids(column_ids)
-        else:
-            self.selected_columns = None
-
+        # find the columns in json which indicate they are 'available'
+        # or have been computed as part of the request
+        self.available_columns = self.report.profiler.get_columns(acols)
         self.querydata = None
         self.data = None
         self.data_selected_columns = None
 
-    def get_legend(self, columns=None):
-        """Return the list columns associated with this query or by request."""
+    def _select_columns(self, columns, ephemeral=True):
+        """Return a set of column objects representing the requested columns."""
 
-        if columns:
-            cols = self.report.profiler.get_columns(columns)
-        elif self.selected_columns:
-            cols = self.selected_columns
-        else:
-            cols = self.available_columns
+        avail_col_container = ColumnContainer(self.available_columns)
 
         # Selected columns as well as the argument columns may include
         # columns that are not listed as "available".  This is because
@@ -106,37 +96,85 @@ class Query(object):
         # they will likely just say "get me column 33", and this will
         # be translated to all available columns that have a *baseid* of 33.
         #
-        ephemeral_cols = {}
-        for col in self.available_columns:
-            if col.id != col.baseid:
-                if col.baseid not in ephemeral_cols:
-                    ephemeral_cols[col.baseid] = []
-                ephemeral_cols[col.baseid].append(col)
+        # Process ephemeral columns
+        baseids = set()
+        ephemeral_cols = []
+        for c in self.available_columns:
+            if not c.ephemeral:
+                continue
 
-        final_cols = []
-        for col in cols:
-            if col.id in ephemeral_cols:
-                final_cols.extend(ephemeral_cols[col.id])
+            if c.baseid != c.id:
+                baseids.add(c.baseid)
+
+            ephemeral_cols.append(c)
+
+        res = []
+        res_ids = []
+        for col in columns:
+            if type(col) is int or isinstance(col, types.StringTypes):
+                # Either a number like 33 or name like 'avg_bytes'
+                if col in avail_col_container:
+                    # This column is in available
+                    col = avail_col_container[col]
+                elif col in self.report.profiler.columns:
+                    # Not all columns show up in available, so check
+                    # if it's a well-known column
+                    col = self.report.profiler.columns[col]
+                else:
+                    raise ValueError(
+                        'Invalid column for this report: %s' % col)
+            elif type(col) is Column:
+                # Already a Column object, just use it
+                pass
             else:
-                final_cols.append(col)
-        return final_cols
+                raise ValueError(
+                    'Invalid column for this report: %s' % col)
 
-    def _to_native(self, row):
-        legend = self.get_legend()
+            if col.id in baseids:
+                # Don't ask for columns that were bases for other
+                # ephemeral columns For example, user created the
+                # report asking for col.id = 33 (avg_bytes).
+                #
+                # Later, the report available columns has:
+                #    id=200000, baseid=33
+                #    id=200001, baseid=33
+                #
+                continue
+
+            res.append(col)
+            res_ids.append(col.id)
+
+        # Always add ephemeral columns
+        res.extend([c for c in ephemeral_cols if c.id not in res_ids])
+
+        return res
+
+    def get_legend(self, columns=None):
+        """Return the list columns associated with this query or by request."""
+
+        if columns:
+            return self._select_columns(columns)
+        else:
+            return self._select_columns(self.columns)
+
+    def _to_native(self, row, columns):
+        legend = self.get_legend(columns)
         for i, x in enumerate(row):
-            if (legend[i].json['type'] == 'float' or
+            try:
+                if (legend[i].json['type'] == 'float' or
                     legend[i].json['type'] in 'reltime' or
                     legend[i].json['rate'] == 'opt'):
-                # netprofiler bug, %reduct columns labeled as ints
-                try:
                     row[i] = float(x)
-                except ValueError:
-                    pass
-            elif legend[i].json['type'] == 'int':
-                row[i] = int(x)
+                elif legend[i].json['type'] == 'int':
+                    row[i] = int(x)
+            except ValueError:
+                # netprofiler bug, %reduct columns labeled as ints
+                # hostgroup "123:10" lableled as ints
+                pass
+
         return row
 
-    def _get_querydata(self, columns=None):
+    def _get_querydata(self, columns=None, limit=None):
         """Get the query data."""
         columns = self.get_legend(columns)
 
@@ -146,11 +184,16 @@ class Query(object):
         if not changed:
             return
 
-        if columns:
-            params = {"columns": (",".join(str(col.id) for col in columns))}
-        else:
-            params = None
+        params = {}
 
+        if columns:
+            params['columns'] = (','.join(str(col.id) for col in columns))
+
+        if limit:
+            params['limit'] = limit
+
+        if not params:
+            params = None
         self.querydata = self.report.profiler.api.report.queries(self.report.id,
                                                                  self.id,
                                                                  params=params)
@@ -160,15 +203,15 @@ class Query(object):
             'Retrieved query data for '
             'query id {0} and column {1}'.format(self.id, columns))
 
-    def get_iterdata(self, columns=None):
+    def get_iterdata(self, columns=None, limit=None):
         """Iterate over the query data."""
-        self._get_querydata(columns)
+        self._get_querydata(columns, limit)
         for row in self.data:
-            yield self._to_native(row)
+            yield self._to_native(row, columns)
 
-    def get_data(self, columns=None):
+    def get_data(self, columns=None, limit=None):
         """Generate list from get_iterdata."""
-        return list(self.get_iterdata(columns))
+        return list(self.get_iterdata(columns, limit))
 
     def get_totals(self, columns=None):
         """Return the totals associated with the requested columns."""
@@ -230,7 +273,7 @@ class Report(object):
 
     def run(self, template_id, timefilter=None, resolution="auto",
             query=None, trafficexpr=None, data_filter=None, sync=True,
-            custom_columns=False):
+            custom_criteria=None):
         """Create the report and begin running the report on NetProfiler.
 
         If the `sync` option is True, periodically poll until the report is
@@ -252,17 +295,9 @@ class Report(object):
 
         :param bool sync: if True, poll for status until the report is complete
 
-        :param bool custom_columns: if True, generate new Columns for each
-            available column rather than assuming requested columns is the
-            available columns
-
         """
 
         self.template_id = template_id
-        self.custom_columns = False
-        if self.template_id != 184 or custom_columns:
-            # the columns in this report won't match, use custom columns instead
-            self.custom_columns = True
 
         if timefilter is None:
             self.timefilter = TimeFilter.parse_range("last 5 min")
@@ -302,6 +337,10 @@ class Report(object):
 
         if self.trafficexpr is not None:
             criteria["traffic_expression"] = self.trafficexpr.filter
+
+        if custom_criteria:
+            for k, v in custom_criteria.iteritems():
+                criteria[k] = v
 
         to_post = {"template_id": self.template_id,
                    "criteria": criteria}
@@ -367,14 +406,14 @@ class Report(object):
 
         return self.last_status
 
-    def _load_queries(self, column_ids=None):
+    def _load_queries(self, columns=None):
         if not self.id:
             raise ValueError("No id set, must run a report"
                              "or attach to an existing report first")
 
         data = self.profiler.api.report.queries(self.id)
-        for query in data:
-            self.queries.append(Query(self, query, column_ids, self.custom_columns))
+        for json in data:
+            self.queries.append(Query(self, json, columns))
 
         logger.debug("Report %d: loaded %d queries"
                      % (self.id, len(data)))
@@ -386,7 +425,7 @@ class Report(object):
                              "or attach to an existing report first")
 
         if len(self.queries) == 0:
-            self._load_queries()
+            self._load_queries(self.columns)
 
         query = self.queries[index]
 
@@ -404,23 +443,27 @@ class Report(object):
         query = self.get_query_by_index(index)
         return query.get_legend(columns)
 
-    def get_iterdata(self, index=0, columns=None):
+    def get_iterdata(self, index=0, columns=None, limit=None):
         """Retrieve iterator for the result data.
 
         If `columns` is specified, restrict the legend to the list of
         requested columns.
+
+        :param integer limit: Upper limit of rows of the result data.
         """
         query = self.get_query_by_index(index)
-        return query.get_iterdata(columns)
+        return query.get_iterdata(columns, limit)
 
-    def get_data(self, index=0, columns=None):
+    def get_data(self, index=0, columns=None, limit=None):
         """Retrieve data for this report.
 
         If `columns` is specified, restrict the data to the list of
         requested columns.
+
+        :param integer limit: Upper limit of rows of the result data.
         """
         query = self.get_query_by_index(index)
-        return query.get_data(columns)
+        return query.get_data(columns, limit)
 
     def get_totals(self, index=0, columns=None):
         """Retrieve the totals for this report.
@@ -502,6 +545,7 @@ class SingleQueryReport(Report):
 
     def __init__(self, profiler):
         super(SingleQueryReport, self).__init__(profiler)
+        self._limit = None
 
     def run(self, realm,
             groupby="hos", columns=None, sort_col=None,
@@ -509,7 +553,7 @@ class SingleQueryReport(Report):
             resolution="auto", centricity="hos", area=None,
             data_filter=None, sync=True,
             query_columns_groupby=None, query_columns=None,
-            custom_columns=False
+            limit=None, custom_criteria=None
             ):
         """
         :param str realm: type of query, this is automatically set by subclasses
@@ -550,17 +594,16 @@ class SingleQueryReport(Report):
         :param list query_columns: list of unique values associated with
             query_columns_groupby
 
-        :param bool custom_columsn: if True, generate new Columns for each
-            available column rather than assuming requested columns is the
-            available columns
-
+        :param integer limit: Upper limit of rows of the result data.
+            NetProfiler will return by default a maximum of 10,000 rows,
+            but with this argument that limit can be raised up to '1000000',
+            if needed.
         """
 
         # query related parameters
         self.realm = realm
         self.groupby = groupby or 'hos'
-        self.columns = columns
-        self.sort_col = sort_col
+        self.columns = self.profiler.get_columns(columns, self.groupby)
         self.centricity = centricity
         self.host_group_type = host_group_type
         self.area = area
@@ -568,10 +611,6 @@ class SingleQueryReport(Report):
         query = {"realm": self.realm,
                  "centricity": self.centricity,
                  }
-
-        self._column_ids = (
-            [col.id for col in
-             self.profiler.get_columns(self.columns, self.groupby)])
 
         if realm == 'traffic_time_series':
             # The traffic_time_series realm allows 1 and only 1
@@ -585,16 +624,18 @@ class SingleQueryReport(Report):
                 [x.id for x in
                  self.profiler.get_columns([non_time_column], self.groupby)])
         else:
-            query['columns'] = self._column_ids
+            query['columns'] = [col.id for col in self.columns]
 
         if self.groupby is not None:
             query["group_by"] = self.groupby
 
-        if self.sort_col is not None:
-            query["sort_column"] = [x.id for x in
-                                    self.profiler.get_columns([self.sort_col])][0]
+        if sort_col:
+            self.sort_col = self.profiler.get_columns([sort_col], self.groupby)[0]
         else:
-            self._sort_col_id = None
+            self.sort_col = None
+
+        if self.sort_col is not None:
+            query["sort_column"] = self.sort_col.id
 
         if self.area is not None:
             query['area'] = self.profiler._parse_area(self.area)
@@ -606,6 +647,17 @@ class SingleQueryReport(Report):
             query[query_columns_groupby] = query_columns
             query['host_group_type'] = self.host_group_type
 
+        self._limit = limit
+        if limit is not None:
+            if (APIVersion("1.4") not in self.profiler.supported_versions):
+                raise ProfilerException(
+                    "'limit' not supported by this NetProfiler API version")
+
+            elif realm.endswith('time_series'):
+                raise ProfilerException("'limit' option is not allowed in "
+                                        "time series report")
+
+            query['limit'] = limit
         super(SingleQueryReport, self).run(template_id=184,
                                            timefilter=timefilter,
                                            resolution=resolution,
@@ -613,25 +665,21 @@ class SingleQueryReport(Report):
                                            trafficexpr=trafficexpr,
                                            data_filter=data_filter,
                                            sync=sync,
-                                           custom_columns=custom_columns)
+                                           custom_criteria=custom_criteria)
 
-    def _load_queries(self):
-        super(SingleQueryReport, self)._load_queries(self._column_ids)
+    def _load_queries(self, columns=None):
+        super(SingleQueryReport, self)._load_queries(columns)
 
     def get_legend(self, columns=None):
-        if columns is None:
-            columns = self.columns
         return super(SingleQueryReport, self).get_legend(0, columns)
 
-    def get_iterdata(self, columns=None):
-        if columns is None:
-            columns = self.columns
-        return super(SingleQueryReport, self).get_iterdata(0, columns)
+    def get_iterdata(self, columns=None, limit=None):
+        return super(SingleQueryReport, self).get_iterdata(
+            0, columns, limit or self._limit)
 
-    def get_data(self, columns=None):
-        if columns is None:
-            columns = self.columns
-        return super(SingleQueryReport, self).get_data(0, columns)
+    def get_data(self, columns=None, limit=None):
+        return super(SingleQueryReport, self).get_data(
+            0, columns, limit or self._limit)
 
 
 class TrafficSummaryReport(SingleQueryReport):
@@ -646,15 +694,17 @@ class TrafficSummaryReport(SingleQueryReport):
 
     def run(self, groupby, columns, sort_col=None,
             timefilter=None, trafficexpr=None, host_group_type="ByLocation",
-            resolution="auto", centricity="hos", area=None, sync=True):
+            resolution="auto", centricity="hos", area=None, sync=True,
+            limit=None):
         """See :meth:`SingleQueryReport.run` for a description of the keyword
         arguments.
         """
         return super(TrafficSummaryReport, self).run(
             realm='traffic_summary',
             groupby=groupby, columns=columns, sort_col=sort_col,
-            timefilter=timefilter, trafficexpr=trafficexpr, host_group_type=host_group_type,
-            resolution=resolution, centricity=centricity, area=area, sync=sync)
+            timefilter=timefilter, trafficexpr=trafficexpr,
+            host_group_type=host_group_type, resolution=resolution,
+            centricity=centricity, area=area, sync=sync, limit=limit)
 
 
 class TrafficOverallTimeSeriesReport(SingleQueryReport):
@@ -676,8 +726,9 @@ class TrafficOverallTimeSeriesReport(SingleQueryReport):
         return super(TrafficOverallTimeSeriesReport, self).run(
             realm='traffic_overall_time_series',
             groupby='tim', columns=columns, sort_col=None,
-            timefilter=timefilter, trafficexpr=trafficexpr, host_group_type=None,
-            resolution=resolution, centricity=centricity, area=area, sync=sync)
+            timefilter=timefilter, trafficexpr=trafficexpr,
+            host_group_type=None, resolution=resolution,
+            centricity=centricity, area=area, sync=sync)
 
 
 class TrafficTimeSeriesReport(SingleQueryReport):
@@ -689,7 +740,8 @@ class TrafficTimeSeriesReport(SingleQueryReport):
 
     def run(self, columns, query_columns_groupby, query_columns,
             timefilter=None, trafficexpr=None, host_group_type=None,
-            resolution="auto", centricity="hos", area=None, sync=True):
+            resolution="auto", centricity="hos", area=None, sync=True,
+            custom_criteria=None):
         """
         :param str query_columns_groupby: defines the type of data for
             each unique column
@@ -707,18 +759,26 @@ class TrafficTimeSeriesReport(SingleQueryReport):
 
         """
 
-        if len(set(columns) - set([self.profiler.columns.key.time])) != 1:
+        if len(set(columns) - set([self.profiler.columns.key.time, 'time'])) != 1:
             raise ValueError("Columns must be a list of only one column "
                              "for this type of report")
 
-        return super(TrafficTimeSeriesReport, self).run(
-            realm='traffic_time_series',
-            groupby='tim', columns=columns, sort_col=None,
-            timefilter=timefilter, trafficexpr=trafficexpr,
-            host_group_type=host_group_type,
-            resolution=resolution, centricity=centricity, area=area, sync=sync,
-            query_columns_groupby=query_columns_groupby,
-            query_columns=query_columns, custom_columns=True)
+        try:
+            return super(TrafficTimeSeriesReport, self).run(
+                realm='traffic_time_series',
+                groupby='tim', columns=columns, sort_col=None,
+                timefilter=timefilter, trafficexpr=trafficexpr,
+                host_group_type=host_group_type,
+                resolution=resolution, centricity=centricity, area=area, sync=sync,
+                query_columns_groupby=query_columns_groupby,
+                query_columns=query_columns,
+                custom_criteria=custom_criteria)
+        except RvbdHTTPException as e:
+            if 'Error creating element ports' in str(e):
+                raise ProfilerException(
+                    "TrafficTimeSeriesReport using 'ports' not "
+                    "supported by this NetProfiler software version")
+            raise
 
 
 class TrafficFlowListReport(SingleQueryReport):
@@ -729,18 +789,19 @@ class TrafficFlowListReport(SingleQueryReport):
         super(TrafficFlowListReport, self).__init__(profiler)
 
     def run(self, columns, sort_col=None,
-            timefilter=None, trafficexpr=None, sync=True):
+            timefilter=None, trafficexpr=None, sync=True, limit=None):
         """See :meth:`SingleQueryReport.run` for a description of the keyword
         arguments.
 
-        Note that only `columns, `sort_col`, `timefilter`, and `trafficexpr`
-        apply to this report type.
+        Note that only `columns, `sort_col`, `timefilter`, `trafficexpr` and
+        `limit` apply to this report type.
         """
         return super(TrafficFlowListReport, self).run(
             realm='traffic_flow_list',
             groupby='hos', columns=columns, sort_col=sort_col,
             timefilter=timefilter, trafficexpr=trafficexpr, host_group_type=None,
-            resolution="1min", centricity="hos", area=None, sync=sync)
+            centricity="hos", area=None, sync=sync,
+            limit=limit)
 
 
 class WANReport(SingleQueryReport):
@@ -1094,7 +1155,8 @@ class IdentityReport(SingleQueryReport):
                                                 'host_switch_dns',
                                                 'domain'])
 
-    def run(self, username=None, timefilter=None, trafficexpr=None, sync=True):
+    def run(self, username=None, timefilter=None, trafficexpr=None, sync=True,
+            limit=None):
         """Run complete user identity report over the requested timeframe.
 
         `username` specific id to filter results by
@@ -1102,6 +1164,8 @@ class IdentityReport(SingleQueryReport):
         `timefilter` is the range of time to query, a TimeFilter object
 
         `trafficexpr` is an optional TrafficFilter object
+
+        :param integer limit: Upper limit of rows of the result data
         """
         if username:
             data_filter = ('user', username)
@@ -1116,5 +1180,6 @@ class IdentityReport(SingleQueryReport):
             trafficexpr=trafficexpr,
             centricity=self.id_centricity,
             data_filter=data_filter,
-            sync=sync
+            sync=sync,
+            limit=limit
         )

@@ -1,10 +1,11 @@
-# Copyright (c) 2014 Riverbed Technology, Inc.
+# Copyright (c) 2015 Riverbed Technology, Inc.
 #
 # This software is licensed under the terms and conditions of the MIT License
 # accompanying the software ("License").  This software is distributed "AS IS"
 # as set forth in the License.
 
 
+from steelscript.netprofiler.core import _constants
 
 """
 This module contains classes to define and collect netprofiler data types
@@ -16,7 +17,7 @@ class Container(object):
 
 class Column(object):
     """A column object represents a single data column in Profiler terms"""
-    def __init__(self, cid, key, label, json, baseid=None):
+    def __init__(self, cid, key, label, json, baseid=None, ephemeral=False):
         # Numeric column id.  This may be ephemeral -- meaning
         # its a really big number like 100000+.  For a given report
         # all columns in the report must have different ids.
@@ -36,6 +37,21 @@ class Column(object):
         self.json = json
         self.iskey = json['category'] != 'data'
         self.baseid = (baseid or cid)
+        self.ephemeral = ephemeral
+
+    @classmethod
+    def from_json(self, json):
+        ephemeral = json['id'] >= _constants.EPHEMERAL_COLID
+        strid = json['strid']
+        if strid.startswith('ID_'):
+            key = strid.lower()[3:]
+        else:
+            # Current known use cases, this is a number
+            # and is equal to str(json['id'])
+            key = strid
+
+        return Column(json['id'], key, json['name'],
+                      json=json, ephemeral=ephemeral)
 
     def __eq__(self, other):
         return self.key == other
@@ -102,6 +118,9 @@ class ColumnContainer(object):
             yield c
         for c in self.values:
             yield c
+
+    def __contains__(self, key_or_id):
+        return key_or_id in self._map
 
     def _update(self, columns):
         """Take list of Column objects and apply their keys and ids as attributes.

@@ -1,8 +1,11 @@
-# Copyright (c) 2014 Riverbed Technology, Inc.
+# Copyright (c) 2015 Riverbed Technology, Inc.
 #
 # This software is licensed under the terms and conditions of the MIT License
 # accompanying the software ("License").  This software is distributed "AS IS"
 # as set forth in the License.
+
+
+from steelscript.common.api_helpers import APIVersion
 
 
 class APIGroup(object):
@@ -187,7 +190,7 @@ class HostGroupTypes(API1Group):
 
     def get_group_members(self, type_id, group_id,
                           offset=None, sort=None,limit=None):
-        """ Get a list of hosts in a specified host group 
+        """ Get a list of hosts in a specified host group
         """
         params = {}
         if offset:
@@ -201,7 +204,7 @@ class HostGroupTypes(API1Group):
                                   params=params)
 
     def create(self, name, desc, favorite, config):
-        """ Create a new host grouping type 
+        """ Create a new host grouping type
         """
         params = {}
         data = {}
@@ -212,7 +215,7 @@ class HostGroupTypes(API1Group):
         return self._json_request('', method='POST', data=data, params=params)
 
     def set_config(self, type_id, config):
-        """ Update host grouping type configuration 
+        """ Update host grouping type configuration
         """
         params = {}
         return self._json_request('/{0}/config'.format(str(type_id)),
@@ -238,10 +241,23 @@ class HostGroupTypes(API1Group):
                                   method='DELETE', params=params)
 
 
+class Services(API1Group):
+
+    def get_all(self):
+        """ Return a list of all services. """
+        return self._json_request('')
+
+
 class Handler(object):
     def __init__(self, profiler):
         self.report = Report('/api/profiler/1.0/reporting', profiler)
         self.devices = Devices('/api/profiler/1.0/devices', profiler)
         self.common = Common('/api/common/1.0', profiler)
-        self.host_group_types = HostGroupTypes(
-            '/api/profiler/1.2/host_group_types', profiler)
+
+        if profiler.supports_version('1.2'):
+            self.host_group_types = HostGroupTypes(
+                '/api/profiler/1.2/host_group_types', profiler)
+
+        if profiler.supports_version('1.3'):
+            self.services = Services(
+                '/api/profiler/1.3/services', profiler)

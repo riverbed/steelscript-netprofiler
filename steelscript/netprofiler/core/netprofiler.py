@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Riverbed Technology, Inc.
+# Copyright (c) 2015 Riverbed Technology, Inc.
 #
 # This software is licensed under the terms and conditions of the MIT License
 # accompanying the software ("License").  This software is distributed "AS IS"
@@ -33,7 +33,7 @@ logger = logging.getLogger(__name__)
 
 
 def make_hash(realm, centricity, groupby):
-    return realm + centricity + groupby
+    return str(realm) + str(centricity) + str(groupby)
 
 
 class NetProfiler(steelscript.common.service.Service):
@@ -87,6 +87,8 @@ class NetProfiler(steelscript.common.service.Service):
 
         self._load_file_caches()
         self.columns = ColumnContainer(self._unique_columns())
+        self.colnames = set(c.key for c in self.columns)
+
         self.areas = AreaContainer(self._areas_dict.iteritems())
 
     def _load_file_caches(self):
@@ -131,16 +133,21 @@ class NetProfiler(steelscript.common.service.Service):
         for realm in self.realms:
             if realm == 'traffic_flow_list' or realm == 'identity_list':
                 centricities = ['hos']
+            elif realm == 'msq':
+                centricities = ['hos']
             else:
                 centricities = self.centricities
 
             for centricity in centricities:
                 if realm == 'traffic_summary':
-                    groupbys = [x for x in self.groupbys.values() if x != 'thu']
+                    groupbys = [x for x in self.groupbys.values() if
+                                x not in ['thu', 'slm']]
                 elif realm == 'traffic_overall_time_series':
                     groupbys = ['tim']
                 elif realm == 'identity_list':
                     groupbys = ['thu']
+                elif realm == 'msq':
+                    groupbys = ['slm']
                 else:
                     groupbys = ['hos']
 
@@ -149,8 +156,7 @@ class NetProfiler(steelscript.common.service.Service):
                     if refetch or _hash not in self._columns_file.data:
                         logger.debug('Requesting columns for triplet: '
                                      '%s, %s, %s' % (realm, centricity, groupby))
-                        api_call = self.api.report.columns(realm,
-                                                           centricity, groupby)
+                        api_call = self.api.report.columns(realm, centricity, groupby)
                         # generate Column objects from json
                         api_columns = self._gencolumns(api_call)
                         # compare against objects we've already retrieved
@@ -196,14 +202,15 @@ class NetProfiler(steelscript.common.service.Service):
         """
         res = []
         for c in columns:
-            key = c['strid'].lower()[3:]
-            baseid = c['id']
-            if hasattr(self, 'columns'):
+            col = Column.from_json(c)
+            if col.ephemeral and hasattr(self, 'columns'):
                 try:
-                    baseid = self.columns[key].id
+                    baseid = self.columns[col.key].id
+                    col.baseid = baseid
                 except KeyError:
                     pass
-            res.append(Column(c['id'], key, c['name'], json=c, baseid=baseid))
+
+            res.append(col)
         return res
 
     def _genareas(self, areas):
@@ -222,16 +229,21 @@ class NetProfiler(steelscript.common.service.Service):
         self._fetch_info()
         return self._info['sw_version']
 
+    def supports_version(self, version):
+        if isinstance(version, types.StringTypes):
+            version = APIVersion(version)
+        return version in self.supported_versions
+
     def get_columns(self, columns, groupby=None):
         """Return valid Column objects for list of columns
 
-        :param list columns: list of strings and/or Column objects
+        :param list columns: list of strings, Column objects, or
+            JSON dicts defining a column
 
         :param str groupby: will optionally ensure that the selected columns
             are valid for the given groupby
 
-        Note that this function will never return 'ephemeral' columns,
-        plus the list may be incomplete for any given groupby.
+        Note that this function may be incomplete for any given groupby.
 
         """
         res = list()
@@ -240,18 +252,25 @@ class NetProfiler(steelscript.common.service.Service):
         else:
             groupby_cols = None
 
-        colnames = set(c.key for c in self.columns)
+        colnames = self.colnames
 
         for column in columns:
             if isinstance(column, types.StringTypes):
                 cname = column
+            elif isinstance(column, Column):
+                # usually a Column class
+                cname = column.key
             else:
-                try:
-                    # usually a Column class
-                    cname = column.key
-                except AttributeError:
-                    # likely json-dict
-                    cname = column['strid'].lower()[3:]
+                # otherwise, likely a json-dict column definition
+                # as returned by a query for a report legend
+                if column['id'] >= _constants.EPHEMERAL_COLID:
+                    # Ephemeral column, create a new column and don't
+                    # do any validation
+                    res.extend(self._gencolumns([column]))
+                    continue
+
+                strid = column['strid']
+                cname = strid.lower()[3:]
 
             if cname not in colnames:
                 raise RvbdException('{0} is not a valid column '
