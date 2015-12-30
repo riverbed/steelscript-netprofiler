@@ -1113,11 +1113,11 @@ class WANTimeSeriesReport(WANReport):
         # create data frames, and convert timestamps
         df_lan = pd.DataFrame.from_records(lan_data, columns=labels)
         df_lan.set_index('time', inplace=True)
-        df_lan.index = df_lan.index.astype(int).astype('M8[s]')
+        df_lan.index = df_lan.index.map(int).astype('M8[s]')
 
         df_wan = pd.DataFrame.from_records(wan_data, columns=labels)
         df_wan.set_index('time', inplace=True)
-        df_wan.index = df_wan.index.astype(int).astype('M8[s]')
+        df_wan.index = df_wan.index.map(int).astype('M8[s]')
 
         # remove and rename columns appropriately
         lan_columns, wan_columns = self._align_columns(direction, df_lan, df_wan)
