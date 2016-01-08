@@ -142,7 +142,7 @@ class NetProfiler(steelscript.common.service.Service):
                 if realm == 'traffic_summary':
                     groupbys = [x for x in self.groupbys.values() if
                                 x not in ['thu', 'slm']]
-                elif realm == 'traffic_overall_time_series':
+                elif 'time_series' in realm:
                     groupbys = ['tim']
                 elif realm == 'identity_list':
                     groupbys = ['thu']

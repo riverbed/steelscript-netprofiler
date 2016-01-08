@@ -10,6 +10,7 @@ EPHEMERAL_COLID = 200000
 
 realms = ['traffic_summary',
           'traffic_overall_time_series',
+          'hosts_time_series',
           'traffic_flow_list',
           'identity_list',
           'msq'

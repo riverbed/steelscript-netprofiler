@@ -759,7 +759,7 @@ class TrafficTimeSeriesReport(SingleQueryReport):
 
         """
 
-        if len(set(columns) - set([self.profiler.columns.key.time, 'time'])) != 1:
+        if len(set(columns) - {self.profiler.columns.key.time, 'time'}) != 1:
             raise ValueError("Columns must be a list of only one column "
                              "for this type of report")
 
@@ -769,7 +769,8 @@ class TrafficTimeSeriesReport(SingleQueryReport):
                 groupby='tim', columns=columns, sort_col=None,
                 timefilter=timefilter, trafficexpr=trafficexpr,
                 host_group_type=host_group_type,
-                resolution=resolution, centricity=centricity, area=area, sync=sync,
+                resolution=resolution, centricity=centricity,
+                area=area, sync=sync,
                 query_columns_groupby=query_columns_groupby,
                 query_columns=query_columns,
                 custom_criteria=custom_criteria)
@@ -779,6 +780,36 @@ class TrafficTimeSeriesReport(SingleQueryReport):
                     "TrafficTimeSeriesReport using 'ports' not "
                     "supported by this NetProfiler software version")
             raise
+
+
+class HostTimeSeriesReport(SingleQueryReport):
+    """
+    """
+    def __init__(self, profiler):
+        """Create a Total Hosts Over Time report."""
+        super(HostTimeSeriesReport, self).__init__(profiler)
+
+    def run(self, timefilter=None, trafficexpr=None,
+            resolution="auto", sync=True):
+        """
+        See :meth:`SingleQueryReport.run` for a description of the rest
+        of the possible parameters.
+
+        Note this report does not allow columns to be chosen,
+        the data response will include time and total hosts seen:
+            Key('time')
+            Value('total_hosts_network_stats')
+
+        """
+        columns = [self.columns.key.time,
+                   self.columns.value.total_hosts_network_stats]
+
+        return super(HostTimeSeriesReport, self).run(
+            realm='hosts_time_series',
+            groupby='tim', columns=columns, sort_col=None,
+            timefilter=timefilter, trafficexpr=trafficexpr,
+            resolution=resolution, centricity='hos',
+            sync=sync)
 
 
 class TrafficFlowListReport(SingleQueryReport):
