@@ -102,9 +102,9 @@ class NetProfiler(steelscript.common.service.Service):
         columns_filename = 'columns-' + self.version + '.pcl'
         self._columns_file = self._fs_data.get_data(columns_filename)
         if (self._columns_file.data is None or
-                not hasattr(self._columns_file.data.values()[0][0], 'baseid')):
-            # if baseid is missing in any column, we must have an *old* version
-            # blow away.   TBD -- need a more explicit versioning scheme
+                self._columns_file.version < _constants.CACHE_VERSION):
+            # if CACHE_VERSION older than our config,
+            # we must have an *old* version, and need to recreate cache
             self._columns_file.data = dict()
 
         areas_filename = 'areas-' + self.version + '.json'
@@ -168,6 +168,7 @@ class NetProfiler(steelscript.common.service.Service):
                         self._columns_file.data[_hash] = existing + new_columns
                         write = True
         if write:
+            self._columns_file.version = _constants.CACHE_VERSION
             self._columns_file.write()
 
     def _unique_columns(self):
