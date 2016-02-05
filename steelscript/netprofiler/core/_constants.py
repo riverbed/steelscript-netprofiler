@@ -4,12 +4,17 @@
 # accompanying the software ("License").  This software is distributed "AS IS"
 # as set forth in the License.
 
+# Version ID for cache file validation
+# Increment this when schema for columns or groupby/relams get updated
+CACHE_VERSION = 1.1
+
 # When NetProfiler runs a report and generates "dynamic" or "ephemeral"
 # columns, they are given an id greater than or equal to 200000
 EPHEMERAL_COLID = 200000
 
 realms = ['traffic_summary',
           'traffic_overall_time_series',
+          'hosts_time_series',
           'traffic_flow_list',
           'identity_list',
           'msq'
