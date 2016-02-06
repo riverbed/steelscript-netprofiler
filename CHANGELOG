@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 [1.0.1]
- * Added new report type, "HostTimeSeriesReport"
+ * Added new report type, "HostTimeSeriesReport" and example script
  * Fix WANTimeSeriesReport
  * Support new versioning of cache files
 

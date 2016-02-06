@@ -29,6 +29,7 @@ __all__ = ['TrafficSummaryReport',
            'TrafficOverallTimeSeriesReport',
            'TrafficTimeSeriesReport',
            'TrafficFlowListReport',
+           'HostTimeSeriesReport',
            'WANSummaryReport',
            'WANTimeSeriesReport',
            'IdentityReport']
@@ -801,8 +802,8 @@ class HostTimeSeriesReport(SingleQueryReport):
             Value('total_hosts_network_stats')
 
         """
-        columns = [self.columns.key.time,
-                   self.columns.value.total_hosts_network_stats]
+        columns = [self.profiler.columns.key.time,
+                   self.profiler.columns.value.total_hosts_network_stats]
 
         return super(HostTimeSeriesReport, self).run(
             realm='hosts_time_series',
