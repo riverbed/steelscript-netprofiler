@@ -4,20 +4,20 @@
 # accompanying the software ("License").  This software is distributed "AS IS"
 # as set forth in the License.
 
-
+import time
 import logging
 import threading
 import datetime
 
 import pandas
 
-import steelscript
+from steelscript.appfwk.apps.jobs import QueryComplete
 from steelscript.common.timeutils import timedelta_total_seconds
 from steelscript.appfwk.apps.datasource.models import TableQueryBase
 from steelscript.appfwk.apps.devices.devicemanager import DeviceManager
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.netprofiler.appfwk.datasources.netprofiler import NetProfilerTable
-
+from steelscript.netprofiler.core.report import MultiQueryReport
 
 logger = logging.getLogger(__name__)
 lock = threading.Lock()
@@ -34,12 +34,12 @@ class NetProfilerTemplateTable(NetProfilerTable):
 
 class NetProfilerTemplateQuery(TableQueryBase):
     # Used by Table to actually run a query
-    def __init__(self, table, job):
-        self.table = table
-        self.job = job
 
-    def run(self):
-        """ Main execution method. """
+    def _prepare_report_args(self):
+        class Args(object):
+            pass
+        args = Args()
+
         criteria = self.job.criteria
 
         if criteria.netprofiler_device == '':
@@ -47,17 +47,23 @@ class NetProfilerTemplateQuery(TableQueryBase):
             self.job.mark_error("No NetProfiler Device Selected")
             return False
 
-        profiler = DeviceManager.get_device(criteria.netprofiler_device)
-        report = steelscript.netprofiler.core.report.MultiQueryReport(profiler)
+        args.profiler = DeviceManager.get_device(criteria.netprofiler_device)
 
-        tf = TimeFilter(start=criteria.starttime,
-                        end=criteria.endtime)
+        args.columns = [col.name for col
+                        in self.table.get_columns(synthetic=False)]
 
-        logger.info("Running NetProfilerTemplateTable table %d report "
-                    "for timeframe %s" % (self.table.id, str(tf)))
+        args.sortcol = None
+        if self.table.sortcols is not None:
+            args.sortcol = self.table.sortcols[0]
 
-        trafficexpr = TrafficFilter(
-            self.job.combine_filterexprs(exprs=criteria.profiler_filterexpr)
+        args.timefilter = TimeFilter(start=criteria.starttime,
+                                     end=criteria.endtime)
+
+        logger.info("Running NetProfiler table %d report for timeframe %s" %
+                    (self.table.id, str(args.timefilter)))
+
+        args.trafficexpr = TrafficFilter(
+            self.job.combine_filterexprs(exprs=criteria.netprofiler_filterexpr)
         )
 
         # Incoming criteria.resolution is a timedelta
@@ -65,28 +71,34 @@ class NetProfilerTemplateQuery(TableQueryBase):
                      (criteria.resolution, type(criteria.resolution)))
         if criteria.resolution != 'auto':
             rsecs = int(timedelta_total_seconds(criteria.resolution))
-            resolution = steelscript.netprofiler.core.report.Report.RESOLUTION_MAP[rsecs]
+            args.resolution = Report.RESOLUTION_MAP[rsecs]
         else:
-            resolution = 'auto'
+            args.resolution = 'auto'
 
         logger.debug('NetProfiler report using resolution %s (%s)' %
-                     (resolution, type(resolution)))
+                     (args.resolution, type(args.resolution)))
 
-        with lock:
-            res = report.run(template_id=self.table.options.template_id,
-                             timefilter=tf,
-                             trafficexpr=trafficexpr,
-                             resolution=resolution)
+        return args
 
-        if res is True:
-            logger.info("Report template complete.")
-            self.job.safe_update(progress=100)
+    def _wait_for_data(self, report, minpct=0, maxpct=100):
+        criteria = self.job.criteria
+        done = False
+        logger.info("Waiting for report to complete")
+        while not done:
+            time.sleep(0.5)
+            with lock:
+                s = report.status()
+
+            logger.debug('Status: XXX %s' % str(s))
+            pct = int(float(s['percent']) * ((maxpct - minpct)/100.0) + minpct)
+            self.job.mark_progress(progress=pct)
+            done = (s['status'] == 'completed')
 
         # Retrieve the data
         with lock:
-            query = report.get_query_by_index(0)
-            data = query.get_data()
-            headers = report.get_legend()
+#            query = report.get_query_by_index(0)
+#            data = query.get_data()
+            data = report.get_data()
 
             tz = criteria.starttime.tzinfo
             # Update criteria
@@ -98,13 +110,28 @@ class NetProfilerTemplateQuery(TableQueryBase):
                                 .replace(tzinfo=tz))
 
         self.job.safe_update(actual_criteria=criteria)
+        return data
+
+    def run(self):
+        """ Main execution method. """
+        args = self._prepare_report_args()
+
+        with lock:
+            report = MultiQueryReport(args.profiler)
+            report.run(template_id=self.table.options.template_id,
+                       timefilter=args.timefilter,
+                       trafficexpr=args.trafficexpr,
+                       resolution=args.resolution)
+
+        data = self._wait_for_data(report)
+        headers = report.get_legend()
 
         # create dataframe with all of the default headers
         df = pandas.DataFrame(data, columns=[h.key for h in headers])
 
         # now filter down to the columns requested by the table
         columns = [col.name for col in self.table.get_columns(synthetic=False)]
-        self.data = df[columns]
+        df = df[columns]
 
-        logger.info("Report %s returned %s rows" % (self.job, len(self.data)))
-        return True
+        logger.info("Report %s returned %s rows" % (self.job, len(df)))
+        return QueryComplete(df)
