@@ -19,7 +19,7 @@ from django import forms
 from steelscript.netprofiler.core.services import \
     Service, ServiceLocationReport
 from steelscript.netprofiler.core.report import \
-    Report, SingleQueryReport, TrafficTimeSeriesReport
+    Report, SingleQueryReport, TrafficTimeSeriesReport, MultiQueryReport
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import (parse_timedelta,
                                           timedelta_total_seconds)
@@ -338,7 +338,10 @@ class NetProfilerQuery(TableQueryBase):
         args.limit = (self.table.options.limit
                       if hasattr(self.table.options, 'limit') else None)
 
-        args.centricity = 'int' if self.table.options.interface else 'hos'
+        if getattr(self.table.options, 'interface', False):
+            args.centricity = 'int'
+        else:
+            args.centricity = 'hos'
 
         return args
 
@@ -401,6 +404,46 @@ class NetProfilerQuery(TableQueryBase):
 
         logger.info("Report %s returned %s rows" % (self.job, len(data)))
         return QueryComplete(data)
+
+
+#
+# Template-based MultiQueryReports
+#
+class NetProfilerTemplateTable(NetProfilerTable):
+    class Meta:
+        proxy = True
+
+    _query_class = 'NetProfilerTemplateQuery'
+
+    TABLE_OPTIONS = {'template_id': None}
+
+
+class NetProfilerTemplateQuery(NetProfilerQuery):
+    # Used by Table to actually run a query
+
+    def run(self):
+        """ Main execution method. """
+        args = self._prepare_report_args()
+
+        with lock:
+            report = MultiQueryReport(args.profiler)
+            report.run(template_id=self.table.options.template_id,
+                       timefilter=args.timefilter,
+                       trafficexpr=args.trafficexpr,
+                       resolution=args.resolution)
+
+        data = self._wait_for_data(report)
+        headers = report.get_legend()
+
+        # create dataframe with all of the default headers
+        df = pandas.DataFrame(data, columns=[h.key for h in headers])
+
+        # now filter down to the columns requested by the table
+        columns = [col.name for col in self.table.get_columns(synthetic=False)]
+        df = df[columns]
+
+        logger.info("Report %s returned %s rows" % (self.job, len(df)))
+        return QueryComplete(df)
 
 
 #
