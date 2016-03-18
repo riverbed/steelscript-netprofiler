@@ -7,10 +7,13 @@
 
 from steelscript.netprofiler.core import _constants
 
+
 """
 This module contains classes to define and collect netprofiler data types
 of Column, and Area.
 """
+
+
 class Container(object):
     pass
 
@@ -40,7 +43,7 @@ class Column(object):
         self.ephemeral = ephemeral
 
     @classmethod
-    def from_json(self, json):
+    def from_json(cls, json):
         ephemeral = json['id'] >= _constants.EPHEMERAL_COLID
         strid = json['strid']
         if strid.startswith('ID_'):
@@ -72,7 +75,6 @@ class Column(object):
             msg = ('<steelscript.netprofiler.core._types.Column(id={0} '
                    'key={1} iskey={2} label={3})>')
             return msg.format(self.id, self.key, self.iskey, self.label)
-
 
 
 class Area(object):

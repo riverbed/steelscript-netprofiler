@@ -235,7 +235,7 @@ class NetProfiler(steelscript.common.service.Service):
             version = APIVersion(version)
         return version in self.supported_versions
 
-    def get_columns(self, columns, groupby=None):
+    def get_columns(self, columns, groupby=None, strict=True):
         """Return valid Column objects for list of columns
 
         :param list columns: list of strings, Column objects, or
@@ -243,6 +243,12 @@ class NetProfiler(steelscript.common.service.Service):
 
         :param str groupby: will optionally ensure that the selected columns
             are valid for the given groupby
+
+        :param bool strict: If True (default), will validate input against
+            known Columns or create ephemeral columns for dynamic reports.
+            If False, will avoid validation and process input as given.
+            Used in some template or MultiQuery scenarios where the columns
+            aren't specific to a known realm/groupby pairing.
 
         Note that this function may be incomplete for any given groupby.
 
@@ -264,7 +270,9 @@ class NetProfiler(steelscript.common.service.Service):
             else:
                 # otherwise, likely a json-dict column definition
                 # as returned by a query for a report legend
-                if column['id'] >= _constants.EPHEMERAL_COLID:
+                # if we are not in strict mode, process the json as a given
+                # column object
+                if column['id'] >= _constants.EPHEMERAL_COLID or not strict:
                     # Ephemeral column, create a new column and don't
                     # do any validation
                     res.extend(self._gencolumns([column]))

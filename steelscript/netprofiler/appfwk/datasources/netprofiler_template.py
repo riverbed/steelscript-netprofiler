@@ -12,6 +12,7 @@ import datetime
 import pandas
 
 from steelscript.appfwk.apps.jobs import QueryComplete
+from steelscript.appfwk.apps.report.models import Report
 from steelscript.common.timeutils import timedelta_total_seconds
 from steelscript.appfwk.apps.datasource.models import TableQueryBase
 from steelscript.appfwk.apps.devices.devicemanager import DeviceManager
@@ -96,9 +97,8 @@ class NetProfilerTemplateQuery(TableQueryBase):
 
         # Retrieve the data
         with lock:
-#            query = report.get_query_by_index(0)
-#            data = query.get_data()
-            data = report.get_data()
+            query = report.get_query_by_index(0)
+            data = query.get_data()
 
             tz = criteria.starttime.tzinfo
             # Update criteria
