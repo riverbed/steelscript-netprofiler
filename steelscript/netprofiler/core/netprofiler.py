@@ -171,8 +171,8 @@ class NetProfiler(steelscript.common.service.Service):
                             api_columns = self._gencolumns(api_call)
                             # compare against objects we've already retrieved
                             existing = [c for c in columns if c in api_columns]
-                            new_columns = [c for c in api_columns if 
-                                                (c not in existing)]
+                            new_columns = [c for c in api_columns 
+                                           if c not in existing]
                             columns.extend(new_columns)
 
                             # add them to data, preserving existing objects
