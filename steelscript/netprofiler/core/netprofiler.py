@@ -130,11 +130,16 @@ class NetProfiler(steelscript.common.service.Service):
         """
         columns = list()
         write = False
+        # bool to preclude checking msq realm more than once if no service.
+        has_service = True
         for realm in self.realms:
             if realm == 'traffic_flow_list' or realm == 'identity_list':
                 centricities = ['hos']
             elif realm == 'msq':
-                centricities = ['hos']
+                if has_service:
+                    centricities = ['hos']
+                else:
+                    continue
             else:
                 centricities = self.centricities
 
@@ -156,17 +161,26 @@ class NetProfiler(steelscript.common.service.Service):
                     if refetch or _hash not in self._columns_file.data:
                         logger.debug('Requesting columns for triplet: '
                                      '%s, %s, %s' % (realm, centricity, groupby))
-                        api_call = self.api.report.columns(realm, centricity, groupby)
-                        # generate Column objects from json
-                        api_columns = self._gencolumns(api_call)
-                        # compare against objects we've already retrieved
-                        existing = [c for c in columns if c in api_columns]
-                        new_columns = [c for c in api_columns if c not in existing]
-                        columns.extend(new_columns)
+                        try:
+                            api_call = self.api.report.columns(realm, centricity, groupby)
+                            # generate Column objects from json
+                            api_columns = self._gencolumns(api_call)
+                            # compare against objects we've already retrieved
+                            existing = [c for c in columns if c in api_columns]
+                            new_columns = [c for c in api_columns if c not in existing]
+                            columns.extend(new_columns)
 
-                        # add them to data, preserving existing objects
-                        self._columns_file.data[_hash] = existing + new_columns
-                        write = True
+                            # add them to data, preserving existing objects
+                            self._columns_file.data[_hash] = existing + new_columns
+                            write = True
+                        except steelscript.common.exceptions.RvbdHTTPException as httpex:
+                            """This check looks to see if the msq realm is not configured. Result is
+                               400 status with text of 'Service not configured' """
+                            if (str(httpex.status) == '400' and httpex.error_text == 'Service not configured'):
+                                has_service = False
+                            else:
+                                raise
+                            
         if write:
             self._columns_file.version = _constants.CACHE_VERSION
             self._columns_file.write()
