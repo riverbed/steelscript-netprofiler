@@ -131,15 +131,11 @@ class NetProfiler(steelscript.common.service.Service):
         columns = list()
         write = False
         # bool to preclude checking msq realm more than once if no service.
-        has_service = True
         for realm in self.realms:
             if realm == 'traffic_flow_list' or realm == 'identity_list':
                 centricities = ['hos']
             elif realm == 'msq':
-                if has_service:
-                    centricities = ['hos']
-                else:
-                    continue
+                centricities = ['hos']
             else:
                 centricities = self.centricities
 
@@ -185,9 +181,9 @@ class NetProfiler(steelscript.common.service.Service):
                             # 'Service not configured'
                             if (str(e.status) == '400' and
                                     e.error_text == 'Service not configured'):
-                                has_service = False
+                                pass
                             else:
-                                raise
+                                raise e
 
         if write:
             self._columns_file.version = _constants.CACHE_VERSION
