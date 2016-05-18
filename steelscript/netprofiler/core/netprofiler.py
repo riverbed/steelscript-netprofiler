@@ -163,27 +163,27 @@ class NetProfiler(steelscript.common.service.Service):
                             api_call = self.api.report.columns(realm,
                                                                centricity,
                                                                groupby)
-                            # generate Column objects from json
-                            api_columns = self._gencolumns(api_call)
-                            # compare against objects we've already retrieved
-                            existing = [c for c in columns if c in api_columns]
-                            new_columns = [c for c in api_columns
-                                           if c not in existing]
-                            columns.extend(new_columns)
-
-                            # add them to data, preserving existing objects
-                            self._columns_file.data[_hash] = (existing +
-                                                              new_columns)
-                            write = True
                         except RvbdHTTPException as e:
                             # This check looks to see if the msq realm is not
                             # configured. Result is 400 status with text of
                             # 'Service not configured'
                             if (str(e.status) == '400' and
-                                    e.error_text == 'Service not configured'):
-                                pass
+                                        e.error_text == 'Service not configured'):
+                                continue
                             else:
                                 raise e
+                        # generate Column objects from json
+                        api_columns = self._gencolumns(api_call)
+                        # compare against objects we've already retrieved
+                        existing = [c for c in columns if c in api_columns]
+                        new_columns = [c for c in api_columns
+                                       if c not in existing]
+                        columns.extend(new_columns)
+
+                        # add them to data, preserving existing objects
+                        self._columns_file.data[_hash] = (existing +
+                                                          new_columns)
+                        write = True
 
         if write:
             self._columns_file.version = _constants.CACHE_VERSION
