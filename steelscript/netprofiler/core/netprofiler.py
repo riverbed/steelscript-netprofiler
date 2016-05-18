@@ -168,7 +168,7 @@ class NetProfiler(steelscript.common.service.Service):
                             # configured. Result is 400 status with text of
                             # 'Service not configured'
                             if (str(e.status) == '400' and
-                                        e.error_text == 'Service not configured'):
+                                e.error_text == 'Service not configured'):
                                 continue
                             else:
                                 raise e
