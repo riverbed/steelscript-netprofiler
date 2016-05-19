@@ -21,7 +21,7 @@ from steelscript.netprofiler.core import _api1
 from steelscript.netprofiler.core import _constants
 from steelscript.common._fs import SteelScriptDir
 from steelscript.netprofiler.core._types import Column, AreaContainer, ColumnContainer
-from steelscript.common.exceptions import RvbdException
+from steelscript.common.exceptions import RvbdException, RvbdHTTPException
 
 import steelscript.common.service
 
@@ -155,18 +155,35 @@ class NetProfiler(steelscript.common.service.Service):
                     _hash = make_hash(realm, centricity, groupby)
                     if refetch or _hash not in self._columns_file.data:
                         logger.debug('Requesting columns for triplet: '
-                                     '%s, %s, %s' % (realm, centricity, groupby))
-                        api_call = self.api.report.columns(realm, centricity, groupby)
+                                     '%s, %s, %s' % (realm,
+                                                     centricity,
+                                                     groupby))
+                        try:
+                            api_call = self.api.report.columns(realm,
+                                                               centricity,
+                                                               groupby)
+                        except RvbdHTTPException as e:
+                            # This check looks to see if the msq realm is not
+                            # configured. Result is 400 status with text of
+                            # 'Service not configured'
+                            if (str(e.status) == '400' and
+                                    e.error_text == 'Service not configured'):
+                                continue
+                            else:
+                                raise e
                         # generate Column objects from json
                         api_columns = self._gencolumns(api_call)
                         # compare against objects we've already retrieved
                         existing = [c for c in columns if c in api_columns]
-                        new_columns = [c for c in api_columns if c not in existing]
+                        new_columns = [c for c in api_columns
+                                       if c not in existing]
                         columns.extend(new_columns)
 
                         # add them to data, preserving existing objects
-                        self._columns_file.data[_hash] = existing + new_columns
+                        self._columns_file.data[_hash] = (existing +
+                                                          new_columns)
                         write = True
+
         if write:
             self._columns_file.version = _constants.CACHE_VERSION
             self._columns_file.write()
