@@ -21,7 +21,7 @@ from steelscript.netprofiler.core import _api1
 from steelscript.netprofiler.core import _constants
 from steelscript.common._fs import SteelScriptDir
 from steelscript.netprofiler.core._types import Column, AreaContainer, ColumnContainer
-from steelscript.common.exceptions import RvbdException
+from steelscript.common.exceptions import RvbdException, RvbdHTTPException
 
 import steelscript.common.service
 
@@ -155,18 +155,35 @@ class NetProfiler(steelscript.common.service.Service):
                     _hash = make_hash(realm, centricity, groupby)
                     if refetch or _hash not in self._columns_file.data:
                         logger.debug('Requesting columns for triplet: '
-                                     '%s, %s, %s' % (realm, centricity, groupby))
-                        api_call = self.api.report.columns(realm, centricity, groupby)
+                                     '%s, %s, %s' % (realm,
+                                                     centricity,
+                                                     groupby))
+                        try:
+                            api_call = self.api.report.columns(realm,
+                                                               centricity,
+                                                               groupby)
+                        except RvbdHTTPException as e:
+                            # This check looks to see if the msq realm is not
+                            # configured. Result is 400 status with text of
+                            # 'Service not configured'
+                            if (str(e.status) == '400' and
+                                    e.error_text == 'Service not configured'):
+                                continue
+                            else:
+                                raise e
                         # generate Column objects from json
                         api_columns = self._gencolumns(api_call)
                         # compare against objects we've already retrieved
                         existing = [c for c in columns if c in api_columns]
-                        new_columns = [c for c in api_columns if c not in existing]
+                        new_columns = [c for c in api_columns
+                                       if c not in existing]
                         columns.extend(new_columns)
 
                         # add them to data, preserving existing objects
-                        self._columns_file.data[_hash] = existing + new_columns
+                        self._columns_file.data[_hash] = (existing +
+                                                          new_columns)
                         write = True
+
         if write:
             self._columns_file.version = _constants.CACHE_VERSION
             self._columns_file.write()
@@ -235,7 +252,7 @@ class NetProfiler(steelscript.common.service.Service):
             version = APIVersion(version)
         return version in self.supported_versions
 
-    def get_columns(self, columns, groupby=None):
+    def get_columns(self, columns, groupby=None, strict=True):
         """Return valid Column objects for list of columns
 
         :param list columns: list of strings, Column objects, or
@@ -243,6 +260,12 @@ class NetProfiler(steelscript.common.service.Service):
 
         :param str groupby: will optionally ensure that the selected columns
             are valid for the given groupby
+
+        :param bool strict: If True (default), will validate input against
+            known Columns or create ephemeral columns for dynamic reports.
+            If False, will avoid validation and process input as given.
+            Used in some template or MultiQuery scenarios where the columns
+            aren't specific to a known realm/groupby pairing.
 
         Note that this function may be incomplete for any given groupby.
 
@@ -264,7 +287,9 @@ class NetProfiler(steelscript.common.service.Service):
             else:
                 # otherwise, likely a json-dict column definition
                 # as returned by a query for a report legend
-                if column['id'] >= _constants.EPHEMERAL_COLID:
+                # if we are not in strict mode, process the json as a given
+                # column object
+                if column['id'] >= _constants.EPHEMERAL_COLID or not strict:
                     # Ephemeral column, create a new column and don't
                     # do any validation
                     res.extend(self._gencolumns([column]))

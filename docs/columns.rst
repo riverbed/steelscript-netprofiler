@@ -1,18 +1,12 @@
 Profiler Columns and Groupbys
 =============================
 
-One of the key pieces of information :py:class:`Profiler
-<steelscript.profiler.core.profiler.Profiler>` keeps track of are all
-of the different Column types, and under what context they are
-appropriate.  For instance, when running a Traffic Summary report,
-then 'time' is not a valid column of data since this report type
-organizes its information in other ways.
-
-As mentioned earlier, one of the key pieces of information
-keeps track of are all of the different Column types, and under what
-context they are appropriate.  For instance, if we are running a
-Traffic Summary report, then ``time`` is not a valid column of data
-since this report type organizes its information in other ways.
+One of the key pieces of information :py:class:`NetProfiler
+<steelscript.netprofiler.core.netprofiler.NetProfiler>` keeps track of are all
+of the different Column types, and under what context they are appropriate.
+For instance, when running a Traffic Summary report, then ``time`` is not a
+valid column of data since this report type organizes its information in other
+ways.
 
 Column types fall into two categories: keys and values.  Keys are
 column types that represent the primary organization/grouping of the
@@ -61,7 +55,7 @@ of report:
    >>> columns = p.search_columns(realms=realms, centricities=centricities, groupbys=groupbys)
 
 Here we have setup three local variables, and passed them as arguments
-to the :py:meth:`.search_columns()` method on our ``profiler`` object.
+to the :py:meth:`.search_columns()` method on our ``netprofiler`` object.
 Note the brackets around each of the definitions we made, those mean
 we created a ``list`` object for all three variables.  In this case,
 the list contains only a single object, the string.
@@ -87,12 +81,12 @@ This command uses `slicing
 <http://stackoverflow.com/questions/509211/the-python-slice-notation>`_
 to show only the first two elements of the list.  Notice these are
 objects themselves, with quite a bit of information associated with
-each one.  These objects are used extensively within ``profiler``, but
+each one.  These objects are used extensively within ``netprofiler``, but
 the main thing to keep in mind is that you can refer to columns by
 their text value (the 'key' attribute), by index value (the 'cid'
 attribute in the example above), or by the actual object itself.
 
-Another way to access one of the columns, is through the ``profiler``
+Another way to access one of the columns, is through the ``netprofiler``
 object as an attribute:
 
 .. code-block:: bash

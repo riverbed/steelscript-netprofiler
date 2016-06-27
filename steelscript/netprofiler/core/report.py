@@ -52,7 +52,12 @@ class Query(object):
 
         # find the columns in json which indicate they are 'available'
         # or have been computed as part of the request
-        self.available_columns = self.report.profiler.get_columns(acols)
+        strict = report.strict_columns
+        self.available_columns = self.report.profiler.get_columns(acols,
+                                                                  strict=strict)
+        if self.columns is None:
+            self.columns = self.available_columns
+
         self.querydata = None
         self.data = None
         self.data_selected_columns = None
@@ -262,6 +267,9 @@ class Report(object):
         self.timefilter = None
         self.resolution = None
         self.trafficexpr = None
+
+        self.columns = None
+        self.strict_columns = True  # ensure requested columns are validated
 
         self.query = None
         self.queries = list()
@@ -491,15 +499,19 @@ class MultiQueryReport(Report):
         include multiple queries, one for each widget on a report page.
         """
         super(MultiQueryReport, self).__init__(profiler)
-        self.template_id = None
+        self.strict_columns = False
 
-    def run(self, template_id, timefilter=None, trafficexpr=None,
+    def run(self, template_id, columns=None, timefilter=None, trafficexpr=None,
             data_filter=None, resolution="auto"):
         """The primary driver of these reports come from the `template_id` which
         defines the query sources.  Thus, no query input or
         realm/centricity/groupby keywords are necessary.
 
         :param int template_id: numeric id of the template to use for the report
+
+        :param list columns: optional list of key and value columns to retrieve
+            (use netprofiler.columns.*),  if omitted, will use template
+            default columns instead.
 
         :param timefilter: range of time to query,
             instance of :class:`TimeFilter`
@@ -512,6 +524,7 @@ class MultiQueryReport(Report):
              defaults to 'auto'
         """
         self.template_id = template_id
+        self.columns = columns
 
         super(MultiQueryReport, self).run(template_id,
                                           timefilter=timefilter,

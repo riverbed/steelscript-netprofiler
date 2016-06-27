@@ -19,7 +19,7 @@ from django import forms
 from steelscript.netprofiler.core.services import \
     Service, ServiceLocationReport
 from steelscript.netprofiler.core.report import \
-    Report, SingleQueryReport, TrafficTimeSeriesReport
+    Report, SingleQueryReport, TrafficTimeSeriesReport, MultiQueryReport
 from steelscript.netprofiler.core.filters import TimeFilter, TrafficFilter
 from steelscript.common.timeutils import (parse_timedelta,
                                           timedelta_total_seconds)
@@ -338,7 +338,10 @@ class NetProfilerQuery(TableQueryBase):
         args.limit = (self.table.options.limit
                       if hasattr(self.table.options, 'limit') else None)
 
-        args.centricity = 'int' if self.table.options.interface else 'hos'
+        if getattr(self.table.options, 'interface', False):
+            args.centricity = 'int'
+        else:
+            args.centricity = 'hos'
 
         return args
 
@@ -401,6 +404,46 @@ class NetProfilerQuery(TableQueryBase):
 
         logger.info("Report %s returned %s rows" % (self.job, len(data)))
         return QueryComplete(data)
+
+
+#
+# Template-based MultiQueryReports
+#
+class NetProfilerTemplateTable(NetProfilerTable):
+    class Meta:
+        proxy = True
+
+    _query_class = 'NetProfilerTemplateQuery'
+
+    TABLE_OPTIONS = {'template_id': None}
+
+
+class NetProfilerTemplateQuery(NetProfilerQuery):
+    # Used by Table to actually run a query
+
+    def run(self):
+        """ Main execution method. """
+        args = self._prepare_report_args()
+
+        with lock:
+            report = MultiQueryReport(args.profiler)
+            report.run(template_id=self.table.options.template_id,
+                       timefilter=args.timefilter,
+                       trafficexpr=args.trafficexpr,
+                       resolution=args.resolution)
+
+        data = self._wait_for_data(report)
+        headers = report.get_legend()
+
+        # create dataframe with all of the default headers
+        df = pandas.DataFrame(data, columns=[h.key for h in headers])
+
+        # now filter down to the columns requested by the table
+        columns = [col.name for col in self.table.get_columns(synthetic=False)]
+        df = df[columns]
+
+        logger.info("Report %s returned %s rows" % (self.job, len(df)))
+        return QueryComplete(df)
 
 
 #
@@ -480,6 +523,9 @@ class NetProfilerTrafficTimeSeriesQuery(NetProfilerQuery):
             TSQ_Tuple('applications', ['app_name', 'app_raw'], 'parse_app'),
         'host_group':
             TSQ_Tuple('host_groups', ['group_name'], 'parse_host_group'),
+        'host_pair_protoport':
+            TSQ_Tuple('host_pair_ports', ['hostpair_protoport_parts'],
+                      'parse_hostpair_protoport'),
     }
 
     @classmethod
@@ -507,6 +553,21 @@ class NetProfilerTrafficTimeSeriesQuery(NetProfilerQuery):
                 'label': group_name,
                 'json': {'name': group_name}}
 
+    @classmethod
+    def parse_hostpair_protoport(cls, row):
+        srv_ip, srv_name, cli_ip, cli_name, proto, port = row[0].split('|')
+
+        if not srv_name:
+            srv_name = srv_ip
+        if not cli_name:
+            cli_name = cli_ip
+
+        return {'name': '%s%s%s%s' % (srv_name, cli_name, proto, port),
+                'label': '%s - %s - %s/%s' % (srv_name, cli_name, proto, port),
+                'json': {'port': {'name': '%s/%s' % (proto, port)},
+                         'server': {'ipaddr': '%s' % srv_ip},
+                         'client': {'ipaddr': '%s' % cli_ip}}}
+
     # Run a SingleQueryReport based on the requested groupby and
     # return a list of column definitions that will be passed
     # on to the TrafficTimeSeriesReport query_columns argument
@@ -516,6 +577,7 @@ class NetProfilerTrafficTimeSeriesQuery(NetProfilerQuery):
             report = SingleQueryReport(args.profiler)
             report.run(
                 realm='traffic_summary',
+                centricity=args.centricity,
                 groupby=args.profiler.groupbys[self.table.options.groupby],
                 columns=columns,
                 timefilter=args.timefilter,
@@ -627,6 +689,7 @@ class NetProfilerTrafficTimeSeriesQuery(NetProfilerQuery):
                 report = SingleQueryReport(args.profiler)
                 report.run(
                     realm='traffic_overall_time_series',
+                    centricity=args.centricity,
                     groupby=args.profiler.groupbys['time'],
                     columns=columns,
                     timefilter=args.timefilter,
@@ -772,3 +835,100 @@ class NetProfilerServiceByLocQuery(TableQueryBase):
                             state_map.values())
 
         return QueryComplete(df)
+
+
+class NetProfilerHostPairPortTable(NetProfilerTable):
+    class Meta:
+        proxy = True
+
+    TABLE_OPTIONS = {'groupby': 'host_pair_protoport',
+                     'realm': 'traffic_summary',
+                     'interface': None,
+                     'limit': None,
+                     'sort_col': 'in_avg_bytes'}
+
+    _query_class = 'NetProfilerHostPairPortQuery'
+
+
+class NetProfilerHostPairPortQuery(NetProfilerQuery):
+
+    def run(self):
+        """ Main execution method
+        """
+        args = self._prepare_report_args()
+
+        with lock:
+            report = SingleQueryReport(args.profiler)
+            report.run(
+                realm=self.table.options.realm,
+                groupby=args.profiler.groupbys[self.table.options.groupby],
+                centricity=args.centricity,
+                columns=args.columns,
+                timefilter=args.timefilter,
+                trafficexpr=args.trafficexpr,
+                data_filter=args.datafilter,
+                resolution=args.resolution,
+                sort_col=self.table.options.sort_col,
+                sync=False,
+                limit=args.limit
+            )
+
+        data = self._wait_for_data(report)
+
+        others = []
+        totals = []
+        for i, col in enumerate(args.columns):
+            if i == 0:
+                others.append(u'Others')
+                totals.append(u'Total')
+            elif isinstance(data[0][i], (int, float)):
+                others.append(0)
+                totals.append(0)
+            else:
+                others.append(u'')
+                totals.append(u'')
+
+        for i, row in enumerate(data):
+            for j, col in enumerate(args.columns):
+                if isinstance(row[j], (int, float)):
+                    totals[j] += row[j]
+                    if i > self.table.rows:
+                        others[j] += row[j]
+
+        # Clip the table at the row limit, then add two more
+        # for other and total
+        if self.table.rows > 0:
+            data = data[:self.table.rows]
+        self.table.rows += 2
+
+        data.append(others)
+        data.append(totals)
+
+        # Formatting:
+        #  - Add percents of total to numeric columns
+        #  - Strip "ByLocation|" from the groups if it exists
+        #  - Parse dns
+        for row in data:
+            for j, col in enumerate(args.columns):
+                if isinstance(row[j], float):
+                    row[j] = u"%.2f  (%.0f%%)" % \
+                            (row[j], 100 * row[j] / totals[j])
+                elif isinstance(row[j], int):
+                    row[j] = u"%d  (%.0f%%)" % \
+                            (row[j], 100 * row[j] / totals[j])
+                elif isinstance(row[j], unicode):
+                    if row[j].startswith(u'ByLocation|'):
+                        row[j] = row[j][11:]
+                    elif (col == u'cli_host_dns' or col == u'srv_host_dns') \
+                        and (u'|' in row[j]):
+                        # If we're using dns columns, they are ip|name
+                        # We should use the name if it's non-empty,
+                        # ip otherwise
+                        ip, name = row[j].split(u'|')
+                        if name:
+                            row[j] = name
+                        else:
+                            row[j] = ip
+
+        logger.info("Report %s returned %s rows" % (self.job, len(data)))
+        return QueryComplete(data)

@@ -1,7 +1,13 @@
 CHANGELOG
 =========
 
-[1.0.1]
+[1.1]
+ * Added new report type, "HostTimeSeriesReport" and example script
+ * Fix WANTimeSeriesReport
+ * Support new versioning of cache files
+ * Support for msq realm issues in NetProfiler REST API.
+
+[1.0.2]
  * Added new report type, "HostTimeSeriesReport" and example script
  * Fix WANTimeSeriesReport
  * Support new versioning of cache files
