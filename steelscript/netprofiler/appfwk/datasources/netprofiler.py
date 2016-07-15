@@ -875,13 +875,26 @@ class NetProfilerHostPairPortQuery(NetProfilerQuery):
 
         data = self._wait_for_data(report)
 
+        def tonumber(s):
+            # return an int if the string represents an integer,
+            # a float if it represents a float
+            # None otherwise.
+            # check the int first since float() captures both
+            try:
+                return int(s)
+            except ValueError:
+                try:
+                    return float(s)
+                except:
+                    return None
+
         others = []
         totals = []
         for i, col in enumerate(args.columns):
             if i == 0:
                 others.append(u'Others')
                 totals.append(u'Total')
-            elif isinstance(data[0][i], (int, float)):
+            elif tonumber(data[0][i]):
                 others.append(0)
                 totals.append(0)
             else:
@@ -890,7 +903,9 @@ class NetProfilerHostPairPortQuery(NetProfilerQuery):
 
         for i, row in enumerate(data):
             for j, col in enumerate(args.columns):
-                if isinstance(row[j], (int, float)):
+                val = tonumber(row[j])
+                if val:
+                    row[j] = val
                     totals[j] += row[j]
                     if i > self.table.rows:
                         others[j] += row[j]
@@ -903,7 +918,7 @@ class NetProfilerHostPairPortQuery(NetProfilerQuery):
 
         data.append(others)
         data.append(totals)
-
+        
         # Formatting:
         #  - Add percents of total to numeric columns
         #  - Strip "ByLocation|" from the groups if it exists
@@ -929,6 +944,5 @@ class NetProfilerHostPairPortQuery(NetProfilerQuery):
                             row[j] = name
                         else:
                             row[j] = ip
-
         logger.info("Report %s returned %s rows" % (self.job, len(data)))
         return QueryComplete(data)

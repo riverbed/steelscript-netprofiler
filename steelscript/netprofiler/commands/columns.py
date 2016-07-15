@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 
 # Copyright (c) 2015 Riverbed Technology, Inc.
@@ -7,8 +6,6 @@
 # accompanying the software ("License").  This software is distributed "AS IS"
 # as set forth in the License.
 
-
-from steelscript.commands.steel import BaseCommand
 
 """This program retrieves a list of valid columns for the current netprofiler.
 
