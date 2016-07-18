@@ -32,7 +32,7 @@ from steelscript.appfwk.apps.datasource.forms import \
     fields_add_time_selection, fields_add_resolution
 from steelscript.appfwk.libs.fields import Function
 from steelscript.netprofiler.core.hostgroup import HostGroupType
-from steelscript.appfwk.apps.jobs import QueryComplete
+from steelscript.appfwk.apps.jobs import QueryComplete, QueryError
 
 logger = logging.getLogger(__name__)
 lock = threading.Lock()
@@ -589,6 +589,12 @@ class NetProfilerTrafficTimeSeriesQuery(NetProfilerQuery):
 
         rows = self._wait_for_data(report, minpct=minpct, maxpct=maxpct)
 
+        if not rows:
+            msg = ('Error computing top-n columns for TimeSeries report, '
+                   'no columns were found.')
+            logger.error(msg)
+            return []
+
         defs = []
         parser = getattr(self, config.parser)
 
@@ -642,6 +648,11 @@ class NetProfilerTrafficTimeSeriesQuery(NetProfilerQuery):
                 query_column_defs = json.loads(query_column_defs)
 
         query_columns = [col['json'] for col in query_column_defs]
+
+        if not query_columns:
+            msg = 'Unable to compute query colums for job %s' % self.job
+            logger.error(msg)
+            return QueryError(msg)
 
         with lock:
             report = TrafficTimeSeriesReport(args.profiler)
@@ -874,6 +885,11 @@ class NetProfilerHostPairPortQuery(NetProfilerQuery):
             )
 
         data = self._wait_for_data(report)
+
+        if not data:
+            msg = 'Report %s returned no data' % self.job
+            logger.error(msg)
+            return QueryError(msg)
 
         def tonumber(s):
             # return an int if the string represents an integer,
