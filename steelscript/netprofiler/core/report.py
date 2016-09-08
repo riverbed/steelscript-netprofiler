@@ -46,7 +46,8 @@ class Query(object):
         self.id = json['id']
         self.actual_t0 = json['actual_t0']
         self.actual_t1 = json['actual_t1']
-
+        self.is_time_series = ('group_by' in json and
+                               json['group_by'] == 'tim')
         # Collect the available columns
         acols = [acol for acol in json['columns'] if acol['available']]
 
@@ -1228,3 +1229,30 @@ class IdentityReport(SingleQueryReport):
             sync=sync,
             limit=limit
         )
+
+
+class LiveReport(MultiQueryReport):
+    """Query class for one query in a dashboard report"""
+
+    def __init__(self, profiler, template_id):
+
+        if not profiler.supports_version('1.4'):
+            raise Exception('Live template reports not supported')
+
+        super(LiveReport, self).__init__(profiler)
+
+        self.template_id = template_id
+
+        # Create an instantaneous report and return the report id
+        self.id = profiler.api.templates.create_live_report(self.template_id)
+
+        # populate queries
+        self.get_query_by_index()
+
+    def get_columns(self, widget_id):
+        """Return list of netprofiler column objects."""
+        widget_config = self.profiler.api.templates.\
+            get_widget(self.template_id, widget_id)
+
+        return self.profiler.get_columns_by_ids(
+            widget_config['criteria']['columns'])
