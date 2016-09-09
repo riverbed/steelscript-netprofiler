@@ -264,6 +264,10 @@ class Templates(API1Group):
                                      method='POST', raw_response=True)
         return int(resp.headers['location'].split('/')[-1])
 
+    def get_widget(self, template_id, widget_id):
+        return self._json_request(
+            '/{0}/sections/1/widgets/{1}'.format(template_id, widget_id))
+
 
 class Handler(object):
     def __init__(self, profiler):

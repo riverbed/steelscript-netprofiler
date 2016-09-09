@@ -123,12 +123,11 @@ class NetProfilerLiveQuery(TableQueryBase):
 
         # Delete columns
         for col in self.table.get_columns():
-            logger.debug("column to be deleted %s" % col)
             col.delete()
 
         cols = []
         for col in query.columns:
-            if col.id > EPHEMERAL_COLID:
+            if col.id >= EPHEMERAL_COLID:
                 cols.append(col)
 
         if not cols:
