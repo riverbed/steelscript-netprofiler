@@ -191,7 +191,7 @@ class NetProfiler(steelscript.common.service.Service):
             self._columns_file.write()
         else:
             if have_exception:
-                logger.warning('_verify_cache: All realm, centricity, '
+                logger.warning('_verify_cache: Some realm, centricity, '
                                'and groupby triplets failed.')
 
         if not self._columns_file.data:
