@@ -189,10 +189,9 @@ class NetProfiler(steelscript.common.service.Service):
         if write:
             self._columns_file.version = _constants.CACHE_VERSION
             self._columns_file.write()
-        else:
-            if have_exception:
-                logger.warning('_verify_cache: Some realm, centricity, '
-                               'and groupby triplets failed.')
+        elif have_exception:
+            logger.warning('_verify_cache: Some realm, centricity, '
+                           'and groupby triplets failed.')
 
         if not self._columns_file.data:
             raise RvbdException("_verify_cache failed to collect both"
