@@ -6,9 +6,9 @@
 
 
 from steelscript.appfwk.apps.report.models import Report
-import steelscript.appfwk.apps.report.modules.yui3 as yui3
-
-from steelscript.netprofiler.appfwk.datasources.netprofiler_devices import NetProfilerDeviceTable
+import steelscript.appfwk.apps.report.modules.tables as tables
+from steelscript.netprofiler.appfwk.datasources.netprofiler_devices import \
+    NetProfilerDeviceTable
 
 report = Report.create("NetProfiler Device List", position=10)
 
@@ -23,4 +23,4 @@ p.add_column('name', 'Device Name', datatype="string", sortasc=True)
 p.add_column('type', 'Flow Type', datatype="string")
 p.add_column('version', 'Flow Version', datatype="string")
 
-report.add_widget(yui3.TableWidget, p, "Device List", height=300, width=12)
+report.add_widget(tables.TableWidget, p, "Device List", height=300, width=12)

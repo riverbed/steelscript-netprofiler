@@ -5,8 +5,8 @@
 # as set forth in the License.
 
 
+import steelscript.appfwk.apps.report.modules.c3 as c3
 from steelscript.appfwk.apps.report.models import Report
-import steelscript.appfwk.apps.report.modules.yui3 as yui3
 
 from steelscript.netprofiler.appfwk.datasources.netprofiler import \
     NetProfilerTimeSeriesTable, NetProfilerGroupbyTable
@@ -39,12 +39,13 @@ report = Report.create("NetProfiler - Alert Example",
 report.add_section()
 
 # Define a Overall TimeSeries showing Avg Bytes/s
-p = NetProfilerTimeSeriesTable.create('ts-overall', duration=60, resolution="1min")
+p = NetProfilerTimeSeriesTable.create('ts-overall', duration=60,
+                                      resolution="1min")
 
 p.add_column('time', 'Time', datatype='time', iskey=True)
 p.add_column('avg_bytes', 'Avg Bytes/s', units='B/s')
 
-report.add_widget(yui3.TimeSeriesWidget, p, "Overall Traffic", width=6)
+report.add_widget(c3.TimeSeriesWidget, p, "Overall Traffic", width=6)
 
 # Add a trigger to evaluate if traffic exceeds a certain threshold
 a = create_trigger(source=p,
@@ -58,12 +59,13 @@ a.add_destination(
 )
 
 # Define a Table for Response Times
-p = NetProfilerGroupbyTable.create('location-resptime', groupby='host_group', duration=60)
+p = NetProfilerGroupbyTable.create('location-resptime', groupby='host_group',
+                                   duration=60)
 
 p.add_column('group_name', 'Group Name', iskey=True)
 p.add_column('response_time', 'Response Time', units='ms', sortdesc=True)
 
-report.add_widget(yui3.BarWidget, p, "Locations by Response Time")
+report.add_widget(c3.BarWidget, p, "Locations by Response Time")
 
 # Add a trigger to evaluate if response time exceeds a certain threshold
 a = create_trigger(source=p,
