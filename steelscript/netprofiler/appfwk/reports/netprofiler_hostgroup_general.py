@@ -6,7 +6,7 @@
 
 
 from steelscript.appfwk.apps.report.models import Report
-import steelscript.appfwk.apps.report.modules.yui3 as yui3
+import steelscript.appfwk.apps.report.modules.c3 as c3
 
 from steelscript.netprofiler.appfwk.datasources.netprofiler import \
     NetProfilerTimeSeriesTable, NetProfilerGroupbyTable, \
@@ -31,7 +31,7 @@ p = NetProfilerTimeSeriesTable.create('ts-overall',
 p.add_column('time', 'Time', datatype='time', iskey=True)
 p.add_column('avg_bytes', 'Avg Bytes/s', units='B/s')
 
-report.add_widget(yui3.TimeSeriesWidget, p, "Overall Traffic", width=12)
+report.add_widget(c3.TimeSeriesWidget, p, "Overall Traffic", width=12)
 
 # Define a Pie Chart for top ports
 p = NetProfilerGroupbyTable.create('ports-bytes',
@@ -40,7 +40,7 @@ p = NetProfilerGroupbyTable.create('ports-bytes',
 p.add_column('portgroup', 'Port Group', iskey=True)
 p.add_column('avg_bytes', 'Avg Bytes/s', units='B/s', sortdesc=True)
 
-report.add_widget(yui3.PieWidget, p, "Port Groups by Avg Bytes")
+report.add_widget(c3.PieWidget, p, "Port Groups by Avg Bytes")
 
 # Define a Bar Chart for application ports
 p = NetProfilerGroupbyTable.create('application-bytes',
@@ -48,7 +48,7 @@ p = NetProfilerGroupbyTable.create('application-bytes',
 
 p.add_column('protoport_name', 'Application Port', iskey=True)
 p.add_column('avg_bytes', 'Avg Bytes/s', units='B/s', sortdesc=True)
-report.add_widget(yui3.BarWidget, p, "Application Ports by Avg Bytes")
+report.add_widget(c3.BarWidget, p, "Application Ports by Avg Bytes")
 
 # Define a TimeSeries showing Avg Bytes/s for tcp/80
 p = NetProfilerTimeSeriesTable.create('ts-tcp80', duration=60,
@@ -58,7 +58,7 @@ p.add_column('time', 'Time', datatype='time', iskey=True)
 p.add_column('avg_bytes', 'Avg Bytes/s', units='B/s')
 p.add_column('avg_bytes_rtx', 'Avg Retrans Bytes/s', units='B/s')
 
-report.add_widget(yui3.TimeSeriesWidget, p, "Bandwidth for tcp/80",
+report.add_widget(c3.TimeSeriesWidget, p, "Bandwidth for tcp/80",
                   altaxis=['avg_bytes_rtx'])
 
 # Define a TimeSeries showing Avg Bytes/s for tcp/443
@@ -69,4 +69,4 @@ p.add_column('time', 'Time', datatype='time', iskey=True)
 p.add_column('avg_bytes', 'Avg Bytes/s', units='B/s')
 p.add_column('avg_bytes_rtx', 'Avg Retrans Bytes/s', units='B/s')
 
-report.add_widget(yui3.TimeSeriesWidget, p, "Bandwidth for tcp/443")
+report.add_widget(c3.TimeSeriesWidget, p, "Bandwidth for tcp/443")

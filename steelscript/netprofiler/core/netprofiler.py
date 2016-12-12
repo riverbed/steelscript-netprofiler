@@ -130,6 +130,7 @@ class NetProfiler(steelscript.common.service.Service):
         """
         columns = list()
         write = False
+        have_exception = False
         for realm in self.realms:
             if realm == 'traffic_flow_list' or realm == 'identity_list':
                 centricities = ['hos']
@@ -163,14 +164,15 @@ class NetProfiler(steelscript.common.service.Service):
                                                                centricity,
                                                                groupby)
                         except RvbdHTTPException as e:
-                            # This check looks to see if the msq realm is not
-                            # configured. Result is 400 status with text of
-                            # 'Service not configured'
-                            if (str(e.status) == '400' and
-                                    e.error_text == 'Service not configured'):
-                                continue
-                            else:
-                                raise e
+                            logger.warning('Exception raised fetching columns'
+                                           'for triplet: {0}, {1}, {2} with '
+                                           'message {3}'.format(realm,
+                                                                centricity,
+                                                                groupby,
+                                                                e.message))
+                            have_exception = True
+                            continue
+
                         # generate Column objects from json
                         api_columns = self._gencolumns(api_call)
                         # compare against objects we've already retrieved
@@ -187,6 +189,14 @@ class NetProfiler(steelscript.common.service.Service):
         if write:
             self._columns_file.version = _constants.CACHE_VERSION
             self._columns_file.write()
+        elif have_exception:
+            logger.warning('_verify_cache: Some realm, centricity, '
+                           'and groupby triplets failed.')
+
+        if not self._columns_file.data:
+            raise RvbdException("_verify_cache failed to collect both"
+                                "cached and live data. Please check"
+                                "NetProfiler health")
 
     def _unique_columns(self):
         """Pull unique columns from _columns_file (a dict of lists). """
