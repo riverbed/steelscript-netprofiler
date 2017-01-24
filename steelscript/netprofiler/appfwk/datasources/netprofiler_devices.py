@@ -22,7 +22,9 @@ logger = logging.getLogger(__name__)
 
 
 class NetProfilerDeviceTable(DatasourceTable):
-    class Meta: proxy = True
+    class Meta:
+        proxy = True
+        app_label = 'steelscript.netprofiler.appfwk'
 
     _query_class = 'NetProfilerDeviceQuery'
 

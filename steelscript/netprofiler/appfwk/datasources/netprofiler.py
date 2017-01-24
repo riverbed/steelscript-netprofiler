@@ -178,6 +178,8 @@ class NetProfilerTable(DatasourceTable):
 
     class Meta:
         proxy = True
+        app_label = 'steelscript.netprofiler.appfwk'
+
     _query_class = 'NetProfilerQuery'
 
     TABLE_OPTIONS = {'groupby': None,
@@ -268,6 +270,7 @@ class NetProfilerTable(DatasourceTable):
 class NetProfilerTimeSeriesTable(NetProfilerTable):
     class Meta:
         proxy = True
+        app_label = 'steelscript.netprofiler.appfwk'
 
     TABLE_OPTIONS = {'groupby': 'time',
                      'realm': 'traffic_overall_time_series',
@@ -278,6 +281,7 @@ class NetProfilerTimeSeriesTable(NetProfilerTable):
 class NetProfilerGroupbyTable(NetProfilerTable):
     class Meta:
         proxy = True
+        app_label = 'steelscript.netprofiler.appfwk'
 
     TABLE_OPTIONS = {'groupby': None,
                      'realm': 'traffic_summary',
@@ -412,6 +416,7 @@ class NetProfilerQuery(TableQueryBase):
 class NetProfilerTemplateTable(NetProfilerTable):
     class Meta:
         proxy = True
+        app_label = 'steelscript.netprofiler.appfwk'
 
     _query_class = 'NetProfilerTemplateQuery'
 
@@ -455,6 +460,7 @@ class NetProfilerTrafficTimeSeriesTable(NetProfilerTable):
 
     class Meta:
         proxy = True
+        app_label = 'steelscript.netprofiler.appfwk'
 
     TABLE_OPTIONS = {'base': None,
                      'groupby': None,
@@ -741,6 +747,8 @@ class NetProfilerServiceByLocTable(DatasourceTable):
 
     class Meta:
         proxy = True
+        app_label = 'steelscript.netprofiler.appfwk'
+
     _query_class = 'NetProfilerServiceByLocQuery'
 
     # rgb - red/yellow/green, if True return string values
@@ -851,6 +859,7 @@ class NetProfilerServiceByLocQuery(TableQueryBase):
 class NetProfilerHostPairPortTable(NetProfilerTable):
     class Meta:
         proxy = True
+        app_label = 'steelscript.netprofiler.appfwk'
 
     TABLE_OPTIONS = {'groupby': 'host_pair_protoport',
                      'realm': 'traffic_summary',
