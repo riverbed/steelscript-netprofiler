@@ -60,6 +60,13 @@ class NetProfilerLiveConfigTable(DatasourceTable):
                           dynamic=True,
                           pre_process_func=func)
 
+        self.add_column('widget_id', 'Widget ID', datatype='integer',
+                        iskey=True)
+        self.add_column('title', 'Title', datatype='string')
+        self.add_column('widget_type', 'Type', datatype='string')
+        self.add_column('visualization', 'Visualization', datatype='string')
+        self.add_column('datasource', 'Data Source', datatype='string')
+
 
 class NetProfilerLiveConfigQuery(TableQueryBase):
 
@@ -158,17 +165,21 @@ class NetProfilerLiveQuery(TableQueryBase):
                           datatype=data_type, iskey=col.iskey)
 
 
-def add_widgets_to_live_report(report, netprofiler_name,
-                               template_id, widget_query_ids):
+def add_widgets_to_live_report(report, template_id, widget_query_ids,
+                               netprofiler_name=None):
 
-    netprofiler_id = Device.objects.filter(name=netprofiler_name)[0].id
+    if netprofiler_name:
+        netprofiler_id = Device.objects.filter(name=netprofiler_name)[0].id
+    else:
+        netprofiler_id = Device.objects.\
+            filter(enabled=True, module='netprofiler')[0].id
 
     profiler = DeviceManager.get_device(netprofiler_id)
 
     lr = LiveReport(profiler, template_id)
 
     for wid, qid in widget_query_ids.iteritems():
-        q = (q for q in lr.queries if q.id.endswith(qid)).next()
+        q = [q for q in lr.queries if q.id.endswith(qid)][0]
         t = NetProfilerLiveTable.create(
             'live-{0}-{1}'.format(template_id, wid),
             netprofiler_id=netprofiler_id,

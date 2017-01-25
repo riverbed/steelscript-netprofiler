@@ -17,10 +17,4 @@ report.add_section()
 
 p = NetProfilerLiveConfigTable.create('live-templates')
 
-p.add_column('widget_id', 'Widget ID', datatype='integer', iskey=True)
-p.add_column('title', 'Title', datatype='string')
-p.add_column('widget_type', 'Type', datatype='string')
-p.add_column('visualization', 'Visualization', datatype='string')
-p.add_column('datasource', 'Data Source', datatype='string')
-
 report.add_widget(yui3.TableWidget, p, 'Widgets Configuration', width=12)
