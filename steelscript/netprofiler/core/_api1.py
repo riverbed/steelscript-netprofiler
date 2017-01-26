@@ -17,11 +17,13 @@ class APIGroup(object):
 
 
 class API1Group(APIGroup):
-    def _json_request(self, urlpath, method='GET', data=None, params=None):
+    def _json_request(self, urlpath, method='GET', data=None, params=None,
+                      raw_response=False):
         """Issue the given API request via JSON
         """
         return self.service.conn.json_request(method, self.uri_prefix + urlpath,
-                                              body=data, params=params)
+                                              body=data, params=params,
+                                              raw_response=raw_response)
 
 
 class Common(API1Group):
@@ -248,6 +250,25 @@ class Services(API1Group):
         return self._json_request('')
 
 
+class Templates(API1Group):
+
+    def get_live_templates(self):
+        return self._json_request('?live=true', method='GET')
+
+    def get_config(self, template_id):
+        return self._json_request(
+            '/{0}/sections/1/widgets'.format(template_id), method='GET')
+
+    def create_live_report(self, template_id):
+        _, resp = self._json_request('/{0}/livedata'.format(template_id),
+                                     method='POST', raw_response=True)
+        return int(resp.headers['location'].split('/')[-1])
+
+    def get_widget(self, template_id, widget_id):
+        return self._json_request(
+            '/{0}/sections/1/widgets/{1}'.format(template_id, widget_id))
+
+
 class Handler(object):
     def __init__(self, profiler):
         self.report = Report('/api/profiler/1.0/reporting', profiler)
@@ -261,3 +282,7 @@ class Handler(object):
         if profiler.supports_version('1.3'):
             self.services = Services(
                 '/api/profiler/1.3/services', profiler)
+
+        if profiler.supports_version('1.4'):
+            self.templates = Templates(
+                '/api/profiler/1.4/reporting/templates', profiler)
