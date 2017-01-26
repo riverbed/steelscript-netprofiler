@@ -10,11 +10,12 @@ from steelscript.appfwk.apps.report.models import Report
 from steelscript.netprofiler.appfwk.datasources.netprofiler_live import \
     NetProfilerLiveConfigTable
 
-import steelscript.appfwk.apps.report.modules.yui3 as yui3
+import steelscript.appfwk.apps.report.modules.tables as tables
 
 report = Report.create("NetProfiler Live Templates")
 report.add_section()
 
 p = NetProfilerLiveConfigTable.create('live-templates')
 
-report.add_widget(yui3.TableWidget, p, 'Widgets Configuration', width=12)
+report.add_widget(tables.TableWidget, p, 'Widgets Configuration', width=12,
+                  height=0, searching=True)

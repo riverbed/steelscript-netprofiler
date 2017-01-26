@@ -60,6 +60,8 @@ class NetProfilerLiveConfigTable(DatasourceTable):
                           dynamic=True,
                           pre_process_func=func)
 
+        self.add_column('template_id', 'Template ID', datatype='string',
+                        iskey=True)
         self.add_column('widget_id', 'Widget ID', datatype='integer',
                         iskey=True)
         self.add_column('title', 'Title', datatype='string')
@@ -77,10 +79,11 @@ class NetProfilerLiveConfigQuery(TableQueryBase):
         widget_config = profiler.api.templates.get_config(criteria.template_id)
         recs = []
         for w in widget_config:
+            dict0 = {'template_id': str(criteria.template_id)}
             dict1 = dict((k, w[k]) for k in ['widget_id', 'title'])
             dict2 = dict((k, w['config'][k]) for k in
                          ['widget_type', 'visualization', 'datasource'])
-            recs.append(dict((k, v) for d in [dict1, dict2]
+            recs.append(dict((k, v) for d in [dict0, dict1, dict2]
                              for k, v in d.iteritems()))
 
         return QueryComplete(pd.DataFrame(recs))
