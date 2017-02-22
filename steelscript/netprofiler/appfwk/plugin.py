@@ -7,10 +7,12 @@
 
 import pkg_resources
 
-from steelscript.appfwk.apps.plugins import Plugin
+from django.apps import AppConfig
+
+from steelscript.appfwk.apps.plugins import Plugin as AppsPlugin
 
 
-class NetProfilerPlugin(Plugin):
+class NetProfilerPlugin(AppsPlugin):
     title = 'NetProfiler Datasource Plugin'
     description = 'A Portal datasource plugin with example report'
     version = pkg_resources.get_distribution('steelscript.netprofiler').version
@@ -22,3 +24,10 @@ class NetProfilerPlugin(Plugin):
     devices = ['devices']
     datasources = ['datasources']
     reports = ['reports']
+
+
+class SteelScriptAppConfig(AppConfig):
+    name = 'steelscript.netprofiler.appfwk'
+    # label cannot have '.' in it
+    label = 'steelscript_netprofiler'
+    verbose_name = 'SteelScript NetProfiler'
