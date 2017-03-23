@@ -132,6 +132,7 @@ def add_netprofiler_hostgroup_field(report, section, hg_type=None):
             label='HostGroup Type',
             obj=report,
             field_cls=forms.ChoiceField,
+            field_kwargs={'widget_attrs': {'class': 'form-control'}},
             parent_keywords=['netprofiler_device'],
             dynamic=True,
             pre_process_func=Function(netprofiler_hostgroup_types)
@@ -145,7 +146,8 @@ def add_netprofiler_hostgroup_field(report, section, hg_type=None):
             label='HostGroup Type',
             obj=report,
             field_cls=forms.ChoiceField,
-            field_kwargs={'choices': zip(hg_type, hg_type)},
+            field_kwargs={'choices': zip(hg_type, hg_type),
+                          'widget_attrs': {'class': 'form-control'}},
             parent_keywords=['netprofiler_device'],
         )
         section.fields.add(field)
@@ -162,6 +164,7 @@ def add_netprofiler_hostgroup_field(report, section, hg_type=None):
         label='HostGroup',
         obj=report,
         field_cls=forms.ChoiceField,
+        field_kwargs={'widget_attrs': {'class': 'form-control'}},
         parent_keywords=hg_parent,
         dynamic=True,
         pre_process_func=Function(netprofiler_hostgroups, params=hg_params)
