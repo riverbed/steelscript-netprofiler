@@ -397,6 +397,7 @@ script below, then walk through key differences that add the features we are loo
    class ExampleApp(NetProfilerApp):
 
        def add_options(self, parser):
+           super(ExampleApp, self).add_options(parser)
            group = optparse.OptionGroup(parser, "Example Options")
            group.add_option('-r', '--timerange', dest='timerange', default=None,
                             help='Time range to limit report to, e.g. "last 5 m"')
