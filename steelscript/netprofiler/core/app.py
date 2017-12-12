@@ -11,12 +11,10 @@ from steelscript.netprofiler.core import NetProfiler
 
 class NetProfilerApp(Application):
     """Simple class to wrap common command line parsing"""
+
     def __init__(self, *args, **kwargs):
         super(NetProfilerApp, self).__init__(*args, **kwargs)
         self.netprofiler = None
-
-    def parse_args(self):
-        super(NetProfilerApp, self).parse_args()
 
     def add_positional_args(self):
         self.add_positional_arg('host', 'NetProfiler hostname or IP address')

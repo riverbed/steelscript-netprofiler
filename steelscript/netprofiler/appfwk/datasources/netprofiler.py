@@ -5,16 +5,18 @@
 # as set forth in the License.
 
 
+import os
 import time
-import logging
-import threading
-import datetime
-import pandas
-import types
 import json
+import types
+import logging
+import datetime
+import threading
 from collections import namedtuple
 
+import pandas
 from django import forms
+from django.conf import settings
 
 from steelscript.netprofiler.core.services import \
     Service, ServiceLocationReport
@@ -100,6 +102,109 @@ def netprofiler_hostgroups(form, id, field_kwargs, params):
 
     field_kwargs['label'] = 'HostGroup'
     field_kwargs['choices'] = choices
+
+
+def get_netprofiler_apps(netprofiler, force=False):
+    apps = None
+    app_cache = os.path.join(settings.DATA_CACHE,
+                             '%s-applications.json' % netprofiler.host)
+
+    if os.path.exists(app_cache) and force is False:
+        logger.debug('loading apps from app cache %s' % app_cache)
+        with open(app_cache) as f:
+            apps = json.load(f)
+    else:
+        logger.debug('app cache not found, loading apps from netprofiler')
+
+        apps = netprofiler.conn.json_request(
+            'GET', '/api/profiler/1.9/applications?enabled=true'
+        )
+        apps.sort(key=lambda x: x['name'])
+
+        # save for later
+        with open(app_cache, 'w') as f:
+            json.dump(apps, f)
+        logger.debug('app cache saved')
+
+    return apps
+
+
+def netprofiler_application_choices(form, id, field_kwargs, params):
+    # let's get all the applications and store them
+    netprofiler_device = form.get_field_value('netprofiler_device', id)
+
+    if netprofiler_device == '':
+        choices = [('', '<No netprofiler device>')]
+    else:
+        netprofiler = DeviceManager.get_device(netprofiler_device)
+
+        apps = get_netprofiler_apps(netprofiler)
+
+        # now we've got the apps return just name and id
+        choices = [(x['name'], x['name']) for x in apps]
+
+    field_kwargs['label'] = 'Application'
+    field_kwargs['choices'] = choices
+
+
+def add_netprofiler_application_field(report, section, app=None):
+    """ Attach fields for dynamic Application dropdowns to add as filter
+    expressions to the report.
+
+    This can be added for each section in a report where the added filter
+    expression is desired.
+
+    The optional ``app`` argument can be either a single string or a list
+    of strings for each HostGroupType.  If a single string, the
+    'Application' field will be hidden and automatically filter Applications
+    to the given App.  If a list, the elements of the App
+    list will be fixed to those in the list.
+    """
+    # add default filter expr to extend against
+    filterexpr = TableField.create(keyword='netprofiler_filterexpr')
+    section.fields.add(filterexpr)
+
+    if app is None:
+        # use all available apps
+        field = TableField.create(
+            keyword='application',
+            label='Application',
+            obj=report,
+            field_cls=forms.ChoiceField,
+            field_kwargs={'widget_attrs': {'class': 'form-control'}},
+            parent_keywords=['netprofiler_device'],
+            dynamic=True,
+            pre_process_func=Function(netprofiler_application_choices)
+        )
+        section.fields.add(field)
+
+    elif type(app) in (list, tuple):
+        # add apps field that uses given list
+        field = TableField.create(
+            keyword='application',
+            label='Application',
+            obj=report,
+            field_cls=forms.ChoiceField,
+            field_kwargs={'choices': zip(app, app),
+                          'widget_attrs': {'class': 'form-control'}},
+            parent_keywords=['netprofiler_device'],
+        )
+        section.fields.add(field)
+
+    else:
+        # no app, so no field just hardcode the filter
+        NetProfilerTable.extend_filterexpr(
+            section, keyword='application',
+            template='app {}'.format(app)
+        )
+
+        # we're done here
+        return
+
+    NetProfilerTable.extend_filterexpr(
+        section, keyword='hg_filterexpr',
+        template='app {application}'
+    )
 
 
 def add_netprofiler_hostgroup_field(report, section, hg_type=None):
@@ -946,7 +1051,7 @@ class NetProfilerHostPairPortQuery(NetProfilerQuery):
 
         data.append(others)
         data.append(totals)
-        
+
         # Formatting:
         #  - Add percents of total to numeric columns
         #  - Strip "ByLocation|" from the groups if it exists
