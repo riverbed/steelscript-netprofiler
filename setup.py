@@ -59,6 +59,7 @@ http://pythonhosted.org/steelscript/
     'data_files': (
         ('share/doc/steelscript/docs/netprofiler', glob('docs/*')),
         ('share/doc/steelscript/examples/netprofiler', glob('examples/*')),
+        ('share/doc/steelscript/notebooks/netprofiler', glob('notebooks/*')),
     ),
 
     'install_requires': (
