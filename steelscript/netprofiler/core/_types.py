@@ -56,11 +56,28 @@ class Column(object):
         return Column(json['id'], key, json['name'],
                       json=json, ephemeral=ephemeral)
 
-    def __eq__(self, other):
-        return self.key == other
+    def _get_cmp_val(self, other):
+        if isinstance(other, Column):
+            return other.key
+        return other
 
-    def __cmp__(self, other):
-        return cmp(self.key, other.key)
+    def __eq__(self, other):
+        return self.key == self._get_cmp_val(other)
+
+    def __ne__(self, other):
+        return self.key != self._get_cmp_val(other)
+
+    def __lt__(self, other):
+        return self.key < self._get_cmp_val(other)
+
+    def __le__(self, other):
+        return self.key <= self._get_cmp_val(other)
+
+    def __gt__(self, other):
+        return self.key > self._get_cmp_val(other)
+
+    def __ge__(self, other):
+        return self.key >= self._get_cmp_val(other)
 
     def __hash__(self):
         return hash(tuple(self.json.values()))

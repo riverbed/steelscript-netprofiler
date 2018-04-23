@@ -1059,20 +1059,20 @@ class NetProfilerHostPairPortQuery(NetProfilerQuery):
         for row in data:
             for j, col in enumerate(args.columns):
                 if isinstance(row[j], float):
-                    row[j] = u"%.2f  (%.0f%%)" % \
+                    row[j] = "%.2f  (%.0f%%)" % \
                             (row[j], 100 * row[j] / totals[j])
                 elif isinstance(row[j], int):
-                    row[j] = u"%d  (%.0f%%)" % \
+                    row[j] = "%d  (%.0f%%)" % \
                             (row[j], 100 * row[j] / totals[j])
-                elif isinstance(row[j], unicode):
-                    if row[j].startswith(u'ByLocation|'):
+                elif isinstance(row[j], str):
+                    if row[j].startswith('ByLocation|'):
                         row[j] = row[j][11:]
-                    elif (col == u'cli_host_dns' or col == u'srv_host_dns') \
-                        and (u'|' in row[j]):
+                    elif (col == 'cli_host_dns' or col == 'srv_host_dns') \
+                        and ('|' in row[j]):
                         # If we're using dns columns, they are ip|name
                         # We should use the name if it's non-empty,
                         # ip otherwise
-                        ip, name = row[j].split(u'|')
+                        ip, name = row[j].split('|')
                         if name:
                             row[j] = name
                         else:

@@ -84,7 +84,7 @@ class NetProfilerLiveConfigQuery(TableQueryBase):
             dict2 = dict((k, w['config'][k]) for k in
                          ['widget_type', 'visualization', 'datasource'])
             recs.append(dict((k, v) for d in [dict0, dict1, dict2]
-                             for k, v in d.iteritems()))
+                             for k, v in d.items()))
 
         return QueryComplete(pd.DataFrame(recs))
 
@@ -181,7 +181,7 @@ def add_widgets_to_live_report(report, template_id, widget_query_ids,
 
     lr = LiveReport(profiler, template_id)
 
-    for wid, qid in widget_query_ids.iteritems():
+    for wid, qid in widget_query_ids.items():
         q = [q for q in lr.queries if q.id.endswith(qid)][0]
         t = NetProfilerLiveTable.create(
             'live-{0}-{1}'.format(template_id, wid),

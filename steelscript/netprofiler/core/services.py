@@ -148,7 +148,7 @@ class ServiceLocationReport(SingleQueryReport):
         for prow in parsed_rows:
             row = {}
             row['location'] = prow['location']
-            for svc, health in prow['services'].iteritems():
+            for svc, health in prow['services'].items():
                 row[svc] = health
             rows.append(row)
 

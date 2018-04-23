@@ -69,7 +69,7 @@ class DeviceReport(NetProfilerApp):
         output).
         """
         if not self.data:
-            print "No data found."
+            print("No data found.")
             return
 
         if self.options.typelist:

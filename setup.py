@@ -66,6 +66,8 @@ http://pythonhosted.org/steelscript/
         'steelscript>=1.0.1',
     ),
 
+    'python_requires': '>3.5.2',
+
     'entry_points': {
         'steel.commands': [
             'netprofiler = steelscript.netprofiler.commands'

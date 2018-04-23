@@ -116,7 +116,7 @@ class PercentileApp(NetProfilerApp):
         plt.title("NetProfiler Traffic Data: " + self.options.trafficfilter)
         plt.legend()
 
-        plt.plot(xrange(0, endx, self.options.buckettime), bucketed_data,
+        plt.plot(range(0, endx, self.options.buckettime), bucketed_data,
                  label=self.options.trafficfilter)
 
         # If --startzero is set, start y axis at zero (naturally). Otherwise
@@ -147,15 +147,16 @@ class PercentileApp(NetProfilerApp):
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         ssh.connect(host, username=sshusername, password=sshpassword)
         stdout = ssh.exec_command("/usr/mazu/bin/mazu-interfacegroups -l")[1]
-        print stdout.read()
+        print(stdout.read())
         ssh.close()
 
     def list_host_groups(self, profiler):
         for grouptype in profiler.api.host_group_types.get_all():
-            print "Group type:", grouptype['name']
+            print("Group type:", grouptype['name'])
 
-            for group in profiler.api.host_group_types.get_all_groups(grouptype['id']):
-                print " " + group['name']
+            for group in profiler.api.host_group_types.get_all_groups(
+                    grouptype['id']):
+                print('', group['name'])
 
     def report_item(self, profiler, timefilter, trafficfilter,
                     buckettime, percentile):
@@ -178,32 +179,36 @@ class PercentileApp(NetProfilerApp):
         bucketed_data = self.bucket_data(rawdata, buckettime)
 
         if self.options.clean:
-            print "{} {:,.2f}".format(self.options.trafficfilter,
-                                      numpy.percentile(bucketed_data, percentile))
+            print("{} {:,.2f}".format(self.options.trafficfilter,
+                                      numpy.percentile(bucketed_data,
+                                                       percentile)))
         else:
             if self.options.rawdata:
-                print "Raw data points:", ", ".join(str(val) for val in rawdata)
+                print("Raw data points:",
+                      ", ".join(str(val) for val in rawdata))
 
-            print "Average bytes at percentile {0}: {1:,.2f}".format(
+            print("Average bytes at percentile {0}: {1:,.2f}".format(
                   self.options.percentile,
-                  numpy.percentile(bucketed_data, percentile))
+                  numpy.percentile(bucketed_data, percentile)))
 
             if self.options.median:
-                print ("Median average bytes: "
-                       "{0:,.2f}").format(numpy.percentile(bucketed_data, 50))
+                print(("Median average bytes: "
+                       "{0:,.2f}").format(numpy.percentile(bucketed_data, 50)))
 
             if self.options.max or self.options.min:
-                print
+                print()
                 if self.options.max:
-                    print "Max average bytes: {0:,.2f}".format(max(bucketed_data))
+                    print("Max average bytes: {0:,.2f}".format(
+                        max(bucketed_data)))
                 if self.options.min:
-                    print "Min average bytes: {0:,.2f}".format(min(bucketed_data))
+                    print("Min average bytes: {0:,.2f}".format(
+                        min(bucketed_data)))
 
         if self.options.graph:
             self.gen_graph(rawdata, bucketed_data, percentile)
             if not self.options.clean:
-                print
-                print "Graph saved to", self.options.graph
+                print()
+                print("Graph saved to", self.options.graph)
 
     def main(self):
         if self.options.listinterfacegroups:
@@ -218,25 +223,29 @@ class PercentileApp(NetProfilerApp):
         try:
             timefilter = TimeFilter.parse_range(self.options.timefilter)
         except ValueError:
-            print "Could not parse time filter expression."
+            print("Could not parse time filter expression.")
             return
 
         profiler = NetProfiler(self.options.host, auth=self.auth)
 
         if not self.options.clean:
-            print "Reporting on the period: {}".format(self.options.timefilter)
-            print "Using the traffic filter: {}".format(self.options.trafficfilter)
-            print "Calculating data at percentile {}".format(self.options.percentile)
-            print ("Averaging based on buckets of {} "
-                   "minutes").format(self.options.buckettime)
+            print("Reporting on the period: {0}\n"
+                  "Using the traffic filter: {1}\n"
+                  "Calculating data at percentile {2}\n"
+                  "Averaging based on buckets of {3} minutes"
+                  "".format(self.options.timefilter,
+                            self.options.trafficfilter,
+                            self.options.percentile,
+                            self.options.buckettime))
             if self.options.graph:
-                print "Saving a graph to {}".format(self.options.graph)
-            print
+                print("Saving a graph to {}".format(self.options.graph))
+            print()
 
         trafficfilter = TrafficFilter(self.options.trafficfilter)
 
         self.report_item(profiler, timefilter, trafficfilter,
                          self.options.buckettime, self.options.percentile)
+
 
 if __name__ == "__main__":
     PercentileApp().run()

@@ -11,7 +11,6 @@ the state of the NetProfiler, modifying its settings and performing operations
 like creating running reports.
 """
 
-import types
 import logging
 import itertools
 
@@ -89,7 +88,7 @@ class NetProfiler(steelscript.common.service.Service):
         self.columns = ColumnContainer(self._unique_columns())
         self.colnames = set(c.key for c in self.columns)
 
-        self.areas = AreaContainer(self._areas_dict.iteritems())
+        self.areas = AreaContainer(list(self._areas_dict.items()))
 
     def _load_file_caches(self):
         """Load and unroll locally cached files
@@ -141,7 +140,7 @@ class NetProfiler(steelscript.common.service.Service):
 
             for centricity in centricities:
                 if realm == 'traffic_summary':
-                    groupbys = [x for x in self.groupbys.values() if
+                    groupbys = [x for x in list(self.groupbys.values()) if
                                 x not in ['thu', 'slm']]
                 elif 'time_series' in realm:
                     groupbys = ['tim']
@@ -208,10 +207,10 @@ class NetProfiler(steelscript.common.service.Service):
                         continue
                     seen.add(c)
                     yield c
-        return list(unique(self._columns_file.data.values()))
+        return list(unique(list(self._columns_file.data.values())))
 
     def _parse_area(self, area):
-        if isinstance(area, types.StringTypes):
+        if isinstance(area, (str,)):
             if area not in self._areas_dict:
                 raise ValueError('{0} is not a valid area type for this'
                                  'netprofiler'.format(area))
@@ -258,7 +257,7 @@ class NetProfiler(steelscript.common.service.Service):
         return self._info['sw_version']
 
     def supports_version(self, version):
-        if isinstance(version, types.StringTypes):
+        if isinstance(version, (str,)):
             version = APIVersion(version)
         return version in self.supported_versions
 
@@ -289,7 +288,7 @@ class NetProfiler(steelscript.common.service.Service):
         colnames = self.colnames
 
         for column in columns:
-            if isinstance(column, types.StringTypes):
+            if isinstance(column, (str,)):
                 cname = column
             elif isinstance(column, Column):
                 # usually a Column class
@@ -352,9 +351,9 @@ class NetProfiler(steelscript.common.service.Service):
         if centricities is None:
             centricities = self.centricities
         if groupbys is None:
-            groupbys = self.groupbys.values()
+            groupbys = list(self.groupbys.values())
 
-        datakeys = self._columns_file.data.keys()
+        datakeys = list(self._columns_file.data.keys())
         search_keys = [make_hash(*p) for p in itertools.product(realms,
                                                                 centricities,
                                                                 groupbys)]
