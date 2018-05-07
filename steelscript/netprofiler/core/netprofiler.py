@@ -19,7 +19,8 @@ from steelscript.common.api_helpers import APIVersion
 from steelscript.netprofiler.core import _api1
 from steelscript.netprofiler.core import _constants
 from steelscript.common._fs import SteelScriptDir
-from steelscript.netprofiler.core._types import Column, AreaContainer, ColumnContainer
+from steelscript.netprofiler.core._types import (Column, AreaContainer,
+                                                 ColumnContainer)
 from steelscript.common.exceptions import RvbdException, RvbdHTTPException
 
 import steelscript.common.service
@@ -88,7 +89,7 @@ class NetProfiler(steelscript.common.service.Service):
         self.columns = ColumnContainer(self._unique_columns())
         self.colnames = set(c.key for c in self.columns)
 
-        self.areas = AreaContainer(list(self._areas_dict.items()))
+        self.areas = AreaContainer(self._areas_dict.items())
 
     def _load_file_caches(self):
         """Load and unroll locally cached files
@@ -140,7 +141,7 @@ class NetProfiler(steelscript.common.service.Service):
 
             for centricity in centricities:
                 if realm == 'traffic_summary':
-                    groupbys = [x for x in list(self.groupbys.values()) if
+                    groupbys = [x for x in self.groupbys.values() if
                                 x not in ['thu', 'slm']]
                 elif 'time_series' in realm:
                     groupbys = ['tim']

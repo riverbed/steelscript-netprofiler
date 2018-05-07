@@ -1067,8 +1067,8 @@ class NetProfilerHostPairPortQuery(NetProfilerQuery):
                 elif isinstance(row[j], str):
                     if row[j].startswith('ByLocation|'):
                         row[j] = row[j][11:]
-                    elif (col == 'cli_host_dns' or col == 'srv_host_dns') \
-                        and ('|' in row[j]):
+                    elif ((col == 'cli_host_dns' or col == 'srv_host_dns')
+                          and ('|' in row[j])):
                         # If we're using dns columns, they are ip|name
                         # We should use the name if it's non-empty,
                         # ip otherwise

@@ -30,6 +30,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 def clean_str_or_bytes(strings_or_bytes):
     if isinstance(strings_or_bytes, list):
         for idx in range(len(strings_or_bytes)):

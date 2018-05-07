@@ -79,7 +79,7 @@ class HostGroupImport(NetProfilerApp):
             reader = csv.reader(f, dialect)
             header = reader.next()
             if header != ['subnet', 'SiteName']:
-                print(EXAMPLE)
+                print(EXAMPLE_WARN)
 
             for i, row in enumerate(reader):
                 cidr, group = row
