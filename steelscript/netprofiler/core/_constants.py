@@ -64,6 +64,7 @@ groupbys = dict([
 #                    ('service_location_summary', 'sll'),
 #                    ('service_segment', 'ssg'),
 #                    ('service_segment_aggregation', 'sas'),
+                    ('shqos_aggregated_class', 'sha'),
                     ('time', 'tim'),
                     ('time_host_user', 'thu'),
 #                    ('topology_summary', 'tpl'),
