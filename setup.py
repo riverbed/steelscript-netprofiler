@@ -49,8 +49,7 @@ http://pythonhosted.org/steelscript/
         'Intended Audience :: Information Technology',
         'Intended Audience :: System Administrators',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.5',
         'Topic :: System :: Networking',
     ],
 
@@ -66,7 +65,7 @@ http://pythonhosted.org/steelscript/
         'steelscript>=1.0.1',
     ),
 
-    'python_requires': '>3.6.0',
+    'python_requires': '>3.5.0',
 
     'entry_points': {
         'steel.commands': [
