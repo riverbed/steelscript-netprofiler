@@ -1,4 +1,4 @@
-# Copyright (c) 2015 Riverbed Technology, Inc.
+# Copyright (c) 2018 Riverbed Technology, Inc.
 #
 # This software is licensed under the terms and conditions of the MIT License
 # accompanying the software ("License").  This software is distributed "AS IS"
@@ -62,7 +62,7 @@ http://pythonhosted.org/steelscript/
     ),
 
     'install_requires': (
-        'steelscript>=1.0.1',
+        'steelscript>=2.0a1',
     ),
 
     'python_requires': '>3.5.0',
