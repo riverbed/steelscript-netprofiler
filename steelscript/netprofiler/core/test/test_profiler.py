@@ -27,10 +27,9 @@ logging.basicConfig(level=logging.DEBUG,
 
 curdir = os.path.dirname(os.path.abspath(__file__))
 cassette_dir = os.path.join(curdir, 'cassettes', 'profiler')
-testvcr = vcr.VCR(cassette_library_dir=cassette_dir, record_mode='none')
+testvcr = vcr.VCR(cassette_library_dir=cassette_dir)
 
 
-@testvcr.use_cassette()
 def create_profiler():
     """ Create default NetProfiler lab instance. """
     auth = UserAuth('admin', 'admin')

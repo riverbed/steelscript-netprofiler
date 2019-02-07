@@ -23,7 +23,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:26 GMT']
+      Date: ['Thu, 07 Feb 2019 20:39:49 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -53,7 +53,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:26 GMT']
+      Date: ['Thu, 07 Feb 2019 20:39:49 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -63,7 +63,7 @@ interactions:
       X-XSS-Protection: [1; mode=block]
     status: {code: 200, message: OK}
 - request:
-    body: '{"username": "admin", "password": "admin"}'
+    body: '{"password": "admin", "username": "admin"}'
     headers:
       Accept: [application/json]
       Accept-Encoding: ['gzip, deflate']
@@ -74,7 +74,7 @@ interactions:
     method: POST
     uri: https://cam-pro101.lab.nbttech.com/api/common/1.0/login
   response:
-    body: {string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c\"\
+    body: {string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"23af95bae1969a48621038f9838bdc7144d21a34718b77cb5f26f44c6ed2ca69\"\
         \n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -83,11 +83,11 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:26 GMT']
+      Date: ['Thu, 07 Feb 2019 20:39:49 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
-      Set-Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c;
+      Set-Cookie: [SESSID=23af95bae1969a48621038f9838bdc7144d21a34718b77cb5f26f44c6ed2ca69;
           Path=/]
       Strict-Transport-Security: [max-age=31536000; includeSubDomains]
       X-Content-Type-Options: [nosniff]
@@ -101,7 +101,7 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=23af95bae1969a48621038f9838bdc7144d21a34718b77cb5f26f44c6ed2ca69]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
     uri: https://cam-pro101.lab.nbttech.com/api/common/1.0/info.json
@@ -116,7 +116,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:26 GMT']
+      Date: ['Thu, 07 Feb 2019 20:39:49 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
