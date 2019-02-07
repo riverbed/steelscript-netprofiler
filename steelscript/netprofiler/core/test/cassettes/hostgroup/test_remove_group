@@ -1,0 +1,69 @@
+interactions:
+- request:
+    body: '{"config": [{"name": "Test0", "cidr": "10.90.11.0/24"}, {"name": "Test1",
+      "cidr": "10.91.11.0/24"}, {"name": "Test2", "cidr": "10.92.11.0/24"}, {"name":
+      "Test3", "cidr": "10.93.11.0/24"}, {"name": "Test4", "cidr": "10.94.11.0/24"},
+      {"name": "Test5", "cidr": "10.95.11.0/24"}, {"name": "Test6", "cidr": "10.96.11.0/24"},
+      {"name": "Test7", "cidr": "10.97.11.0/24"}, {"name": "Test8", "cidr": "10.98.11.0/24"},
+      {"name": "Test8", "cidr": "10.10.21.0/24"}, {"name": "Test9", "cidr": "10.99.11.0/24"}],
+      "name": "TestType4057", "favorite": false, "description": ""}'
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['558']
+      Content-Type: [application/json]
+      Cookie: [SESSID=576ecff515feb75fa62278871ecdebb7c45e793624aad9e3cbea25cab0617f4e]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: POST
+    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.2/host_group_types
+  response:
+    body: {string: "{\n\t\"favorite\": true,\n\t\"description\": \"\",\n\t\"type\"\
+        : \"User-created\",\n\t\"name\": \"TestType4057\",\n\t\"id\": 111\n}"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['103']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Thu, 07 Feb 2019 19:41:50 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Location: [/api/profiler/1.2/host_group_types/111]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      Content-Type: [application/json]
+      Cookie: [SESSID=576ecff515feb75fa62278871ecdebb7c45e793624aad9e3cbea25cab0617f4e]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: DELETE
+    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.2/host_group_types/111
+  response:
+    body: {string: ''}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [text/html;charset=ascii]
+      Date: ['Thu, 07 Feb 2019 19:41:51 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 204, message: No Content}
+version: 1

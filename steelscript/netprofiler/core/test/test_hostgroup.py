@@ -10,50 +10,30 @@ from steelscript.netprofiler.core.hostgroup import HostGroup, HostGroupType
 from steelscript.common.service import UserAuth
 from steelscript.common.exceptions import RvbdException
 
+import os
+import vcr
 import sys
 import logging
+import unittest
 
-if sys.version_info < (2, 7):
-    import unittest2 as unittest
-else:
-    import unittest
-
-try:
-    from testconfig import config
-except ImportError:
-    if __name__ != '__main__':
-        raise
-    config = {}
-
-# XXX we try to use unittest.SkipTest() in setUp() below but it
-# isn't supported by python 2.6.  this simulates the same thing...
-# another 2.6 hack
-if 'profilerhost' not in config:
-    __test__ = False
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG,
                     format="%(asctime)s [%(levelname)-5.5s] %(msg)s")
 
+curdir = os.path.dirname(os.path.abspath(__file__))
+cassette_dir = os.path.join(curdir, 'cassettes', 'hostgroup')
+testvcr = vcr.VCR(cassette_library_dir=cassette_dir)
 
+@testvcr.use_cassette()
 def create_profiler():
-    """ Create NetProfiler instance given configuration data
-    """
-    if 'profilerhost' not in config:
-        raise unittest.SkipTest('no netprofiler hostname provided')
-    try:
-        username = config['username']
-    except KeyError:
-        username = 'admin'
-    try:
-        password = config['password']
-    except KeyError:
-        password = 'admin'
-    auth = UserAuth(username, password)
-    return NetProfiler(config['profilerhost'], auth=auth)
+    """ Create default NetProfiler lab instance. """
+    auth = UserAuth('admin', 'admin')
+    return NetProfiler('cam-pro101.lab.nbttech.com', auth=auth)
 
 
 class HostGroupTests(unittest.TestCase):
+    @testvcr.use_cassette()
     def setUp(self):
         self.profiler = create_profiler()
         try:
@@ -66,11 +46,13 @@ class HostGroupTests(unittest.TestCase):
         except RvbdException:
             return
 
+    @testvcr.use_cassette()
     def test_find_by_name(self):
         """ Check that it finds ByLocation as a HostGroupType """
         host_group_type = HostGroupType.find_by_name(self.profiler, "ByLocation")
         self.assertEqual(host_group_type.name, "ByLocation")
 
+    @testvcr.use_cassette()
     def test_create_save_and_delete(self):
         """ Check that when you create a new group type that it is added """
         host_group_type = HostGroupType.create(self.profiler, "TestType4057")
@@ -79,6 +61,7 @@ class HostGroupTests(unittest.TestCase):
         host_group_type.delete()
         self.assertIsNone(host_group_type.id)
 
+    @testvcr.use_cassette()
     def test_group_keeptogether_and_append(self):
         """
         Check that you can add host groups and that it responds correctly
@@ -98,6 +81,7 @@ class HostGroupTests(unittest.TestCase):
         self.assertEqual(host_group_type.groups['Test9'].get()[1], "10.10.21.0/24")
         host_group_type.delete()
 
+    @testvcr.use_cassette()
     def test_group_keeptogether_and_prepend(self):
         """
         Check that you can add host groups and that it responds correctly
@@ -117,6 +101,7 @@ class HostGroupTests(unittest.TestCase):
         self.assertEqual(host_group_type.groups['Test0'].get()[0], "10.10.21.0/24")
         host_group_type.delete()
 
+    @testvcr.use_cassette()
     def test_add_group_to_end_and_start(self):
         """
         Check that add(cidr, keep_together=False, replace=False, prepend=True or
@@ -132,6 +117,7 @@ class HostGroupTests(unittest.TestCase):
         self.assertEqual(host_group_type.config[0]['name'], 'PrependGroup')
         self.assertEqual(host_group_type.config[1]['name'], 'AppendGroup')
 
+    @testvcr.use_cassette()
     def test_replace(self):
         """
         Check that the replace parameter works when adding groups.
@@ -152,6 +138,7 @@ class HostGroupTests(unittest.TestCase):
         self.assertEqual(len(host_group_type.groups['Test9'].get()), 1)
         host_group_type.delete()
 
+    @testvcr.use_cassette()
     def test_remove_group(self):
         """
         Check that the remove method in HostGroup works properly by adding a few
@@ -180,6 +167,7 @@ class HostGroupTests(unittest.TestCase):
         self.assertEqual(len(host_group_type.groups['Test9'].get()), 1)
         host_group_type.delete()
 
+    @testvcr.use_cassette()
     def test_abusive_input(self):
         """
         Check that after a series of weirdly placed loads, saves, and additions,
@@ -197,6 +185,7 @@ class HostGroupTests(unittest.TestCase):
         host_group_type.groups['TestGroup'].get()
         host_group_type.config = host_group_type.groups['TestGroup'].get()
 
+    @testvcr.use_cassette()
     def test_empty_get(self):
         """ Check that you get an empty array when you try to get an empty group
         """
@@ -204,6 +193,7 @@ class HostGroupTests(unittest.TestCase):
         new_host_group = HostGroup(host_group_type, "EmptyGroup")
         self.assertEqual(new_host_group.get(), [])
 
+    @testvcr.use_cassette()
     def test_add_cidrs_as_list(self):
         """ Checks if you can add cidrs to a host group as a list
         """
@@ -217,11 +207,6 @@ class HostGroupTests(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    # for standalone use take one command-line argument: the netprofiler host
-    import sys
-    assert len(sys.argv) == 2
 
-    config = {'profilerhost': sys.argv[1]}
-    sys.argv = [sys.argv[0]]
 
     unittest.main()

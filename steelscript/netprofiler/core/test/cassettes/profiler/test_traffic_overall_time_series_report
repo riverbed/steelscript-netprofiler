@@ -1,0 +1,1549 @@
+interactions:
+- request:
+    body: '{"template_id": 184, "criteria": {"time_frame": {"resolution": "15min",
+      "start": 1549562393, "end": 1549565993}, "query": {"group_by": "tim", "realm":
+      "traffic_overall_time_series", "columns": [98, 33, 34], "centricity": "hos"},
+      "traffic_expression": "host 10/8"}}'
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['264']
+      Content-Type: [application/json]
+      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: POST
+    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports
+  response:
+    body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70961,\n\t\"remaining_seconds\": 11,\n\
+        \t\"run_time\": 1549565997,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['201']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Thu, 07 Feb 2019 18:59:56 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Location: [/api/profiler/1.0/reporting/reports/70961]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: GET
+    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70961.json
+  response:
+    body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70961,\n\t\"remaining_seconds\": 11,\n\
+        \t\"run_time\": 1549565997,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['201']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Thu, 07 Feb 2019 18:59:59 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: GET
+    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70961.json
+  response:
+    body: {string: "{\n\t\"status\": \"completed\",\n\t\"user_id\": 1,\n\t\"name\"\
+        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70961,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549565997,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \t\"error_text\": \"\",\n\t\"size\": 48\n}"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['205']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Thu, 07 Feb 2019 19:00:00 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: GET
+    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70961/queries.json
+  response:
+    body: {string: "[\n\t{\n\t\t\"direction\": \"none\",\n\t\t\"actual_log\": \"host-pair-appd/15min\"\
+        ,\n\t\t\"actual_t0\": 1549561500,\n\t\t\"sort_desc\": true,\n\t\t\"area\"\
+        : \"none\",\n\t\t\"metric\": \"none\",\n\t\t\"sort_col\": 0,\n\t\t\"parent_id\"\
+        : \"\",\n\t\t\"rate\": \"none\",\n\t\t\"group_by\": \"tim\",\n\t\t\"role\"\
+        : \"none\",\n\t\t\"columns\": [\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_TIMEOFFSET\"\
+        ,\n\t\t\t\t\"metric\": \"none\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"\
+        statistic\": \"none\",\n\t\t\t\t\"id\": 2,\n\t\t\t\t\"unit\": \"none\",\n\t\
+        \t\t\t\"category\": \"key\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\
+        \"available\": true,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": false,\n\t\t\t\t\"name\": \"Time offset\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"string\"\n\t\t\t},\n\
+        \t\t\t{\n\t\t\t\t\"strid\": \"ID_TIME\",\n\t\t\t\t\"metric\": \"none\",\n\t\
+        \t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"none\",\n\t\t\t\t\"id\"\
+        : 98,\n\t\t\t\t\"unit\": \"ts\",\n\t\t\t\t\"category\": \"key\",\n\t\t\t\t\
+        \"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\"\
+        : false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"time\",\n\t\t\t\t\"available\": true,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": false,\n\
+        \t\t\t\t\"name\": \"Time\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\
+        \t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"string\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_BYTES\",\n\t\t\
+        \t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 33,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : true,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Bytes/s\",\n\t\t\t\
+        \t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\
+        \"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\
+        \t\t{\n\t\t\t\t\"strid\": \"ID_AVG_BYTES_RTX\",\n\t\t\t\t\"metric\": \"rtx\"\
+        ,\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\
+        \"id\": 391,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"\
+        direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\"\
+        : true,\n\t\t\t\t\"name\": \"Avg Retrans Bytes/s\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_AVG_BYTES_APP\",\n\t\t\t\t\"metric\": \"app\",\n\t\t\t\t\"rate\": \"\
+        persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 504,\n\t\t\t\t\
+        \"unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Avg App Bytes/s\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\
+        \t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_BYTES_PERSECCONN\"\
+        ,\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\
+        \t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 556,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Bytes/s\
+        \ per Conn\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_BYTES_APP_PERSECCONN\",\n\
+        \t\t\t\t\"metric\": \"app\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"\
+        statistic\": \"avg\",\n\t\t\t\t\"id\": 578,\n\t\t\t\t\"unit\": \"bytes\",\n\
+        \t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\
+        \"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg App Bytes/s\
+        \ per Conn\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_PKTS\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 34,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": true,\n\t\
+        \t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Avg Packets/s\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_AVG_PKTS_RTX\",\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"\
+        persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 392,\n\t\t\t\t\
+        \"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Avg Retrans Packets/s\",\n\t\t\t\t\"comparison_parameter\": \"\
+        \",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\
+        \"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"\
+        ID_AVG_CONNS_NEW\",\n\t\t\t\t\"metric\": \"new\",\n\t\t\t\t\"rate\": \"persec\"\
+        ,\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 35,\n\t\t\t\t\"unit\"\
+        : \"conns\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\"\
+        ,\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\"\
+        : \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\
+        \t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Avg New Connections/s\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\
+        \"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_CONNS_ACTIVE\"\
+        ,\n\t\t\t\t\"metric\": \"active\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\
+        \"statistic\": \"avg\",\n\t\t\t\t\"id\": 532,\n\t\t\t\t\"unit\": \"conns\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Active Connections/s\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_CONNS_RSTS\",\n\t\t\t\t\"metric\"\
+        : \"resets\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 421,\n\t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Resets/s\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_BYTES\",\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"\
+        persec\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 36,\n\t\t\t\t\
+        \"unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Peak Bytes/s\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\
+        \t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_BYTES_RTX\"\
+        ,\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"\
+        statistic\": \"peak\",\n\t\t\t\t\"id\": 393,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Retrans\
+        \ Bytes/s\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_BYTES_APP\",\n\t\t\t\t\"\
+        metric\": \"app\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\":\
+        \ \"peak\",\n\t\t\t\t\"id\": 515,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak App Bytes/s\",\n\t\
+        \t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\
+        \t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_BYTES_PERSECCONN\",\n\t\t\t\t\"\
+        metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 567,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Bytes/s per Conn\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_BYTES_APP_PERSECCONN\",\n\t\t\t\
+        \t\"metric\": \"app\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 594,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak App Bytes/s per Conn\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_PKTS\",\n\t\t\t\t\"metric\": \"\
+        net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 37,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Packets/s\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_PKTS_RTX\",\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"\
+        persec\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 394,\n\t\t\t\t\
+        \"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Peak Retrans Packets/s\",\n\t\t\t\t\"comparison_parameter\": \"\
+        \",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\
+        \"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"\
+        ID_PEAK_CONNS_NEW\",\n\t\t\t\t\"metric\": \"new\",\n\t\t\t\t\"rate\": \"persec\"\
+        ,\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 38,\n\t\t\t\t\"unit\"\
+        : \"conns\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\"\
+        ,\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\"\
+        : \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\
+        \t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Peak New Connections/s\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\
+        \t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_CONNS_ACTIVE\"\
+        ,\n\t\t\t\t\"metric\": \"active\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\
+        \"statistic\": \"peak\",\n\t\t\t\t\"id\": 538,\n\t\t\t\t\"unit\": \"conns\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Active\
+        \ Connections/s\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_CONNS_RSTS\",\n\t\t\t\t\"\
+        metric\": \"resets\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 422,\n\t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Resets/s\",\n\t\t\
+        \t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\
+        \t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\
+        \t\t\t{\n\t\t\t\t\"strid\": \"ID_NETWORK_RTT\",\n\t\t\t\t\"metric\": \"net_rtt\"\
+        ,\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\
+        \"id\": 280,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\
+        \"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\"\
+        : true,\n\t\t\t\t\"name\": \"Avg Net RTT (ms)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_RESPONSE_TIME\",\n\t\t\t\t\"metric\": \"resp_tm\",\n\t\t\t\t\"rate\"\
+        : \"count\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 281,\n\t\t\t\
+        \t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"reltime\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Avg Resp Time (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\"\
+        ,\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"\
+        name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_SERVER_DELAY\"\
+        ,\n\t\t\t\t\"metric\": \"srv_delay\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\
+        \t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 282,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Avg Server Delay (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\
+        \"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_RSEC_NETWORK_RTT\"\
+        ,\n\t\t\t\t\"metric\": \"net_rtt\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\
+        \"statistic\": \"peak\",\n\t\t\t\t\"id\": 466,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Peak Net RTT (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"\
+        has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\":\
+        \ \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_RSEC_RESPONSE_TIME\"\
+        ,\n\t\t\t\t\"metric\": \"resp_tm\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\
+        \"statistic\": \"peak\",\n\t\t\t\t\"id\": 467,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Peak Resp Time (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"\
+        has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\":\
+        \ \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_RSEC_SERVER_DELAY\"\
+        ,\n\t\t\t\t\"metric\": \"srv_delay\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\
+        \t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 468,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Peak Server Delay (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\
+        \t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_RSEC_PERCONN\"\
+        ,\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"perconn\",\n\t\t\t\
+        \t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 548,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Avg Conn Duration\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"\
+        has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\":\
+        \ \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_RSEC_PERCONN\"\
+        ,\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"perconn\",\n\t\t\t\
+        \t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 554,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Peak Conn Duration\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"\
+        has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\":\
+        \ \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_CLIENT_DELAY\"\
+        ,\n\t\t\t\t\"metric\": \"cli_delay\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\
+        \t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 612,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Avg Client Delay (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\
+        \"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_RSEC_CLIENT_DELAY\"\
+        ,\n\t\t\t\t\"metric\": \"cli_delay\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\
+        \t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 613,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Peak Client Delay (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\
+        \t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_REQUEST_NETWORK_TIME\"\
+        ,\n\t\t\t\t\"metric\": \"req_net_tm\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\
+        \t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 934,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Avg Req Network Time (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\
+        \t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_REQUEST_NETWORK_TIME\"\
+        ,\n\t\t\t\t\"metric\": \"req_net_tm\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\
+        \t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 935,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Peak Req Network Time (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\
+        \t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_RESPONSE_NETWORK_TIME\"\
+        ,\n\t\t\t\t\"metric\": \"rsp_net_tm\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\
+        \t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 936,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Avg Resp Network Time (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\
+        \t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_RESPONSE_NETWORK_TIME\"\
+        ,\n\t\t\t\t\"metric\": \"rsp_net_tm\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\
+        \t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 937,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Peak Resp Network Time (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\
+        \t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_TOTAL_TRANSACTION_TIME\"\
+        ,\n\t\t\t\t\"metric\": \"trans_tm\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\
+        \t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 939,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Avg Total Transaction Time (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\"\
+        ,\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"\
+        name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_TOTAL_TRANSACTION_TIME\"\
+        ,\n\t\t\t\t\"metric\": \"trans_tm\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\
+        \t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 940,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Peak Total Transaction Time (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\"\
+        ,\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"\
+        name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_REQUEST_RETRANSMISSION_TIME\"\
+        ,\n\t\t\t\t\"metric\": \"req_tm\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\
+        \"statistic\": \"avg\",\n\t\t\t\t\"id\": 941,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Avg Req Retrans Time (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\
+        \t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_REQUEST_RETRANSMISSION_TIME\"\
+        ,\n\t\t\t\t\"metric\": \"req_tm\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\
+        \"statistic\": \"peak\",\n\t\t\t\t\"id\": 942,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Peak Req Retrans Time (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\
+        \t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_RESPONSE_RETRANSMISSION_TIME\"\
+        ,\n\t\t\t\t\"metric\": \"rsp_tm\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\
+        \"statistic\": \"avg\",\n\t\t\t\t\"id\": 943,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Avg Resp Retrans Time (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\
+        \t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_RESPONSE_RETRANSMISSION_TIME\"\
+        ,\n\t\t\t\t\"metric\": \"rsp_tm\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\
+        \"statistic\": \"peak\",\n\t\t\t\t\"id\": 944,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Peak Resp Retrans Time (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\
+        \t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_DSCP_LIST\"\
+        ,\n\t\t\t\t\"metric\": \"dscp_list\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\
+        \t\"statistic\": \"none\",\n\t\t\t\t\"id\": 982,\n\t\t\t\t\"unit\": \"none\"\
+        ,\n\t\t\t\t\"category\": \"info_data\",\n\t\t\t\t\"severity\": \"none\",\n\
+        \t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\"\
+        : \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"dscp_list\"\
+        ,\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\
+        \t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": false,\n\t\t\t\t\"name\"\
+        : \"DSCP List\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"string\"\n\
+        \t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_EXP_LIST\",\n\t\t\t\t\"metric\"\
+        : \"exp_list\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"none\"\
+        ,\n\t\t\t\t\"id\": 1001,\n\t\t\t\t\"unit\": \"none\",\n\t\t\t\t\"category\"\
+        : \"info_data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\"\
+        ,\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"exp_list\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": false,\n\t\t\t\t\"name\": \"EXP List\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"string\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_BYTES\"\
+        ,\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\
+        \"statistic\": \"avg\",\n\t\t\t\t\"id\": 79,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Bytes/s\
+        \ (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_BYTES_RTX\",\n\t\t\t\t\
+        \"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 397,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Retrans Bytes/s (Rx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_BYTES_APP\",\n\t\t\t\t\"metric\"\
+        : \"app\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 507,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Avg App Bytes/s (Rx)\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_BYTES_PERSECCONN\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\": \"\
+        avg\",\n\t\t\t\t\"id\": 559,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Avg Bytes/s per Conn (Rx)\",\n\t\t\
+        \t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\
+        \t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\
+        \t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_BYTES_APP_PERSECCONN\",\n\t\t\t\t\"\
+        metric\": \"app\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 586,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg App Bytes/s per Conn\
+        \ (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_PKTS\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 80,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Avg Packets/s (Rx)\",\n\t\t\t\t\"\
+        comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_PKTS_RTX\",\n\t\t\t\t\"metric\": \"rtx\"\
+        ,\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\
+        \"id\": 398,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"\
+        direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\"\
+        : true,\n\t\t\t\t\"name\": \"Avg Retrans Packets/s (Rx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_IN_AVG_CONNS_RSTS\",\n\t\t\t\t\"metric\": \"resets\",\n\t\t\t\t\"rate\"\
+        : \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 427,\n\t\t\
+        \t\t\"unit\": \"conns\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"in\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Avg Resets/s (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\
+        \t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_BYTES\"\
+        ,\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\
+        \"statistic\": \"peak\",\n\t\t\t\t\"id\": 82,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Bytes/s\
+        \ (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_BYTES_RTX\",\n\t\t\t\t\
+        \"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 399,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Retrans Bytes/s (Rx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_BYTES_APP\",\n\t\t\t\t\"metric\"\
+        : \"app\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 518,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Peak App Bytes/s (Rx)\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_BYTES_PERSECCONN\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\": \"\
+        peak\",\n\t\t\t\t\"id\": 570,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Peak Bytes/s per Conn (Rx)\",\n\t\
+        \t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\
+        \t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_BYTES_APP_PERSECCONN\",\n\t\t\
+        \t\t\"metric\": \"app\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 597,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak App Bytes/s per Conn\
+        \ (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_PKTS\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 83,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Peak Packets/s (Rx)\",\n\t\t\t\t\"\
+        comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_PKTS_RTX\",\n\t\t\t\t\"metric\": \"rtx\"\
+        ,\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\
+        \t\"id\": 400,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"\
+        direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\"\
+        : true,\n\t\t\t\t\"name\": \"Peak Retrans Packets/s (Rx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_IN_PEAK_CONNS_RSTS\",\n\t\t\t\t\"metric\": \"resets\",\n\t\t\t\t\"\
+        rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 431,\n\
+        \t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"\
+        severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\":\
+        \ false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Peak Resets/s (Rx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_OUT_AVG_BYTES\",\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\"\
+        : \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 88,\n\t\t\t\
+        \t\"unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"out\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Avg Bytes/s (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\
+        \t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_BYTES_RTX\"\
+        ,\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"\
+        statistic\": \"avg\",\n\t\t\t\t\"id\": 403,\n\t\t\t\t\"unit\": \"bytes\",\n\
+        \t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\
+        \"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Retrans\
+        \ Bytes/s (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_BYTES_APP\",\n\t\t\t\t\
+        \"metric\": \"app\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 508,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg App Bytes/s (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_BYTES_PERSECCONN\",\n\t\t\t\
+        \t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 560,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Bytes/s per Conn (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_BYTES_APP_PERSECCONN\",\n\t\
+        \t\t\t\"metric\": \"app\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"\
+        statistic\": \"avg\",\n\t\t\t\t\"id\": 587,\n\t\t\t\t\"unit\": \"bytes\",\n\
+        \t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\
+        \"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg App Bytes/s\
+        \ per Conn (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_PKTS\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 89,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Packets/s (Tx)\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_PKTS_RTX\",\n\t\t\t\t\"metric\": \"rtx\"\
+        ,\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\
+        \"id\": 404,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"\
+        direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\"\
+        : true,\n\t\t\t\t\"name\": \"Avg Retrans Packets/s (Tx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_OUT_AVG_CONNS_RSTS\",\n\t\t\t\t\"metric\": \"resets\",\n\t\t\t\t\"\
+        rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 428,\n\
+        \t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"\
+        severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\":\
+        \ false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Avg Resets/s (Tx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_OUT_PEAK_BYTES\",\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\"\
+        : \"persec\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 91,\n\t\t\
+        \t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"out\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Peak Bytes/s (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\
+        \t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_BYTES_RTX\"\
+        ,\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"\
+        statistic\": \"peak\",\n\t\t\t\t\"id\": 405,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Retrans\
+        \ Bytes/s (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_BYTES_APP\",\n\t\t\t\
+        \t\"metric\": \"app\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 519,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak App Bytes/s (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_BYTES_PERSECCONN\",\n\t\t\t\
+        \t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 571,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Bytes/s per Conn\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_BYTES_APP_PERSECCONN\"\
+        ,\n\t\t\t\t\"metric\": \"app\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\
+        \t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 598,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak App Bytes/s\
+        \ per Conn (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_PKTS\",\n\t\t\t\t\"\
+        metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 92,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Packets/s (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_PKTS_RTX\",\n\t\t\t\t\"metric\"\
+        : \"rtx\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 406,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Retrans Packets/s (Tx)\",\n\
+        \t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\
+        \t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_CONNS_RSTS\",\n\t\t\t\t\"metric\"\
+        : \"resets\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 432,\n\t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Resets/s (Tx)\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_TOTAL_PKTS_LOSS\",\n\t\t\t\t\"metric\": \"loss\"\
+        ,\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\
+        \t\"id\": 765,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Total RTP Loss Packets\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_TOTAL_PKTS_EXPECTED\",\n\t\t\t\t\"metric\": \"expected\",\n\t\t\t\t\
+        \"rate\": \"count\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\t\"id\": 829,\n\
+        \t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"int\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Total RTP Expected Packets\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_AVG_PKTS_LOSS\",\n\t\t\t\t\"metric\": \"loss\",\n\t\t\t\t\"rate\":\
+        \ \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 757,\n\t\t\
+        \t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Avg RTP Loss Packets/s\",\n\t\t\t\t\"comparison_parameter\": \"\
+        \",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\
+        \"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"\
+        ID_AVG_PKTS_EXPECTED\",\n\t\t\t\t\"metric\": \"expected\",\n\t\t\t\t\"rate\"\
+        : \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 827,\n\t\t\
+        \t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Avg RTP Expected Packets/s\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_PKTS_LOSS\",\n\t\t\t\t\"metric\": \"loss\",\n\t\t\t\t\"rate\"\
+        : \"persec\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 764,\n\t\t\
+        \t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Peak RTP Loss Packets/s\",\n\t\t\t\t\"comparison_parameter\":\
+        \ \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_PKTS_EXPECTED\",\n\t\t\t\t\"metric\": \"expected\",\n\t\t\t\t\"\
+        rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 828,\n\
+        \t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Peak RTP Expected Packets/s\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_TOTAL_PKTS_LOSS_PCT\",\n\t\t\t\t\"metric\": \"loss\",\n\t\t\t\t\"rate\"\
+        : \"pct\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\t\"id\": 766,\n\t\t\t\
+        \t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"% RTP Loss Packets\",\n\t\t\t\t\"comparison_parameter\": \"\"\
+        ,\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"\
+        name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_RSEC_JITTER\"\
+        ,\n\t\t\t\t\"metric\": \"jitter\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\
+        \"statistic\": \"avg\",\n\t\t\t\t\"id\": 781,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Avg Jitter (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_RSEC_JITTER\",\n\t\t\t\t\
+        \"metric\": \"jitter\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 789,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Jitter (ms)\",\n\t\
+        \t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\
+        \t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_VQUAL_RFACTOR\",\n\t\t\t\t\"metric\"\
+        : \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 794,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg R-Factor\",\n\t\t\t\
+        \t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\
+        \"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\
+        \t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_VQUAL_RFACTOR\",\n\t\t\t\t\"metric\":\
+        \ \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 795,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak R-Factor\",\n\t\t\
+        \t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\
+        \t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\
+        \t\t\t{\n\t\t\t\t\"strid\": \"ID_MIN_VQUAL_RFACTOR\",\n\t\t\t\t\"metric\"\
+        : \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"min\"\
+        ,\n\t\t\t\t\"id\": 796,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Min R-Factor\",\n\t\t\t\
+        \t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\
+        \"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\
+        \t\t{\n\t\t\t\t\"strid\": \"ID_AVG_VQUAL_MOS\",\n\t\t\t\t\"metric\": \"mos\"\
+        ,\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"\
+        id\": 803,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\t\t\t\"category\": \"\
+        data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\
+        \t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg MOS\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_VQUAL_MOS\",\n\t\t\t\t\"metric\": \"mos\",\n\t\t\t\t\"rate\":\
+        \ \"none\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 811,\n\t\t\t\
+        \t\"unit\": \"voice_quality\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"\
+        severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\":\
+        \ false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Peak MOS\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\
+        \t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_MIN_VQUAL_MOS\"\
+        ,\n\t\t\t\t\"metric\": \"mos\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"min\",\n\t\t\t\t\"id\": 812,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Min MOS\",\n\
+        \t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\
+        \t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_TOTAL_PKTS_LOSS\",\n\t\t\t\t\"metric\"\
+        : \"loss\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"total\"\
+        ,\n\t\t\t\t\"id\": 775,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\": false,\n\t\
+        \t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"\
+        sortable\": true,\n\t\t\t\t\"name\": \"Total RTP Loss Packets (Rx)\",\n\t\t\
+        \t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\
+        \t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\
+        \t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_TOTAL_PKTS_EXPECTED\",\n\t\t\t\t\"metric\"\
+        : \"expected\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"total\"\
+        ,\n\t\t\t\t\"id\": 832,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\": false,\n\t\
+        \t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"\
+        sortable\": true,\n\t\t\t\t\"name\": \"Total RTP Expected Packets (Rx)\",\n\
+        \t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\
+        \t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_PKTS_LOSS\",\n\t\t\t\t\"metric\"\
+        : \"loss\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 773,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Avg RTP Loss Packets/s (Rx)\",\n\t\
+        \t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\
+        \t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_PKTS_EXPECTED\",\n\t\t\t\t\"metric\"\
+        : \"expected\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"\
+        avg\",\n\t\t\t\t\"id\": 830,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Avg RTP Expected Packets/s (Rx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_PKTS_LOSS\",\n\t\t\t\t\"metric\"\
+        : \"loss\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 774,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Peak RTP Loss Packets/s (Rx)\",\n\
+        \t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\
+        \t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_PKTS_EXPECTED\",\n\t\t\t\t\"\
+        metric\": \"expected\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 831,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak RTP Expected Packets/s\
+        \ (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_TOTAL_PKTS_LOSS_PCT\",\n\t\
+        \t\t\t\"metric\": \"loss\",\n\t\t\t\t\"rate\": \"pct\",\n\t\t\t\t\"statistic\"\
+        : \"total\",\n\t\t\t\t\"id\": 779,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"% RTP Loss Packets (Rx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_RSEC_JITTER\",\n\t\t\t\t\"metric\"\
+        : \"jitter\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 790,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Avg Jitter (ms) (Rx)\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_RSEC_JITTER\",\n\t\t\t\t\"metric\": \"\
+        jitter\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"peak\",\n\
+        \t\t\t\t\"id\": 791,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"\
+        data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\
+        \t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Peak Jitter (ms) (Rx)\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_VQUAL_RFACTOR\",\n\t\t\t\t\"metric\":\
+        \ \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 797,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg R-Factor (Rx)\",\n\
+        \t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\
+        \t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_VQUAL_RFACTOR\",\n\t\t\t\t\"\
+        metric\": \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 798,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak R-Factor\
+        \ (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_MIN_VQUAL_RFACTOR\",\n\t\t\
+        \t\t\"metric\": \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"min\",\n\t\t\t\t\"id\": 799,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Min R-Factor\
+        \ (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_VQUAL_MOS\",\n\t\t\t\t\
+        \"metric\": \"mos\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\":\
+        \ \"avg\",\n\t\t\t\t\"id\": 813,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg MOS (Rx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_VQUAL_MOS\",\n\t\t\t\t\"metric\"\
+        : \"mos\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"peak\",\n\
+        \t\t\t\t\"id\": 814,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Peak MOS (Rx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_IN_MIN_VQUAL_MOS\",\n\t\t\t\t\"metric\": \"mos\",\n\t\t\t\t\"rate\"\
+        : \"none\",\n\t\t\t\t\"statistic\": \"min\",\n\t\t\t\t\"id\": 815,\n\t\t\t\
+        \t\"unit\": \"voice_quality\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"\
+        severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\":\
+        \ false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Min MOS (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\"\
+        ,\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"\
+        name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_TOTAL_PKTS_LOSS\"\
+        ,\n\t\t\t\t\"metric\": \"loss\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"\
+        statistic\": \"total\",\n\t\t\t\t\"id\": 778,\n\t\t\t\t\"unit\": \"pkts\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\
+        \t\"available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Total RTP Loss\
+        \ Packets (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_TOTAL_PKTS_EXPECTED\",\n\t\
+        \t\t\t\"metric\": \"expected\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"\
+        statistic\": \"total\",\n\t\t\t\t\"id\": 835,\n\t\t\t\t\"unit\": \"pkts\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\
+        \t\"available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Total RTP Expected\
+        \ Packets (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_PKTS_LOSS\",\n\t\t\t\t\
+        \"metric\": \"loss\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 776,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg RTP Loss Packets/s\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_PKTS_EXPECTED\",\n\t\t\
+        \t\t\"metric\": \"expected\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 833,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg RTP Expected Packets/s\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_PKTS_LOSS\",\n\t\t\t\
+        \t\"metric\": \"loss\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 777,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak RTP Loss Packets/s\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_PKTS_EXPECTED\",\n\t\
+        \t\t\t\"metric\": \"expected\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"\
+        statistic\": \"peak\",\n\t\t\t\t\"id\": 834,\n\t\t\t\t\"unit\": \"pkts\",\n\
+        \t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\
+        \"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak RTP Expected\
+        \ Packets/s (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_TOTAL_PKTS_LOSS_PCT\",\n\t\
+        \t\t\t\"metric\": \"loss\",\n\t\t\t\t\"rate\": \"pct\",\n\t\t\t\t\"statistic\"\
+        : \"total\",\n\t\t\t\t\"id\": 780,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"% RTP Loss Packets (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_RSEC_JITTER\",\n\t\t\t\t\"\
+        metric\": \"jitter\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 792,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Jitter (ms) (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_RSEC_JITTER\",\n\t\t\t\t\"\
+        metric\": \"jitter\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 793,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Jitter (ms) (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_VQUAL_RFACTOR\",\n\t\t\t\t\"\
+        metric\": \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 800,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg R-Factor\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_VQUAL_RFACTOR\",\n\t\
+        \t\t\t\"metric\": \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 801,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak R-Factor\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_MIN_VQUAL_RFACTOR\",\n\t\t\
+        \t\t\"metric\": \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"min\",\n\t\t\t\t\"id\": 802,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Min R-Factor\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_VQUAL_MOS\",\n\t\t\t\t\
+        \"metric\": \"mos\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\":\
+        \ \"avg\",\n\t\t\t\t\"id\": 816,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg MOS (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_VQUAL_MOS\",\n\t\t\t\t\"metric\"\
+        : \"mos\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"peak\",\n\
+        \t\t\t\t\"id\": 817,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak MOS (Tx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_OUT_MIN_VQUAL_MOS\",\n\t\t\t\t\"metric\": \"mos\",\n\t\t\t\t\"rate\"\
+        : \"none\",\n\t\t\t\t\"statistic\": \"min\",\n\t\t\t\t\"id\": 818,\n\t\t\t\
+        \t\"unit\": \"voice_quality\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"\
+        severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\":\
+        \ false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Min MOS (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\"\
+        ,\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"\
+        name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_P_AVG_BYTES\"\
+        ,\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\
+        \"statistic\": \"avg\",\n\t\t\t\t\"id\": 875,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"percentile\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Bytes/s\
+        \ **\",\n\t\t\t\t\"comparison_parameter\": \"|15\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_P_IN_AVG_BYTES\",\n\t\t\t\t\"\
+        metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 876,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"percentile\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Bytes/s (Rx) **\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"|15\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_P_OUT_AVG_BYTES\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 877,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"percentile\",\n\
+        \t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Bytes/s (Tx) **\",\n\t\
+        \t\t\t\"comparison_parameter\": \"|15\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_95P_AVG_BYTES\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 878,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"percentile\",\n\
+        \t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"95% Avg Bytes/s **\",\n\t\
+        \t\t\t\"comparison_parameter\": \"95|15\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_95P_IN_AVG_BYTES\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 879,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"percentile\",\n\t\
+        \t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"95% Avg Bytes/s (Rx) **\",\n\
+        \t\t\t\t\"comparison_parameter\": \"95|15\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_95P_OUT_AVG_BYTES\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 880,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"percentile\",\n\
+        \t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"95% Avg Bytes/s (Tx) **\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"95|15\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_90P_AVG_BYTES\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 881,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"percentile\",\n\
+        \t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"90% Avg Bytes/s **\",\n\t\
+        \t\t\t\"comparison_parameter\": \"90|15\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_90P_IN_AVG_BYTES\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 882,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"percentile\",\n\t\
+        \t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"90% Avg Bytes/s (Rx) **\",\n\
+        \t\t\t\t\"comparison_parameter\": \"90|15\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_90P_OUT_AVG_BYTES\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 883,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"percentile\",\n\
+        \t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"90% Avg Bytes/s (Tx) **\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"90|15\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_80P_AVG_BYTES\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 884,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"percentile\",\n\
+        \t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"80% Avg Bytes/s **\",\n\t\
+        \t\t\t\"comparison_parameter\": \"80|15\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_80P_IN_AVG_BYTES\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 885,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"percentile\",\n\t\
+        \t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"80% Avg Bytes/s (Rx) **\",\n\
+        \t\t\t\t\"comparison_parameter\": \"80|15\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_80P_OUT_AVG_BYTES\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 886,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"percentile\",\n\
+        \t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"80% Avg Bytes/s (Tx) **\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"80|15\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_P_PEAK_BYTES\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 887,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"percentile\",\n\
+        \t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Bytes/s **\",\n\t\t\t\
+        \t\"comparison_parameter\": \"|15\",\n\t\t\t\t\"has_others\": false,\n\t\t\
+        \t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_P_IN_PEAK_BYTES\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 888,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"percentile\",\n\t\
+        \t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Bytes/s (Rx) **\",\n\t\
+        \t\t\t\"comparison_parameter\": \"|15\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_P_OUT_PEAK_BYTES\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 889,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"percentile\",\n\
+        \t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Bytes/s (Tx) **\",\n\
+        \t\t\t\t\"comparison_parameter\": \"|15\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t}\n\t\t],\n\t\t\"statistic\": \"none\",\n\t\t\"type\": \"overall\",\n\t\t\
+        \"id\": \"0:ovl_tim_non_non_non_non_non_non_non_0_d_-1_e473156b95d60e3ff01ddad5c61355f1\"\
+        ,\n\t\t\"unit\": \"none\",\n\t\t\"actual_t1\": 1549565100\n\t}\n]"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['76068']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Thu, 07 Feb 2019 19:00:00 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: GET
+    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70961/queries/0:ovl_tim_non_non_non_non_non_non_non_0_d_-1_e473156b95d60e3ff01ddad5c61355f1.json?columns=98%2C33%2C34
+  response:
+    body: {string: "{\n\t\"actual_start_time\": 1549561500,\n\t\"actual_end_time\"\
+        : 1549565100,\n\t\"data\": [\n\t\t[\n\t\t\t\"1549561500\",\n\t\t\t\"1810278.00889\"\
+        ,\n\t\t\t\"4155.72333333\"\n\t\t],\n\t\t[\n\t\t\t\"1549562400\",\n\t\t\t\"\
+        1855787.60556\",\n\t\t\t\"4165.95111111\"\n\t\t],\n\t\t[\n\t\t\t\"1549563300\"\
+        ,\n\t\t\t\"1812894.86222\",\n\t\t\t\"4067.34222222\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"1549564200\",\n\t\t\t\"1812171.78889\",\n\t\t\t\"4119.91\"\n\t\t]\n\t],\n\
+        \t\"data_size\": 4,\n\t\"totals\": [\n\t\t\"\",\n\t\t\"1822783.06639\",\n\t\
+        \t\"4127.23166667\"\n\t]\n}"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['413']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Thu, 07 Feb 2019 19:00:00 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      Content-Type: [application/json]
+      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: DELETE
+    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70961.json
+  response:
+    body: {string: ''}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [text/html;charset=ascii]
+      Date: ['Thu, 07 Feb 2019 19:00:00 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 204, message: No Content}
+version: 1

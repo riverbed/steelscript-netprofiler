@@ -14,46 +14,31 @@ from steelscript.netprofiler.core.report import (WANSummaryReport, WANTimeSeries
                                   TrafficOverallTimeSeriesReport, TrafficFlowListReport,
                                   IdentityReport)
 
+import os
+import vcr
 import unittest
 import logging
 import datetime
 
-try:
-    from testconfig import config
-except ImportError:
-    if __name__ != '__main__':
-        raise
-    config = {}
-
-# XXX we try to use unittest.SkipTest() in setUp() below but it
-# isn't supported by python 2.6.  this simulates the same thing...
-# another 2.6 hack
-if 'profilerhost' not in config:
-    __test__ = False
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG,
                     format="%(asctime)s [%(levelname)-5.5s] %(msg)s")
 
+curdir = os.path.dirname(os.path.abspath(__file__))
+cassette_dir = os.path.join(curdir, 'cassettes', 'profiler')
+testvcr = vcr.VCR(cassette_library_dir=cassette_dir)
 
+
+@testvcr.use_cassette()
 def create_profiler():
-    """ Create NetProfiler instance given configuration data
-    """
-    if 'profilerhost' not in config:
-        raise unittest.SkipTest('no netprofiler hostname provided')
-    try:
-        username = config['username']
-    except KeyError:
-        username = 'admin'
-    try:
-        password = config['password']
-    except KeyError:
-        password = 'admin'
-    auth = UserAuth(username, password)
-    return NetProfiler(config['profilerhost'], auth=auth)
+    """ Create default NetProfiler lab instance. """
+    auth = UserAuth('admin', 'admin')
+    return NetProfiler('cam-pro101.lab.nbttech.com', auth=auth)
 
 
 class ProfilerTests(unittest.TestCase):
+    @testvcr.use_cassette()
     def setUp(self):
         self.profiler = create_profiler()
         y = datetime.datetime.now() - datetime.timedelta(days=1)
@@ -61,15 +46,18 @@ class ProfilerTests(unittest.TestCase):
         yesterday_at_5 = datetime.datetime(y.year, y.month, y.day, hour=17, minute=0, microsecond=1)
         self.yesterday = TimeFilter(yesterday_at_4, yesterday_at_5)
 
+    @testvcr.use_cassette()
     def test_groupby_structure(self):
         self.assertTrue('port' in self.profiler.groupbys)
         self.assertEqual(self.profiler.groupbys.port, 'por')
 
+    @testvcr.use_cassette()
     def test_columns_structure(self):
         self.assertEqual(self.profiler.columns.key.host_ip, 'host_ip')
         dir(self.profiler.columns.key)
         self.assertEqual(self.profiler.columns.key.host_ip.id, 5)
 
+    @testvcr.use_cassette()
     def test_search_columns(self):
         all_columns = self.profiler.search_columns()
         groupby_hos = self.profiler.search_columns(groupbys=['hos'])
@@ -83,6 +71,7 @@ class ProfilerTests(unittest.TestCase):
         assert len(groupby_hos) != len(centricities_and_groupby)
         logger.debug("Retrieved columns for groupby 'hos': %s" % groupby_hos)
 
+    @testvcr.use_cassette()
     def test_get_columns(self):
         names = ['time', 'host_ip', 'network_rtt']
         cols = self.profiler.get_columns(names)
@@ -95,6 +84,7 @@ class ProfilerTests(unittest.TestCase):
         self.assertTrue(self.profiler.columns.key.time >
                         self.profiler.columns.key.host_ip)
 
+    @testvcr.use_cassette()
     def test_get_columns_by_ids(self):
         ids = [98, 5, 280]
         cols = self.profiler.get_columns_by_ids(ids)
@@ -104,9 +94,11 @@ class ProfilerTests(unittest.TestCase):
         self.assertTrue('host_ip' in keys)
         self.assertTrue('network_rtt' in keys)
 
+    @testvcr.use_cassette()
     def test_logout(self):
         pass
 
+    @testvcr.use_cassette()
     def test_timefilter(self):
         tfilter = TimeFilter.parse_range('9:01:36 to 10:04:39')
 
@@ -126,6 +118,7 @@ class ProfilerTests(unittest.TestCase):
         minutes = tfilter.profiler_minutes()
         self.assertEqual(len(minutes), 1)
 
+    @testvcr.use_cassette()
     def test_traffic_summary_report(self):
         groupby = self.profiler.groupbys.host
         columns = [self.profiler.columns.key.host_ip,
@@ -159,13 +152,14 @@ class ProfilerTests(unittest.TestCase):
             if data:
                 self.assertEqual(len(data[0]), 2)
 
+    @testvcr.use_cassette()
     def test_traffic_overall_time_series_report(self):
 
         columns = [self.profiler.columns.key.time,
                    self.profiler.columns.value.avg_bytes,
                    self.profiler.columns.value.avg_pkts]
 
-        timerange = TimeFilter.parse_range("last 1 h")
+        timerange = TimeFilter.parse_range('17:26:40 to 18:26:40') 
         trafficexpr = TrafficFilter("host 10/8")
         resolution = "15min"
         report = TrafficOverallTimeSeriesReport(self.profiler)
@@ -182,6 +176,7 @@ class ProfilerTests(unittest.TestCase):
             self.assertTrue(timerange.compare_time(d['time'], resolution=15*60))
         report.delete()
 
+    @testvcr.use_cassette()
     def test_traffic_flow_list_report(self):
         columns = [self.profiler.columns.key.srv_host_ip,
                    self.profiler.columns.key.app_info,
@@ -205,6 +200,7 @@ class ProfilerTests(unittest.TestCase):
             if data:
                 self.assertEqual(len(data[0]), 8)
 
+    @testvcr.use_cassette()
     def test_identity_report(self):
         timerange = TimeFilter.parse_range('last 30 m')
 
@@ -218,6 +214,7 @@ class ProfilerTests(unittest.TestCase):
             if data:
                 self.assertEqual(len(data[0]), 9)
 
+    @testvcr.use_cassette()
     def test_unsupported_column(self):
         groupby = self.profiler.groupbys.port
 
@@ -238,6 +235,7 @@ class ProfilerTests(unittest.TestCase):
                     trafficexpr=trafficexpr)
         self.assertRaises(RvbdException, report.run, None, kwds)
 
+    @testvcr.use_cassette()
     def test_resolution(self):
         groupby = self.profiler.groupbys.host
         columns = [self.profiler.columns.key.host_ip,
@@ -264,6 +262,7 @@ class ProfilerTests(unittest.TestCase):
                         sort_col, timerange,
                         trafficexpr, resolution=resolution)
 
+    @testvcr.use_cassette()
     def test_area(self):
         self.assertEqual(self.profiler.areas.wan, 'wan')
         self.assertEqual(self.profiler.areas.lan, 'lan')
@@ -278,6 +277,7 @@ class ProfilerTests(unittest.TestCase):
         self.assertEqual(self.profiler.areas.prd, 'prd')
         self.assertEqual(self.profiler.areas.vxl, 'vxl')
 
+    @testvcr.use_cassette()
     def test_report_with_area(self):
         groupby = self.profiler.groupbys.host
         columns = [self.profiler.columns.key.host_ip,
@@ -292,6 +292,7 @@ class ProfilerTests(unittest.TestCase):
                     sort_col, timerange,
                     trafficexpr, area=area)
 
+    @testvcr.use_cassette()
     def test_wan_time_series_report(self):
         # WAN reports depend on pandas module, so skip if we don't have it
         try:
@@ -332,6 +333,7 @@ class ProfilerTests(unittest.TestCase):
             self.assertEqual(outbound.shape, (60,4))
             self.assertTrue(all(outbound.LAN_avg_bytes > outbound.WAN_avg_bytes))
 
+    @testvcr.use_cassette()
     def test_wan_time_summary_report(self):
         # WAN reports depend on pandas module, so skip if we don't have it
         try:
@@ -377,16 +379,19 @@ class ProfilerTests(unittest.TestCase):
 
 
 class ProfilerDevicesTests(unittest.TestCase):
+    @testvcr.use_cassette()
     def setUp(self):
         self.profiler = create_profiler()
         # common header fields for device lists
         self.headernames = ['name', 'type_id', 'ipaddr', 'version', 'type', 'id']
 
+    @testvcr.use_cassette()
     def test_typelist(self):
         """Check that get_types returns list of two-tuples"""
         types = self.profiler.api.devices.get_types()
         self.assertEqual(len(types[0]), 2)
-
+    
+    @testvcr.use_cassette()
     def test_getdevices(self):
         """Verify list of dicts for devices returned on get_all query"""
         devices = self.profiler.api.devices.get_all()
@@ -394,7 +399,8 @@ class ProfilerDevicesTests(unittest.TestCase):
         self.assertTrue(isinstance(dev0, dict))
         for h in self.headernames:
             self.assertTrue(h in dev0.keys())
-
+    
+    @testvcr.use_cassette()
     def test_getdevices_by_type(self):
         """Verify list of dicts for devices returned on get_all filtered query"""
         # pull type id from first item in list, then confirm its included
@@ -405,6 +411,7 @@ class ProfilerDevicesTests(unittest.TestCase):
         filtered = self.profiler.api.devices.get_all(typeid=typeid)
         self.assertTrue(dev0 in filtered)
 
+    @testvcr.use_cassette()
     def test_getdevices_by_cidr(self):
         """Verify list of dicts for devices returned on get_all filtered query"""
         # pull ip from first result, and check its in the result set when
@@ -419,6 +426,7 @@ class ProfilerDevicesTests(unittest.TestCase):
         empty = self.profiler.api.devices.get_all(cidr='10.0.0.0/32')
         self.assertFalse(empty)
 
+    @testvcr.use_cassette()
     def test_getdetails(self):
         """Verify query by ip address returns single result"""
         devices = self.profiler.api.devices.get_all()
@@ -430,11 +438,6 @@ class ProfilerDevicesTests(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    # for standalone use take one command-line argument: the netprofiler host
-    import sys
-    assert len(sys.argv) == 2
 
-    config = {'profilerhost': sys.argv[1]}
-    sys.argv = [sys.argv[0]]
 
     unittest.main()
