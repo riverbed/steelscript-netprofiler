@@ -6,10 +6,10 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/devices
+    uri: https://10.38.131.150/api/profiler/1.0/devices
   response:
     body: {string: "[\n\t{\n\t\t\"name\": \"DCCluster1-EH4\",\n\t\t\"type_id\": 2,\n\
         \t\t\"ipaddr\": \"10.100.5.13\",\n\t\t\"version\": \"N/A\",\n\t\t\"type\"\
@@ -105,7 +105,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:26 GMT']
+      Date: ['Thu, 07 Feb 2019 21:11:52 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]

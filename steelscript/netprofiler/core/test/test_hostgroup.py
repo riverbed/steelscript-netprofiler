@@ -29,7 +29,7 @@ testvcr = vcr.VCR(cassette_library_dir=cassette_dir)
 def create_profiler():
     """ Create default NetProfiler lab instance. """
     auth = UserAuth('admin', 'admin')
-    return NetProfiler('cam-pro101.lab.nbttech.com', auth=auth)
+    return NetProfiler('10.38.131.150', auth=auth)
 
 
 class HostGroupTests(unittest.TestCase):

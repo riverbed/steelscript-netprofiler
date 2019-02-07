@@ -1,22 +1,22 @@
 interactions:
 - request:
-    body: '{"config": [{"name": "Test0", "cidr": "10.90.11.0/24"}, {"name": "Test1",
-      "cidr": "10.91.11.0/24"}, {"name": "Test2", "cidr": "10.92.11.0/24"}, {"name":
-      "Test3", "cidr": "10.93.11.0/24"}, {"name": "Test4", "cidr": "10.94.11.0/24"},
+    body: '{"name": "TestType4057", "config": [{"name": "Test0", "cidr": "10.90.11.0/24"},
+      {"name": "Test1", "cidr": "10.91.11.0/24"}, {"name": "Test2", "cidr": "10.92.11.0/24"},
+      {"name": "Test3", "cidr": "10.93.11.0/24"}, {"name": "Test4", "cidr": "10.94.11.0/24"},
       {"name": "Test5", "cidr": "10.95.11.0/24"}, {"name": "Test6", "cidr": "10.96.11.0/24"},
       {"name": "Test7", "cidr": "10.97.11.0/24"}, {"name": "Test8", "cidr": "10.98.11.0/24"},
-      {"name": "Test9", "cidr": "10.10.21.0/24"}], "name": "TestType4057", "favorite":
-      false, "description": ""}'
+      {"name": "Test9", "cidr": "10.10.21.0/24"}], "description": "", "favorite":
+      false}'
     headers:
       Accept: [application/json]
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Length: ['514']
       Content-Type: [application/json]
-      Cookie: [SESSID=576ecff515feb75fa62278871ecdebb7c45e793624aad9e3cbea25cab0617f4e]
+      Cookie: [SESSID=4cdc655be46efbc93a7d3969b58df645f3eeae464d80c5fafaab13d5b93109b3]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: POST
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.2/host_group_types
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types
   response:
     body: {string: "{\n\t\"favorite\": true,\n\t\"description\": \"\",\n\t\"type\"\
         : \"User-created\",\n\t\"name\": \"TestType4057\",\n\t\"id\": 111\n}"}
@@ -27,7 +27,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 19:41:51 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:32 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Location: [/api/profiler/1.2/host_group_types/111]
@@ -45,10 +45,10 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['0']
       Content-Type: [application/json]
-      Cookie: [SESSID=576ecff515feb75fa62278871ecdebb7c45e793624aad9e3cbea25cab0617f4e]
+      Cookie: [SESSID=4cdc655be46efbc93a7d3969b58df645f3eeae464d80c5fafaab13d5b93109b3]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: DELETE
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.2/host_group_types/111
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types/111
   response:
     body: {string: ''}
     headers:
@@ -57,7 +57,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [text/html;charset=ascii]
-      Date: ['Thu, 07 Feb 2019 19:41:52 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:32 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]

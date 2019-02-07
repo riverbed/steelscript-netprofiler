@@ -6,10 +6,10 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=576ecff515feb75fa62278871ecdebb7c45e793624aad9e3cbea25cab0617f4e]
+      Cookie: [SESSID=4cdc655be46efbc93a7d3969b58df645f3eeae464d80c5fafaab13d5b93109b3]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.2/host_group_types
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types
   response:
     body: {string: "[\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\
         \t\"type\": \"User-created\",\n\t\t\"name\": \"22685_DEDUCED\",\n\t\t\"id\"\
@@ -61,7 +61,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 19:41:48 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:31 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -77,10 +77,10 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=576ecff515feb75fa62278871ecdebb7c45e793624aad9e3cbea25cab0617f4e]
+      Cookie: [SESSID=4cdc655be46efbc93a7d3969b58df645f3eeae464d80c5fafaab13d5b93109b3]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.2/host_group_types/102
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types/102
   response:
     body: {string: "{\n\t\"favorite\": true,\n\t\"description\": \"Groups based on\
         \ the location of their member hosts, such as NY, Dallas, DataCenter1, etc.\"\
@@ -93,7 +93,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 19:41:48 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:31 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -109,10 +109,10 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=576ecff515feb75fa62278871ecdebb7c45e793624aad9e3cbea25cab0617f4e]
+      Cookie: [SESSID=4cdc655be46efbc93a7d3969b58df645f3eeae464d80c5fafaab13d5b93109b3]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.2/host_group_types/102/config
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types/102/config
   response:
     body: {string: "[\n\t{\n\t\t\"cidr\": \"0.0.0.0/0\",\n\t\t\"name\": \"All_Other\"\
         \n\t},\n\t{\n\t\t\"cidr\": \"10.99.11.0/24\",\n\t\t\"name\": \"Seattle\"\n\
@@ -133,7 +133,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 19:41:48 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:31 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]

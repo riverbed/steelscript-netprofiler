@@ -1,35 +1,35 @@
 interactions:
 - request:
-    body: '{"template_id": 184, "criteria": {"time_frame": {"resolution": "1min",
-      "start": 1549565670, "end": 1549565970}, "query": {"group_by": "hos", "realm":
-      "traffic_summary", "columns": [5, 33, 34], "centricity": "hos", "sort_column":
-      33}, "traffic_expression": "host 10/8"}}'
+    body: '{"template_id": 184, "criteria": {"time_frame": {"end": 1549573919, "resolution":
+      "1min", "start": 1549573619}, "traffic_expression": "host 10/8", "query": {"centricity":
+      "hos", "columns": [5, 33, 34], "sort_column": 33, "group_by": "hos", "realm":
+      "traffic_summary"}}}'
     headers:
       Accept: [application/json]
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Length: ['269']
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: POST
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70953,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565973,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70965,\n\t\"remaining_seconds\": 11,\n\
+        \t\"run_time\": 1549573918,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
       Connection: [Keep-Alive]
-      Content-Length: ['200']
+      Content-Length: ['201']
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:33 GMT']
+      Date: ['Thu, 07 Feb 2019 21:11:58 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
-      Location: [/api/profiler/1.0/reporting/reports/70953]
+      Location: [/api/profiler/1.0/reporting/reports/70965]
       Server: [Apache]
       Strict-Transport-Security: [max-age=31536000; includeSubDomains]
       X-Content-Type-Options: [nosniff]
@@ -43,23 +43,23 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70953.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70965.json
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70953,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565973,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70965,\n\t\"remaining_seconds\": 11,\n\
+        \t\"run_time\": 1549573918,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
       Connection: [Keep-Alive]
-      Content-Length: ['200']
+      Content-Length: ['201']
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:33 GMT']
+      Date: ['Thu, 07 Feb 2019 21:11:59 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -75,14 +75,14 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70953.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70965.json
   response:
     body: {string: "{\n\t\"status\": \"completed\",\n\t\"user_id\": 1,\n\t\"name\"\
-        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70953,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565973,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70965,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573918,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 92\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -91,7 +91,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:34 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:00 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -108,10 +108,10 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['0']
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: DELETE
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70953.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70965.json
   response:
     body: {string: ''}
     headers:
@@ -120,7 +120,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [text/html;charset=ascii]
-      Date: ['Thu, 07 Feb 2019 18:59:34 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:00 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -130,24 +130,24 @@ interactions:
       X-XSS-Protection: [1; mode=block]
     status: {code: 204, message: No Content}
 - request:
-    body: '{"template_id": 184, "criteria": {"time_frame": {"resolution": "15min",
-      "start": 1549562372, "end": 1549565972}, "query": {"group_by": "hos", "realm":
-      "traffic_summary", "columns": [5, 33, 34], "centricity": "hos", "sort_column":
-      33}, "traffic_expression": "host 10/8"}}'
+    body: '{"template_id": 184, "criteria": {"time_frame": {"end": 1549573921, "resolution":
+      "15min", "start": 1549570321}, "traffic_expression": "host 10/8", "query": {"centricity":
+      "hos", "columns": [5, 33, 34], "sort_column": 33, "group_by": "hos", "realm":
+      "traffic_summary"}}}'
     headers:
       Accept: [application/json]
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Length: ['270']
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: POST
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70954,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565975,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70966,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573921,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -156,10 +156,10 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:35 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:00 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
-      Location: [/api/profiler/1.0/reporting/reports/70954]
+      Location: [/api/profiler/1.0/reporting/reports/70966]
       Server: [Apache]
       Strict-Transport-Security: [max-age=31536000; includeSubDomains]
       X-Content-Type-Options: [nosniff]
@@ -173,14 +173,14 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70954.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70966.json
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70954,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565975,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70966,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573921,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -189,7 +189,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:35 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:02 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -205,14 +205,14 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70954.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70966.json
   response:
     body: {string: "{\n\t\"status\": \"completed\",\n\t\"user_id\": 1,\n\t\"name\"\
-        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70954,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565975,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70966,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573921,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 92\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -221,7 +221,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:36 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:03 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -238,10 +238,10 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['0']
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: DELETE
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70954.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70966.json
   response:
     body: {string: ''}
     headers:
@@ -250,7 +250,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [text/html;charset=ascii]
-      Date: ['Thu, 07 Feb 2019 18:59:36 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:03 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -260,24 +260,24 @@ interactions:
       X-XSS-Protection: [1; mode=block]
     status: {code: 204, message: No Content}
 - request:
-    body: '{"template_id": 184, "criteria": {"time_frame": {"resolution": "hour",
-      "start": 1549551574, "end": 1549565974}, "query": {"group_by": "hos", "realm":
-      "traffic_summary", "columns": [5, 33, 34], "centricity": "hos", "sort_column":
-      33}, "traffic_expression": "host 10/8"}}'
+    body: '{"template_id": 184, "criteria": {"time_frame": {"end": 1549573924, "resolution":
+      "hour", "start": 1549559524}, "traffic_expression": "host 10/8", "query": {"centricity":
+      "hos", "columns": [5, 33, 34], "sort_column": 33, "group_by": "hos", "realm":
+      "traffic_summary"}}}'
     headers:
       Accept: [application/json]
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Length: ['269']
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: POST
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70955,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565976,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70967,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573923,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -286,10 +286,10 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:36 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:03 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
-      Location: [/api/profiler/1.0/reporting/reports/70955]
+      Location: [/api/profiler/1.0/reporting/reports/70967]
       Server: [Apache]
       Strict-Transport-Security: [max-age=31536000; includeSubDomains]
       X-Content-Type-Options: [nosniff]
@@ -303,14 +303,14 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70955.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70967.json
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70955,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565976,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70967,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573923,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -319,7 +319,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:37 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:03 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -335,14 +335,14 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70955.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70967.json
   response:
     body: {string: "{\n\t\"status\": \"completed\",\n\t\"user_id\": 1,\n\t\"name\"\
-        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70955,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565976,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70967,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573923,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 92\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -351,7 +351,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:38 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:05 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -368,10 +368,10 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['0']
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: DELETE
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70955.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70967.json
   response:
     body: {string: ''}
     headers:
@@ -380,7 +380,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [text/html;charset=ascii]
-      Date: ['Thu, 07 Feb 2019 18:59:38 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:05 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -390,24 +390,24 @@ interactions:
       X-XSS-Protection: [1; mode=block]
     status: {code: 204, message: No Content}
 - request:
-    body: '{"template_id": 184, "criteria": {"time_frame": {"resolution": "6hour",
-      "start": 1549479575, "end": 1549565975}, "query": {"group_by": "hos", "realm":
-      "traffic_summary", "columns": [5, 33, 34], "centricity": "hos", "sort_column":
-      33}, "traffic_expression": "host 10/8"}}'
+    body: '{"template_id": 184, "criteria": {"time_frame": {"end": 1549573926, "resolution":
+      "6hour", "start": 1549487526}, "traffic_expression": "host 10/8", "query": {"centricity":
+      "hos", "columns": [5, 33, 34], "sort_column": 33, "group_by": "hos", "realm":
+      "traffic_summary"}}}'
     headers:
       Accept: [application/json]
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Length: ['270']
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: POST
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70956,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565978,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70968,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573925,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -416,10 +416,10 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:38 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:05 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
-      Location: [/api/profiler/1.0/reporting/reports/70956]
+      Location: [/api/profiler/1.0/reporting/reports/70968]
       Server: [Apache]
       Strict-Transport-Security: [max-age=31536000; includeSubDomains]
       X-Content-Type-Options: [nosniff]
@@ -433,14 +433,14 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70956.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70968.json
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70956,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565978,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70968,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573925,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -449,7 +449,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:38 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:05 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -465,23 +465,23 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70956.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70968.json
   response:
     body: {string: "{\n\t\"status\": \"completed\",\n\t\"user_id\": 1,\n\t\"name\"\
-        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70956,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565978,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
-        \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
+        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70968,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573925,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \t\"error_text\": \"\",\n\t\"size\": 92\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
       Connection: [Keep-Alive]
-      Content-Length: ['204']
+      Content-Length: ['205']
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:39 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:06 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -498,10 +498,10 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['0']
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: DELETE
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70956.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70968.json
   response:
     body: {string: ''}
     headers:
@@ -510,7 +510,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [text/html;charset=ascii]
-      Date: ['Thu, 07 Feb 2019 18:59:40 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:06 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -520,36 +520,36 @@ interactions:
       X-XSS-Protection: [1; mode=block]
     status: {code: 204, message: No Content}
 - request:
-    body: '{"template_id": 184, "criteria": {"time_frame": {"resolution": "day", "start":
-      1548961178, "end": 1549565978}, "query": {"group_by": "hos", "realm": "traffic_summary",
-      "columns": [5, 33, 34], "centricity": "hos", "sort_column": 33}, "traffic_expression":
-      "host 10/8"}}'
+    body: '{"template_id": 184, "criteria": {"time_frame": {"end": 1549573928, "resolution":
+      "day", "start": 1548969128}, "traffic_expression": "host 10/8", "query": {"centricity":
+      "hos", "columns": [5, 33, 34], "sort_column": 33, "group_by": "hos", "realm":
+      "traffic_summary"}}}'
     headers:
       Accept: [application/json]
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Length: ['268']
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: POST
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70957,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565980,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70969,\n\t\"remaining_seconds\": 11,\n\
+        \t\"run_time\": 1549573927,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
       Connection: [Keep-Alive]
-      Content-Length: ['200']
+      Content-Length: ['201']
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:40 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:06 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
-      Location: [/api/profiler/1.0/reporting/reports/70957]
+      Location: [/api/profiler/1.0/reporting/reports/70969]
       Server: [Apache]
       Strict-Transport-Security: [max-age=31536000; includeSubDomains]
       X-Content-Type-Options: [nosniff]
@@ -563,23 +563,23 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70957.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70969.json
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70957,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565980,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70969,\n\t\"remaining_seconds\": 11,\n\
+        \t\"run_time\": 1549573927,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
       Connection: [Keep-Alive]
-      Content-Length: ['200']
+      Content-Length: ['201']
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:41 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:07 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -595,23 +595,23 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70957.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70969.json
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70957,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565980,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70969,\n\t\"remaining_seconds\": 11,\n\
+        \t\"run_time\": 1549573927,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
       Connection: [Keep-Alive]
-      Content-Length: ['200']
+      Content-Length: ['201']
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:42 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:08 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -627,14 +627,14 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70957.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70969.json
   response:
     body: {string: "{\n\t\"status\": \"completed\",\n\t\"user_id\": 1,\n\t\"name\"\
-        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70957,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565980,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70969,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573927,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 92\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -643,7 +643,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:43 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:09 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -660,10 +660,10 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['0']
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: DELETE
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70957.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70969.json
   response:
     body: {string: ''}
     headers:
@@ -672,7 +672,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [text/html;charset=ascii]
-      Date: ['Thu, 07 Feb 2019 18:59:43 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:09 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -682,24 +682,24 @@ interactions:
       X-XSS-Protection: [1; mode=block]
     status: {code: 204, message: No Content}
 - request:
-    body: '{"template_id": 184, "criteria": {"time_frame": {"resolution": "hour",
-      "start": 1549551580, "end": 1549565980}, "query": {"group_by": "hos", "realm":
-      "traffic_summary", "columns": [5, 33, 34], "centricity": "hos", "sort_column":
-      33}, "traffic_expression": "host 10/8"}}'
+    body: '{"template_id": 184, "criteria": {"time_frame": {"end": 1549573930, "resolution":
+      "hour", "start": 1549559530}, "traffic_expression": "host 10/8", "query": {"centricity":
+      "hos", "columns": [5, 33, 34], "sort_column": 33, "group_by": "hos", "realm":
+      "traffic_summary"}}}'
     headers:
       Accept: [application/json]
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Length: ['269']
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: POST
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70958,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565983,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70970,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573929,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -708,10 +708,10 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:43 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:09 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
-      Location: [/api/profiler/1.0/reporting/reports/70958]
+      Location: [/api/profiler/1.0/reporting/reports/70970]
       Server: [Apache]
       Strict-Transport-Security: [max-age=31536000; includeSubDomains]
       X-Content-Type-Options: [nosniff]
@@ -725,14 +725,14 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70958.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70970.json
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70958,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565983,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70970,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573929,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -741,7 +741,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:44 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:09 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -757,14 +757,14 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70958.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70970.json
   response:
     body: {string: "{\n\t\"status\": \"completed\",\n\t\"user_id\": 1,\n\t\"name\"\
-        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70958,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565983,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70970,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573929,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 92\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -773,7 +773,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:45 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:11 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -790,10 +790,10 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['0']
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: DELETE
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70958.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70970.json
   response:
     body: {string: ''}
     headers:
@@ -802,7 +802,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [text/html;charset=ascii]
-      Date: ['Thu, 07 Feb 2019 18:59:45 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:11 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -812,24 +812,24 @@ interactions:
       X-XSS-Protection: [1; mode=block]
     status: {code: 204, message: No Content}
 - request:
-    body: '{"template_id": 184, "criteria": {"time_frame": {"resolution": "1min",
-      "start": 1549565682, "end": 1549565982}, "query": {"group_by": "hos", "realm":
-      "traffic_summary", "columns": [5, 33, 34], "centricity": "hos", "sort_column":
-      33}, "traffic_expression": "host 10/8"}}'
+    body: '{"template_id": 184, "criteria": {"time_frame": {"end": 1549573932, "resolution":
+      "1min", "start": 1549573632}, "traffic_expression": "host 10/8", "query": {"centricity":
+      "hos", "columns": [5, 33, 34], "sort_column": 33, "group_by": "hos", "realm":
+      "traffic_summary"}}}'
     headers:
       Accept: [application/json]
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Length: ['269']
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: POST
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70959,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565985,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70971,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573931,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -838,10 +838,10 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:45 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:11 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
-      Location: [/api/profiler/1.0/reporting/reports/70959]
+      Location: [/api/profiler/1.0/reporting/reports/70971]
       Server: [Apache]
       Strict-Transport-Security: [max-age=31536000; includeSubDomains]
       X-Content-Type-Options: [nosniff]
@@ -855,14 +855,14 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70959.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70971.json
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70959,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565985,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 70971,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573931,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -871,7 +871,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:45 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:11 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -887,14 +887,14 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70959.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70971.json
   response:
     body: {string: "{\n\t\"status\": \"completed\",\n\t\"user_id\": 1,\n\t\"name\"\
-        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70959,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549565985,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        : \"\",\n\t\"percent\": 100,\n\t\"id\": 70971,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549573931,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 92\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -903,7 +903,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 18:59:46 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:12 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -920,10 +920,10 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['0']
       Content-Type: [application/json]
-      Cookie: [SESSID=f07001a5308824b47b67d7446a000ec118a5f5eacad93c0fcdd6668283ff5c1c]
+      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: DELETE
-    uri: https://cam-pro101.lab.nbttech.com/api/profiler/1.0/reporting/reports/70959.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/70971.json
   response:
     body: {string: ''}
     headers:
@@ -932,7 +932,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [text/html;charset=ascii]
-      Date: ['Thu, 07 Feb 2019 18:59:47 GMT']
+      Date: ['Thu, 07 Feb 2019 21:12:12 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
