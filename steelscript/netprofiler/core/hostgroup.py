@@ -332,14 +332,14 @@ class HostGroup(object):
         """
         cidrs = clean_str_or_bytes(cidrs)
 
-        self.host_group_type.config = filter(
+        self.host_group_type.config = list(filter(
             lambda a: a['cidr'] not in cidrs or a['name'] != self.name,
-            self.host_group_type.config)
+            self.host_group_type.config))
 
     def clear(self):
         """Clear all definitions for this host group."""
-        self.host_group_type.config = filter(lambda a: a['name'] != self.name,
-                                             self.host_group_type.config)
+        self.host_group_type.config = list(filter(lambda a: a['name'] != self.name,
+                                                  self.host_group_type.config))
 
     def get(self):
         """Return a list of CIDRs assigned to this host group."""
