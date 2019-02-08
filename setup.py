@@ -20,7 +20,7 @@ except ImportError:
 
 from gitpy_versioning import get_version
 
-test = ['vcrpy', 'testscenarios', 'nose', 'nose-testconfig', 'unittest2', 'mock']
+test = ['vcrpy', 'mock', 'pytest']
 
 setup_args = {
     'name':               'steelscript.netprofiler',

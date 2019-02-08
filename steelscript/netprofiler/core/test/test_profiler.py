@@ -27,7 +27,7 @@ logging.basicConfig(level=logging.DEBUG,
 
 curdir = os.path.dirname(os.path.abspath(__file__))
 cassette_dir = os.path.join(curdir, 'cassettes', 'profiler')
-testvcr = vcr.VCR(cassette_library_dir=cassette_dir, record_mode='new_episodes')
+testvcr = vcr.VCR(cassette_library_dir=cassette_dir)
 
 
 @testvcr.use_cassette()
