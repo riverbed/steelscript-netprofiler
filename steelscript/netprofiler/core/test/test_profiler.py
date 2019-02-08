@@ -27,9 +27,10 @@ logging.basicConfig(level=logging.DEBUG,
 
 curdir = os.path.dirname(os.path.abspath(__file__))
 cassette_dir = os.path.join(curdir, 'cassettes', 'profiler')
-testvcr = vcr.VCR(cassette_library_dir=cassette_dir, record_mode='new_episodes')
+testvcr = vcr.VCR(cassette_library_dir=cassette_dir)
 
 
+@testvcr.use_cassette()
 def create_profiler():
     """ Create default NetProfiler lab instance. """
     auth = UserAuth('admin', 'admin')
@@ -40,9 +41,11 @@ class ProfilerTests(unittest.TestCase):
     @testvcr.use_cassette()
     def setUp(self):
         self.profiler = create_profiler()
-        y = datetime.datetime.now() - datetime.timedelta(days=1)
-        yesterday_at_4 = datetime.datetime(y.year, y.month, y.day, hour=16, minute=0, microsecond=1)
-        yesterday_at_5 = datetime.datetime(y.year, y.month, y.day, hour=17, minute=0, microsecond=1)
+        # y = datetime.datetime.now() - datetime.timedelta(days=1)
+        # yesterday_at_4 = datetime.datetime(y.year, y.month, y.day, hour=16, minute=0, microsecond=1)
+        # yesterday_at_5 = datetime.datetime(y.year, y.month, y.day, hour=17, minute=0, microsecond=1)
+        yesterday_at_4 = datetime.datetime(year=2019, month=2, day=8, hour=16, minute=0, microsecond=1)
+        yesterday_at_5 = datetime.datetime(year=2019, month=2, day=8, hour=17, minute=0, microsecond=1)
         self.yesterday = TimeFilter(yesterday_at_4, yesterday_at_5)
 
     @testvcr.use_cassette()
@@ -124,7 +127,7 @@ class ProfilerTests(unittest.TestCase):
                    self.profiler.columns.value.avg_bytes,
                    self.profiler.columns.value.avg_pkts]
         sort_col = self.profiler.columns.value.avg_bytes
-        timerange = TimeFilter.parse_range("last 1 h")
+        timerange = self.yesterday
         trafficexpr = TrafficFilter("host 10/8")
 
         with TrafficSummaryReport(self.profiler) as rep:
@@ -158,7 +161,7 @@ class ProfilerTests(unittest.TestCase):
                    self.profiler.columns.value.avg_bytes,
                    self.profiler.columns.value.avg_pkts]
 
-        timerange = TimeFilter.parse_range('17:26:40 to 18:26:40') 
+        timerange = self.yesterday 
         trafficexpr = TrafficFilter("host 10/8")
         resolution = "15min"
         report = TrafficOverallTimeSeriesReport(self.profiler)
@@ -185,7 +188,7 @@ class ProfilerTests(unittest.TestCase):
                    self.profiler.columns.value.s2c_total_pkts,
                    self.profiler.columns.value.response_time,
                    self.profiler.columns.value.server_delay]
-        timerange = TimeFilter.parse_range("last 1 h")
+        timerange = self.yesterday
         trafficexpr = TrafficFilter("host 10/8")
 
         with TrafficFlowListReport(self.profiler) as report:
@@ -201,7 +204,7 @@ class ProfilerTests(unittest.TestCase):
 
     @testvcr.use_cassette()
     def test_identity_report(self):
-        timerange = TimeFilter.parse_range('last 30 m')
+        timerange = self.yesterday
 
         with IdentityReport(self.profiler) as report:
             report.run(timefilter=timerange)
@@ -223,7 +226,7 @@ class ProfilerTests(unittest.TestCase):
                    self.profiler.columns.value.avg_pkts]
         sort_col = self.profiler.columns.value.avg_bytes
 
-        timerange = TimeFilter.parse_range("last 1 h")
+        timerange = self.yesterday
         trafficexpr = TrafficFilter("host 10/8")
 
         report = TrafficSummaryReport(self.profiler)
@@ -283,7 +286,7 @@ class ProfilerTests(unittest.TestCase):
                    self.profiler.columns.value.avg_bytes,
                    self.profiler.columns.value.avg_pkts]
         sort_col = self.profiler.columns.value.avg_bytes
-        timerange = TimeFilter.parse_range("last 1 h")
+        timerange = self.yesterday
         trafficexpr = TrafficFilter("host 10/8")
         area = self.profiler.areas.vxlan_tenant
         with TrafficSummaryReport(self.profiler) as rep:

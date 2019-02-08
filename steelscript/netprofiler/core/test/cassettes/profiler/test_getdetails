@@ -6,7 +6,7 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
+      Cookie: [SESSID=3f99fadf52935eb644e267746a68b127f071f8e76c741d06c5d31f2f5d9f70a6]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
     uri: https://10.38.131.150/api/profiler/1.0/devices
@@ -105,7 +105,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 21:11:52 GMT']
+      Date: ['Fri, 08 Feb 2019 19:16:30 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -121,7 +121,7 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=0a3de32137447a1fc81dc65fa51a8ab2388a36da05dfc50f2523106ea6297e1c]
+      Cookie: [SESSID=3f99fadf52935eb644e267746a68b127f071f8e76c741d06c5d31f2f5d9f70a6]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
     uri: https://10.38.131.150/api/profiler/1.0/devices/10.100.5.13.json
@@ -136,7 +136,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 21:11:52 GMT']
+      Date: ['Fri, 08 Feb 2019 19:16:30 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]

@@ -1,19 +1,19 @@
 interactions:
 - request:
-    body: '{"name": "TestType4057", "config": [{"name": "Test0", "cidr": "10.10.21.0/24"},
+    body: '{"description": "", "config": [{"name": "Test0", "cidr": "10.10.21.0/24"},
       {"name": "Test0", "cidr": "10.90.11.0/24"}, {"name": "Test1", "cidr": "10.91.11.0/24"},
       {"name": "Test2", "cidr": "10.92.11.0/24"}, {"name": "Test3", "cidr": "10.93.11.0/24"},
       {"name": "Test4", "cidr": "10.94.11.0/24"}, {"name": "Test5", "cidr": "10.95.11.0/24"},
       {"name": "Test6", "cidr": "10.96.11.0/24"}, {"name": "Test7", "cidr": "10.97.11.0/24"},
       {"name": "Test8", "cidr": "10.98.11.0/24"}, {"name": "Test9", "cidr": "10.99.11.0/24"}],
-      "description": "", "favorite": false}'
+      "name": "TestType4057", "favorite": false}'
     headers:
       Accept: [application/json]
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Length: ['558']
       Content-Type: [application/json]
-      Cookie: [SESSID=4cdc655be46efbc93a7d3969b58df645f3eeae464d80c5fafaab13d5b93109b3]
+      Cookie: [SESSID=ac77ad72a7c8de2ca5cc59e31ddb1530d02dd1f99fa6b0b8b29de234cb4c86bc]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: POST
     uri: https://10.38.131.150/api/profiler/1.2/host_group_types
@@ -27,7 +27,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Thu, 07 Feb 2019 21:12:31 GMT']
+      Date: ['Fri, 08 Feb 2019 19:17:10 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Location: [/api/profiler/1.2/host_group_types/111]
@@ -45,7 +45,7 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['0']
       Content-Type: [application/json]
-      Cookie: [SESSID=4cdc655be46efbc93a7d3969b58df645f3eeae464d80c5fafaab13d5b93109b3]
+      Cookie: [SESSID=ac77ad72a7c8de2ca5cc59e31ddb1530d02dd1f99fa6b0b8b29de234cb4c86bc]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: DELETE
     uri: https://10.38.131.150/api/profiler/1.2/host_group_types/111
@@ -57,7 +57,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [text/html;charset=ascii]
-      Date: ['Thu, 07 Feb 2019 21:12:31 GMT']
+      Date: ['Fri, 08 Feb 2019 19:17:11 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
