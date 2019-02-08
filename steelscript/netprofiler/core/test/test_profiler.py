@@ -16,6 +16,7 @@ from steelscript.netprofiler.core.report import (WANSummaryReport, WANTimeSeries
 
 import os
 import vcr
+import pytest
 import unittest
 import logging
 import datetime
@@ -23,7 +24,7 @@ import datetime
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG,
-                    format="%(asctime)s [%(levelname)-5.5s] %(msg)s")
+                    format="%(asctime)s [%(levelname)-5.5s] %(message)s")
 
 curdir = os.path.dirname(os.path.abspath(__file__))
 cassette_dir = os.path.join(curdir, 'cassettes', 'profiler')
@@ -41,9 +42,9 @@ class ProfilerTests(unittest.TestCase):
     @testvcr.use_cassette()
     def setUp(self):
         self.profiler = create_profiler()
-        # y = datetime.datetime.now() - datetime.timedelta(days=1)
-        # yesterday_at_4 = datetime.datetime(y.year, y.month, y.day, hour=16, minute=0, microsecond=1)
-        # yesterday_at_5 = datetime.datetime(y.year, y.month, y.day, hour=17, minute=0, microsecond=1)
+        #y = datetime.datetime.now() - datetime.timedelta(days=1)
+        #yesterday_at_4 = datetime.datetime(y.year, y.month, y.day, hour=16, minute=0, microsecond=1)
+        #yesterday_at_5 = datetime.datetime(y.year, y.month, y.day, hour=17, minute=0, microsecond=1)
         yesterday_at_4 = datetime.datetime(year=2019, month=2, day=8, hour=16, minute=0, microsecond=1)
         yesterday_at_5 = datetime.datetime(year=2019, month=2, day=8, hour=17, minute=0, microsecond=1)
         self.yesterday = TimeFilter(yesterday_at_4, yesterday_at_5)
@@ -294,7 +295,7 @@ class ProfilerTests(unittest.TestCase):
                     sort_col, timerange,
                     trafficexpr, area=area)
 
-    @testvcr.use_cassette()
+    @pytest.mark.skip(reason="removing this code later")
     def test_wan_time_series_report(self):
         # WAN reports depend on pandas module, so skip if we don't have it
         try:
@@ -335,7 +336,7 @@ class ProfilerTests(unittest.TestCase):
             self.assertEqual(outbound.shape, (60,4))
             self.assertTrue(all(outbound.LAN_avg_bytes > outbound.WAN_avg_bytes))
 
-    @testvcr.use_cassette()
+    @pytest.mark.skip(reason="removing this code later")
     def test_wan_time_summary_report(self):
         # WAN reports depend on pandas module, so skip if we don't have it
         try:

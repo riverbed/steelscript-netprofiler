@@ -1,23 +1,23 @@
 interactions:
 - request:
-    body: '{"criteria": {"traffic_expression": "host 10/8", "query": {"group_by":
-      "hos", "realm": "traffic_flow_list", "centricity": "hos", "columns": [9, 52,
-      40, 41, 48, 49, 281, 282]}, "time_frame": {"start": 1549641600, "end": 1549645200}},
-      "template_id": 184}'
+    body: '{"template_id": 184, "criteria": {"time_frame": {"end": 1549645200, "start":
+      1549641600}, "query": {"realm": "traffic_flow_list", "columns": [9, 52, 40,
+      41, 48, 49, 281, 282], "group_by": "hos", "centricity": "hos"}, "traffic_expression":
+      "host 10/8"}}'
     headers:
       Accept: [application/json]
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Length: ['252']
       Content-Type: [application/json]
-      Cookie: [SESSID=3f99fadf52935eb644e267746a68b127f071f8e76c741d06c5d31f2f5d9f70a6]
+      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: POST
     uri: https://10.38.131.150/api/profiler/1.0/reporting/reports
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 71026,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549653412,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 71136,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549663144,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -26,10 +26,10 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 19:16:52 GMT']
+      Date: ['Fri, 08 Feb 2019 21:59:04 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
-      Location: [/api/profiler/1.0/reporting/reports/71026]
+      Location: [/api/profiler/1.0/reporting/reports/71136]
       Server: [Apache]
       Strict-Transport-Security: [max-age=31536000; includeSubDomains]
       X-Content-Type-Options: [nosniff]
@@ -43,14 +43,14 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=3f99fadf52935eb644e267746a68b127f071f8e76c741d06c5d31f2f5d9f70a6]
+      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71026.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71136.json
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 71026,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549653412,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 71136,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549663144,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -59,7 +59,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 19:16:53 GMT']
+      Date: ['Fri, 08 Feb 2019 21:59:04 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -75,23 +75,23 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=3f99fadf52935eb644e267746a68b127f071f8e76c741d06c5d31f2f5d9f70a6]
+      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71026.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71136.json
   response:
     body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
-        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 71026,\n\t\"remaining_seconds\": 11,\n\
-        \t\"run_time\": 1549653412,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 71136,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549663144,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
       Connection: [Keep-Alive]
-      Content-Length: ['201']
+      Content-Length: ['200']
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 19:16:54 GMT']
+      Date: ['Fri, 08 Feb 2019 21:59:05 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -107,14 +107,14 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=3f99fadf52935eb644e267746a68b127f071f8e76c741d06c5d31f2f5d9f70a6]
+      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71026.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71136.json
   response:
     body: {string: "{\n\t\"status\": \"completed\",\n\t\"user_id\": 1,\n\t\"name\"\
-        : \"\",\n\t\"percent\": 100,\n\t\"id\": 71026,\n\t\"remaining_seconds\": 0,\n\
-        \t\"run_time\": 1549653412,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        : \"\",\n\t\"percent\": 100,\n\t\"id\": 71136,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549663144,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
         \t\"error_text\": \"\",\n\t\"size\": 3412\n}"}
     headers:
       Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
@@ -123,7 +123,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 19:16:55 GMT']
+      Date: ['Fri, 08 Feb 2019 21:59:06 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -139,10 +139,10 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=3f99fadf52935eb644e267746a68b127f071f8e76c741d06c5d31f2f5d9f70a6]
+      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71026/queries.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71136/queries.json
   response:
     body: {string: "[\n\t{\n\t\t\"direction\": \"none\",\n\t\t\"actual_log\": \"flow\"\
         ,\n\t\t\"actual_t0\": 1549641600,\n\t\t\"sort_desc\": true,\n\t\t\"area\"\
@@ -694,7 +694,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 19:16:55 GMT']
+      Date: ['Fri, 08 Feb 2019 21:59:06 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -710,10 +710,10 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=3f99fadf52935eb644e267746a68b127f071f8e76c741d06c5d31f2f5d9f70a6]
+      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
-    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71026/queries/0:flw_hos_non_non_non_non_non_non_non_0_d_-1_da8a7024e9c6032ddaef77771291fcd8.json?columns=9%2C52%2C40%2C41%2C48%2C49%2C281%2C282
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71136/queries/0:flw_hos_non_non_non_non_non_non_non_0_d_-1_da8a7024e9c6032ddaef77771291fcd8.json?columns=9%2C52%2C40%2C41%2C48%2C49%2C281%2C282
   response:
     body: {string: "{\n\t\"actual_start_time\": 1549641600,\n\t\"actual_end_time\"\
         : 1549645200,\n\t\"data\": [\n\t\t[\n\t\t\t\"65.99.105.99\",\n\t\t\t\"BitTorrent\"\
@@ -24886,7 +24886,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 19:16:55 GMT']
+      Date: ['Fri, 08 Feb 2019 21:59:06 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -24903,10 +24903,10 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['0']
       Content-Type: [application/json]
-      Cookie: [SESSID=3f99fadf52935eb644e267746a68b127f071f8e76c741d06c5d31f2f5d9f70a6]
+      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: DELETE
-    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71026.json
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71136.json
   response:
     body: {string: ''}
     headers:
@@ -24915,7 +24915,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [text/html;charset=ascii]
-      Date: ['Fri, 08 Feb 2019 19:16:57 GMT']
+      Date: ['Fri, 08 Feb 2019 21:59:08 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]

@@ -1,13 +1,13 @@
 interactions:
 - request:
-    body: '{"description": "", "config": [], "name": "TestType4057", "favorite": false}'
+    body: '{"favorite": false, "config": [], "description": "", "name": "TestType4057"}'
     headers:
       Accept: [application/json]
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Length: ['76']
       Content-Type: [application/json]
-      Cookie: [SESSID=ac77ad72a7c8de2ca5cc59e31ddb1530d02dd1f99fa6b0b8b29de234cb4c86bc]
+      Cookie: [SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: POST
     uri: https://10.38.131.150/api/profiler/1.2/host_group_types
@@ -21,7 +21,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 19:17:09 GMT']
+      Date: ['Fri, 08 Feb 2019 21:58:40 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Location: [/api/profiler/1.2/host_group_types/111]
@@ -38,7 +38,7 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=ac77ad72a7c8de2ca5cc59e31ddb1530d02dd1f99fa6b0b8b29de234cb4c86bc]
+      Cookie: [SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
     uri: https://10.38.131.150/api/profiler/1.2/host_group_types
@@ -95,7 +95,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 19:17:09 GMT']
+      Date: ['Fri, 08 Feb 2019 21:58:40 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -111,7 +111,7 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=ac77ad72a7c8de2ca5cc59e31ddb1530d02dd1f99fa6b0b8b29de234cb4c86bc]
+      Cookie: [SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
     uri: https://10.38.131.150/api/profiler/1.2/host_group_types/111
@@ -125,7 +125,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 19:17:09 GMT']
+      Date: ['Fri, 08 Feb 2019 21:58:40 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -141,7 +141,7 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Cookie: [SESSID=ac77ad72a7c8de2ca5cc59e31ddb1530d02dd1f99fa6b0b8b29de234cb4c86bc]
+      Cookie: [SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: GET
     uri: https://10.38.131.150/api/profiler/1.2/host_group_types/111/config
@@ -155,7 +155,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 19:17:09 GMT']
+      Date: ['Fri, 08 Feb 2019 21:58:40 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]
@@ -172,7 +172,7 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['0']
       Content-Type: [application/json]
-      Cookie: [SESSID=ac77ad72a7c8de2ca5cc59e31ddb1530d02dd1f99fa6b0b8b29de234cb4c86bc]
+      Cookie: [SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f]
       User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
     method: DELETE
     uri: https://10.38.131.150/api/profiler/1.2/host_group_types/111
@@ -184,7 +184,7 @@ interactions:
       Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
           frame-ancestors ''self''']
       Content-Type: [text/html;charset=ascii]
-      Date: ['Fri, 08 Feb 2019 19:17:09 GMT']
+      Date: ['Fri, 08 Feb 2019 21:58:40 GMT']
       Expires: ['0']
       Keep-Alive: [timeout=90]
       Server: [Apache]

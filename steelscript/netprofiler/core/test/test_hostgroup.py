@@ -19,7 +19,7 @@ import unittest
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG,
-                    format="%(asctime)s [%(levelname)-5.5s] %(msg)s")
+                    format="%(asctime)s [%(levelname)-5.5s] %(message)s")
 
 curdir = os.path.dirname(os.path.abspath(__file__))
 cassette_dir = os.path.join(curdir, 'cassettes', 'hostgroup')
