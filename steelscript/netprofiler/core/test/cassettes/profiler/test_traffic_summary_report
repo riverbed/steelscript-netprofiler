@@ -1,0 +1,2328 @@
+interactions:
+- request:
+    body: '{"template_id": 184, "criteria": {"time_frame": {"end": 1549645200, "start":
+      1549641600}, "query": {"sort_column": 33, "realm": "traffic_summary", "columns":
+      [5, 33, 34], "group_by": "hos", "centricity": "hos"}, "traffic_expression":
+      "host 10/8"}}'
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['247']
+      Content-Type: [application/json]
+      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: POST
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports
+  response:
+    body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 71138,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549663155,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['200']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Fri, 08 Feb 2019 21:59:15 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Location: [/api/profiler/1.0/reporting/reports/71138]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71138.json
+  response:
+    body: {string: "{\n\t\"status\": \"running\",\n\t\"user_id\": 1,\n\t\"name\":\
+        \ \"\",\n\t\"percent\": 0,\n\t\"id\": 71138,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549663155,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \t\"error_text\": \"\",\n\t\"size\": 0\n}"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['200']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Fri, 08 Feb 2019 21:59:15 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71138.json
+  response:
+    body: {string: "{\n\t\"status\": \"completed\",\n\t\"user_id\": 1,\n\t\"name\"\
+        : \"\",\n\t\"percent\": 100,\n\t\"id\": 71138,\n\t\"remaining_seconds\": 0,\n\
+        \t\"run_time\": 1549663155,\n\t\"saved\": false,\n\t\"template_id\": 184,\n\
+        \t\"error_text\": \"\",\n\t\"size\": 92\n}"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['205']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Fri, 08 Feb 2019 21:59:16 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71138/queries.json
+  response:
+    body: {string: "[\n\t{\n\t\t\"direction\": \"none\",\n\t\t\"actual_log\": \"host-pair-appd/5min\"\
+        ,\n\t\t\"actual_t0\": 1549641600,\n\t\t\"sort_desc\": true,\n\t\t\"area\"\
+        : \"none\",\n\t\t\"metric\": \"none\",\n\t\t\"sort_col\": 33,\n\t\t\"parent_id\"\
+        : \"\",\n\t\t\"rate\": \"none\",\n\t\t\"group_by\": \"hos\",\n\t\t\"role\"\
+        : \"none\",\n\t\t\"columns\": [\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_HOST_IP\"\
+        ,\n\t\t\t\t\"metric\": \"none\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"\
+        statistic\": \"none\",\n\t\t\t\t\"id\": 5,\n\t\t\t\t\"unit\": \"none\",\n\t\
+        \t\t\t\"category\": \"info\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"ipaddr\",\n\t\t\t\t\
+        \"available\": true,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": false,\n\t\t\t\t\"name\": \"Host IP\",\n\
+        \t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\
+        \t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"string\"\n\t\t\t},\n\t\
+        \t\t{\n\t\t\t\t\"strid\": \"ID_HOST_MAC\",\n\t\t\t\t\"metric\": \"none\",\n\
+        \t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"none\",\n\t\t\t\t\"\
+        id\": 7,\n\t\t\t\t\"unit\": \"none\",\n\t\t\t\t\"category\": \"info\",\n\t\
+        \t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\"\
+        : false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"mac\",\n\t\t\t\t\"available\": true,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": false,\n\
+        \t\t\t\t\"name\": \"MAC\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\
+        \t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"string\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_HOST_SWITCH\",\n\t\
+        \t\t\t\"metric\": \"none\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"none\",\n\t\t\t\t\"id\": 8,\n\t\t\t\t\"unit\": \"none\",\n\t\t\t\t\"category\"\
+        : \"info\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"switch_port\",\n\t\t\t\t\"available\": true,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": false,\n\t\t\t\t\"name\": \"Host Switch IP Info\",\n\t\t\t\
+        \t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\
+        \"context\": false,\n\t\t\t\t\"name_type\": \"string\"\n\t\t\t},\n\t\t\t{\n\
+        \t\t\t\t\"strid\": \"ID_HOST_DNS\",\n\t\t\t\t\"metric\": \"none\",\n\t\t\t\
+        \t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"none\",\n\t\t\t\t\"id\": 6,\n\
+        \t\t\t\t\"unit\": \"none\",\n\t\t\t\t\"category\": \"key\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"host_parts\",\n\t\t\t\t\"available\": true,\n\t\t\t\t\"direction\": \"\
+        none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": false,\n\
+        \t\t\t\t\"name\": \"Host\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\
+        \t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"string\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_GROUP_NAME\",\n\t\
+        \t\t\t\"metric\": \"none\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"none\",\n\t\t\t\t\"id\": 23,\n\t\t\t\t\"unit\": \"none\",\n\t\t\t\t\"\
+        category\": \"info\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"group_parts\",\n\t\t\t\t\
+        \"available\": true,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": false,\n\t\t\t\t\"name\": \"Group\",\n\t\
+        \t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\
+        \t\t\"context\": false,\n\t\t\t\t\"name_type\": \"string\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_TOTAL_BYTES\",\n\t\t\t\t\"metric\": \"net_bw\"\
+        ,\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\
+        \t\"id\": 30,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\": true,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Total Bytes\",\n\t\t\t\t\"comparison_parameter\": \"\"\
+        ,\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"\
+        name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_TOTAL_BYTES_RTX\"\
+        ,\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"\
+        statistic\": \"total\",\n\t\t\t\t\"id\": 395,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\
+        \t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Total Retrans\
+        \ Bytes\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_TOTAL_BYTES_APP\",\n\t\t\t\t\"\
+        metric\": \"app\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"\
+        total\",\n\t\t\t\t\"id\": 493,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\": false,\n\t\
+        \t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Total App Bytes\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_TOTAL_PKTS\",\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"\
+        count\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\t\"id\": 31,\n\t\t\t\t\
+        \"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"int\",\n\t\t\t\t\"available\": true,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Total Packets\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\
+        \t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_TOTAL_PKTS_RTX\"\
+        ,\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"\
+        statistic\": \"total\",\n\t\t\t\t\"id\": 396,\n\t\t\t\t\"unit\": \"pkts\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\
+        \t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Total Retrans\
+        \ Packets\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_TOTAL_CONNS_NEW\",\n\t\t\t\t\"\
+        metric\": \"new\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"\
+        total\",\n\t\t\t\t\"id\": 32,\n\t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\": false,\n\t\
+        \t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Total New Connections\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_TOTAL_CONNS_ACTIVE\",\n\t\t\t\t\"metric\": \"\
+        active\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"total\"\
+        ,\n\t\t\t\t\"id\": 526,\n\t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\": false,\n\t\
+        \t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Total Active Connections\",\n\t\t\
+        \t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\
+        \t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\
+        \t\t\t{\n\t\t\t\t\"strid\": \"ID_TOTAL_CONNS_RSTS\",\n\t\t\t\t\"metric\":\
+        \ \"resets\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"total\"\
+        ,\n\t\t\t\t\"id\": 294,\n\t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\": false,\n\t\
+        \t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Total Resets\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_AVG_BYTES\",\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"\
+        persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 33,\n\t\t\t\t\"\
+        unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": true,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Avg Bytes/s\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\
+        \t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_BYTES_RTX\"\
+        ,\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"\
+        statistic\": \"avg\",\n\t\t\t\t\"id\": 391,\n\t\t\t\t\"unit\": \"bytes\",\n\
+        \t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\
+        \"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Retrans\
+        \ Bytes/s\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_BYTES_APP\",\n\t\t\t\t\"\
+        metric\": \"app\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\":\
+        \ \"avg\",\n\t\t\t\t\"id\": 504,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg App Bytes/s\",\n\t\
+        \t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\
+        \t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_BYTES_PERSECCONN\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\": \"\
+        avg\",\n\t\t\t\t\"id\": 556,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Bytes/s per Conn\",\n\t\t\t\
+        \t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\
+        \"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\
+        \t\t{\n\t\t\t\t\"strid\": \"ID_AVG_BYTES_APP_PERSECCONN\",\n\t\t\t\t\"metric\"\
+        : \"app\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 578,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg App Bytes/s per Conn\",\n\t\
+        \t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\
+        \t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_PKTS\",\n\t\t\t\t\"metric\": \"net_bw\"\
+        ,\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\
+        \"id\": 34,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\
+        \t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\"\
+        : false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"float\",\n\t\t\t\t\"available\": true,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Avg Packets/s\",\n\t\t\t\t\"comparison_parameter\": \"\
+        \",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\
+        \"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"\
+        ID_AVG_PKTS_RTX\",\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"persec\"\
+        ,\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 392,\n\t\t\t\t\"unit\"\
+        : \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\"\
+        ,\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\"\
+        : \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\
+        \t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Avg Retrans Packets/s\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\
+        \"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_CONNS_NEW\"\
+        ,\n\t\t\t\t\"metric\": \"new\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"\
+        statistic\": \"avg\",\n\t\t\t\t\"id\": 35,\n\t\t\t\t\"unit\": \"conns\",\n\
+        \t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\
+        \"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg New Connections/s\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_CONNS_ACTIVE\",\n\t\t\t\t\"metric\"\
+        : \"active\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 532,\n\t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Active Connections/s\",\n\t\
+        \t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\
+        \t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_CONNS_RSTS\",\n\t\t\t\t\"metric\"\
+        : \"resets\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 421,\n\t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Resets/s\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_BYTES\",\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"\
+        persec\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 36,\n\t\t\t\t\
+        \"unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Peak Bytes/s\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\
+        \t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_BYTES_RTX\"\
+        ,\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"\
+        statistic\": \"peak\",\n\t\t\t\t\"id\": 393,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Retrans\
+        \ Bytes/s\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_BYTES_APP\",\n\t\t\t\t\"\
+        metric\": \"app\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\":\
+        \ \"peak\",\n\t\t\t\t\"id\": 515,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak App Bytes/s\",\n\t\
+        \t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\
+        \t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_BYTES_PERSECCONN\",\n\t\t\t\t\"\
+        metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 567,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Bytes/s per Conn\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_BYTES_APP_PERSECCONN\",\n\t\t\t\
+        \t\"metric\": \"app\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 594,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak App Bytes/s per Conn\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_PKTS\",\n\t\t\t\t\"metric\": \"\
+        net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 37,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Packets/s\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_PKTS_RTX\",\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"\
+        persec\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 394,\n\t\t\t\t\
+        \"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Peak Retrans Packets/s\",\n\t\t\t\t\"comparison_parameter\": \"\
+        \",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\
+        \"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"\
+        ID_PEAK_CONNS_NEW\",\n\t\t\t\t\"metric\": \"new\",\n\t\t\t\t\"rate\": \"persec\"\
+        ,\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 38,\n\t\t\t\t\"unit\"\
+        : \"conns\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\"\
+        ,\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\"\
+        : \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\
+        \t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Peak New Connections/s\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\
+        \t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_CONNS_ACTIVE\"\
+        ,\n\t\t\t\t\"metric\": \"active\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\
+        \"statistic\": \"peak\",\n\t\t\t\t\"id\": 538,\n\t\t\t\t\"unit\": \"conns\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Active\
+        \ Connections/s\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_CONNS_RSTS\",\n\t\t\t\t\"\
+        metric\": \"resets\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 422,\n\t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Resets/s\",\n\t\t\
+        \t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\
+        \t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\
+        \t\t\t{\n\t\t\t\t\"strid\": \"ID_TOTAL_BYTES_RTX_PCT\",\n\t\t\t\t\"metric\"\
+        : \"rtx\",\n\t\t\t\t\"rate\": \"pct\",\n\t\t\t\t\"statistic\": \"total\",\n\
+        \t\t\t\t\"id\": 450,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\":\
+        \ \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"% Retrans Bytes\",\n\t\t\t\t\"\
+        comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_TOTAL_PKTS_RTX_PCT\",\n\t\t\t\t\"metric\": \"\
+        rtx\",\n\t\t\t\t\"rate\": \"pct\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\
+        \t\t\"id\": 455,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"\
+        direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\"\
+        : true,\n\t\t\t\t\"name\": \"% Retrans Packets\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_TOTAL_CONNS_RSTS_PCT\",\n\t\t\t\t\"metric\": \"resets\",\n\t\t\t\t\"\
+        rate\": \"pct\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\t\"id\": 460,\n\
+        \t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"\
+        severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\":\
+        \ false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": false,\n\
+        \t\t\t\t\"name\": \"% Resets\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\
+        \t\t\t\t\"has_others\": true,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_NETWORK_RTT\"\
+        ,\n\t\t\t\t\"metric\": \"net_rtt\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\
+        \"statistic\": \"avg\",\n\t\t\t\t\"id\": 280,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Avg Net RTT (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_RESPONSE_TIME\",\n\t\t\t\t\"\
+        metric\": \"resp_tm\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 281,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Resp Time (ms)\",\n\
+        \t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\
+        \t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_SERVER_DELAY\",\n\t\t\t\t\"metric\":\
+        \ \"srv_delay\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"\
+        avg\",\n\t\t\t\t\"id\": 282,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Server Delay (ms)\",\n\t\t\t\
+        \t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\
+        \"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\
+        \t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_RSEC_NETWORK_RTT\",\n\t\t\t\t\"metric\"\
+        : \"net_rtt\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 466,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Net RTT (ms)\",\n\t\t\t\t\"\
+        comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_PEAK_RSEC_RESPONSE_TIME\",\n\t\t\t\t\"metric\"\
+        : \"resp_tm\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 467,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Resp Time (ms)\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_PEAK_RSEC_SERVER_DELAY\",\n\t\t\t\t\"metric\"\
+        : \"srv_delay\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"\
+        peak\",\n\t\t\t\t\"id\": 468,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Server Delay (ms)\",\n\t\t\
+        \t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\
+        \t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\
+        \t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_RSEC_PERCONN\",\n\t\t\t\t\"metric\":\
+        \ \"net_bw\",\n\t\t\t\t\"rate\": \"perconn\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 548,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Conn Duration\",\n\t\t\t\t\"\
+        comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_PEAK_RSEC_PERCONN\",\n\t\t\t\t\"metric\": \"\
+        net_bw\",\n\t\t\t\t\"rate\": \"perconn\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 554,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Conn Duration\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_CLIENT_DELAY\",\n\t\t\t\t\"metric\": \"cli_delay\"\
+        ,\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\
+        \"id\": 612,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\
+        \"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\"\
+        : true,\n\t\t\t\t\"name\": \"Avg Client Delay (ms)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_RSEC_CLIENT_DELAY\",\n\t\t\t\t\"metric\": \"cli_delay\",\n\t\t\
+        \t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\"\
+        : 613,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"data\",\n\t\t\
+        \t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\"\
+        : false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Peak Client Delay (ms)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_AVG_REQUEST_NETWORK_TIME\",\n\t\t\t\t\"metric\": \"req_net_tm\",\n\t\
+        \t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\"\
+        : 934,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"data\",\n\t\t\
+        \t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\"\
+        : false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Avg Req Network Time (ms)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_REQUEST_NETWORK_TIME\",\n\t\t\t\t\"metric\": \"req_net_tm\",\n\
+        \t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"\
+        id\": 935,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"data\",\n\
+        \t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\"\
+        : false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Peak Req Network Time (ms)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_AVG_RESPONSE_NETWORK_TIME\",\n\t\t\t\t\"metric\": \"rsp_net_tm\",\n\
+        \t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"\
+        id\": 936,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"data\",\n\
+        \t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\"\
+        : false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Avg Resp Network Time (ms)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_RESPONSE_NETWORK_TIME\",\n\t\t\t\t\"metric\": \"rsp_net_tm\",\n\
+        \t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"\
+        id\": 937,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"data\",\n\
+        \t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\"\
+        : false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Peak Resp Network Time (ms)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_AVG_TOTAL_TRANSACTION_TIME\",\n\t\t\t\t\"metric\": \"trans_tm\",\n\t\
+        \t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\"\
+        : 939,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"data\",\n\t\t\
+        \t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\"\
+        : false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Avg Total Transaction Time (ms)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_TOTAL_TRANSACTION_TIME\",\n\t\t\t\t\"metric\": \"trans_tm\",\n\
+        \t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"\
+        id\": 940,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"data\",\n\
+        \t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\"\
+        : false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Peak Total Transaction Time (ms)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_AVG_REQUEST_RETRANSMISSION_TIME\",\n\t\t\t\t\"metric\": \"req_tm\"\
+        ,\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\
+        \"id\": 941,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\
+        \"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\"\
+        : true,\n\t\t\t\t\"name\": \"Avg Req Retrans Time (ms)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_REQUEST_RETRANSMISSION_TIME\",\n\t\t\t\t\"metric\": \"req_tm\"\
+        ,\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\
+        \"id\": 942,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\
+        \"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\"\
+        : true,\n\t\t\t\t\"name\": \"Peak Req Retrans Time (ms)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_AVG_RESPONSE_RETRANSMISSION_TIME\",\n\t\t\t\t\"metric\": \"rsp_tm\"\
+        ,\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\
+        \"id\": 943,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\
+        \"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\"\
+        : true,\n\t\t\t\t\"name\": \"Avg Resp Retrans Time (ms)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_RESPONSE_RETRANSMISSION_TIME\",\n\t\t\t\t\"metric\": \"rsp_tm\"\
+        ,\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\
+        \"id\": 944,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\
+        \"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\"\
+        : true,\n\t\t\t\t\"name\": \"Peak Resp Retrans Time (ms)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_DSCP_LIST\",\n\t\t\t\t\"metric\": \"dscp_list\",\n\t\t\t\t\"rate\"\
+        : \"none\",\n\t\t\t\t\"statistic\": \"none\",\n\t\t\t\t\"id\": 982,\n\t\t\t\
+        \t\"unit\": \"none\",\n\t\t\t\t\"category\": \"info_data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"dscp_list\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"\
+        none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": false,\n\
+        \t\t\t\t\"name\": \"DSCP List\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\
+        \t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"string\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_EXP_LIST\",\n\t\t\
+        \t\t\"metric\": \"exp_list\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"none\",\n\t\t\t\t\"id\": 1001,\n\t\t\t\t\"unit\": \"none\",\n\t\t\t\t\"\
+        category\": \"info_data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\"\
+        : \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"exp_list\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": false,\n\t\t\t\t\"name\": \"EXP List\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"string\"\n\t\t\t},\n\
+        \t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_TOTAL_BYTES\",\n\t\t\t\t\"metric\": \"\
+        net_bw\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"total\"\
+        ,\n\t\t\t\t\"id\": 76,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\": false,\n\t\
+        \t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"\
+        sortable\": true,\n\t\t\t\t\"name\": \"Total Bytes (Rx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_IN_TOTAL_BYTES_RTX\",\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\"\
+        : \"count\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\t\"id\": 401,\n\t\t\
+        \t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"int\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"in\",\n\
+        \t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"\
+        name\": \"Total Retrans Bytes (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\
+        \",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\
+        \"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"\
+        ID_IN_TOTAL_BYTES_APP\",\n\t\t\t\t\"metric\": \"app\",\n\t\t\t\t\"rate\":\
+        \ \"count\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\t\"id\": 496,\n\t\t\
+        \t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"int\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"in\",\n\
+        \t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"\
+        name\": \"Total App Bytes (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\"\
+        ,\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"\
+        name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_TOTAL_PKTS\"\
+        ,\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\
+        \"statistic\": \"total\",\n\t\t\t\t\"id\": 77,\n\t\t\t\t\"unit\": \"pkts\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\
+        \t\"available\": false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Total Packets\
+        \ (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_TOTAL_PKTS_RTX\",\n\t\t\t\t\
+        \"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\"\
+        : \"total\",\n\t\t\t\t\"id\": 402,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Total Retrans Packets\
+        \ (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_TOTAL_CONNS_RSTS\",\n\t\t\t\
+        \t\"metric\": \"resets\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\"\
+        : \"total\",\n\t\t\t\t\"id\": 423,\n\t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\
+        \"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\"\
+        : \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Total Resets (Rx)\",\n\
+        \t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\
+        \t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_BYTES\",\n\t\t\t\t\"metric\":\
+        \ \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 79,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Avg Bytes/s (Rx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_IN_AVG_BYTES_RTX\",\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\"\
+        : \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 397,\n\t\t\
+        \t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"in\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Avg Retrans Bytes/s (Rx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_IN_AVG_BYTES_APP\",\n\t\t\t\t\"metric\": \"app\",\n\t\t\t\t\"rate\"\
+        : \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 507,\n\t\t\
+        \t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"in\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Avg App Bytes/s (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\"\
+        ,\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"\
+        name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_BYTES_PERSECCONN\"\
+        ,\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\
+        \t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 559,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Bytes/s\
+        \ per Conn (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_BYTES_APP_PERSECCONN\"\
+        ,\n\t\t\t\t\"metric\": \"app\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\
+        \t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 586,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg App Bytes/s\
+        \ per Conn (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_PKTS\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 80,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Avg Packets/s (Rx)\",\n\t\t\t\t\"\
+        comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_PKTS_RTX\",\n\t\t\t\t\"metric\": \"rtx\"\
+        ,\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\
+        \"id\": 398,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"\
+        direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\"\
+        : true,\n\t\t\t\t\"name\": \"Avg Retrans Packets/s (Rx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_IN_AVG_CONNS_RSTS\",\n\t\t\t\t\"metric\": \"resets\",\n\t\t\t\t\"rate\"\
+        : \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 427,\n\t\t\
+        \t\t\"unit\": \"conns\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"in\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Avg Resets/s (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\
+        \t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_BYTES\"\
+        ,\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\
+        \"statistic\": \"peak\",\n\t\t\t\t\"id\": 82,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Bytes/s\
+        \ (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_BYTES_RTX\",\n\t\t\t\t\
+        \"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 399,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Retrans Bytes/s (Rx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_BYTES_APP\",\n\t\t\t\t\"metric\"\
+        : \"app\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 518,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Peak App Bytes/s (Rx)\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_BYTES_PERSECCONN\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\": \"\
+        peak\",\n\t\t\t\t\"id\": 570,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Peak Bytes/s per Conn (Rx)\",\n\t\
+        \t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\
+        \t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_BYTES_APP_PERSECCONN\",\n\t\t\
+        \t\t\"metric\": \"app\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 597,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak App Bytes/s per Conn\
+        \ (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_PKTS\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 83,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Peak Packets/s (Rx)\",\n\t\t\t\t\"\
+        comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_PKTS_RTX\",\n\t\t\t\t\"metric\": \"rtx\"\
+        ,\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\
+        \t\"id\": 400,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"\
+        direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\"\
+        : true,\n\t\t\t\t\"name\": \"Peak Retrans Packets/s (Rx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_IN_PEAK_CONNS_RSTS\",\n\t\t\t\t\"metric\": \"resets\",\n\t\t\t\t\"\
+        rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 431,\n\
+        \t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"\
+        severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\":\
+        \ false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Peak Resets/s (Rx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_IN_TOTAL_BYTES_RTX_PCT\",\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"\
+        rate\": \"pct\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\t\"id\": 451,\n\
+        \t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"\
+        severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\":\
+        \ false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"% Retrans Bytes (Rx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_IN_TOTAL_PKTS_RTX_PCT\",\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"\
+        rate\": \"pct\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\t\"id\": 456,\n\
+        \t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"in\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"% Retrans Packets (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\
+        \",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\
+        \"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"\
+        ID_IN_TOTAL_CONNS_RSTS_PCT\",\n\t\t\t\t\"metric\": \"resets\",\n\t\t\t\t\"\
+        rate\": \"pct\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\t\"id\": 461,\n\
+        \t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"\
+        severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\":\
+        \ false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": false,\n\
+        \t\t\t\t\"name\": \"% Resets (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\
+        \",\n\t\t\t\t\"has_others\": true,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"\
+        name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_TOTAL_BYTES\"\
+        ,\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\
+        \"statistic\": \"total\",\n\t\t\t\t\"id\": 85,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\
+        \t\"available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Total Bytes\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_TOTAL_BYTES_RTX\",\n\t\t\t\
+        \t\"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\"\
+        : \"total\",\n\t\t\t\t\"id\": 407,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\
+        \"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\"\
+        : \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Total Retrans Bytes (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_TOTAL_BYTES_APP\",\n\t\t\t\t\"\
+        metric\": \"app\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"\
+        total\",\n\t\t\t\t\"id\": 497,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\": false,\n\t\
+        \t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Total App Bytes (Tx)\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_OUT_TOTAL_PKTS\",\n\t\t\t\t\"metric\": \"net_bw\"\
+        ,\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\
+        \t\"id\": 86,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Total Packets (Tx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_OUT_TOTAL_PKTS_RTX\",\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\"\
+        : \"count\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\t\"id\": 408,\n\t\t\
+        \t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"int\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"out\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Total Retrans Packets (Tx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_OUT_TOTAL_CONNS_RSTS\",\n\t\t\t\t\"metric\": \"resets\",\n\t\t\t\t\"\
+        rate\": \"count\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\t\"id\": 424,\n\
+        \t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"\
+        severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\":\
+        \ false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"int\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Total Resets (Tx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_OUT_AVG_BYTES\",\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\"\
+        : \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 88,\n\t\t\t\
+        \t\"unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"out\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Avg Bytes/s (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\
+        \t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_BYTES_RTX\"\
+        ,\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"\
+        statistic\": \"avg\",\n\t\t\t\t\"id\": 403,\n\t\t\t\t\"unit\": \"bytes\",\n\
+        \t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\
+        \"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Retrans\
+        \ Bytes/s (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_BYTES_APP\",\n\t\t\t\t\
+        \"metric\": \"app\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 508,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg App Bytes/s (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_BYTES_PERSECCONN\",\n\t\t\t\
+        \t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 560,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Bytes/s per Conn (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_BYTES_APP_PERSECCONN\",\n\t\
+        \t\t\t\"metric\": \"app\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"\
+        statistic\": \"avg\",\n\t\t\t\t\"id\": 587,\n\t\t\t\t\"unit\": \"bytes\",\n\
+        \t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\
+        \"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg App Bytes/s\
+        \ per Conn (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_PKTS\",\n\t\t\t\t\"metric\"\
+        : \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 89,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Packets/s (Tx)\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_PKTS_RTX\",\n\t\t\t\t\"metric\": \"rtx\"\
+        ,\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\
+        \"id\": 404,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\"\
+        ,\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"\
+        internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\"\
+        ,\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"\
+        direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\"\
+        : true,\n\t\t\t\t\"name\": \"Avg Retrans Packets/s (Tx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_OUT_AVG_CONNS_RSTS\",\n\t\t\t\t\"metric\": \"resets\",\n\t\t\t\t\"\
+        rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 428,\n\
+        \t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"\
+        severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\":\
+        \ false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Avg Resets/s (Tx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_OUT_PEAK_BYTES\",\n\t\t\t\t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\"\
+        : \"persec\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 91,\n\t\t\
+        \t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"out\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Peak Bytes/s (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\
+        \t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_BYTES_RTX\"\
+        ,\n\t\t\t\t\"metric\": \"rtx\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"\
+        statistic\": \"peak\",\n\t\t\t\t\"id\": 405,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Retrans\
+        \ Bytes/s (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_BYTES_APP\",\n\t\t\t\
+        \t\"metric\": \"app\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 519,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak App Bytes/s (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_BYTES_PERSECCONN\",\n\t\t\t\
+        \t\"metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 571,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Bytes/s per Conn\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_BYTES_APP_PERSECCONN\"\
+        ,\n\t\t\t\t\"metric\": \"app\",\n\t\t\t\t\"rate\": \"persecconn\",\n\t\t\t\
+        \t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 598,\n\t\t\t\t\"unit\": \"bytes\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\
+        \t\t\"available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak App Bytes/s\
+        \ per Conn (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_PKTS\",\n\t\t\t\t\"\
+        metric\": \"net_bw\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 92,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Packets/s (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_PKTS_RTX\",\n\t\t\t\t\"metric\"\
+        : \"rtx\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 406,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Retrans Packets/s (Tx)\",\n\
+        \t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\
+        \t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_CONNS_RSTS\",\n\t\t\t\t\"metric\"\
+        : \"resets\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 432,\n\t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Resets/s (Tx)\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_OUT_TOTAL_BYTES_RTX_PCT\",\n\t\t\t\t\"metric\"\
+        : \"rtx\",\n\t\t\t\t\"rate\": \"pct\",\n\t\t\t\t\"statistic\": \"total\",\n\
+        \t\t\t\t\"id\": 452,\n\t\t\t\t\"unit\": \"bytes\",\n\t\t\t\t\"category\":\
+        \ \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"% Retrans Bytes (Tx)\",\n\t\t\t\
+        \t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\
+        \"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\
+        \t\t{\n\t\t\t\t\"strid\": \"ID_OUT_TOTAL_PKTS_RTX_PCT\",\n\t\t\t\t\"metric\"\
+        : \"rtx\",\n\t\t\t\t\"rate\": \"pct\",\n\t\t\t\t\"statistic\": \"total\",\n\
+        \t\t\t\t\"id\": 457,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"\
+        data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\
+        \t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"% Retrans Packets (Tx)\",\n\t\t\
+        \t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\
+        \t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\
+        \t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_TOTAL_CONNS_RSTS_PCT\",\n\t\t\t\t\"metric\"\
+        : \"resets\",\n\t\t\t\t\"rate\": \"pct\",\n\t\t\t\t\"statistic\": \"total\"\
+        ,\n\t\t\t\t\"id\": 462,\n\t\t\t\t\"unit\": \"conns\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": false,\n\t\t\t\t\"name\": \"% Resets (Tx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": true,\n\t\t\t\t\"context\": false,\n\t\t\t\
+        \t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\":\
+        \ \"ID_TOTAL_PKTS_LOSS\",\n\t\t\t\t\"metric\": \"loss\",\n\t\t\t\t\"rate\"\
+        : \"count\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\t\"id\": 765,\n\t\t\
+        \t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"int\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Total RTP Loss Packets\",\n\t\t\t\t\"comparison_parameter\": \"\
+        \",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\
+        \"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"\
+        ID_TOTAL_PKTS_EXPECTED\",\n\t\t\t\t\"metric\": \"expected\",\n\t\t\t\t\"rate\"\
+        : \"count\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\t\"id\": 829,\n\t\t\
+        \t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"int\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Total RTP Expected Packets\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_AVG_PKTS_LOSS\",\n\t\t\t\t\"metric\": \"loss\",\n\t\t\t\t\"rate\":\
+        \ \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 757,\n\t\t\
+        \t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Avg RTP Loss Packets/s\",\n\t\t\t\t\"comparison_parameter\": \"\
+        \",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\
+        \"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"\
+        ID_AVG_PKTS_EXPECTED\",\n\t\t\t\t\"metric\": \"expected\",\n\t\t\t\t\"rate\"\
+        : \"persec\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"id\": 827,\n\t\t\
+        \t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Avg RTP Expected Packets/s\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_PKTS_LOSS\",\n\t\t\t\t\"metric\": \"loss\",\n\t\t\t\t\"rate\"\
+        : \"persec\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 764,\n\t\t\
+        \t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Peak RTP Loss Packets/s\",\n\t\t\t\t\"comparison_parameter\":\
+        \ \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_PKTS_EXPECTED\",\n\t\t\t\t\"metric\": \"expected\",\n\t\t\t\t\"\
+        rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 828,\n\
+        \t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"Peak RTP Expected Packets/s\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_TOTAL_PKTS_LOSS_PCT\",\n\t\t\t\t\"metric\": \"loss\",\n\t\t\t\t\"rate\"\
+        : \"pct\",\n\t\t\t\t\"statistic\": \"total\",\n\t\t\t\t\"id\": 766,\n\t\t\t\
+        \t\"unit\": \"pkts\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\"\
+        : \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\
+        \t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\"\
+        : \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\"\
+        ,\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\
+        \"name\": \"% RTP Loss Packets\",\n\t\t\t\t\"comparison_parameter\": \"\"\
+        ,\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"\
+        name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_RSEC_JITTER\"\
+        ,\n\t\t\t\t\"metric\": \"jitter\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\
+        \"statistic\": \"avg\",\n\t\t\t\t\"id\": 781,\n\t\t\t\t\"unit\": \"rsec\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\
+        \t\t\t\"available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"\
+        comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"\
+        Avg Jitter (ms)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_RSEC_JITTER\",\n\t\t\t\t\
+        \"metric\": \"jitter\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 789,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Jitter (ms)\",\n\t\
+        \t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\
+        \t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_AVG_VQUAL_RFACTOR\",\n\t\t\t\t\"metric\"\
+        : \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 794,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg R-Factor\",\n\t\t\t\
+        \t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\
+        \"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\
+        \t\t{\n\t\t\t\t\"strid\": \"ID_PEAK_VQUAL_RFACTOR\",\n\t\t\t\t\"metric\":\
+        \ \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 795,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak R-Factor\",\n\t\t\
+        \t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\
+        \t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\
+        \t\t\t{\n\t\t\t\t\"strid\": \"ID_MIN_VQUAL_RFACTOR\",\n\t\t\t\t\"metric\"\
+        : \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"min\"\
+        ,\n\t\t\t\t\"id\": 796,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Min R-Factor\",\n\t\t\t\
+        \t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\
+        \"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\
+        \t\t{\n\t\t\t\t\"strid\": \"ID_AVG_VQUAL_MOS\",\n\t\t\t\t\"metric\": \"mos\"\
+        ,\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"avg\",\n\t\t\t\t\"\
+        id\": 803,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\t\t\t\"category\": \"\
+        data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\
+        \t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg MOS\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_PEAK_VQUAL_MOS\",\n\t\t\t\t\"metric\": \"mos\",\n\t\t\t\t\"rate\":\
+        \ \"none\",\n\t\t\t\t\"statistic\": \"peak\",\n\t\t\t\t\"id\": 811,\n\t\t\t\
+        \t\"unit\": \"voice_quality\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"\
+        severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\":\
+        \ false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"none\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Peak MOS\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\
+        \t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\"\
+        : \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_MIN_VQUAL_MOS\"\
+        ,\n\t\t\t\t\"metric\": \"mos\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"min\",\n\t\t\t\t\"id\": 812,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Min MOS\",\n\
+        \t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\
+        \t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_TOTAL_PKTS_LOSS\",\n\t\t\t\t\"metric\"\
+        : \"loss\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"total\"\
+        ,\n\t\t\t\t\"id\": 775,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\": false,\n\t\
+        \t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"\
+        sortable\": true,\n\t\t\t\t\"name\": \"Total RTP Loss Packets (Rx)\",\n\t\t\
+        \t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\
+        \t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\
+        \t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_TOTAL_PKTS_EXPECTED\",\n\t\t\t\t\"metric\"\
+        : \"expected\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"total\"\
+        ,\n\t\t\t\t\"id\": 832,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\t\"available\": false,\n\t\
+        \t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"\
+        sortable\": true,\n\t\t\t\t\"name\": \"Total RTP Expected Packets (Rx)\",\n\
+        \t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\
+        \t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_PKTS_LOSS\",\n\t\t\t\t\"metric\"\
+        : \"loss\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 773,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Avg RTP Loss Packets/s (Rx)\",\n\t\
+        \t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\
+        \t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_PKTS_EXPECTED\",\n\t\t\t\t\"metric\"\
+        : \"expected\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"\
+        avg\",\n\t\t\t\t\"id\": 830,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Avg RTP Expected Packets/s (Rx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_PKTS_LOSS\",\n\t\t\t\t\"metric\"\
+        : \"loss\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\": \"peak\"\
+        ,\n\t\t\t\t\"id\": 774,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Peak RTP Loss Packets/s (Rx)\",\n\
+        \t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\
+        \t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_PKTS_EXPECTED\",\n\t\t\t\t\"\
+        metric\": \"expected\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 831,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak RTP Expected Packets/s\
+        \ (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_TOTAL_PKTS_LOSS_PCT\",\n\t\
+        \t\t\t\"metric\": \"loss\",\n\t\t\t\t\"rate\": \"pct\",\n\t\t\t\t\"statistic\"\
+        : \"total\",\n\t\t\t\t\"id\": 779,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"% RTP Loss Packets (Rx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_RSEC_JITTER\",\n\t\t\t\t\"metric\"\
+        : \"jitter\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 790,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Avg Jitter (ms) (Rx)\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_RSEC_JITTER\",\n\t\t\t\t\"metric\": \"\
+        jitter\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\": \"peak\",\n\
+        \t\t\t\t\"id\": 791,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"category\": \"\
+        data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\
+        \t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Peak Jitter (ms) (Rx)\",\n\t\t\t\t\
+        \"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"\
+        context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\
+        \t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_VQUAL_RFACTOR\",\n\t\t\t\t\"metric\":\
+        \ \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"avg\"\
+        ,\n\t\t\t\t\"id\": 797,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg R-Factor (Rx)\",\n\
+        \t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\t\
+        \t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\t\
+        },\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_VQUAL_RFACTOR\",\n\t\t\t\t\"\
+        metric\": \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 798,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak R-Factor\
+        \ (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_MIN_VQUAL_RFACTOR\",\n\t\t\
+        \t\t\"metric\": \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"min\",\n\t\t\t\t\"id\": 799,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Min R-Factor\
+        \ (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_AVG_VQUAL_MOS\",\n\t\t\t\t\
+        \"metric\": \"mos\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\":\
+        \ \"avg\",\n\t\t\t\t\"id\": 813,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg MOS (Rx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_IN_PEAK_VQUAL_MOS\",\n\t\t\t\t\"metric\"\
+        : \"mos\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"peak\",\n\
+        \t\t\t\t\"id\": 814,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\
+        \"sortable\": true,\n\t\t\t\t\"name\": \"Peak MOS (Rx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_IN_MIN_VQUAL_MOS\",\n\t\t\t\t\"metric\": \"mos\",\n\t\t\t\t\"rate\"\
+        : \"none\",\n\t\t\t\t\"statistic\": \"min\",\n\t\t\t\t\"id\": 815,\n\t\t\t\
+        \t\"unit\": \"voice_quality\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"\
+        severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\":\
+        \ false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"in\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Min MOS (Rx)\",\n\t\t\t\t\"comparison_parameter\": \"\"\
+        ,\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"\
+        name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_TOTAL_PKTS_LOSS\"\
+        ,\n\t\t\t\t\"metric\": \"loss\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"\
+        statistic\": \"total\",\n\t\t\t\t\"id\": 778,\n\t\t\t\t\"unit\": \"pkts\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\
+        \t\"available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Total RTP Loss\
+        \ Packets (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_TOTAL_PKTS_EXPECTED\",\n\t\
+        \t\t\t\"metric\": \"expected\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"\
+        statistic\": \"total\",\n\t\t\t\t\"id\": 835,\n\t\t\t\t\"unit\": \"pkts\"\
+        ,\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\
+        \t\"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"\
+        none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"int\",\n\t\t\t\
+        \t\"available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Total RTP Expected\
+        \ Packets (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_PKTS_LOSS\",\n\t\t\t\t\
+        \"metric\": \"loss\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 776,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg RTP Loss Packets/s\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_PKTS_EXPECTED\",\n\t\t\
+        \t\t\"metric\": \"expected\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 833,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg RTP Expected Packets/s\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_PKTS_LOSS\",\n\t\t\t\
+        \t\"metric\": \"loss\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 777,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak RTP Loss Packets/s\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_PKTS_EXPECTED\",\n\t\
+        \t\t\t\"metric\": \"expected\",\n\t\t\t\t\"rate\": \"persec\",\n\t\t\t\t\"\
+        statistic\": \"peak\",\n\t\t\t\t\"id\": 834,\n\t\t\t\t\"unit\": \"pkts\",\n\
+        \t\t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\
+        \"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak RTP Expected\
+        \ Packets/s (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_TOTAL_PKTS_LOSS_PCT\",\n\t\
+        \t\t\t\"metric\": \"loss\",\n\t\t\t\t\"rate\": \"pct\",\n\t\t\t\t\"statistic\"\
+        : \"total\",\n\t\t\t\t\"id\": 780,\n\t\t\t\t\"unit\": \"pkts\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"% RTP Loss Packets (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_RSEC_JITTER\",\n\t\t\t\t\"\
+        metric\": \"jitter\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 792,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg Jitter (ms) (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_RSEC_JITTER\",\n\t\t\t\t\"\
+        metric\": \"jitter\",\n\t\t\t\t\"rate\": \"count\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 793,\n\t\t\t\t\"unit\": \"rsec\",\n\t\t\t\t\"\
+        category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\":\
+        \ \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\
+        \t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"reltime\",\n\t\t\t\t\"available\"\
+        : false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\"\
+        ,\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak Jitter (ms) (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_VQUAL_RFACTOR\",\n\t\t\t\t\"\
+        metric\": \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"avg\",\n\t\t\t\t\"id\": 800,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg R-Factor\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_VQUAL_RFACTOR\",\n\t\
+        \t\t\t\"metric\": \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"peak\",\n\t\t\t\t\"id\": 801,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak R-Factor\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_MIN_VQUAL_RFACTOR\",\n\t\t\
+        \t\t\"metric\": \"r_factor\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\"\
+        : \"min\",\n\t\t\t\t\"id\": 802,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Min R-Factor\
+        \ (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\
+        \n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_AVG_VQUAL_MOS\",\n\t\t\t\t\
+        \"metric\": \"mos\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\":\
+        \ \"avg\",\n\t\t\t\t\"id\": 816,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\
+        \t\t\t\"category\": \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"\
+        area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"\
+        available\": false,\n\t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": true,\n\t\t\t\t\"name\": \"Avg MOS (Tx)\"\
+        ,\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\": false,\n\
+        \t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"colname_parts\"\n\t\t\
+        \t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_OUT_PEAK_VQUAL_MOS\",\n\t\t\t\t\"metric\"\
+        : \"mos\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"statistic\": \"peak\",\n\
+        \t\t\t\t\"id\": 817,\n\t\t\t\t\"unit\": \"voice_quality\",\n\t\t\t\t\"category\"\
+        : \"data\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\
+        \t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\"\
+        : \"none\",\n\t\t\t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\
+        \t\t\t\t\"direction\": \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\
+        \t\"sortable\": true,\n\t\t\t\t\"name\": \"Peak MOS (Tx)\",\n\t\t\t\t\"comparison_parameter\"\
+        : \"\",\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\
+        \t\t\"name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\"\
+        : \"ID_OUT_MIN_VQUAL_MOS\",\n\t\t\t\t\"metric\": \"mos\",\n\t\t\t\t\"rate\"\
+        : \"none\",\n\t\t\t\t\"statistic\": \"min\",\n\t\t\t\t\"id\": 818,\n\t\t\t\
+        \t\"unit\": \"voice_quality\",\n\t\t\t\t\"category\": \"data\",\n\t\t\t\t\"\
+        severity\": \"none\",\n\t\t\t\t\"area\": \"none\",\n\t\t\t\t\"internal\":\
+        \ false,\n\t\t\t\t\"role\": \"none\",\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\
+        \t\t\"type\": \"float\",\n\t\t\t\t\"available\": false,\n\t\t\t\t\"direction\"\
+        : \"out\",\n\t\t\t\t\"comparison\": \"none\",\n\t\t\t\t\"sortable\": true,\n\
+        \t\t\t\t\"name\": \"Min MOS (Tx)\",\n\t\t\t\t\"comparison_parameter\": \"\"\
+        ,\n\t\t\t\t\"has_others\": false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"\
+        name_type\": \"colname_parts\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"strid\": \"ID_HOST_SWITCH_DNS\"\
+        ,\n\t\t\t\t\"metric\": \"none\",\n\t\t\t\t\"rate\": \"none\",\n\t\t\t\t\"\
+        statistic\": \"none\",\n\t\t\t\t\"id\": 120,\n\t\t\t\t\"unit\": \"none\",\n\
+        \t\t\t\t\"category\": \"info\",\n\t\t\t\t\"severity\": \"none\",\n\t\t\t\t\
+        \"area\": \"none\",\n\t\t\t\t\"internal\": false,\n\t\t\t\t\"role\": \"none\"\
+        ,\n\t\t\t\t\"cli_srv\": \"none\",\n\t\t\t\t\"type\": \"switch_port\",\n\t\t\
+        \t\t\"available\": true,\n\t\t\t\t\"direction\": \"none\",\n\t\t\t\t\"comparison\"\
+        : \"none\",\n\t\t\t\t\"sortable\": false,\n\t\t\t\t\"name\": \"Host Switch\
+        \ Info\",\n\t\t\t\t\"comparison_parameter\": \"\",\n\t\t\t\t\"has_others\"\
+        : false,\n\t\t\t\t\"context\": false,\n\t\t\t\t\"name_type\": \"string\"\n\
+        \t\t\t}\n\t\t],\n\t\t\"statistic\": \"none\",\n\t\t\"type\": \"summary\",\n\
+        \t\t\"id\": \"0:sum_hos_non_non_non_non_non_non_non_33_d_-1_35410d83b5c5fec57b6a6880a5cd322d\"\
+        ,\n\t\t\"unit\": \"none\",\n\t\t\"actual_t1\": 1549645200\n\t}\n]"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['85688']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Fri, 08 Feb 2019 21:59:16 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71138/queries/0:sum_hos_non_non_non_non_non_non_non_33_d_-1_35410d83b5c5fec57b6a6880a5cd322d.json?columns=5%2C33%2C34
+  response:
+    body: {string: "{\n\t\"actual_start_time\": 1549641600,\n\t\"actual_end_time\"\
+        : 1549645200,\n\t\"data\": [\n\t\t[\n\t\t\t\"10.100.6.12\",\n\t\t\t\"398692.391667\"\
+        ,\n\t\t\t\"588.938611111\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.100.13\",\n\t\t\t\
+        \"253768.613056\",\n\t\t\t\"507.651111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.5.12\"\
+        ,\n\t\t\t\"195542.163889\",\n\t\t\t\"197.940277778\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.100.6.14\",\n\t\t\t\"155945.751667\",\n\t\t\t\"387.585555556\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.100.100.14\",\n\t\t\t\"147043.972222\",\n\t\t\t\"367.829444444\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.6.10\",\n\t\t\t\"119389.285556\",\n\t\t\t\"\
+        203.592222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.5.11\",\n\t\t\t\"100663.370833\"\
+        ,\n\t\t\t\"76.9141666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.6.11\",\n\t\t\t\"\
+        89344.8277778\",\n\t\t\t\"149.966111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.120.108\"\
+        ,\n\t\t\t\"53357.4283333\",\n\t\t\t\"51.1219444444\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.100.201.34\",\n\t\t\t\"52774.5466667\",\n\t\t\t\"405.406666667\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.100.201.21\",\n\t\t\t\"52023.7580556\",\n\t\t\t\"47.3158333333\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.201.20\",\n\t\t\t\"49798.3319444\",\n\t\t\t\
+        \"45.2586111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.30\",\n\t\t\t\"38075.4775\"\
+        ,\n\t\t\t\"257.521111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.202.1\",\n\t\t\t\
+        \"37526.5652778\",\n\t\t\t\"336.019166667\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.32\"\
+        ,\n\t\t\t\"36357.9055556\",\n\t\t\t\"245.311111111\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.100.6.13\",\n\t\t\t\"34072.0875\",\n\t\t\t\"30.2591666667\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.100.100.12\",\n\t\t\t\"33278.7522222\",\n\t\t\t\"221.483888889\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.210.10\",\n\t\t\t\"31979.7222222\",\n\t\t\t\
+        \"30.1719444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.70\",\n\t\t\t\"29851.5433333\"\
+        ,\n\t\t\t\"27.1419444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.202.3\",\n\t\t\t\
+        \"29153.0325\",\n\t\t\t\"284.154444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.202.2\"\
+        ,\n\t\t\t\"28506.2019444\",\n\t\t\t\"277.839166667\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.100.5.10\",\n\t\t\t\"27094.9697222\",\n\t\t\t\"25.5127777778\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.100.201.90\",\n\t\t\t\"24199.2572222\",\n\t\t\t\"74.4247222222\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.201.91\",\n\t\t\t\"23857.4988889\",\n\t\t\t\
+        \"73.3663888889\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.120.110\",\n\t\t\t\"22682.5908333\"\
+        ,\n\t\t\t\"36.9805555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.120.111\",\n\t\t\
+        \t\"22606.9930556\",\n\t\t\t\"36.3483333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.120.100\"\
+        ,\n\t\t\t\"22082.5147222\",\n\t\t\t\"21.8847222222\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.100.201.31\",\n\t\t\t\"22054.5291667\",\n\t\t\t\"95.5730555556\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.100.201.10\",\n\t\t\t\"21967.3941667\",\n\t\t\t\"21.1019444444\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.201.33\",\n\t\t\t\"21581.9502778\",\n\t\t\t\
+        \"97.8\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.11\",\n\t\t\t\"20543.0616667\"\
+        ,\n\t\t\t\"19.6291666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.12\",\n\t\t\t\
+        \"20428.29\",\n\t\t\t\"19.5216666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.154\"\
+        ,\n\t\t\t\"19439.2863889\",\n\t\t\t\"23.7677777778\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.100.201.50\",\n\t\t\t\"18781.8605556\",\n\t\t\t\"55.8322222222\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.100.120.112\",\n\t\t\t\"18753.7116667\",\n\t\t\t\"40.0327777778\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.100.10\",\n\t\t\t\"17841.9144444\",\n\t\t\t\
+        \"178.434722222\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.100.11\",\n\t\t\t\"16989.9833333\"\
+        ,\n\t\t\t\"169.776666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.54\",\n\t\t\t\"\
+        13522.8613889\",\n\t\t\t\"12.0991666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.170\"\
+        ,\n\t\t\t\"13450.7188889\",\n\t\t\t\"40.1158333333\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.100.100.100\",\n\t\t\t\"13211.2927778\",\n\t\t\t\"38.1833333333\"\n\t\
+        \t],\n\t\t[\n\t\t\t\"10.100.201.171\",\n\t\t\t\"13170.35\",\n\t\t\t\"42.3388888889\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.100.101\",\n\t\t\t\"12855.1719444\",\n\t\t\
+        \t\"40.1525\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.151\",\n\t\t\t\"12377.5233333\"\
+        ,\n\t\t\t\"29.7766666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.150\",\n\t\t\
+        \t\"12183.5002778\",\n\t\t\t\"20.2738888889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.112\"\
+        ,\n\t\t\t\"9034.78861111\",\n\t\t\t\"16.5683333333\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.13.91\",\n\t\t\t\"8820.77527778\",\n\t\t\t\"16.2963888889\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.14.47\",\n\t\t\t\"8423.10166667\",\n\t\t\t\"15.2025\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.13.41\",\n\t\t\t\"8138.61833333\",\n\t\t\t\"\
+        15.5444444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.61\",\n\t\t\t\"8070.405\"\
+        ,\n\t\t\t\"14.9494444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.108\",\n\t\t\t\
+        \"8061.23916667\",\n\t\t\t\"14.4461111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.116\"\
+        ,\n\t\t\t\"7730.55861111\",\n\t\t\t\"14.5533333333\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.100.203.1\",\n\t\t\t\"7701.51\",\n\t\t\t\"48.6630555556\"\n\t\t],\n\t\
+        \t[\n\t\t\t\"10.99.14.35\",\n\t\t\t\"7694.99777778\",\n\t\t\t\"13.7547222222\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.13.34\",\n\t\t\t\"7691.40194444\",\n\t\t\t\"\
+        14.3747222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.1\",\n\t\t\t\"7684.78722222\"\
+        ,\n\t\t\t\"13.9625\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.104\",\n\t\t\t\"7533.45138889\"\
+        ,\n\t\t\t\"16.2033333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.70\",\n\t\t\t\"\
+        7431.46611111\",\n\t\t\t\"13.2655555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.103\"\
+        ,\n\t\t\t\"7417.15916667\",\n\t\t\t\"13.7386111111\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.13.83\",\n\t\t\t\"7348.81861111\",\n\t\t\t\"13.7661111111\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.17.153\",\n\t\t\t\"7337.19111111\",\n\t\t\t\"12.9011111111\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.13.51\",\n\t\t\t\"7039.70861111\",\n\t\t\t\"\
+        12.4527777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.120\",\n\t\t\t\"7021.855\"\
+        ,\n\t\t\t\"12.0355555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.203.2\",\n\t\t\t\
+        \"6994.28666667\",\n\t\t\t\"45.0508333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.103\"\
+        ,\n\t\t\t\"6987.81888889\",\n\t\t\t\"12.4586111111\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.13.13\",\n\t\t\t\"6369.70333333\",\n\t\t\t\"12.565\"\n\t\t],\n\t\t\
+        [\n\t\t\t\"10.99.17.107\",\n\t\t\t\"6342.21388889\",\n\t\t\t\"11.4125\"\n\t\
+        \t],\n\t\t[\n\t\t\t\"10.99.14.27\",\n\t\t\t\"6300.14222222\",\n\t\t\t\"10.7630555556\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.14.56\",\n\t\t\t\"6204.17027778\",\n\t\t\t\"\
+        10.8072222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.76\",\n\t\t\t\"6187.9\",\n\
+        \t\t\t\"11.1530555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.16\",\n\t\t\t\"6144.42666667\"\
+        ,\n\t\t\t\"11.0202777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.84\",\n\t\t\t\"\
+        6122.24861111\",\n\t\t\t\"10.7477777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.78\"\
+        ,\n\t\t\t\"6078.06388889\",\n\t\t\t\"10.9061111111\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.12.21\",\n\t\t\t\"6043.34916667\",\n\t\t\t\"14.2069444444\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.14.44\",\n\t\t\t\"5931.35555556\",\n\t\t\t\"10.8677777778\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.17.40\",\n\t\t\t\"5873.60694444\",\n\t\t\t\"\
+        10.0305555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.68\",\n\t\t\t\"5833.70444444\"\
+        ,\n\t\t\t\"10.3569444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.171\",\n\t\t\t\
+        \"5824.08\",\n\t\t\t\"10.515\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.12\",\n\t\t\
+        \t\"5701.10611111\",\n\t\t\t\"10.4319444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.177\"\
+        ,\n\t\t\t\"5699.36\",\n\t\t\t\"9.40666666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.59\"\
+        ,\n\t\t\t\"5644.35805556\",\n\t\t\t\"9.12666666667\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.11.166\",\n\t\t\t\"5639.00444444\",\n\t\t\t\"23.3955555556\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.17.158\",\n\t\t\t\"5619.59222222\",\n\t\t\t\"9.78305555556\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.11.91\",\n\t\t\t\"5600.01611111\",\n\t\t\t\"\
+        22.8744444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.107\",\n\t\t\t\"5521.84583333\"\
+        ,\n\t\t\t\"10.3958333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.30\",\n\t\t\t\"\
+        5492.7125\",\n\t\t\t\"8.98888888889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.22\"\
+        ,\n\t\t\t\"5473.58166667\",\n\t\t\t\"9.67305555556\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.13.96\",\n\t\t\t\"5418.87\",\n\t\t\t\"9.81194444444\"\n\t\t],\n\t\t\
+        [\n\t\t\t\"10.99.13.40\",\n\t\t\t\"5413.10972222\",\n\t\t\t\"10.2869444444\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.13.105\",\n\t\t\t\"5326.42083333\",\n\t\t\t\
+        \"10.7633333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.15\",\n\t\t\t\"5326.24694444\"\
+        ,\n\t\t\t\"9.53083333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.11.136\",\n\t\t\t\
+        \"5264.0775\",\n\t\t\t\"21.1327777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.51\"\
+        ,\n\t\t\t\"5254.17555556\",\n\t\t\t\"9.34888888889\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.14.93\",\n\t\t\t\"5217.74694444\",\n\t\t\t\"9.2425\"\n\t\t],\n\t\t\
+        [\n\t\t\t\"10.99.15.26\",\n\t\t\t\"5147.99555556\",\n\t\t\t\"8.48194444444\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.11.138\",\n\t\t\t\"5099.66833333\",\n\t\t\t\
+        \"19.2808333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.202.120\",\n\t\t\t\"5085.79944444\"\
+        ,\n\t\t\t\"6.1575\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.67\",\n\t\t\t\"4889.63777778\"\
+        ,\n\t\t\t\"11.3475\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.40\",\n\t\t\t\"4848.61166667\"\
+        ,\n\t\t\t\"7.60722222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.73\",\n\t\t\t\"\
+        4827.33472222\",\n\t\t\t\"8.86027777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.100\"\
+        ,\n\t\t\t\"4825.85861111\",\n\t\t\t\"9.70944444444\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.15.39\",\n\t\t\t\"4797.73444444\",\n\t\t\t\"9.21222222222\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.100.202.128\",\n\t\t\t\"4792.27416667\",\n\t\t\t\"5.975\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.17.131\",\n\t\t\t\"4770.15\",\n\t\t\t\"7.125\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.36\",\n\t\t\t\"4757.99166667\",\n\t\t\t\"\
+        8.36972222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.105\",\n\t\t\t\"4670.37277778\"\
+        ,\n\t\t\t\"7.94444444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.118\",\n\t\t\t\
+        \"4644.26861111\",\n\t\t\t\"11.3711111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.36\"\
+        ,\n\t\t\t\"4642.16944444\",\n\t\t\t\"6.64527777778\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.15.9\",\n\t\t\t\"4635.99583333\",\n\t\t\t\"8.68972222222\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.15.18\",\n\t\t\t\"4633.50583333\",\n\t\t\t\"8.35666666667\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.2\",\n\t\t\t\"4622.87583333\",\n\t\t\t\"\
+        8.87555555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.79\",\n\t\t\t\"4588.63944444\"\
+        ,\n\t\t\t\"7.42722222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.11\",\n\t\t\t\"\
+        4586.39222222\",\n\t\t\t\"8.16222222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.54\"\
+        ,\n\t\t\t\"4513.40277778\",\n\t\t\t\"7.73388888889\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.14.32\",\n\t\t\t\"4492.58111111\",\n\t\t\t\"7.24555555556\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.12.90\",\n\t\t\t\"4459.91416667\",\n\t\t\t\"9.49138888889\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.56\",\n\t\t\t\"4440.33777778\",\n\t\t\t\"\
+        9.28666666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.176\",\n\t\t\t\"4432.48\"\
+        ,\n\t\t\t\"11.4797222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.32\",\n\t\t\t\"\
+        4425.09944444\",\n\t\t\t\"8.2375\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.52\",\n\
+        \t\t\t\"4396.04027778\",\n\t\t\t\"8.49388888889\"\n\t\t],\n\t\t[\n\t\t\t\"\
+        10.99.11.62\",\n\t\t\t\"4393.99305556\",\n\t\t\t\"15.4283333333\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.12.123\",\n\t\t\t\"4379.63722222\",\n\t\t\t\"13.0169444444\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.12.117\",\n\t\t\t\"4350.34972222\",\n\t\t\t\
+        \"12.9302777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.20\",\n\t\t\t\"4329.12527778\"\
+        ,\n\t\t\t\"12.6313888889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.88\",\n\t\t\t\"\
+        4274.03861111\",\n\t\t\t\"6.77194444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.13\"\
+        ,\n\t\t\t\"4249.11472222\",\n\t\t\t\"7.80166666667\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.14.41\",\n\t\t\t\"4241.15611111\",\n\t\t\t\"6.88444444444\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.13.49\",\n\t\t\t\"4233.93861111\",\n\t\t\t\"7.46833333333\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.12.55\",\n\t\t\t\"4228.09472222\",\n\t\t\t\"\
+        8.14805555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.3\",\n\t\t\t\"4216.01055556\"\
+        ,\n\t\t\t\"8.325\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.57\",\n\t\t\t\"4138.60861111\"\
+        ,\n\t\t\t\"7.34972222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.73\",\n\t\t\t\"\
+        4134.83027778\",\n\t\t\t\"6.30555555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.34\"\
+        ,\n\t\t\t\"4069.03722222\",\n\t\t\t\"7.26666666667\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.12.149\",\n\t\t\t\"4062.12944444\",\n\t\t\t\"10.1836111111\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.13.113\",\n\t\t\t\"4013.66944444\",\n\t\t\t\"7.45916666667\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.7\",\n\t\t\t\"4006.81722222\",\n\t\t\t\"\
+        7.4775\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.77\",\n\t\t\t\"4004.00972222\",\n\
+        \t\t\t\"7.44777777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.49\",\n\t\t\t\"3984.60638889\"\
+        ,\n\t\t\t\"7.25583333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.33\",\n\t\t\t\"\
+        3969.52361111\",\n\t\t\t\"7.72888888889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.11.67\"\
+        ,\n\t\t\t\"3966.84361111\",\n\t\t\t\"13.9755555556\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.15.66\",\n\t\t\t\"3947.365\",\n\t\t\t\"6.71555555556\"\n\t\t],\n\t\
+        \t[\n\t\t\t\"10.99.15.57\",\n\t\t\t\"3934.64055556\",\n\t\t\t\"7.77888888889\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.62\",\n\t\t\t\"3912.7875\",\n\t\t\t\"6.31027777778\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.14.74\",\n\t\t\t\"3911.22805556\",\n\t\t\t\"\
+        6.29861111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.109\",\n\t\t\t\"3904.24611111\"\
+        ,\n\t\t\t\"8.46111111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.106\",\n\t\t\t\
+        \"3901.88583333\",\n\t\t\t\"6.33055555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.132\"\
+        ,\n\t\t\t\"3864.225\",\n\t\t\t\"6.03527777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.89\"\
+        ,\n\t\t\t\"3862.84333333\",\n\t\t\t\"7.20416666667\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.14.120\",\n\t\t\t\"3846.18583333\",\n\t\t\t\"6.09111111111\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.15.45\",\n\t\t\t\"3830.72611111\",\n\t\t\t\"7.13388888889\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.22\",\n\t\t\t\"3797.56638889\",\n\t\t\t\"\
+        5.4825\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.1\",\n\t\t\t\"3770.70333333\",\n\
+        \t\t\t\"7.28\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.11\",\n\t\t\t\"3758.67416667\"\
+        ,\n\t\t\t\"5.90916666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.69\",\n\t\t\t\"\
+        3736.55833333\",\n\t\t\t\"7.41527777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.22\"\
+        ,\n\t\t\t\"3724.65916667\",\n\t\t\t\"9.43416666667\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.15.19\",\n\t\t\t\"3719.95638889\",\n\t\t\t\"7.405\"\n\t\t],\n\t\t\
+        [\n\t\t\t\"10.99.14.104\",\n\t\t\t\"3717.83666667\",\n\t\t\t\"5.51222222222\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.18.105\",\n\t\t\t\"3700.14777778\",\n\t\t\t\
+        \"7.09\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.58\",\n\t\t\t\"3683.83638889\",\n\
+        \t\t\t\"6.83083333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.20\",\n\t\t\t\"3670.23083333\"\
+        ,\n\t\t\t\"7.31083333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.13\",\n\t\t\t\"\
+        3663.09027778\",\n\t\t\t\"6.36333333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.11.44\"\
+        ,\n\t\t\t\"3610.02055556\",\n\t\t\t\"12.4933333333\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.15.51\",\n\t\t\t\"3606.68555556\",\n\t\t\t\"6.63805555556\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.11.122\",\n\t\t\t\"3602.11194444\",\n\t\t\t\"14.4097222222\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.18.11\",\n\t\t\t\"3597.60638889\",\n\t\t\t\"\
+        6.29944444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.70\",\n\t\t\t\"3579.42277778\"\
+        ,\n\t\t\t\"7.16444444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.45\",\n\t\t\t\"\
+        3564.71416667\",\n\t\t\t\"6.69777777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.77\"\
+        ,\n\t\t\t\"3557.55111111\",\n\t\t\t\"5.28361111111\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.12.136\",\n\t\t\t\"3553.6125\",\n\t\t\t\"13.9894444444\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.12.58\",\n\t\t\t\"3546.63472222\",\n\t\t\t\"7.69527777778\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.12.97\",\n\t\t\t\"3526.36277778\",\n\t\t\t\"\
+        6.07\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.52\",\n\t\t\t\"3519.11805556\",\n\t\
+        \t\t\"5.24944444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.92\",\n\t\t\t\"3500.69388889\"\
+        ,\n\t\t\t\"7.35833333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.54\",\n\t\t\t\"\
+        3496.54805556\",\n\t\t\t\"11.5383333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.130\"\
+        ,\n\t\t\t\"3475.60805556\",\n\t\t\t\"9.09472222222\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.14.122\",\n\t\t\t\"3462.12694444\",\n\t\t\t\"5.13416666667\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.11.2\",\n\t\t\t\"3456.16444444\",\n\t\t\t\"12.135\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.11.27\",\n\t\t\t\"3447.46083333\",\n\t\t\t\"\
+        11.9933333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.28\",\n\t\t\t\"3444.54555556\"\
+        ,\n\t\t\t\"5.86777777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.34\",\n\t\t\t\"\
+        3441.58972222\",\n\t\t\t\"6.91916666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.3\"\
+        ,\n\t\t\t\"3432.185\",\n\t\t\t\"10.3869444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.50\"\
+        ,\n\t\t\t\"3415.44111111\",\n\t\t\t\"6.98861111111\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.18.61\",\n\t\t\t\"3408.12083333\",\n\t\t\t\"6.63638888889\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.16.9\",\n\t\t\t\"3396.89527778\",\n\t\t\t\"6.35805555556\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.37\",\n\t\t\t\"3396.57833333\",\n\t\t\t\"\
+        6.75694444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.87\",\n\t\t\t\"3394.29\"\
+        ,\n\t\t\t\"5.08444444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.141\",\n\t\t\t\
+        \"3393.79777778\",\n\t\t\t\"6.62722222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.98\"\
+        ,\n\t\t\t\"3378.19444444\",\n\t\t\t\"5.90444444444\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.16.38\",\n\t\t\t\"3360.91694444\",\n\t\t\t\"6.52305555556\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.18.2\",\n\t\t\t\"3356.89305556\",\n\t\t\t\"5.3575\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.16.49\",\n\t\t\t\"3347.95777778\",\n\t\t\t\"\
+        5.74666666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.167\",\n\t\t\t\"3347.56027778\"\
+        ,\n\t\t\t\"5.31666666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.61\",\n\t\t\t\"\
+        3331.0075\",\n\t\t\t\"4.50277777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.85\"\
+        ,\n\t\t\t\"3319.20972222\",\n\t\t\t\"6.44194444444\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.18.100\",\n\t\t\t\"3319.12444444\",\n\t\t\t\"5.90666666667\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.16.30\",\n\t\t\t\"3312.88805556\",\n\t\t\t\"4.79222222222\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.12.150\",\n\t\t\t\"3281.12916667\",\n\t\t\t\
+        \"7.07138888889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.112\",\n\t\t\t\"3278.72111111\"\
+        ,\n\t\t\t\"5.84722222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.19\",\n\t\t\t\"\
+        3266.88555556\",\n\t\t\t\"5.87027777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.5\"\
+        ,\n\t\t\t\"3260.6775\",\n\t\t\t\"6.02805555556\"\n\t\t],\n\t\t[\n\t\t\t\"\
+        10.99.16.64\",\n\t\t\t\"3246.53833333\",\n\t\t\t\"6.23694444444\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.16.43\",\n\t\t\t\"3236.73194444\",\n\t\t\t\"5.94305555556\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.24\",\n\t\t\t\"3189.46694444\",\n\t\t\t\"\
+        4.365\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.60\",\n\t\t\t\"3183.9075\",\n\t\t\
+        \t\"4.54222222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.151\",\n\t\t\t\"3178.56388889\"\
+        ,\n\t\t\t\"6.75611111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.23\",\n\t\t\t\
+        \"3177.03694444\",\n\t\t\t\"8.0525\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.28\"\
+        ,\n\t\t\t\"3173.07222222\",\n\t\t\t\"4.34583333333\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.12.78\",\n\t\t\t\"3163.70222222\",\n\t\t\t\"8.61777777778\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.14.20\",\n\t\t\t\"3144.51333333\",\n\t\t\t\"4.98805555556\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.11.163\",\n\t\t\t\"3131.44777778\",\n\t\t\t\
+        \"8.30611111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.128\",\n\t\t\t\"3129.43555556\"\
+        ,\n\t\t\t\"8.64694444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.47\",\n\t\t\t\"\
+        3117.52916667\",\n\t\t\t\"4.79166666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.6\"\
+        ,\n\t\t\t\"3112.76916667\",\n\t\t\t\"5.3875\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.178\"\
+        ,\n\t\t\t\"3086.91805556\",\n\t\t\t\"5.235\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.1\"\
+        ,\n\t\t\t\"3084.75027778\",\n\t\t\t\"5.67027777778\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.15.50\",\n\t\t\t\"3070.48138889\",\n\t\t\t\"4.49111111111\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.16.6\",\n\t\t\t\"3066.29361111\",\n\t\t\t\"4.23\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.17.155\",\n\t\t\t\"3043.67694444\",\n\t\t\t\
+        \"4.71666666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.87\",\n\t\t\t\"3029.37138889\"\
+        ,\n\t\t\t\"5.48833333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.123\",\n\t\t\t\
+        \"2982.61333333\",\n\t\t\t\"4.71444444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.149\"\
+        ,\n\t\t\t\"2978.23944444\",\n\t\t\t\"4.65916666667\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.16.37\",\n\t\t\t\"2974.81694444\",\n\t\t\t\"5.775\"\n\t\t],\n\t\t\
+        [\n\t\t\t\"10.99.15.32\",\n\t\t\t\"2945.98333333\",\n\t\t\t\"5.27861111111\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.18.166\",\n\t\t\t\"2940.22388889\",\n\t\t\t\
+        \"4.83777777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.41\",\n\t\t\t\"2933.80416667\"\
+        ,\n\t\t\t\"4.01416666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.60\",\n\t\t\t\"\
+        2931.76638889\",\n\t\t\t\"5.41833333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.40\"\
+        ,\n\t\t\t\"2915.13111111\",\n\t\t\t\"5.37555555556\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.16.23\",\n\t\t\t\"2908.87944444\",\n\t\t\t\"4.84611111111\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.16.60\",\n\t\t\t\"2908.18027778\",\n\t\t\t\"4.66583333333\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.18.45\",\n\t\t\t\"2900.38944444\",\n\t\t\t\"\
+        5.86472222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.14\",\n\t\t\t\"2873.22638889\"\
+        ,\n\t\t\t\"4.53333333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.4\",\n\t\t\t\"\
+        2872.42583333\",\n\t\t\t\"4.83694444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.53\"\
+        ,\n\t\t\t\"2835.44472222\",\n\t\t\t\"3.91388888889\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.18.171\",\n\t\t\t\"2820.63222222\",\n\t\t\t\"4.94861111111\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.17.33\",\n\t\t\t\"2798.36888889\",\n\t\t\t\"3.83722222222\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.12.11\",\n\t\t\t\"2784.65083333\",\n\t\t\t\"\
+        5.44333333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.36\",\n\t\t\t\"2770.06416667\"\
+        ,\n\t\t\t\"5.16166666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.110\",\n\t\t\t\
+        \"2762.65055556\",\n\t\t\t\"3.73888888889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.47\"\
+        ,\n\t\t\t\"2757.58722222\",\n\t\t\t\"4.98805555556\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.11.51\",\n\t\t\t\"2750.31361111\",\n\t\t\t\"7.77222222222\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.12.132\",\n\t\t\t\"2723.91222222\",\n\t\t\t\"10.3636111111\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.16.42\",\n\t\t\t\"2694.93777778\",\n\t\t\t\"\
+        3.43222222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.22\",\n\t\t\t\"2651.1725\"\
+        ,\n\t\t\t\"4.81833333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.14\",\n\t\t\t\"\
+        2635.87777778\",\n\t\t\t\"3.98277777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.25\"\
+        ,\n\t\t\t\"2632.42111111\",\n\t\t\t\"4.23083333333\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.15.29\",\n\t\t\t\"2627.07083333\",\n\t\t\t\"3.12333333333\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.18.172\",\n\t\t\t\"2620.55611111\",\n\t\t\t\"4.09694444444\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.201.181\",\n\t\t\t\"2603.22194444\",\n\t\t\
+        \t\"3.20083333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.64\",\n\t\t\t\"2586.11527778\"\
+        ,\n\t\t\t\"4.33805555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.43\",\n\t\t\t\"\
+        2571.16333333\",\n\t\t\t\"4.18333333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.27\"\
+        ,\n\t\t\t\"2567.53638889\",\n\t\t\t\"4.58694444444\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.12.24\",\n\t\t\t\"2563.61944444\",\n\t\t\t\"3.56777777778\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.16.7\",\n\t\t\t\"2557.10888889\",\n\t\t\t\"3.77166666667\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.58\",\n\t\t\t\"2529.13861111\",\n\t\t\t\"\
+        3.40527777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.150\",\n\t\t\t\"2522.97083333\"\
+        ,\n\t\t\t\"4.175\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.100.111\",\n\t\t\t\"2519.72722222\"\
+        ,\n\t\t\t\"3.15277777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.161\",\n\t\t\
+        \t\"2517.605\",\n\t\t\t\"3.15611111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.12\"\
+        ,\n\t\t\t\"2505.59333333\",\n\t\t\t\"4.27083333333\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.16.28\",\n\t\t\t\"2502.49888889\",\n\t\t\t\"4.02111111111\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.100.201.160\",\n\t\t\t\"2492.76638889\",\n\t\t\t\"2.98805555556\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.201.180\",\n\t\t\t\"2483.70166667\",\n\t\t\
+        \t\"3.09166666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.203.131\",\n\t\t\t\"2479.59472222\"\
+        ,\n\t\t\t\"3.05777777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.170\",\n\t\t\t\
+        \"2478.98666667\",\n\t\t\t\"3.18888888889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.30\"\
+        ,\n\t\t\t\"2394.29388889\",\n\t\t\t\"3.31055555556\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.16.121\",\n\t\t\t\"2390.47777778\",\n\t\t\t\"3.81277777778\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.18.145\",\n\t\t\t\"2373.92083333\",\n\t\t\t\"3.53305555556\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.100.110\",\n\t\t\t\"2359.72305556\",\n\t\t\
+        \t\"2.985\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.203.130\",\n\t\t\t\"2312.67944444\"\
+        ,\n\t\t\t\"2.91722222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.35\",\n\t\t\t\"\
+        2219.84527778\",\n\t\t\t\"2.90861111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.45\"\
+        ,\n\t\t\t\"2218.98583333\",\n\t\t\t\"2.73583333333\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.18.37\",\n\t\t\t\"2147.71833333\",\n\t\t\t\"3.00666666667\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.100.100.3\",\n\t\t\t\"2112.955\",\n\t\t\t\"2.76277777778\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.16.17\",\n\t\t\t\"2111.9275\",\n\t\t\t\"3.58\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.38\",\n\t\t\t\"2084.67638889\",\n\t\t\t\"\
+        3.26361111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.80\",\n\t\t\t\"2080.61055556\"\
+        ,\n\t\t\t\"2.48555555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.62\",\n\t\t\t\"\
+        2076.73444444\",\n\t\t\t\"2.9275\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.61\",\n\
+        \t\t\t\"2074.83\",\n\t\t\t\"4.21777777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.55\"\
+        ,\n\t\t\t\"2064.195\",\n\t\t\t\"2.09638888889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.48\"\
+        ,\n\t\t\t\"2029.53666667\",\n\t\t\t\"2.76694444444\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.16.46\",\n\t\t\t\"2008.64805556\",\n\t\t\t\"3.69583333333\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.18.131\",\n\t\t\t\"1965.78638889\",\n\t\t\t\"3.33944444444\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.28\",\n\t\t\t\"1905.28666667\",\n\t\t\t\"\
+        2.19833333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.1\",\n\t\t\t\"1841.80416667\"\
+        ,\n\t\t\t\"2.54888888889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.65\",\n\t\t\t\"\
+        1838.25194444\",\n\t\t\t\"2.82194444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.63\"\
+        ,\n\t\t\t\"1757.60833333\",\n\t\t\t\"1.99361111111\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.15.21\",\n\t\t\t\"1694.24916667\",\n\t\t\t\"1.90861111111\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.16.4\",\n\t\t\t\"1677.87083333\",\n\t\t\t\"2.33916666667\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.16.24\",\n\t\t\t\"1673.51638889\",\n\t\t\t\"\
+        2.30361111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.100.20\",\n\t\t\t\"1480.12833333\"\
+        ,\n\t\t\t\"1.75111111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.100.21\",\n\t\t\t\
+        \"1381.00472222\",\n\t\t\t\"1.63833333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.13\"\
+        ,\n\t\t\t\"948.785833333\",\n\t\t\t\"1.10388888889\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.100.201.40\",\n\t\t\t\"887.547222222\",\n\t\t\t\"0.687777777778\"\n\t\
+        \t]\n\t],\n\t\"data_size\": 291,\n\t\"totals\": [\n\t\t\"\",\n\t\t\"3374065.68806\"\
+        ,\n\t\t\"7871.35972222\"\n\t]\n}"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['19140']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Fri, 08 Feb 2019 21:59:16 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71138/queries/0:sum_hos_non_non_non_non_non_non_non_33_d_-1_35410d83b5c5fec57b6a6880a5cd322d.json?columns=5%2C33
+  response:
+    body: {string: "{\n\t\"actual_start_time\": 1549641600,\n\t\"actual_end_time\"\
+        : 1549645200,\n\t\"data\": [\n\t\t[\n\t\t\t\"10.100.6.12\",\n\t\t\t\"398692.391667\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.100.13\",\n\t\t\t\"253768.613056\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.100.5.12\",\n\t\t\t\"195542.163889\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.100.6.14\",\n\t\t\t\"155945.751667\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.100.14\"\
+        ,\n\t\t\t\"147043.972222\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.6.10\",\n\t\t\t\"\
+        119389.285556\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.5.11\",\n\t\t\t\"100663.370833\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.6.11\",\n\t\t\t\"89344.8277778\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.100.120.108\",\n\t\t\t\"53357.4283333\"\n\t\t],\n\t\t[\n\
+        \t\t\t\"10.100.201.34\",\n\t\t\t\"52774.5466667\"\n\t\t],\n\t\t[\n\t\t\t\"\
+        10.100.201.21\",\n\t\t\t\"52023.7580556\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.20\"\
+        ,\n\t\t\t\"49798.3319444\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.30\",\n\t\t\t\
+        \"38075.4775\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.202.1\",\n\t\t\t\"37526.5652778\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.201.32\",\n\t\t\t\"36357.9055556\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.100.6.13\",\n\t\t\t\"34072.0875\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.100.100.12\",\n\t\t\t\"33278.7522222\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.210.10\"\
+        ,\n\t\t\t\"31979.7222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.70\",\n\t\t\t\
+        \"29851.5433333\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.202.3\",\n\t\t\t\"29153.0325\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.202.2\",\n\t\t\t\"28506.2019444\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.100.5.10\",\n\t\t\t\"27094.9697222\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.100.201.90\",\n\t\t\t\"24199.2572222\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.91\"\
+        ,\n\t\t\t\"23857.4988889\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.120.110\",\n\t\t\
+        \t\"22682.5908333\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.120.111\",\n\t\t\t\"22606.9930556\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.120.100\",\n\t\t\t\"22082.5147222\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.100.201.31\",\n\t\t\t\"22054.5291667\"\n\t\t],\n\t\t\
+        [\n\t\t\t\"10.100.201.10\",\n\t\t\t\"21967.3941667\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.100.201.33\",\n\t\t\t\"21581.9502778\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.11\"\
+        ,\n\t\t\t\"20543.0616667\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.12\",\n\t\t\t\
+        \"20428.29\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.154\",\n\t\t\t\"19439.2863889\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.201.50\",\n\t\t\t\"18781.8605556\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.100.120.112\",\n\t\t\t\"18753.7116667\"\n\t\t],\n\t\t[\n\
+        \t\t\t\"10.100.100.10\",\n\t\t\t\"17841.9144444\"\n\t\t],\n\t\t[\n\t\t\t\"\
+        10.100.100.11\",\n\t\t\t\"16989.9833333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.54\"\
+        ,\n\t\t\t\"13522.8613889\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.170\",\n\t\t\
+        \t\"13450.7188889\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.100.100\",\n\t\t\t\"13211.2927778\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.201.171\",\n\t\t\t\"13170.35\"\n\t\t],\n\t\
+        \t[\n\t\t\t\"10.100.100.101\",\n\t\t\t\"12855.1719444\"\n\t\t],\n\t\t[\n\t\
+        \t\t\"10.100.201.151\",\n\t\t\t\"12377.5233333\"\n\t\t],\n\t\t[\n\t\t\t\"\
+        10.100.201.150\",\n\t\t\t\"12183.5002778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.112\"\
+        ,\n\t\t\t\"9034.78861111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.91\",\n\t\t\t\"\
+        8820.77527778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.47\",\n\t\t\t\"8423.10166667\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.13.41\",\n\t\t\t\"8138.61833333\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.14.61\",\n\t\t\t\"8070.405\"\n\t\t],\n\t\t[\n\t\t\t\"\
+        10.99.14.108\",\n\t\t\t\"8061.23916667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.116\"\
+        ,\n\t\t\t\"7730.55861111\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.203.1\",\n\t\t\t\
+        \"7701.51\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.35\",\n\t\t\t\"7694.99777778\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.13.34\",\n\t\t\t\"7691.40194444\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.14.1\",\n\t\t\t\"7684.78722222\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.13.104\",\n\t\t\t\"7533.45138889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.70\"\
+        ,\n\t\t\t\"7431.46611111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.103\",\n\t\t\t\
+        \"7417.15916667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.83\",\n\t\t\t\"7348.81861111\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.17.153\",\n\t\t\t\"7337.19111111\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.13.51\",\n\t\t\t\"7039.70861111\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.17.120\",\n\t\t\t\"7021.855\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.203.2\"\
+        ,\n\t\t\t\"6994.28666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.103\",\n\t\t\t\
+        \"6987.81888889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.13\",\n\t\t\t\"6369.70333333\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.17.107\",\n\t\t\t\"6342.21388889\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.14.27\",\n\t\t\t\"6300.14222222\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.14.56\",\n\t\t\t\"6204.17027778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.76\"\
+        ,\n\t\t\t\"6187.9\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.16\",\n\t\t\t\"6144.42666667\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.13.84\",\n\t\t\t\"6122.24861111\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.14.78\",\n\t\t\t\"6078.06388889\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.12.21\",\n\t\t\t\"6043.34916667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.44\"\
+        ,\n\t\t\t\"5931.35555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.40\",\n\t\t\t\"\
+        5873.60694444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.68\",\n\t\t\t\"5833.70444444\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.17.171\",\n\t\t\t\"5824.08\"\n\t\t],\n\t\t\
+        [\n\t\t\t\"10.99.14.12\",\n\t\t\t\"5701.10611111\"\n\t\t],\n\t\t[\n\t\t\t\"\
+        10.99.17.177\",\n\t\t\t\"5699.36\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.59\",\n\
+        \t\t\t\"5644.35805556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.11.166\",\n\t\t\t\"\
+        5639.00444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.158\",\n\t\t\t\"5619.59222222\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.11.91\",\n\t\t\t\"5600.01611111\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.14.107\",\n\t\t\t\"5521.84583333\"\n\t\t],\n\t\t[\n\t\
+        \t\t\"10.99.14.30\",\n\t\t\t\"5492.7125\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.22\"\
+        ,\n\t\t\t\"5473.58166667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.96\",\n\t\t\t\"\
+        5418.87\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.40\",\n\t\t\t\"5413.10972222\"\n\
+        \t\t],\n\t\t[\n\t\t\t\"10.99.13.105\",\n\t\t\t\"5326.42083333\"\n\t\t],\n\t\
+        \t[\n\t\t\t\"10.99.14.15\",\n\t\t\t\"5326.24694444\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.11.136\",\n\t\t\t\"5264.0775\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.51\"\
+        ,\n\t\t\t\"5254.17555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.93\",\n\t\t\t\"\
+        5217.74694444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.26\",\n\t\t\t\"5147.99555556\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.11.138\",\n\t\t\t\"5099.66833333\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.100.202.120\",\n\t\t\t\"5085.79944444\"\n\t\t],\n\t\t[\n\
+        \t\t\t\"10.99.12.67\",\n\t\t\t\"4889.63777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.40\"\
+        ,\n\t\t\t\"4848.61166667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.73\",\n\t\t\t\"\
+        4827.33472222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.100\",\n\t\t\t\"4825.85861111\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.39\",\n\t\t\t\"4797.73444444\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.100.202.128\",\n\t\t\t\"4792.27416667\"\n\t\t],\n\t\t[\n\
+        \t\t\t\"10.99.17.131\",\n\t\t\t\"4770.15\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.36\"\
+        ,\n\t\t\t\"4757.99166667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.105\",\n\t\t\t\
+        \"4670.37277778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.118\",\n\t\t\t\"4644.26861111\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.17.36\",\n\t\t\t\"4642.16944444\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.15.9\",\n\t\t\t\"4635.99583333\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.15.18\",\n\t\t\t\"4633.50583333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.2\"\
+        ,\n\t\t\t\"4622.87583333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.79\",\n\t\t\t\"\
+        4588.63944444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.11\",\n\t\t\t\"4586.39222222\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.16.54\",\n\t\t\t\"4513.40277778\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.14.32\",\n\t\t\t\"4492.58111111\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.12.90\",\n\t\t\t\"4459.91416667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.56\"\
+        ,\n\t\t\t\"4440.33777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.176\",\n\t\t\t\
+        \"4432.48\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.32\",\n\t\t\t\"4425.09944444\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.52\",\n\t\t\t\"4396.04027778\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.11.62\",\n\t\t\t\"4393.99305556\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.12.123\",\n\t\t\t\"4379.63722222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.117\"\
+        ,\n\t\t\t\"4350.34972222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.20\",\n\t\t\t\"\
+        4329.12527778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.88\",\n\t\t\t\"4274.03861111\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.18.13\",\n\t\t\t\"4249.11472222\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.14.41\",\n\t\t\t\"4241.15611111\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.13.49\",\n\t\t\t\"4233.93861111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.55\"\
+        ,\n\t\t\t\"4228.09472222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.3\",\n\t\t\t\"\
+        4216.01055556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.57\",\n\t\t\t\"4138.60861111\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.14.73\",\n\t\t\t\"4134.83027778\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.15.34\",\n\t\t\t\"4069.03722222\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.12.149\",\n\t\t\t\"4062.12944444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.113\"\
+        ,\n\t\t\t\"4013.66944444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.7\",\n\t\t\t\"\
+        4006.81722222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.77\",\n\t\t\t\"4004.00972222\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.18.49\",\n\t\t\t\"3984.60638889\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.16.33\",\n\t\t\t\"3969.52361111\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.11.67\",\n\t\t\t\"3966.84361111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.66\"\
+        ,\n\t\t\t\"3947.365\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.57\",\n\t\t\t\"3934.64055556\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.62\",\n\t\t\t\"3912.7875\"\n\t\t],\n\t\t\
+        [\n\t\t\t\"10.99.14.74\",\n\t\t\t\"3911.22805556\"\n\t\t],\n\t\t[\n\t\t\t\"\
+        10.99.12.109\",\n\t\t\t\"3904.24611111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.106\"\
+        ,\n\t\t\t\"3901.88583333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.132\",\n\t\t\t\
+        \"3864.225\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.89\",\n\t\t\t\"3862.84333333\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.14.120\",\n\t\t\t\"3846.18583333\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.15.45\",\n\t\t\t\"3830.72611111\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.15.22\",\n\t\t\t\"3797.56638889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.1\"\
+        ,\n\t\t\t\"3770.70333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.11\",\n\t\t\t\"\
+        3758.67416667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.69\",\n\t\t\t\"3736.55833333\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.201.22\",\n\t\t\t\"3724.65916667\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.15.19\",\n\t\t\t\"3719.95638889\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.14.104\",\n\t\t\t\"3717.83666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.105\"\
+        ,\n\t\t\t\"3700.14777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.58\",\n\t\t\t\"\
+        3683.83638889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.20\",\n\t\t\t\"3670.23083333\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.12.13\",\n\t\t\t\"3663.09027778\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.11.44\",\n\t\t\t\"3610.02055556\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.15.51\",\n\t\t\t\"3606.68555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.11.122\"\
+        ,\n\t\t\t\"3602.11194444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.11\",\n\t\t\t\"\
+        3597.60638889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.70\",\n\t\t\t\"3579.42277778\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.16.45\",\n\t\t\t\"3564.71416667\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.14.77\",\n\t\t\t\"3557.55111111\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.12.136\",\n\t\t\t\"3553.6125\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.58\"\
+        ,\n\t\t\t\"3546.63472222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.97\",\n\t\t\t\"\
+        3526.36277778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.52\",\n\t\t\t\"3519.11805556\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.12.92\",\n\t\t\t\"3500.69388889\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.12.54\",\n\t\t\t\"3496.54805556\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.12.130\",\n\t\t\t\"3475.60805556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.122\"\
+        ,\n\t\t\t\"3462.12694444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.11.2\",\n\t\t\t\"\
+        3456.16444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.11.27\",\n\t\t\t\"3447.46083333\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.13.28\",\n\t\t\t\"3444.54555556\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.16.34\",\n\t\t\t\"3441.58972222\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.12.3\",\n\t\t\t\"3432.185\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.50\"\
+        ,\n\t\t\t\"3415.44111111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.61\",\n\t\t\t\"\
+        3408.12083333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.9\",\n\t\t\t\"3396.89527778\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.37\",\n\t\t\t\"3396.57833333\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.17.87\",\n\t\t\t\"3394.29\"\n\t\t],\n\t\t[\n\t\t\t\"\
+        10.99.18.141\",\n\t\t\t\"3393.79777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.98\"\
+        ,\n\t\t\t\"3378.19444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.38\",\n\t\t\t\"\
+        3360.91694444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.2\",\n\t\t\t\"3356.89305556\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.16.49\",\n\t\t\t\"3347.95777778\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.18.167\",\n\t\t\t\"3347.56027778\"\n\t\t],\n\t\t[\n\t\
+        \t\t\"10.99.15.61\",\n\t\t\t\"3331.0075\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.85\"\
+        ,\n\t\t\t\"3319.20972222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.100\",\n\t\t\t\
+        \"3319.12444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.30\",\n\t\t\t\"3312.88805556\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.12.150\",\n\t\t\t\"3281.12916667\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.18.112\",\n\t\t\t\"3278.72111111\"\n\t\t],\n\t\t[\n\t\
+        \t\t\"10.99.16.19\",\n\t\t\t\"3266.88555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.5\"\
+        ,\n\t\t\t\"3260.6775\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.64\",\n\t\t\t\"3246.53833333\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.16.43\",\n\t\t\t\"3236.73194444\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.15.24\",\n\t\t\t\"3189.46694444\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.14.60\",\n\t\t\t\"3183.9075\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.151\"\
+        ,\n\t\t\t\"3178.56388889\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.23\",\n\t\t\t\
+        \"3177.03694444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.14.28\",\n\t\t\t\"3173.07222222\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.12.78\",\n\t\t\t\"3163.70222222\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.14.20\",\n\t\t\t\"3144.51333333\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.11.163\",\n\t\t\t\"3131.44777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.128\"\
+        ,\n\t\t\t\"3129.43555556\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.47\",\n\t\t\t\"\
+        3117.52916667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.6\",\n\t\t\t\"3112.76916667\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.18.178\",\n\t\t\t\"3086.91805556\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.16.1\",\n\t\t\t\"3084.75027778\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.15.50\",\n\t\t\t\"3070.48138889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.6\"\
+        ,\n\t\t\t\"3066.29361111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.155\",\n\t\t\t\
+        \"3043.67694444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.87\",\n\t\t\t\"3029.37138889\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.14.123\",\n\t\t\t\"2982.61333333\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.18.149\",\n\t\t\t\"2978.23944444\"\n\t\t],\n\t\t[\n\t\
+        \t\t\"10.99.16.37\",\n\t\t\t\"2974.81694444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.32\"\
+        ,\n\t\t\t\"2945.98333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.166\",\n\t\t\t\
+        \"2940.22388889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.41\",\n\t\t\t\"2933.80416667\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.60\",\n\t\t\t\"2931.76638889\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.16.40\",\n\t\t\t\"2915.13111111\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.16.23\",\n\t\t\t\"2908.87944444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.60\"\
+        ,\n\t\t\t\"2908.18027778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.45\",\n\t\t\t\"\
+        2900.38944444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.14\",\n\t\t\t\"2873.22638889\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.18.4\",\n\t\t\t\"2872.42583333\"\n\t\t],\n\t\
+        \t[\n\t\t\t\"10.99.16.53\",\n\t\t\t\"2835.44472222\"\n\t\t],\n\t\t[\n\t\t\t\
+        \"10.99.18.171\",\n\t\t\t\"2820.63222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.33\"\
+        ,\n\t\t\t\"2798.36888889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.11\",\n\t\t\t\"\
+        2784.65083333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.13.36\",\n\t\t\t\"2770.06416667\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.14.110\",\n\t\t\t\"2762.65055556\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.12.47\",\n\t\t\t\"2757.58722222\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.11.51\",\n\t\t\t\"2750.31361111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.132\"\
+        ,\n\t\t\t\"2723.91222222\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.42\",\n\t\t\t\"\
+        2694.93777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.22\",\n\t\t\t\"2651.1725\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.14\",\n\t\t\t\"2635.87777778\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.16.25\",\n\t\t\t\"2632.42111111\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.15.29\",\n\t\t\t\"2627.07083333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.172\"\
+        ,\n\t\t\t\"2620.55611111\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.181\",\n\t\t\
+        \t\"2603.22194444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.64\",\n\t\t\t\"2586.11527778\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.43\",\n\t\t\t\"2571.16333333\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.16.27\",\n\t\t\t\"2567.53638889\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.12.24\",\n\t\t\t\"2563.61944444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.7\"\
+        ,\n\t\t\t\"2557.10888889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.58\",\n\t\t\t\"\
+        2529.13861111\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.150\",\n\t\t\t\"2522.97083333\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.100.111\",\n\t\t\t\"2519.72722222\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.100.201.161\",\n\t\t\t\"2517.605\"\n\t\t],\n\t\t[\n\t\
+        \t\t\"10.99.16.12\",\n\t\t\t\"2505.59333333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.28\"\
+        ,\n\t\t\t\"2502.49888889\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.160\",\n\t\t\
+        \t\"2492.76638889\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.201.180\",\n\t\t\t\"2483.70166667\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.100.203.131\",\n\t\t\t\"2479.59472222\"\n\t\t\
+        ],\n\t\t[\n\t\t\t\"10.99.17.170\",\n\t\t\t\"2478.98666667\"\n\t\t],\n\t\t\
+        [\n\t\t\t\"10.99.15.30\",\n\t\t\t\"2394.29388889\"\n\t\t],\n\t\t[\n\t\t\t\"\
+        10.99.16.121\",\n\t\t\t\"2390.47777778\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.18.145\"\
+        ,\n\t\t\t\"2373.92083333\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.100.110\",\n\t\t\
+        \t\"2359.72305556\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.203.130\",\n\t\t\t\"2312.67944444\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.16.35\",\n\t\t\t\"2219.84527778\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.12.45\",\n\t\t\t\"2218.98583333\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.18.37\",\n\t\t\t\"2147.71833333\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.100.3\"\
+        ,\n\t\t\t\"2112.955\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.17\",\n\t\t\t\"2111.9275\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.38\",\n\t\t\t\"2084.67638889\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.100.201.80\",\n\t\t\t\"2080.61055556\"\n\t\t],\n\t\t[\n\t\
+        \t\t\"10.99.16.62\",\n\t\t\t\"2076.73444444\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.12.61\"\
+        ,\n\t\t\t\"2074.83\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.55\",\n\t\t\t\"2064.195\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.14.48\",\n\t\t\t\"2029.53666667\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.16.46\",\n\t\t\t\"2008.64805556\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.18.131\",\n\t\t\t\"1965.78638889\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.15.28\"\
+        ,\n\t\t\t\"1905.28666667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.17.1\",\n\t\t\t\"\
+        1841.80416667\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.65\",\n\t\t\t\"1838.25194444\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.16.63\",\n\t\t\t\"1757.60833333\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.99.15.21\",\n\t\t\t\"1694.24916667\"\n\t\t],\n\t\t[\n\t\t\
+        \t\"10.99.16.4\",\n\t\t\t\"1677.87083333\"\n\t\t],\n\t\t[\n\t\t\t\"10.99.16.24\"\
+        ,\n\t\t\t\"1673.51638889\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.100.20\",\n\t\t\t\
+        \"1480.12833333\"\n\t\t],\n\t\t[\n\t\t\t\"10.100.100.21\",\n\t\t\t\"1381.00472222\"\
+        \n\t\t],\n\t\t[\n\t\t\t\"10.99.15.13\",\n\t\t\t\"948.785833333\"\n\t\t],\n\
+        \t\t[\n\t\t\t\"10.100.201.40\",\n\t\t\t\"887.547222222\"\n\t\t]\n\t],\n\t\"\
+        data_size\": 291,\n\t\"totals\": [\n\t\t\"\",\n\t\t\"3374065.68806\"\n\t]\n\
+        }"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['13540']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Fri, 08 Feb 2019 21:59:16 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      Content-Type: [application/json]
+      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: DELETE
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/reports/71138.json
+  response:
+    body: {string: ''}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [text/html;charset=ascii]
+      Date: ['Fri, 08 Feb 2019 21:59:17 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 204, message: No Content}
+version: 1

@@ -20,6 +20,8 @@ except ImportError:
 
 from gitpy_versioning import get_version
 
+test = ['vcrpy', 'mock', 'pytest']
+
 setup_args = {
     'name':               'steelscript.netprofiler',
     'namespace_packages': ['steelscript'],
@@ -64,6 +66,12 @@ http://pythonhosted.org/steelscript/
     'install_requires': (
         'steelscript>=2.0a1',
     ),
+    
+    'extras_require': {
+        'test': test
+    },
+
+    'tests_require': test,
 
     'python_requires': '>3.5.0',
 

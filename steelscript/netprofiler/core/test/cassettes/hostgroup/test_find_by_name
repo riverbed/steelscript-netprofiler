@@ -1,0 +1,145 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Cookie: [SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types
+  response:
+    body: {string: "[\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\
+        \t\"type\": \"User-created\",\n\t\t\"name\": \"22685_DEDUCED\",\n\t\t\"id\"\
+        : 124\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\
+        \"type\": \"User-created\",\n\t\t\"name\": \"22685_GWS_TEST\",\n\t\t\"id\"\
+        : 122\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\
+        \"type\": \"User-created\",\n\t\t\"name\": \"81710_DEDUCED\",\n\t\t\"id\"\
+        : 127\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\
+        \"type\": \"User-created\",\n\t\t\"name\": \"81716_DEDUCED\",\n\t\t\"id\"\
+        : 125\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\
+        \"type\": \"User-created\",\n\t\t\"name\": \"85868_DEDUCED\",\n\t\t\"id\"\
+        : 123\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\
+        \"type\": \"User-created\",\n\t\t\"name\": \"88731_DEDUCED\",\n\t\t\"id\"\
+        : 126\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\
+        \"type\": \"User-created\",\n\t\t\"name\": \"AAA\",\n\t\t\"id\": 117\n\t},\n\
+        \t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"demo_ByApp\",\n\t\t\"\
+        type\": \"User-created\",\n\t\t\"name\": \"ByApp\",\n\t\t\"id\": 103\n\t},\n\
+        \t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"demo_ByCompliance\",\n\
+        \t\t\"type\": \"User-created\",\n\t\t\"name\": \"ByCompliance\",\n\t\t\"id\"\
+        : 104\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"Groups based\
+        \ on the function of their member hosts, such as Email, Web, etc.\",\n\t\t\
+        \"type\": \"User-created\",\n\t\t\"name\": \"ByFunction\",\n\t\t\"id\": 100\n\
+        \t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"Groups containing\
+        \ hosts with addresses in the ranges specified as Inside Addresses on the\
+        \ Profiler Setup > General Settings page.\",\n\t\t\"type\": \"System-created\"\
+        ,\n\t\t\"name\": \"ByInternalHosts\",\n\t\t\"id\": 101\n\t},\n\t{\n\t\t\"\
+        favorite\": true,\n\t\t\"description\": \"Groups based on the location of\
+        \ their member hosts, such as NY, Dallas, DataCenter1, etc.\",\n\t\t\"type\"\
+        : \"User-created\",\n\t\t\"name\": \"ByLocation\",\n\t\t\"id\": 102\n\t},\n\
+        \t{\n\t\t\"favorite\": false,\n\t\t\"description\": \"\",\n\t\t\"type\": \"\
+        System-created\",\n\t\t\"name\": \"SH-Austin\",\n\t\t\"id\": 109\n\t},\n\t\
+        {\n\t\t\"favorite\": false,\n\t\t\"description\": \"\",\n\t\t\"type\": \"\
+        System-created\",\n\t\t\"name\": \"SH-Columbus\",\n\t\t\"id\": 107\n\t},\n\
+        \t{\n\t\t\"favorite\": false,\n\t\t\"description\": \"\",\n\t\t\"type\": \"\
+        System-created\",\n\t\t\"name\": \"SH-DataCenter\",\n\t\t\"id\": 110\n\t},\n\
+        \t{\n\t\t\"favorite\": false,\n\t\t\"description\": \"\",\n\t\t\"type\": \"\
+        System-created\",\n\t\t\"name\": \"SH-Phoenix\",\n\t\t\"id\": 106\n\t},\n\t\
+        {\n\t\t\"favorite\": false,\n\t\t\"description\": \"\",\n\t\t\"type\": \"\
+        System-created\",\n\t\t\"name\": \"SH-SanFrancisco\",\n\t\t\"id\": 108\n\t\
+        },\n\t{\n\t\t\"favorite\": false,\n\t\t\"description\": \"\",\n\t\t\"type\"\
+        : \"System-created\",\n\t\t\"name\": \"SH-Seattle\",\n\t\t\"id\": 105\n\t\
+        },\n\t{\n\t\t\"favorite\": false,\n\t\t\"description\": \"\",\n\t\t\"type\"\
+        : \"User-created\",\n\t\t\"name\": \"TestHostGroup2\",\n\t\t\"id\": 112\n\t\
+        }\n]"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['2460']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Fri, 08 Feb 2019 21:58:40 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Cookie: [SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types/102
+  response:
+    body: {string: "{\n\t\"favorite\": true,\n\t\"description\": \"Groups based on\
+        \ the location of their member hosts, such as NY, Dallas, DataCenter1, etc.\"\
+        ,\n\t\"type\": \"User-created\",\n\t\"name\": \"ByLocation\",\n\t\"id\": 102\n\
+        }"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['190']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Fri, 08 Feb 2019 21:58:41 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: [application/json]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Cookie: [SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f]
+      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types/102/config
+  response:
+    body: {string: "[\n\t{\n\t\t\"cidr\": \"0.0.0.0/0\",\n\t\t\"name\": \"All_Other\"\
+        \n\t},\n\t{\n\t\t\"cidr\": \"10.99.11.0/24\",\n\t\t\"name\": \"Seattle\"\n\
+        \t},\n\t{\n\t\t\"cidr\": \"10.99.12.0/24\",\n\t\t\"name\": \"LosAngeles\"\n\
+        \t},\n\t{\n\t\t\"cidr\": \"10.99.13.0/24\",\n\t\t\"name\": \"Phoenix\"\n\t\
+        },\n\t{\n\t\t\"cidr\": \"10.99.14.0/24\",\n\t\t\"name\": \"Columbus\"\n\t\
+        },\n\t{\n\t\t\"cidr\": \"10.99.15.0/24\",\n\t\t\"name\": \"SanFrancisco\"\n\
+        \t},\n\t{\n\t\t\"cidr\": \"10.99.16.0/24\",\n\t\t\"name\": \"All_Austin\"\n\
+        \t},\n\t{\n\t\t\"cidr\": \"10.99.17.0/24\",\n\t\t\"name\": \"Philadelphia\"\
+        \n\t},\n\t{\n\t\t\"cidr\": \"10.99.18.0/24\",\n\t\t\"name\": \"Hartford\"\n\
+        \t},\n\t{\n\t\t\"cidr\": \"10.99.19.0/24\",\n\t\t\"name\": \"Boston\"\n\t\
+        },\n\t{\n\t\t\"cidr\": \"10.100.0.0/16\",\n\t\t\"name\": \"DataCenter\"\n\t\
+        }\n]"}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
+      Connection: [Keep-Alive]
+      Content-Length: ['614']
+      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
+          frame-ancestors ''self''']
+      Content-Type: [application/json]
+      Date: ['Fri, 08 Feb 2019 21:58:41 GMT']
+      Expires: ['0']
+      Keep-Alive: [timeout=90]
+      Server: [Apache]
+      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1
