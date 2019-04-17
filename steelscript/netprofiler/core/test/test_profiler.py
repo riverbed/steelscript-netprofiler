@@ -32,16 +32,19 @@ testvcr = vcr.VCR(cassette_library_dir=cassette_dir, record_mode='new_episodes')
 
 
 @testvcr.use_cassette()
-def create_profiler():
+@pytest.fixture(scope="class")
+def create_profiler(request):
     """ Create default NetProfiler lab instance. """
     auth = UserAuth('admin', 'admin')
-    return NetProfiler('10.38.131.150', auth=auth)
+    profiler = NetProfiler('10.38.131.150', auth=auth)
+    request.cls.profiler = profiler
 
 
+@pytest.mark.usefixtures("create_profiler")
 class ProfilerTests(unittest.TestCase):
     @testvcr.use_cassette()
     def setUp(self):
-        self.profiler = create_profiler()
+        # self.profiler = create_profiler()
         #y = datetime.datetime.now() - datetime.timedelta(days=1)
         #yesterday_at_4 = datetime.datetime(y.year, y.month, y.day, hour=16, minute=0, microsecond=1)
         #yesterday_at_5 = datetime.datetime(y.year, y.month, y.day, hour=17, minute=0, microsecond=1)
