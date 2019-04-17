@@ -2,66 +2,97 @@ interactions:
 - request:
     body: '{"favorite": false, "config": [], "description": "", "name": "TestType4057"}'
     headers:
-      Accept: [application/json]
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Length: ['76']
-      Content-Type: [application/json]
-      Cookie: [SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f]
-      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '76'
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
     method: POST
     uri: https://10.38.131.150/api/profiler/1.2/host_group_types
   response:
-    body: {string: "{\n\t\"favorite\": false,\n\t\"description\": \"\",\n\t\"type\"\
-        : \"User-created\",\n\t\"name\": \"TestType4057\",\n\t\"id\": 111\n}"}
+    body:
+      string: "{\n\t\"favorite\": false,\n\t\"description\": \"\",\n\t\"type\": \"\
+        User-created\",\n\t\"name\": \"TestType4057\",\n\t\"id\": 111\n}"
     headers:
-      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
-      Connection: [Keep-Alive]
-      Content-Length: ['104']
-      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
-          frame-ancestors ''self''']
-      Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 21:58:40 GMT']
-      Expires: ['0']
-      Keep-Alive: [timeout=90]
-      Location: [/api/profiler/1.2/host_group_types/111]
-      Server: [Apache]
-      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
-      X-Content-Type-Options: [nosniff]
-      X-Frame-Options: [SAMEORIGIN]
-      X-XSS-Protection: [1; mode=block]
-    status: {code: 201, message: Created}
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '104'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Feb 2019 21:58:40 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Location:
+      - /api/profiler/1.2/host_group_types/111
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
 - request:
     body: null
     headers:
-      Accept: [application/json]
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Cookie: [SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f]
-      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
     method: GET
     uri: https://10.38.131.150/api/profiler/1.2/host_group_types
   response:
-    body: {string: "[\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\
-        \t\"type\": \"User-created\",\n\t\t\"name\": \"22685_DEDUCED\",\n\t\t\"id\"\
-        : 124\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\
-        \"type\": \"User-created\",\n\t\t\"name\": \"22685_GWS_TEST\",\n\t\t\"id\"\
-        : 122\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\
-        \"type\": \"User-created\",\n\t\t\"name\": \"81710_DEDUCED\",\n\t\t\"id\"\
-        : 127\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\
-        \"type\": \"User-created\",\n\t\t\"name\": \"81716_DEDUCED\",\n\t\t\"id\"\
-        : 125\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\
-        \"type\": \"User-created\",\n\t\t\"name\": \"85868_DEDUCED\",\n\t\t\"id\"\
-        : 123\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\
-        \"type\": \"User-created\",\n\t\t\"name\": \"88731_DEDUCED\",\n\t\t\"id\"\
-        : 126\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\
-        \"type\": \"User-created\",\n\t\t\"name\": \"AAA\",\n\t\t\"id\": 117\n\t},\n\
-        \t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"demo_ByApp\",\n\t\t\"\
-        type\": \"User-created\",\n\t\t\"name\": \"ByApp\",\n\t\t\"id\": 103\n\t},\n\
-        \t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"demo_ByCompliance\",\n\
-        \t\t\"type\": \"User-created\",\n\t\t\"name\": \"ByCompliance\",\n\t\t\"id\"\
-        : 104\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"Groups based\
+    body:
+      string: "[\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\"\
+        type\": \"User-created\",\n\t\t\"name\": \"22685_DEDUCED\",\n\t\t\"id\": 124\n\
+        \t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\"type\"\
+        : \"User-created\",\n\t\t\"name\": \"22685_GWS_TEST\",\n\t\t\"id\": 122\n\t\
+        },\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\"type\"\
+        : \"User-created\",\n\t\t\"name\": \"81710_DEDUCED\",\n\t\t\"id\": 127\n\t\
+        },\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\"type\"\
+        : \"User-created\",\n\t\t\"name\": \"81716_DEDUCED\",\n\t\t\"id\": 125\n\t\
+        },\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\"type\"\
+        : \"User-created\",\n\t\t\"name\": \"85868_DEDUCED\",\n\t\t\"id\": 123\n\t\
+        },\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\"type\"\
+        : \"User-created\",\n\t\t\"name\": \"88731_DEDUCED\",\n\t\t\"id\": 126\n\t\
+        },\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\"type\"\
+        : \"User-created\",\n\t\t\"name\": \"AAA\",\n\t\t\"id\": 117\n\t},\n\t{\n\t\
+        \t\"favorite\": true,\n\t\t\"description\": \"demo_ByApp\",\n\t\t\"type\"\
+        : \"User-created\",\n\t\t\"name\": \"ByApp\",\n\t\t\"id\": 103\n\t},\n\t{\n\
+        \t\t\"favorite\": true,\n\t\t\"description\": \"demo_ByCompliance\",\n\t\t\
+        \"type\": \"User-created\",\n\t\t\"name\": \"ByCompliance\",\n\t\t\"id\":\
+        \ 104\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"Groups based\
         \ on the function of their member hosts, such as Email, Web, etc.\",\n\t\t\
         \"type\": \"User-created\",\n\t\t\"name\": \"ByFunction\",\n\t\t\"id\": 100\n\
         \t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"Groups containing\
@@ -87,110 +118,491 @@ interactions:
         : \"User-created\",\n\t\t\"name\": \"TestHostGroup2\",\n\t\t\"id\": 112\n\t\
         },\n\t{\n\t\t\"favorite\": false,\n\t\t\"description\": \"\",\n\t\t\"type\"\
         : \"User-created\",\n\t\t\"name\": \"TestType4057\",\n\t\t\"id\": 111\n\t\
-        }\n]"}
+        }\n]"
     headers:
-      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
-      Connection: [Keep-Alive]
-      Content-Length: ['2573']
-      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
-          frame-ancestors ''self''']
-      Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 21:58:40 GMT']
-      Expires: ['0']
-      Keep-Alive: [timeout=90]
-      Server: [Apache]
-      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
-      X-Content-Type-Options: [nosniff]
-      X-Frame-Options: [SAMEORIGIN]
-      X-XSS-Protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2573'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Feb 2019 21:58:40 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
-      Accept: [application/json]
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Cookie: [SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f]
-      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
     method: GET
     uri: https://10.38.131.150/api/profiler/1.2/host_group_types/111
   response:
-    body: {string: "{\n\t\"favorite\": false,\n\t\"description\": \"\",\n\t\"type\"\
-        : \"User-created\",\n\t\"name\": \"TestType4057\",\n\t\"id\": 111\n}"}
+    body:
+      string: "{\n\t\"favorite\": false,\n\t\"description\": \"\",\n\t\"type\": \"\
+        User-created\",\n\t\"name\": \"TestType4057\",\n\t\"id\": 111\n}"
     headers:
-      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
-      Connection: [Keep-Alive]
-      Content-Length: ['104']
-      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
-          frame-ancestors ''self''']
-      Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 21:58:40 GMT']
-      Expires: ['0']
-      Keep-Alive: [timeout=90]
-      Server: [Apache]
-      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
-      X-Content-Type-Options: [nosniff]
-      X-Frame-Options: [SAMEORIGIN]
-      X-XSS-Protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '104'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Feb 2019 21:58:40 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
-      Accept: [application/json]
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Cookie: [SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f]
-      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
     method: GET
     uri: https://10.38.131.150/api/profiler/1.2/host_group_types/111/config
   response:
-    body: {string: "{\n\t\"error_id\": \"RESOURCE_NOT_FOUND\",\n\t\"error_text\":\
-        \ \"111 not found\"\n}"}
+    body:
+      string: "{\n\t\"error_id\": \"RESOURCE_NOT_FOUND\",\n\t\"error_text\": \"111\
+        \ not found\"\n}"
     headers:
-      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
-      Connection: [Keep-Alive]
-      Content-Length: ['69']
-      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
-          frame-ancestors ''self''']
-      Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 21:58:40 GMT']
-      Expires: ['0']
-      Keep-Alive: [timeout=90]
-      Server: [Apache]
-      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
-      X-Content-Type-Options: [nosniff]
-      X-Frame-Options: [SAMEORIGIN]
-      X-XSS-Protection: [1; mode=block]
-    status: {code: 404, message: Not Found}
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '69'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Feb 2019 21:58:40 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: Not Found
 - request:
     body: null
     headers:
-      Accept: [application/json]
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      Content-Type: [application/json]
-      Cookie: [SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f]
-      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
     method: DELETE
     uri: https://10.38.131.150/api/profiler/1.2/host_group_types/111
   response:
-    body: {string: ''}
+    body:
+      string: ''
     headers:
-      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
-      Connection: [Keep-Alive]
-      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
-          frame-ancestors ''self''']
-      Content-Type: [text/html;charset=ascii]
-      Date: ['Fri, 08 Feb 2019 21:58:40 GMT']
-      Expires: ['0']
-      Keep-Alive: [timeout=90]
-      Server: [Apache]
-      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
-      X-Content-Type-Options: [nosniff]
-      X-Frame-Options: [SAMEORIGIN]
-      X-XSS-Protection: [1; mode=block]
-    status: {code: 204, message: No Content}
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - text/html;charset=ascii
+      Date:
+      - Fri, 08 Feb 2019 21:58:40 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 204
+      message: No Content
+- request:
+    body: '{"name": "TestType4057", "description": "", "favorite": false, "config":
+      []}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '76'
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=f5d835b6ac93d66b9be7ebca53d5d25ea4a742116f0d948a9b30667420e94ce0
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types
+  response:
+    body:
+      string: "{\n\t\"favorite\": false,\n\t\"description\": \"\",\n\t\"type\": \"\
+        User-created\",\n\t\"name\": \"TestType4057\",\n\t\"id\": 111\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '104'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:18:23 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Location:
+      - /api/profiler/1.2/host_group_types/111
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=f5d835b6ac93d66b9be7ebca53d5d25ea4a742116f0d948a9b30667420e94ce0
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\"\
+        type\": \"User-created\",\n\t\t\"name\": \"22685_GWS\",\n\t\t\"id\": 121\n\
+        \t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\"type\"\
+        : \"User-created\",\n\t\t\"name\": \"AAA\",\n\t\t\"id\": 117\n\t},\n\t{\n\t\
+        \t\"favorite\": true,\n\t\t\"description\": \"\",\n\t\t\"type\": \"User-created\"\
+        ,\n\t\t\"name\": \"BUNDLE1\",\n\t\t\"id\": 129\n\t},\n\t{\n\t\t\"favorite\"\
+        : true,\n\t\t\"description\": \"\",\n\t\t\"type\": \"User-created\",\n\t\t\
+        \"name\": \"BUNDLE_TEST\",\n\t\t\"id\": 130\n\t},\n\t{\n\t\t\"favorite\":\
+        \ true,\n\t\t\"description\": \"demo_ByApp\",\n\t\t\"type\": \"User-created\"\
+        ,\n\t\t\"name\": \"ByApp\",\n\t\t\"id\": 103\n\t},\n\t{\n\t\t\"favorite\"\
+        : true,\n\t\t\"description\": \"demo_ByCompliance\",\n\t\t\"type\": \"User-created\"\
+        ,\n\t\t\"name\": \"ByCompliance\",\n\t\t\"id\": 104\n\t},\n\t{\n\t\t\"favorite\"\
+        : true,\n\t\t\"description\": \"Groups based on the function of their member\
+        \ hosts, such as Email, Web, etc.\",\n\t\t\"type\": \"User-created\",\n\t\t\
+        \"name\": \"ByFunction\",\n\t\t\"id\": 100\n\t},\n\t{\n\t\t\"favorite\": true,\n\
+        \t\t\"description\": \"Groups containing hosts with addresses in the ranges\
+        \ specified as Inside Addresses on the Profiler Setup > General Settings page.\"\
+        ,\n\t\t\"type\": \"System-created\",\n\t\t\"name\": \"ByInternalHosts\",\n\
+        \t\t\"id\": 101\n\t},\n\t{\n\t\t\"favorite\": true,\n\t\t\"description\":\
+        \ \"Groups based on the location of their member hosts, such as NY, Dallas,\
+        \ DataCenter1, etc.\",\n\t\t\"type\": \"User-created\",\n\t\t\"name\": \"\
+        ByLocation\",\n\t\t\"id\": 102\n\t},\n\t{\n\t\t\"favorite\": false,\n\t\t\"\
+        description\": \"\",\n\t\t\"type\": \"System-created\",\n\t\t\"name\": \"\
+        SH-Austin\",\n\t\t\"id\": 109\n\t},\n\t{\n\t\t\"favorite\": false,\n\t\t\"\
+        description\": \"\",\n\t\t\"type\": \"System-created\",\n\t\t\"name\": \"\
+        SH-Columbus\",\n\t\t\"id\": 107\n\t},\n\t{\n\t\t\"favorite\": false,\n\t\t\
+        \"description\": \"\",\n\t\t\"type\": \"System-created\",\n\t\t\"name\": \"\
+        SH-DataCenter\",\n\t\t\"id\": 110\n\t},\n\t{\n\t\t\"favorite\": false,\n\t\
+        \t\"description\": \"\",\n\t\t\"type\": \"System-created\",\n\t\t\"name\"\
+        : \"SH-Phoenix\",\n\t\t\"id\": 106\n\t},\n\t{\n\t\t\"favorite\": false,\n\t\
+        \t\"description\": \"\",\n\t\t\"type\": \"System-created\",\n\t\t\"name\"\
+        : \"SH-SanFrancisco\",\n\t\t\"id\": 108\n\t},\n\t{\n\t\t\"favorite\": false,\n\
+        \t\t\"description\": \"\",\n\t\t\"type\": \"System-created\",\n\t\t\"name\"\
+        : \"SH-Seattle\",\n\t\t\"id\": 105\n\t},\n\t{\n\t\t\"favorite\": false,\n\t\
+        \t\"description\": \"\",\n\t\t\"type\": \"User-created\",\n\t\t\"name\": \"\
+        TestHostGroup2\",\n\t\t\"id\": 112\n\t},\n\t{\n\t\t\"favorite\": false,\n\t\
+        \t\"description\": \"\",\n\t\t\"type\": \"User-created\",\n\t\t\"name\": \"\
+        TestType4057\",\n\t\t\"id\": 111\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2221'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:18:24 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=f5d835b6ac93d66b9be7ebca53d5d25ea4a742116f0d948a9b30667420e94ce0
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types/111
+  response:
+    body:
+      string: "{\n\t\"favorite\": false,\n\t\"description\": \"\",\n\t\"type\": \"\
+        User-created\",\n\t\"name\": \"TestType4057\",\n\t\"id\": 111\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '104'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:18:24 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=f5d835b6ac93d66b9be7ebca53d5d25ea4a742116f0d948a9b30667420e94ce0
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types/111/config
+  response:
+    body:
+      string: "{\n\t\"error_id\": \"RESOURCE_NOT_FOUND\",\n\t\"error_text\": \"111\
+        \ not found\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '69'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:18:25 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: Not Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=f5d835b6ac93d66b9be7ebca53d5d25ea4a742116f0d948a9b30667420e94ce0
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: DELETE
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types/111
+  response:
+    body:
+      string: ''
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - text/html;charset=ascii
+      Date:
+      - Wed, 17 Apr 2019 08:18:25 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 204
+      message: No Content
 version: 1

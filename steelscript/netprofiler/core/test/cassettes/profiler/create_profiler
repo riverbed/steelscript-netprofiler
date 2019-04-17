@@ -2,127 +2,4241 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: [application/json]
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
     method: GET
     uri: https://10.38.131.150/api/common/1.0/services
   response:
-    body: {string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\
-        \t\t\"1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\"\
-        : [\n\t\t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\
-        \"1.9\",\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\
-        \t\t\t\"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\
-        \t\t\"versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"}
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
     headers:
-      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
-      Connection: [Keep-Alive]
-      Content-Length: ['273']
-      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
-          frame-ancestors ''self''']
-      Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 21:58:43 GMT']
-      Expires: ['0']
-      Keep-Alive: [timeout=90]
-      Server: [Apache]
-      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
-      X-Content-Type-Options: [nosniff]
-      X-Frame-Options: [SAMEORIGIN]
-      X-XSS-Protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Feb 2019 21:58:43 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
-      Accept: [application/json]
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
     method: GET
     uri: https://10.38.131.150/api/common/1.0/auth_info
   response:
-    body: {string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\"\
-        ,\n\t\t\"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\"\
-        : \"\"\n}"}
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
     headers:
-      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
-      Connection: [Keep-Alive]
-      Content-Length: ['114']
-      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
-          frame-ancestors ''self''']
-      Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 21:58:43 GMT']
-      Expires: ['0']
-      Keep-Alive: [timeout=90]
-      Server: [Apache]
-      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
-      X-Content-Type-Options: [nosniff]
-      X-Frame-Options: [SAMEORIGIN]
-      X-XSS-Protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Feb 2019 21:58:43 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 - request:
     body: '{"username": "admin", "password": "admin"}'
     headers:
-      Accept: [application/json]
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Length: ['42']
-      Content-Type: [application/json]
-      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
     method: POST
     uri: https://10.38.131.150/api/common/1.0/login
   response:
-    body: {string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f\"\
-        \n}"}
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f\"\
+        \n}"
     headers:
-      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
-      Connection: [Keep-Alive]
-      Content-Length: ['111']
-      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
-          frame-ancestors ''self''']
-      Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 21:58:43 GMT']
-      Expires: ['0']
-      Keep-Alive: [timeout=90]
-      Server: [Apache]
-      Set-Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f;
-          Path=/]
-      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
-      X-Content-Type-Options: [nosniff]
-      X-Frame-Options: [SAMEORIGIN]
-      X-XSS-Protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Feb 2019 21:58:43 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
-      Accept: [application/json]
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
-      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
     method: GET
     uri: https://10.38.131.150/api/common/1.0/info.json
   response:
-    body: {string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"\
-        mgmt_addresses\": [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\"\
-        ,\n\t\"device_name\": \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"}
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
     headers:
-      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
-      Connection: [Keep-Alive]
-      Content-Length: ['174']
-      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
-          frame-ancestors ''self''']
-      Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 21:58:44 GMT']
-      Expires: ['0']
-      Keep-Alive: [timeout=90]
-      Server: [Apache]
-      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
-      X-Content-Type-Options: [nosniff]
-      X-Frame-Options: [SAMEORIGIN]
-      X-XSS-Protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Feb 2019 21:58:44 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:03 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:03 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"0323d36f886e5a42c082c973a9e5e09e0b96fcdc44d8daf3d0b821a6bd485b96\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:03 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=0323d36f886e5a42c082c973a9e5e09e0b96fcdc44d8daf3d0b821a6bd485b96; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=0323d36f886e5a42c082c973a9e5e09e0b96fcdc44d8daf3d0b821a6bd485b96
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:04 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:05 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:06 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"9a985e54c23698b23787fc613535e8a710952bb43b5461b997214fcc233e39ef\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:06 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=9a985e54c23698b23787fc613535e8a710952bb43b5461b997214fcc233e39ef; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=9a985e54c23698b23787fc613535e8a710952bb43b5461b997214fcc233e39ef
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:07 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:08 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:08 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"8925bf48172495fb03a61a0ce69fc6bc80c7965051dd4487736d47d2f63b2d2a\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:09 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=8925bf48172495fb03a61a0ce69fc6bc80c7965051dd4487736d47d2f63b2d2a; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=8925bf48172495fb03a61a0ce69fc6bc80c7965051dd4487736d47d2f63b2d2a
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:09 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:11 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:11 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"c7d59955f0b8718577e0accf313b0bef79bf241b7d019851612469cf195846de\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:11 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=c7d59955f0b8718577e0accf313b0bef79bf241b7d019851612469cf195846de; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=c7d59955f0b8718577e0accf313b0bef79bf241b7d019851612469cf195846de
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:12 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:13 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:14 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"cacf1f7c9560f24896eaa1825f1d2ac4156afc5974399b602fe0cf6ee2d90a05\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:14 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=cacf1f7c9560f24896eaa1825f1d2ac4156afc5974399b602fe0cf6ee2d90a05; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=cacf1f7c9560f24896eaa1825f1d2ac4156afc5974399b602fe0cf6ee2d90a05
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:14 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:16 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:16 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"e14b47da5ed22fb8ce1d98b1d1f0a817ffb01ac99f00b450aa333848a84f1b74\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:17 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=e14b47da5ed22fb8ce1d98b1d1f0a817ffb01ac99f00b450aa333848a84f1b74; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=e14b47da5ed22fb8ce1d98b1d1f0a817ffb01ac99f00b450aa333848a84f1b74
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:18 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:27 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:27 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"2f19de1798422c66cb9be3ca1841fb7e847f55747ebb197507b9fd408993c93a\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:27 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=2f19de1798422c66cb9be3ca1841fb7e847f55747ebb197507b9fd408993c93a; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=2f19de1798422c66cb9be3ca1841fb7e847f55747ebb197507b9fd408993c93a
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:28 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:30 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:30 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"743e464d2363269102674398bc090792362bf322bd6d0037a74d90311d93050b\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:31 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=743e464d2363269102674398bc090792362bf322bd6d0037a74d90311d93050b; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=743e464d2363269102674398bc090792362bf322bd6d0037a74d90311d93050b
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:32 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:37 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:38 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"cec7f0d1f61474623b5bd22a24a10e4d0119341a6b12333aebb9b9c335d07fdb\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:38 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=cec7f0d1f61474623b5bd22a24a10e4d0119341a6b12333aebb9b9c335d07fdb; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=cec7f0d1f61474623b5bd22a24a10e4d0119341a6b12333aebb9b9c335d07fdb
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:19:38 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:04 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:04 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"97f0428619d12ca5ab80654801888d37f51bca7540699d17c072efdd315c37f9\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:04 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=97f0428619d12ca5ab80654801888d37f51bca7540699d17c072efdd315c37f9; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=97f0428619d12ca5ab80654801888d37f51bca7540699d17c072efdd315c37f9
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:05 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:07 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:07 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"069e8736a07bb52f12fd59596877302bfd40074890bd297cb1f997dc57bf3325\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:07 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=069e8736a07bb52f12fd59596877302bfd40074890bd297cb1f997dc57bf3325; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=069e8736a07bb52f12fd59596877302bfd40074890bd297cb1f997dc57bf3325
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:08 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:09 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:10 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"a2d1487bc984af6962d99f0c5e83fb0fe0017b42979e8350ef740759563d40e0\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:10 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=a2d1487bc984af6962d99f0c5e83fb0fe0017b42979e8350ef740759563d40e0; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=a2d1487bc984af6962d99f0c5e83fb0fe0017b42979e8350ef740759563d40e0
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:10 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:38 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:39 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"4fb280a19955cd52bcf9c51a4a163285a3c5979f791caa49b0a92a30c9adbee5\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:39 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=4fb280a19955cd52bcf9c51a4a163285a3c5979f791caa49b0a92a30c9adbee5; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=4fb280a19955cd52bcf9c51a4a163285a3c5979f791caa49b0a92a30c9adbee5
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:40 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:48 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:49 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"7869891f5c79065940942e7181c509679b7c53144905a564f9f0b234ee517ef3\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:49 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=7869891f5c79065940942e7181c509679b7c53144905a564f9f0b234ee517ef3; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=7869891f5c79065940942e7181c509679b7c53144905a564f9f0b234ee517ef3
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:50 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:51 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:52 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"99531094d3c04f4494daba7d2f66b9da655cdfe81ca24bec51d2e97b12beaa6e\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:52 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=99531094d3c04f4494daba7d2f66b9da655cdfe81ca24bec51d2e97b12beaa6e; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=99531094d3c04f4494daba7d2f66b9da655cdfe81ca24bec51d2e97b12beaa6e
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:52 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:56 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:57 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"a58435bf3052d6ddd2cbca647156372f75a3d74ff82948fc8e6748a9aee6fb40\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:57 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=a58435bf3052d6ddd2cbca647156372f75a3d74ff82948fc8e6748a9aee6fb40; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=a58435bf3052d6ddd2cbca647156372f75a3d74ff82948fc8e6748a9aee6fb40
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:58 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:21:01 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:21:01 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"3f357c6c26975bbb9503d784a80154f5f7555686ca4e3cca7b784beba4db0dee\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:21:02 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=3f357c6c26975bbb9503d784a80154f5f7555686ca4e3cca7b784beba4db0dee; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=3f357c6c26975bbb9503d784a80154f5f7555686ca4e3cca7b784beba4db0dee
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:21:02 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:21:08 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:21:08 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"d431216687f2037d641ad1c1c775c98ff17f7530357cf474ee93184a1114a5e8\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:21:08 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=d431216687f2037d641ad1c1c775c98ff17f7530357cf474ee93184a1114a5e8; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=d431216687f2037d641ad1c1c775c98ff17f7530357cf474ee93184a1114a5e8
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:21:09 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/services
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"cascade.saml\",\n\t\t\"versions\": [\n\t\t\t\"\
+        1.0\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"profiler\",\n\t\t\"versions\": [\n\t\
+        \t\t\"1.2\",\n\t\t\t\"1.8\",\n\t\t\t\"1.1\",\n\t\t\t\"1.7\",\n\t\t\t\"1.9\"\
+        ,\n\t\t\t\"1.3\",\n\t\t\t\"1.6\",\n\t\t\t\"1.4\",\n\t\t\t\"1.10\",\n\t\t\t\
+        \"1.0\",\n\t\t\t\"1.5\"\n\t\t]\n\t},\n\t{\n\t\t\"id\": \"common\",\n\t\t\"\
+        versions\": [\n\t\t\t\"1.0\"\n\t\t]\n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '273'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:21:13 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/auth_info
+  response:
+    body:
+      string: "{\n\t\"supported_methods\": [\n\t\t\"BASIC\",\n\t\t\"COOKIE\",\n\t\t\
+        \"OAUTH_2_0\"\n\t],\n\t\"specify_purpose\": true,\n\t\"login_banner\": \"\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '114'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:21:13 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "admin", "password": "admin"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '42'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/common/1.0/login
+  response:
+    body:
+      string: "{\n\t\"session_key\": \"SESSID\",\n\t\"session_id\": \"b7508b758134fd18690d03520498009552d74cd789f9a2f2abc69b5f90d488c9\"\
+        \n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '111'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:21:14 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Set-Cookie:
+      - SESSID=b7508b758134fd18690d03520498009552d74cd789f9a2f2abc69b5f90d488c9; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=b7508b758134fd18690d03520498009552d74cd789f9a2f2abc69b5f90d488c9
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/common/1.0/info.json
+  response:
+    body:
+      string: "{\n\t\"sw_version\": \"10.13 (release 20180320_1735)\",\n\t\"mgmt_addresses\"\
+        : [\n\t\t\"10.38.131.150\"\n\t],\n\t\"serial\": \"ZB2WH0009A160\",\n\t\"device_name\"\
+        : \"cam-pro101\",\n\t\"model\": \"CAP-02260\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '174'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:21:14 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1

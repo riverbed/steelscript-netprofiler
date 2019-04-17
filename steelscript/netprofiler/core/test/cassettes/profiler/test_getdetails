@@ -2,18 +2,25 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: [application/json]
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
-      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
     method: GET
     uri: https://10.38.131.150/api/profiler/1.0/devices
   response:
-    body: {string: "[\n\t{\n\t\t\"name\": \"DCCluster1-EH4\",\n\t\t\"type_id\": 2,\n\
-        \t\t\"ipaddr\": \"10.100.5.13\",\n\t\t\"version\": \"N/A\",\n\t\t\"type\"\
-        : \"NetFlow\",\n\t\t\"id\": 313\n\t},\n\t{\n\t\t\"name\": \"gateway-DataCenter\"\
+    body:
+      string: "[\n\t{\n\t\t\"name\": \"DCCluster1-EH4\",\n\t\t\"type_id\": 2,\n\t\t\
+        \"ipaddr\": \"10.100.5.13\",\n\t\t\"version\": \"N/A\",\n\t\t\"type\": \"\
+        NetFlow\",\n\t\t\"id\": 313\n\t},\n\t{\n\t\t\"name\": \"gateway-DataCenter\"\
         ,\n\t\t\"type_id\": 5,\n\t\t\"ipaddr\": \"10.100.100.222\",\n\t\t\"version\"\
         : \"N/A\",\n\t\t\"type\": \"Cascade Gateway\",\n\t\t\"id\": 100\n\t},\n\t\
         {\n\t\t\"name\": \"SH-Seattle\",\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"\
@@ -97,52 +104,279 @@ interactions:
         ,\n\t\t\"type\": \"Cascade Shark\",\n\t\t\"id\": 122\n\t},\n\t{\n\t\t\"name\"\
         : \"RTR-DataCenter\",\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"10.100.100.254\"\
         ,\n\t\t\"version\": \"N/A\",\n\t\t\"type\": \"NetFlow\",\n\t\t\"id\": 123\n\
-        \t}\n]"}
+        \t}\n]"
     headers:
-      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
-      Connection: [Keep-Alive]
-      Content-Length: ['5005']
-      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
-          frame-ancestors ''self''']
-      Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 21:59:17 GMT']
-      Expires: ['0']
-      Keep-Alive: [timeout=90]
-      Server: [Apache]
-      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
-      X-Content-Type-Options: [nosniff]
-      X-Frame-Options: [SAMEORIGIN]
-      X-XSS-Protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '5005'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Feb 2019 21:59:17 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
-      Accept: [application/json]
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Cookie: [SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f]
-      User-Agent: [python-requests/2.21.0 SteelScript/2.0a1]
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=3d11fb882ecac5e3105e1497123c3ae09b5a8643df1e82d54120bad3f129d79f
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
     method: GET
     uri: https://10.38.131.150/api/profiler/1.0/devices/10.100.5.13.json
   response:
-    body: {string: "{\n\t\"name\": \"DCCluster1-EH4\",\n\t\"type_id\": 2,\n\t\"ipaddr\"\
+    body:
+      string: "{\n\t\"name\": \"DCCluster1-EH4\",\n\t\"type_id\": 2,\n\t\"ipaddr\"\
         : \"10.100.5.13\",\n\t\"version\": \"N/A\",\n\t\"type\": \"NetFlow\",\n\t\"\
-        id\": 313\n}"}
+        id\": 313\n}"
     headers:
-      Cache-Control: ['no-store, no-cache, must-revalidate, max-age=0']
-      Connection: [Keep-Alive]
-      Content-Length: ['121']
-      Content-Security-Policy: ['default-src https: data: ''unsafe-inline'' ''unsafe-eval'';
-          frame-ancestors ''self''']
-      Content-Type: [application/json]
-      Date: ['Fri, 08 Feb 2019 21:59:18 GMT']
-      Expires: ['0']
-      Keep-Alive: [timeout=90]
-      Server: [Apache]
-      Strict-Transport-Security: [max-age=31536000; includeSubDomains]
-      X-Content-Type-Options: [nosniff]
-      X-Frame-Options: [SAMEORIGIN]
-      X-XSS-Protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '121'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Feb 2019 21:59:18 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=99531094d3c04f4494daba7d2f66b9da655cdfe81ca24bec51d2e97b12beaa6e
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.0/devices
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"name\": \"DCCluster1-EH4\",\n\t\t\"type_id\": 2,\n\t\t\
+        \"ipaddr\": \"10.100.5.13\",\n\t\t\"version\": \"N/A\",\n\t\t\"type\": \"\
+        NetFlow\",\n\t\t\"id\": 313\n\t},\n\t{\n\t\t\"name\": \"gateway-DataCenter\"\
+        ,\n\t\t\"type_id\": 5,\n\t\t\"ipaddr\": \"10.100.100.222\",\n\t\t\"version\"\
+        : \"N/A\",\n\t\t\"type\": \"Cascade Gateway\",\n\t\t\"id\": 100\n\t},\n\t\
+        {\n\t\t\"name\": \"SH-Seattle\",\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"\
+        10.99.11.252\",\n\t\t\"version\": \"CascadeFlow\",\n\t\t\"type\": \"Riverbed\
+        \ SteelFlow\",\n\t\t\"id\": 101\n\t},\n\t{\n\t\t\"name\": \"cam-pro101.lab.nbttech.com\"\
+        ,\n\t\t\"type_id\": 7,\n\t\t\"ipaddr\": \"10.38.131.150\",\n\t\t\"version\"\
+        : \"N/A\",\n\t\t\"type\": \"Flow Replayer\",\n\t\t\"id\": 566\n\t},\n\t{\n\
+        \t\t\"name\": \"DCCluster2-EH2\",\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"\
+        10.100.6.11\",\n\t\t\"version\": \"N/A\",\n\t\t\"type\": \"NetFlow\",\n\t\t\
+        \"id\": 194\n\t},\n\t{\n\t\t\"name\": \"shark-Seattle\",\n\t\t\"type_id\"\
+        : 11,\n\t\t\"ipaddr\": \"10.99.11.253\",\n\t\t\"version\": \"N/A\",\n\t\t\"\
+        type\": \"Cascade Shark\",\n\t\t\"id\": 102\n\t},\n\t{\n\t\t\"name\": \"SW-DCCluster1\"\
+        ,\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"10.100.220.10\",\n\t\t\"version\"\
+        : \"N/A\",\n\t\t\"type\": \"NetFlow\",\n\t\t\"id\": 164\n\t},\n\t{\n\t\t\"\
+        name\": \"SH-LosAngeles\",\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"10.99.12.252\"\
+        ,\n\t\t\"version\": \"CascadeFlow\",\n\t\t\"type\": \"Riverbed SteelFlow\"\
+        ,\n\t\t\"id\": 103\n\t},\n\t{\n\t\t\"name\": \"shark-LosAngeles\",\n\t\t\"\
+        type_id\": 11,\n\t\t\"ipaddr\": \"10.99.12.253\",\n\t\t\"version\": \"N/A\"\
+        ,\n\t\t\"type\": \"Cascade Shark\",\n\t\t\"id\": 104\n\t},\n\t{\n\t\t\"name\"\
+        : \"DCCluster1-EH1\",\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"10.100.5.10\"\
+        ,\n\t\t\"version\": \"N/A\",\n\t\t\"type\": \"NetFlow\",\n\t\t\"id\": 260\n\
+        \t},\n\t{\n\t\t\"name\": \"SH-Phoenix\",\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\"\
+        : \"10.99.13.252\",\n\t\t\"version\": \"CascadeFlow\",\n\t\t\"type\": \"Riverbed\
+        \ SteelFlow\",\n\t\t\"id\": 105\n\t},\n\t{\n\t\t\"name\": \"shark-Phoenix\"\
+        ,\n\t\t\"type_id\": 11,\n\t\t\"ipaddr\": \"10.99.13.253\",\n\t\t\"version\"\
+        : \"N/A\",\n\t\t\"type\": \"Cascade Shark\",\n\t\t\"id\": 106\n\t},\n\t{\n\
+        \t\t\"name\": \"DCCluster2-EH4\",\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"\
+        10.100.6.13\",\n\t\t\"version\": \"N/A\",\n\t\t\"type\": \"NetFlow\",\n\t\t\
+        \"id\": 230\n\t},\n\t{\n\t\t\"name\": \"SH-Columbus\",\n\t\t\"type_id\": 2,\n\
+        \t\t\"ipaddr\": \"10.99.14.252\",\n\t\t\"version\": \"CascadeFlow\",\n\t\t\
+        \"type\": \"Riverbed SteelFlow\",\n\t\t\"id\": 107\n\t},\n\t{\n\t\t\"name\"\
+        : \"SW-DCCluster2\",\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"10.100.220.20\"\
+        ,\n\t\t\"version\": \"N/A\",\n\t\t\"type\": \"NetFlow\",\n\t\t\"id\": 170\n\
+        \t},\n\t{\n\t\t\"name\": \"shark-Columbus\",\n\t\t\"type_id\": 11,\n\t\t\"\
+        ipaddr\": \"10.99.14.253\",\n\t\t\"version\": \"N/A\",\n\t\t\"type\": \"Cascade\
+        \ Shark\",\n\t\t\"id\": 108\n\t},\n\t{\n\t\t\"name\": \"SH-SanFrancisco\"\
+        ,\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"10.99.15.252\",\n\t\t\"version\"\
+        : \"CascadeFlow\",\n\t\t\"type\": \"Riverbed SteelFlow\",\n\t\t\"id\": 109\n\
+        \t},\n\t{\n\t\t\"name\": \"shark-SanFrancisco\",\n\t\t\"type_id\": 11,\n\t\
+        \t\"ipaddr\": \"10.99.15.253\",\n\t\t\"version\": \"N/A\",\n\t\t\"type\":\
+        \ \"Cascade Shark\",\n\t\t\"id\": 110\n\t},\n\t{\n\t\t\"name\": \"SH-Austin\"\
+        ,\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"10.99.16.252\",\n\t\t\"version\"\
+        : \"CascadeFlow\",\n\t\t\"type\": \"Riverbed SteelFlow\",\n\t\t\"id\": 111\n\
+        \t},\n\t{\n\t\t\"name\": \"shark-Austin\",\n\t\t\"type_id\": 11,\n\t\t\"ipaddr\"\
+        : \"10.99.16.253\",\n\t\t\"version\": \"N/A\",\n\t\t\"type\": \"Cascade Shark\"\
+        ,\n\t\t\"id\": 112\n\t},\n\t{\n\t\t\"name\": \"DCCluster1-EH3\",\n\t\t\"type_id\"\
+        : 2,\n\t\t\"ipaddr\": \"10.100.5.12\",\n\t\t\"version\": \"N/A\",\n\t\t\"\
+        type\": \"NetFlow\",\n\t\t\"id\": 298\n\t},\n\t{\n\t\t\"name\": \"DCCluster2-EH3\"\
+        ,\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"10.100.6.12\",\n\t\t\"version\"\
+        : \"N/A\",\n\t\t\"type\": \"NetFlow\",\n\t\t\"id\": 205\n\t},\n\t{\n\t\t\"\
+        name\": \"shark-Philadelphia\",\n\t\t\"type_id\": 11,\n\t\t\"ipaddr\": \"\
+        10.99.17.253\",\n\t\t\"version\": \"N/A\",\n\t\t\"type\": \"Cascade Shark\"\
+        ,\n\t\t\"id\": 113\n\t},\n\t{\n\t\t\"name\": \"WAN-RTR-Philadelphia\",\n\t\
+        \t\"type_id\": 2,\n\t\t\"ipaddr\": \"10.99.17.254\",\n\t\t\"version\": \"\
+        N/A\",\n\t\t\"type\": \"NetFlow\",\n\t\t\"id\": 114\n\t},\n\t{\n\t\t\"name\"\
+        : \"shark-Hartford\",\n\t\t\"type_id\": 11,\n\t\t\"ipaddr\": \"10.99.18.253\"\
+        ,\n\t\t\"version\": \"N/A\",\n\t\t\"type\": \"Cascade Shark\",\n\t\t\"id\"\
+        : 115\n\t},\n\t{\n\t\t\"name\": \"DCCluster2-EH1\",\n\t\t\"type_id\": 2,\n\
+        \t\t\"ipaddr\": \"10.100.6.10\",\n\t\t\"version\": \"N/A\",\n\t\t\"type\"\
+        : \"NetFlow\",\n\t\t\"id\": 177\n\t},\n\t{\n\t\t\"name\": \"WAN-RTR-Hartford\"\
+        ,\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"10.99.18.254\",\n\t\t\"version\"\
+        : \"N/A\",\n\t\t\"type\": \"NetFlow\",\n\t\t\"id\": 116\n\t},\n\t{\n\t\t\"\
+        name\": \"AR-Cambridge\",\n\t\t\"type_id\": 16,\n\t\t\"ipaddr\": \"10.99.19.253\"\
+        ,\n\t\t\"version\": \"N/A\",\n\t\t\"type\": \"SteelCentral Alloy\",\n\t\t\"\
+        id\": 117\n\t},\n\t{\n\t\t\"name\": \"DCCluster2-EH5\",\n\t\t\"type_id\":\
+        \ 2,\n\t\t\"ipaddr\": \"10.100.6.14\",\n\t\t\"version\": \"N/A\",\n\t\t\"\
+        type\": \"NetFlow\",\n\t\t\"id\": 241\n\t},\n\t{\n\t\t\"name\": \"WAN-RTR-Cambridge\"\
+        ,\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"10.99.19.254\",\n\t\t\"version\"\
+        : \"N/A\",\n\t\t\"type\": \"NetFlow\",\n\t\t\"id\": 118\n\t},\n\t{\n\t\t\"\
+        name\": \"AR-Sunnyvale\",\n\t\t\"type_id\": 16,\n\t\t\"ipaddr\": \"10.99.20.253\"\
+        ,\n\t\t\"version\": \"N/A\",\n\t\t\"type\": \"SteelCentral Alloy\",\n\t\t\"\
+        id\": 119\n\t},\n\t{\n\t\t\"name\": \"DCCluster1-EH2\",\n\t\t\"type_id\":\
+        \ 2,\n\t\t\"ipaddr\": \"10.100.5.11\",\n\t\t\"version\": \"N/A\",\n\t\t\"\
+        type\": \"NetFlow\",\n\t\t\"id\": 275\n\t},\n\t{\n\t\t\"name\": \"WAN-RTR-Sunnyvale\"\
+        ,\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"10.99.20.254\",\n\t\t\"version\"\
+        : \"N/A\",\n\t\t\"type\": \"NetFlow\",\n\t\t\"id\": 120\n\t},\n\t{\n\t\t\"\
+        name\": \"SH-DataCenter\",\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"10.100.100.252\"\
+        ,\n\t\t\"version\": \"CascadeFlow\",\n\t\t\"type\": \"Riverbed SteelFlow\"\
+        ,\n\t\t\"id\": 121\n\t},\n\t{\n\t\t\"name\": \"shark-DataCenter\",\n\t\t\"\
+        type_id\": 11,\n\t\t\"ipaddr\": \"10.100.100.253\",\n\t\t\"version\": \"N/A\"\
+        ,\n\t\t\"type\": \"Cascade Shark\",\n\t\t\"id\": 122\n\t},\n\t{\n\t\t\"name\"\
+        : \"RTR-DataCenter\",\n\t\t\"type_id\": 2,\n\t\t\"ipaddr\": \"10.100.100.254\"\
+        ,\n\t\t\"version\": \"N/A\",\n\t\t\"type\": \"NetFlow\",\n\t\t\"id\": 123\n\
+        \t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '5005'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:54 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=99531094d3c04f4494daba7d2f66b9da655cdfe81ca24bec51d2e97b12beaa6e
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.0/devices/10.100.5.13.json
+  response:
+    body:
+      string: "{\n\t\"name\": \"DCCluster1-EH4\",\n\t\"type_id\": 2,\n\t\"ipaddr\"\
+        : \"10.100.5.13\",\n\t\"version\": \"N/A\",\n\t\"type\": \"NetFlow\",\n\t\"\
+        id\": 313\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '121'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:20:54 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1
