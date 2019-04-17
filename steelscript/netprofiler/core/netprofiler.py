@@ -109,7 +109,6 @@ class NetProfiler(steelscript.common.service.Service):
 
         areas_filename = 'areas-' + self.version + '.json'
         self._areas_file = self._fs_data.get_config(areas_filename)
-        # import pdb; pdb.set_trace()
         if self._areas_file.data is None:
             self._areas_file.data = self.api.report.areas()
             self._areas_file.write()

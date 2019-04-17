@@ -44,7 +44,6 @@ def create_profiler(request):
 class ProfilerTests(unittest.TestCase):
     @testvcr.use_cassette()
     def setUp(self):
-        # self.profiler = create_profiler()
         #y = datetime.datetime.now() - datetime.timedelta(days=1)
         #yesterday_at_4 = datetime.datetime(y.year, y.month, y.day, hour=16, minute=0, microsecond=1)
         #yesterday_at_5 = datetime.datetime(y.year, y.month, y.day, hour=17, minute=0, microsecond=1)
@@ -159,7 +158,7 @@ class ProfilerTests(unittest.TestCase):
                 self.assertEqual(len(data[0]), 2)
 
     @testvcr.use_cassette()
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_traffic_overall_time_series_report(self):
         # [mzetea] - skipping this test until the fix of the time issue within the cassettes
         columns = [self.profiler.columns.key.time,
@@ -389,7 +388,6 @@ class ProfilerTests(unittest.TestCase):
 class ProfilerDevicesTests(unittest.TestCase):
     @testvcr.use_cassette()
     def setUp(self):
-        # self.profiler = create_profiler()
         # common header fields for device lists
         self.headernames = ['name', 'type_id', 'ipaddr', 'version', 'type', 'id']
 

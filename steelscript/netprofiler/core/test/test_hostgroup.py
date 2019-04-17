@@ -39,8 +39,6 @@ def create_profiler(request):
 class HostGroupTests(unittest.TestCase):
     @testvcr.use_cassette()
     def setUp(self):
-        # import pdb; pdb.set_trace()
-        # self.profiler = create_profiler()
         try:
             # TestType4057 is reserved for these tests. 4057 has no significance
             # If we can find that host group for some reason in the netprofiler
@@ -212,6 +210,4 @@ class HostGroupTests(unittest.TestCase):
 
 
 if __name__ == '__main__':
-
-
     unittest.main()
