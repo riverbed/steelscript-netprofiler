@@ -389,7 +389,7 @@ class ProfilerTests(unittest.TestCase):
 class ProfilerDevicesTests(unittest.TestCase):
     @testvcr.use_cassette()
     def setUp(self):
-        self.profiler = create_profiler()
+        # self.profiler = create_profiler()
         # common header fields for device lists
         self.headernames = ['name', 'type_id', 'ipaddr', 'version', 'type', 'id']
 
