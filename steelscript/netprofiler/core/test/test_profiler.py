@@ -385,6 +385,7 @@ class ProfilerTests(unittest.TestCase):
             self.assertTrue(all(outbound.LAN_avg_bytes > outbound.WAN_avg_bytes))
 
 
+@pytest.mark.usefixtures("create_profiler")
 class ProfilerDevicesTests(unittest.TestCase):
     @testvcr.use_cassette()
     def setUp(self):
@@ -445,6 +446,4 @@ class ProfilerDevicesTests(unittest.TestCase):
 
 
 if __name__ == '__main__':
-
-
     unittest.main()
