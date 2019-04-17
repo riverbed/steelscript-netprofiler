@@ -158,9 +158,7 @@ class ProfilerTests(unittest.TestCase):
                 self.assertEqual(len(data[0]), 2)
 
     @testvcr.use_cassette()
-    # @pytest.mark.skip
     def test_traffic_overall_time_series_report(self):
-        # [mzetea] - skipping this test until the fix of the time issue within the cassettes
         columns = [self.profiler.columns.key.time,
                    self.profiler.columns.value.avg_bytes,
                    self.profiler.columns.value.avg_pkts]
