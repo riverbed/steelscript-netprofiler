@@ -14,6 +14,7 @@ import os
 import vcr
 import logging
 import unittest
+import pytest
 
 
 logger = logging.getLogger(__name__)
@@ -26,16 +27,20 @@ testvcr = vcr.VCR(cassette_library_dir=cassette_dir, record_mode='new_episodes')
 
 
 @testvcr.use_cassette()
-def create_profiler():
+@pytest.fixture(scope="class")
+def create_profiler(request):
     """ Create default NetProfiler lab instance. """
     auth = UserAuth('admin', 'admin')
-    return NetProfiler('10.38.131.150', auth=auth)
+    profiler = NetProfiler('10.38.131.150', auth=auth)
+    request.cls.profiler = profiler
 
 
+@pytest.mark.usefixtures("create_profiler")
 class HostGroupTests(unittest.TestCase):
     @testvcr.use_cassette()
     def setUp(self):
-        self.profiler = create_profiler()
+        # import pdb; pdb.set_trace()
+        # self.profiler = create_profiler()
         try:
             # TestType4057 is reserved for these tests. 4057 has no significance
             # If we can find that host group for some reason in the netprofiler

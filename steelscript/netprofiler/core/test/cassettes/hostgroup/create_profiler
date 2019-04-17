@@ -2331,4 +2331,111 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/areas.json
+  response:
+    body:
+      string: "{\n\t\"error_id\": \"AUTH_INVALID_SESSION\",\n\t\"error_text\": \"\
+        Session is invalid\"\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '76'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 12:35:52 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 401
+      message: Authorization Required
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=aedfdb2e0e0e7ecc4bb7f01f4a5f534dff44ab8eae76a83657d6445d04c680d8
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: GET
+    uri: https://10.38.131.150/api/profiler/1.0/reporting/areas.json
+  response:
+    body:
+      string: "[\n\t{\n\t\t\"id\": \"wan\",\n\t\t\"name\": \"wan\"\n\t},\n\t{\n\t\t\
+        \"id\": \"lan\",\n\t\t\"name\": \"lan\"\n\t},\n\t{\n\t\t\"id\": \"tnt\",\n\
+        \t\t\"name\": \"vxlan tenant\"\n\t},\n\t{\n\t\t\"id\": \"prd\",\n\t\t\"name\"\
+        : \"vxlan tunnel\"\n\t},\n\t{\n\t\t\"id\": \"vxl\",\n\t\t\"name\": \"vxlan\"\
+        \n\t}\n]"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '212'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 12:35:54 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1
