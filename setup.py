@@ -4,19 +4,11 @@
 # accompanying the software ("License").  This software is distributed "AS IS"
 # as set forth in the License.
 
-import os
 from glob import glob
 
-try:
-    from setuptools import setup, find_packages, Command
-    packagedata = True
-except ImportError:
-    from distutils.core import setup
-    from distutils.cmd import Command
-    packagedata = False
+from setuptools import setup, find_packages
+packagedata = True
 
-    def find_packages(where='steelscript', exclude=None):
-        return [p for p, files, dirs in os.walk(where) if '__init__.py' in files]
 
 from gitpy_versioning import get_version
 

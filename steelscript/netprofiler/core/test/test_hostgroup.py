@@ -12,7 +12,6 @@ from steelscript.common.exceptions import RvbdException
 
 import os
 import vcr
-import sys
 import logging
 import unittest
 

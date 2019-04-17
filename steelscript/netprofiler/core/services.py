@@ -127,9 +127,12 @@ class ServiceLocationReport(SingleQueryReport):
             for idx, svc_name in pos['svc_health_ctxt']:
                 m = service_health_ctxt_location_service_re.match(rawrow[idx])
                 if not m:
+                    # [mzetea] - updated the "i" to "idx" unsure if that is what was intended but "i" doe not exist
+                    # in these 2 for loops. Confusing loops but it would be weird to raise a ValueError and fail with
+                    # an NameError for variable referenced before assignment.
                     raise ValueError(
                         'Failed to parse service %s (%s) health_ctx: %s' %
-                        (svc_name, i, rawrow[idx]))
+                        (svc_name, idx, rawrow[idx]))
 
                 try:
                     h = int(m.group('health'))

@@ -5,7 +5,6 @@
 # as set forth in the License.
 
 
-
 from steelscript.common import timeutils
 
 import time
