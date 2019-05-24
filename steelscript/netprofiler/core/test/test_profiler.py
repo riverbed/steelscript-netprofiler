@@ -44,9 +44,6 @@ def create_profiler(request):
 class ProfilerTests(unittest.TestCase):
     @testvcr.use_cassette()
     def setUp(self):
-        #y = datetime.datetime.now() - datetime.timedelta(days=1)
-        #yesterday_at_4 = datetime.datetime(y.year, y.month, y.day, hour=16, minute=0, microsecond=1)
-        #yesterday_at_5 = datetime.datetime(y.year, y.month, y.day, hour=17, minute=0, microsecond=1)
         yesterday_at_4 = datetime.datetime(year=2019, month=2, day=8, hour=16, minute=0, microsecond=1)
         yesterday_at_5 = datetime.datetime(year=2019, month=2, day=8, hour=17, minute=0, microsecond=1)
         self.yesterday = TimeFilter(yesterday_at_4, yesterday_at_5)
