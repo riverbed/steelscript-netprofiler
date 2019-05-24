@@ -12,8 +12,8 @@ access to running reports and retrieving data from a NetProfiler.
 
 import logging
 import time
-import types
-import cStringIO as StringIO
+# import types
+from io import StringIO
 
 from steelscript.common.api_helpers import APIVersion
 from steelscript.common.timeutils import (parse_timedelta, datetime_to_seconds,
@@ -118,7 +118,9 @@ class Query(object):
         res = []
         res_ids = []
         for col in columns:
-            if type(col) is int or isinstance(col, types.StringTypes):
+            if isinstance(col, bytes):
+                col = col.decode('utf8')
+            if isinstance(col, (int, str)):
                 # Either a number like 33 or name like 'avg_bytes'
                 if col in avail_col_container:
                     # This column is in available
@@ -349,7 +351,7 @@ class Report(object):
             criteria["traffic_expression"] = self.trafficexpr.filter
 
         if custom_criteria:
-            for k, v in custom_criteria.iteritems():
+            for k, v in custom_criteria.items():
                 criteria[k] = v
 
         to_post = {"template_id": self.template_id,

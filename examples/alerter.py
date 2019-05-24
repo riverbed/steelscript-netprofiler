@@ -173,7 +173,7 @@ class AlerterApp(NetProfilerApp):
 
         try:
             while 1:
-                print 'Running report 1 ...'
+                print('Running report 1 ...')
                 alert_flag = False
                 result = None
                 result2 = None
@@ -184,26 +184,26 @@ class AlerterApp(NetProfilerApp):
                                         self.trigger1)
                 if result:
                     if self.trigger2:
-                        print 'Trigger 1 passed, running report 2 ...'
+                        print('Trigger 1 passed, running report 2 ...')
                         result2 = self.run_query(self.report2,
                                                  self.columns_report2,
                                                  self.tfilter2,
                                                  self.trigger2)
                         if result2:
-                            print 'Trigger 2 passed ...'
+                            print('Trigger 2 passed ...')
                             alert_flag = True
                     else:
-                        print 'Trigger 1 passed ...'
+                        print('Trigger 1 passed ...')
                         alert_flag = True
                 if alert_flag:
-                    print 'ALERT ALERT!'
+                    print('ALERT ALERT!')
                     self.update_description(result, result2)
                     self.send_trap()
 
                 time.sleep(self.options.refresh)
 
         except KeyboardInterrupt:
-            print 'Exiting ...'
+            print('Exiting ...')
             sys.exit(0)
 
 

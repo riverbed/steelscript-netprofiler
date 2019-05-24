@@ -13,7 +13,7 @@ from steelscript.netprofiler.core.filters import TimeFilter
 
 import sys
 import optparse
-import cStringIO as StringIO
+import io as StringIO
 
 # suppress warnings from pandas 0.11
 import warnings
@@ -82,10 +82,10 @@ class WANReportApp(NetProfilerApp):
         if self.options.as_csv:
             f = StringIO.StringIO()
             data.to_csv(f, header=True)
-            print f.getvalue()
+            print(f.getvalue())
         else:
-            print header
-            print data
+            print(header)
+            print(data)
 
     def main(self):
         self.ip_address = None
@@ -105,8 +105,9 @@ class WANReportApp(NetProfilerApp):
                     self.ip_address = d['ipaddr']
                     break
             else:
-                print 'Device %s cannot be found in NetProfiler device list' % name
-                print 'Try specifying the name differently or use an IP address'
+                print('Device {0} cannot be found in NetProfiler device list\n'
+                      'Try specifying the name differently or use an IP '
+                      'address'.format(name))
                 sys.exit(1)
         else:
             self.ip_address = self.options.device_address

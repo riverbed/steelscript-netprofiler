@@ -1,24 +1,18 @@
-# Copyright (c) 2015 Riverbed Technology, Inc.
+# Copyright (c) 2018 Riverbed Technology, Inc.
 #
 # This software is licensed under the terms and conditions of the MIT License
 # accompanying the software ("License").  This software is distributed "AS IS"
 # as set forth in the License.
 
-import os
 from glob import glob
 
-try:
-    from setuptools import setup, find_packages, Command
-    packagedata = True
-except ImportError:
-    from distutils.core import setup
-    from distutils.cmd import Command
-    packagedata = False
+from setuptools import setup, find_packages
+packagedata = True
 
-    def find_packages(where='steelscript', exclude=None):
-        return [p for p, files, dirs in os.walk(where) if '__init__.py' in files]
 
 from gitpy_versioning import get_version
+
+test = ['vcrpy', 'mock', 'pytest']
 
 setup_args = {
     'name':               'steelscript.netprofiler',
@@ -49,8 +43,7 @@ http://pythonhosted.org/steelscript/
         'Intended Audience :: Information Technology',
         'Intended Audience :: System Administrators',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.5',
         'Topic :: System :: Networking',
     ],
 
@@ -63,8 +56,16 @@ http://pythonhosted.org/steelscript/
     ),
 
     'install_requires': (
-        'steelscript>=1.0.1',
+        'steelscript>=2.0a1',
     ),
+    
+    'extras_require': {
+        'test': test
+    },
+
+    'tests_require': test,
+
+    'python_requires': '>3.5.0',
 
     'entry_points': {
         'steel.commands': [

@@ -92,13 +92,13 @@ class Command(NetProfilerApp):
                 values.append(item)
 
         Formatter.print_table(keys, ['Key Columns', 'Label', 'ID', 'Type'])
-        print ''
+        print('')
         Formatter.print_table(values, ['Value Columns', 'Label', 'ID', 'Type'])
 
     def main(self):
         if self.options.list_groupbys:
             header = ["GroupBy", "Id"]
-            data = [(k, v) for k, v in self.netprofiler.groupbys.iteritems()]
+            data = [(k, v) for k, v in self.netprofiler.groupbys.items()]
             data.sort()
             Formatter.print_table(data, header)
         else:

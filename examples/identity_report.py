@@ -150,34 +150,37 @@ class IdentityApp(NetProfilerApp):
 
         if not testfile:
             # run report against all users
-            print 'Running IdentityReport ...'
+            print('Running IdentityReport ...')
             report = IdentityReport(self.netprofiler)
             report.run(timefilter=timefilter, trafficexpr=trafficexpr)
-            print 'Report complete, gathering data ...'
+            print('Report complete, gathering data ...')
             data = report.get_data()
 
             if identity not in (x[1] for x in data):
-                print 'Running report farther back to find identity ...'
+                print('Running report farther back to find identity ...')
                 delta = datetime.timedelta(hours=int(self.options.backsearch))
                 timefilter.start = timefilter.start - delta
                 report.run(timefilter=timefilter, trafficexpr=trafficexpr)
                 data = report.get_data()
 
             if not data:
-                print "Empty data results."
+                print("Empty data results.")
 
             legend = report.get_legend()
             report.delete()
         else:
-            print 'Reading from testfile %s ...' % testfile
+            print('Reading from testfile {testfile} ...'
+                  ''.format(testfile=testfile))
             try:
+                #TODO: Figure out new importlib
                 f, path, desc = imp.find_module(testfile)
                 test = imp.load_module(testfile, f, path, desc)
                 data = test.data
                 legend = self.netprofiler.get_columns(test.legend)
             except ImportError:
-                print 'Error importing test file %s' % testfile
-                print 'Ensure it is in the PYTHONPATH, and contains a valid data object.'
+                print('Error importing test file {testfile}\nEnsure it is in '
+                      'the PYTHONPATH, and contains a valid data object.'
+                      ''.format(testfile=testfile))
                 sys.exit(1)
             finally:
                 f.close()
@@ -189,10 +192,11 @@ class IdentityApp(NetProfilerApp):
 
             `report_type` is one of ('timeseries', 'summary')
         """
-        print 'Running %s report for %s over %s/%s' % (report_type,
-                                                       host,
-                                                       timefilter.start,
-                                                       timefilter.end)
+        print('Running {0} report for {1} over {2}/{3}'
+              ''.format(report_type,
+                        host,
+                        timefilter.start,
+                        timefilter.end))
 
         texpr = TrafficFilter('host %s' % host)
 
@@ -225,12 +229,12 @@ class IdentityApp(NetProfilerApp):
         else:
             raise RuntimeError('unknown report type: %s' % report_type)
 
-        print 'Report complete, gathering data ...'
+        print('Report complete, gathering data ...')
         data = report.get_data()
         if not data:
-            print "Empty data results."
+            print("Empty data results.")
         elif len(data) == 10000:
-            print 'WARNING: data size exceeds max length of 10000 rows'
+            print('WARNING: data size exceeds max length of 10000 rows')
         legend = report.get_legend()
         report.delete()
 

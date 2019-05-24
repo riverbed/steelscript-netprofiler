@@ -28,7 +28,11 @@ from steelscript.common.exceptions import RvbdException
 # IP address spaces can be included.
 
 
-EXAMPLE = """
+EXAMPLE_WARN = """
+Invalid file format
+Ensure file has correct header.
+example file:
+
 subnet SiteName
 10.143.58.64/26 CZ-Prague-HG
 10.194.32.0/23 MX-SantaFe-HG
@@ -75,15 +79,13 @@ class HostGroupImport(NetProfilerApp):
             reader = csv.reader(f, dialect)
             header = reader.next()
             if header != ['subnet', 'SiteName']:
-                print 'Invalid file format'
-                print 'Ensure file has correct header.'
-                print 'example file:'
-                print EXAMPLE
+                print(EXAMPLE_WARN)
 
             for i, row in enumerate(reader):
                 cidr, group = row
                 if not self.validate(group):
-                    print 'Invalid group name on line %d: %s' % (i+2, group)
+                    print('Invalid group name on line {0}: {1}'
+                          ''.format(i+2, group))
                     sys.exit()
                 groups[group].append(cidr)
 
@@ -97,16 +99,16 @@ class HostGroupImport(NetProfilerApp):
                                                 self.options.hostgroup)
             hgtype.config = []
             hgtype.groups = {}
-            print ('Existing HostGroupType "%s" found.'
-                   % self.options.hostgroup)
+            print('Existing HostGroupType "{0}" found.'
+                  ''.format(self.options.hostgroup))
         except RvbdException:
-            print 'No existing HostGroupType found, creating a new one.'
+            print('No existing HostGroupType found, creating a new one.')
 
             hgtype = HostGroupType.create(self.netprofiler,
                                           self.options.hostgroup)
 
         # Add new values
-        for group, cidrs in groups.iteritems():
+        for group, cidrs in groups.items():
             hg = HostGroup(hgtype, group)
             hg.add(cidrs)
 
@@ -118,17 +120,17 @@ class HostGroupImport(NetProfilerApp):
     def main(self):
         """Confirm overwrite then update hostgroups."""
 
-        confirm = ('The contents of hostgroup %s will be overwritten '
-                   'by the file %s, are you sure?'
-                   % (self.options.hostgroup, self.options.input_file))
+        confirm = ('The contents of hostgroup {0} will be overwritten '
+                   'by the file {1}, are you sure?'
+                   ''.format(self.options.hostgroup, self.options.input_file))
         if not prompt_yn(confirm):
-            print 'Okay, aborting.'
+            print('Okay, aborting.')
             sys.exit()
 
         groups = self.import_file()
         self.update_hostgroups(groups)
-        print 'Successfully updated %s on %s' % (self.options.hostgroup,
-                                                 self.netprofiler.host)
+        print('Successfully updated {0} on {1}'.format(self.options.hostgroup,
+                                                       self.netprofiler.host))
 
 
 if __name__ == '__main__':

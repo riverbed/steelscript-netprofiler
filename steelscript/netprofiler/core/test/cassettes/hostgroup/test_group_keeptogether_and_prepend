@@ -1,0 +1,228 @@
+interactions:
+- request:
+    body: '{"favorite": false, "config": [{"cidr": "10.10.21.0/24", "name": "Test0"},
+      {"cidr": "10.90.11.0/24", "name": "Test0"}, {"cidr": "10.91.11.0/24", "name":
+      "Test1"}, {"cidr": "10.92.11.0/24", "name": "Test2"}, {"cidr": "10.93.11.0/24",
+      "name": "Test3"}, {"cidr": "10.94.11.0/24", "name": "Test4"}, {"cidr": "10.95.11.0/24",
+      "name": "Test5"}, {"cidr": "10.96.11.0/24", "name": "Test6"}, {"cidr": "10.97.11.0/24",
+      "name": "Test7"}, {"cidr": "10.98.11.0/24", "name": "Test8"}, {"cidr": "10.99.11.0/24",
+      "name": "Test9"}], "description": "", "name": "TestType4057"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '558'
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types
+  response:
+    body:
+      string: "{\n\t\"favorite\": true,\n\t\"description\": \"\",\n\t\"type\": \"\
+        User-created\",\n\t\"name\": \"TestType4057\",\n\t\"id\": 111\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '103'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Feb 2019 21:58:42 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Location:
+      - /api/profiler/1.2/host_group_types/111
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=6ad0c814da53aa29818c8be5e3c603f0bcbc0f3aaab5a3a51ae4402c4ef3664f
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: DELETE
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types/111
+  response:
+    body:
+      string: ''
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - text/html;charset=ascii
+      Date:
+      - Fri, 08 Feb 2019 21:58:42 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 204
+      message: No Content
+- request:
+    body: '{"name": "TestType4057", "description": "", "favorite": false, "config":
+      [{"cidr": "10.10.21.0/24", "name": "Test0"}, {"cidr": "10.90.11.0/24", "name":
+      "Test0"}, {"cidr": "10.91.11.0/24", "name": "Test1"}, {"cidr": "10.92.11.0/24",
+      "name": "Test2"}, {"cidr": "10.93.11.0/24", "name": "Test3"}, {"cidr": "10.94.11.0/24",
+      "name": "Test4"}, {"cidr": "10.95.11.0/24", "name": "Test5"}, {"cidr": "10.96.11.0/24",
+      "name": "Test6"}, {"cidr": "10.97.11.0/24", "name": "Test7"}, {"cidr": "10.98.11.0/24",
+      "name": "Test8"}, {"cidr": "10.99.11.0/24", "name": "Test9"}]}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '558'
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=5e8c050390a180a03cbd67cba99fed555dd76175e83ff625a415a28e7ee4ef5e
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: POST
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types
+  response:
+    body:
+      string: "{\n\t\"favorite\": true,\n\t\"description\": \"\",\n\t\"type\": \"\
+        User-created\",\n\t\"name\": \"TestType4057\",\n\t\"id\": 111\n}"
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '103'
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Apr 2019 08:18:47 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Location:
+      - /api/profiler/1.2/host_group_types/111
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/json
+      Cookie:
+      - SESSID=5e8c050390a180a03cbd67cba99fed555dd76175e83ff625a415a28e7ee4ef5e
+      User-Agent:
+      - python-requests/2.21.0 SteelScript/2.0a1
+    method: DELETE
+    uri: https://10.38.131.150/api/profiler/1.2/host_group_types/111
+  response:
+    body:
+      string: ''
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0
+      Connection:
+      - Keep-Alive
+      Content-Security-Policy:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; frame-ancestors
+        ''self'''
+      Content-Type:
+      - text/html;charset=ascii
+      Date:
+      - Wed, 17 Apr 2019 08:18:48 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=90
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 204
+      message: No Content
+version: 1

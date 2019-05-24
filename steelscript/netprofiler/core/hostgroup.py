@@ -31,6 +31,20 @@ import logging
 logger = logging.getLogger(__name__)
 
 
+def clean_str_or_bytes(strings_or_bytes):
+    if isinstance(strings_or_bytes, list):
+        for idx in range(len(strings_or_bytes)):
+            if isinstance(strings_or_bytes[idx], bytes):
+                strings_or_bytes[idx] = strings_or_bytes[idx].decode('utf8')
+    else:
+        if isinstance(strings_or_bytes, bytes):
+            strings_or_bytes = strings_or_bytes.decode('utf8')
+        if isinstance(strings_or_bytes, str):
+            strings_or_bytes = [strings_or_bytes]
+
+    return strings_or_bytes
+
+
 class HostGroupType(object):
     """ Convenience class to allow easy access to host group types.
 
@@ -227,7 +241,9 @@ class HostGroup(object):
             host_group_type.groups['group_name']
 
         """
-        if not isinstance(name, basestring):
+        if isinstance(name, bytes):
+            name = name.decode('utf8')
+        if not isinstance(name, str):
             raise RvbdException("This host group's name is not a string.")
         self.host_group_type = hostgrouptype
         self.name = name
@@ -281,8 +297,7 @@ class HostGroup(object):
         # before being deleted.  If not entries exist, it will be
         # as if keep_together=False (so front or back)
 
-        if isinstance(cidrs, basestring):
-            cidrs = [cidrs]
+        cidrs = clean_str_or_bytes(cidrs)
 
         if replace:
             self.clear()
@@ -315,16 +330,16 @@ class HostGroup(object):
             this host group
 
         """
-        if isinstance(cidrs, basestring):
-            cidrs = [cidrs]
-        self.host_group_type.config = filter(
+        cidrs = clean_str_or_bytes(cidrs)
+
+        self.host_group_type.config = list(filter(
             lambda a: a['cidr'] not in cidrs or a['name'] != self.name,
-            self.host_group_type.config)
+            self.host_group_type.config))
 
     def clear(self):
         """Clear all definitions for this host group."""
-        self.host_group_type.config = filter(lambda a: a['name'] != self.name,
-                                             self.host_group_type.config)
+        self.host_group_type.config = list(filter(lambda a: a['name'] != self.name,
+                                                  self.host_group_type.config))
 
     def get(self):
         """Return a list of CIDRs assigned to this host group."""

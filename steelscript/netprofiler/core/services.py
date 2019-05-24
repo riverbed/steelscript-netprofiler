@@ -129,7 +129,7 @@ class ServiceLocationReport(SingleQueryReport):
                 if not m:
                     raise ValueError(
                         'Failed to parse service %s (%s) health_ctx: %s' %
-                        (svc_name, i, rawrow[idx]))
+                        (svc_name, idx, rawrow[idx]))
 
                 try:
                     h = int(m.group('health'))
@@ -148,7 +148,7 @@ class ServiceLocationReport(SingleQueryReport):
         for prow in parsed_rows:
             row = {}
             row['location'] = prow['location']
-            for svc, health in prow['services'].iteritems():
+            for svc, health in prow['services'].items():
                 row[svc] = health
             rows.append(row)
 

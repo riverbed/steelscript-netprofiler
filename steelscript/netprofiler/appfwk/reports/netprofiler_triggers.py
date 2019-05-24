@@ -17,9 +17,9 @@ logger = logging.getLogger(__name__)
 class LocalConsoleSender(ConsoleSender):
     def send(self, alert):
         s = getattr(settings, 'FOO', 34)
-        print "LocalConsoleSender: Works! %s - %s (%s)" % (alert.level,
+        print("LocalConsoleSender: Works! %s - %s (%s)" % (alert.level,
                                                            alert.message,
-                                                           s)
+                                                           s))
 
 
 def simple_trigger(df, context, params):

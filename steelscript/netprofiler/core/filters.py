@@ -5,7 +5,6 @@
 # as set forth in the License.
 
 
-
 from steelscript.common import timeutils
 
 import time
@@ -54,7 +53,6 @@ class TimeFilter(object):
         t = timeutils.force_to_utc(t)
         start = timeutils.force_to_utc(self.start)
         end = timeutils.force_to_utc(self.end)
-
         # by default, this will be one minute delta
         delta = datetime.timedelta(0, resolution, 0)
         return (start <= t <= end or
