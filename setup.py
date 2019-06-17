@@ -22,13 +22,14 @@ setup_args = {
     'author_email':       'eng-github@riverbed.com',
     'url':                'http://pythonhosted.org/steelscript',
     'license':            'MIT',
-    'description':        'Python module for interacting with Riverbed NetProfiler with SteelScript',
+    'description':        'Python module for interacting with Riverbed '
+                          'NetProfiler with SteelScript',
 
     'long_description': '''SteelScript for NetProfiler
 ===========================
 
-SteelScript is a collection of libraries and scripts in Python and JavaScript for
-interacting with Riverbed Technology devices.
+SteelScript is a collection of libraries and scripts in Python and JavaScript
+for interacting with Riverbed Technology devices.
 
 For a complete guide to installation, see:
 
@@ -56,9 +57,9 @@ http://pythonhosted.org/steelscript/
     ),
 
     'install_requires': (
-        'steelscript>=2.0a1',
+        'steelscript>=2.0',
     ),
-    
+
     'extras_require': {
         'test': test
     },
