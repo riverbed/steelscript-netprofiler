@@ -378,8 +378,8 @@ class Report(object):
         """
         complete = False
         percent = 100
-        start = time.clock()
-        while (time.clock() - start) < timeout:
+        start = time.process_time ()
+        while (time.process_time() - start) < timeout:
             s = self.status()
 
             if s['status'] == 'completed':
