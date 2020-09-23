@@ -71,8 +71,7 @@ To start, start python from the shell or command line:
 .. code-block:: bash
 
    $ python
-   Python 2.7.3 (default, Apr 19 2012, 00:55:09)
-   [GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2335.15.00)] on darwin
+   Python 3.8.3 
    Type "help", "copyright", "credits" or "license" for more information.
    >>>
 
