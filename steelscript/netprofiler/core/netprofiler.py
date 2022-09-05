@@ -65,7 +65,7 @@ class NetProfiler(steelscript.common.service.Service):
         """
         super(NetProfiler, self).__init__("profiler", host, port,
                                           auth=auth,
-                                          versions=[APIVersion("1.0")])
+                                          versions=[APIVersion("1.0")],override_services_api='/api/common/1.0/services')
 
         self.api = _api1.Handler(self)
 

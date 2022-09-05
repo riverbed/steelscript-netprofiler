@@ -206,7 +206,11 @@ class Query(object):
         self.querydata = self.report.profiler.api.report.queries(self.report.id,
                                                                  self.id,
                                                                  params=params)
-        self.data = self.querydata['data']
+        if 'data' in self.querydata:
+            self.data = self.querydata['data']
+        else
+            self.data = []
+            
         self.data_selected_columns = columns
         logger.debug(
             'Retrieved query data for '
