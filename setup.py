@@ -13,7 +13,6 @@ test = ['vcrpy', 'mock', 'pytest']
 
 setup_args = {
     'name':               'steelscript.netprofiler',
-    'namespace_packages': ['steelscript'],
     'version':            '24.2.1',
     'author':             'Riverbed Technology',
     'author_email':       'eng-github@riverbed.com',
