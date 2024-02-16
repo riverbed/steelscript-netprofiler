@@ -1,4 +1,4 @@
-# Copyright (c) 2019 Riverbed Technology, Inc.
+# Copyright (c) 2019-2024 Riverbed Technology, Inc.
 #
 # This software is licensed under the terms and conditions of the MIT License
 # accompanying the software ("License").  This software is distributed "AS IS"
@@ -14,7 +14,7 @@ test = ['vcrpy', 'mock', 'pytest']
 setup_args = {
     'name':               'steelscript.netprofiler',
     'namespace_packages': ['steelscript'],
-    'version':            '24.2.0',
+    'version':            '24.2.1',
     'author':             'Riverbed Technology',
     'author_email':       'eng-github@riverbed.com',
     'url':                'http://pythonhosted.org/steelscript',
