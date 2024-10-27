@@ -27,8 +27,6 @@ import steelscript.common.service
 
 __all__ = ['NetProfiler']
 
-API_VERSIONS = ["1.0"]
-
 logger = logging.getLogger(__name__)
 
 
@@ -65,11 +63,10 @@ class NetProfiler(steelscript.common.service.Service):
         """
         super(NetProfiler, self).__init__("profiler", host, port,
                                           auth=auth,
-                                          versions=[APIVersion("1.0")],
                                           enable_auth_detection = False,
                                           supports_auth_basic=True,
                                           supports_auth_oauth=True,
-                                          override_services_api='/api/common/1.0/services')
+                                          override_services_api='/api/common/1.1/services')
 
         self.api = _api1.Handler(self)
 
