@@ -161,7 +161,8 @@ class NetProfiler(steelscript.common.service.Service):
                                                      centricity,
                                                      groupby))
 
-                        # TODO: fix properly and remove the patch below that avoid /api/profiler/1.17/reporting/columns.json returned status 400 (Bad Request)
+                        # TODO: fix properly and remove the patch
+                        # Patch to avoid /api/profiler/1.0/reporting/columns.json returned status 400 (Bad Request)
                         if realm =="msq" and centricity == "hos" and groupby == "slm":
                             continue
 
