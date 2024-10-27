@@ -271,6 +271,7 @@ class Templates(API1Group):
 
 class Handler(object):
     def __init__(self, profiler):
+        # TODO: use the latest APIs
         self.report = Report('/api/profiler/1.0/reporting', profiler)
         self.devices = Devices('/api/profiler/1.0/devices', profiler)
         self.common = Common('/api/common/1.0', profiler)
