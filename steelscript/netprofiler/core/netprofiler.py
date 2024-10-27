@@ -165,12 +165,7 @@ class NetProfiler(steelscript.common.service.Service):
                                                                centricity,
                                                                groupby)
                         except RvbdHTTPException as e:
-                            logger.warning('Exception raised fetching columns'
-                                           'for triplet: {0}, {1}, {2} with '
-                                           'message {3}'.format(realm,
-                                                                centricity,
-                                                                groupby,
-                                                                e.message))
+                            logger.warning(f"Exception raised fetching columns for triplet( realm:{realm}, centricity:{centricity}, groupby:{groupby} with message {e.message}")
                             have_exception = True
                             continue
 
@@ -261,6 +256,8 @@ class NetProfiler(steelscript.common.service.Service):
     def supports_version(self, version):
         if isinstance(version, (str,)):
             version = APIVersion(version)
+        if self.supported_versions is None:
+            return True
         return version in self.supported_versions
 
     def get_columns(self, columns, groupby=None, strict=True):
