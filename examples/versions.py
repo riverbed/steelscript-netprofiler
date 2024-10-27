@@ -23,13 +23,6 @@ python versions.py
 
 '''
 
-# Copyright (c) 2019 Riverbed Technology, Inc.
-#
-# This software is licensed under the terms and conditions of the MIT License
-# accompanying the software ("License").  This software is distributed "AS IS"
-# as set forth in the License.
-
-
 ## Step 1. Import steelscript libraries in Python
 
 from steelscript.netprofiler.core import NetProfiler
