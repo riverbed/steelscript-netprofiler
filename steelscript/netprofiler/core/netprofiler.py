@@ -70,9 +70,21 @@ class NetProfiler(steelscript.common.service.Service):
 
         self.api = _api1.Handler(self)
 
-        self.groupbys = DictObject.create_from_dict(_constants.groupbys)
         self.realms = _constants.realms
         self.centricities = _constants.centricities
+        self.groupbys = DictObject.create_from_dict(_constants.groupbys)
+
+        logger.warning(f"realms: {self.realms}")
+        logger.warning(f"centricities: {self.centricities}")
+        logger.warning(f"groupbys: {self.groupbys}")
+
+        self.realms = fetch_realms(self)
+        self.centricities = fetch_centricities(self)
+        self.groupbys = fetch_group_bys_dict(self)
+
+        logger.warning(f"realms: {self.realms}")
+        logger.warning(f"centricities: {self.centricities}")
+        logger.warning(f"groupbys: {self.groupbys}")
 
         self._info = None
 
@@ -91,6 +103,50 @@ class NetProfiler(steelscript.common.service.Service):
         self.colnames = set(c.key for c in self.columns)
 
         self.areas = AreaContainer(self._areas_dict.items())
+
+    api_reporting_realms = "/api/profiler/1.17/reporting/realms"
+    api_reporting_centricities = "/api/profiler/1.17/reporting/centricities"
+    api_reporting_group_bys = "/api/profiler/1.17/reporting/group_bys"
+
+    def fetch_realms(self):
+        """
+        Fetch the list of realms, instead of using the hardcoded in _constants
+        """
+        path = self.api_reporting_realms
+        realms_result = self.conn.json_request('GET', path)
+
+        realms = []
+        for realm_item in realms_result:
+            realms.append(realm_item["id"])
+
+        return realms
+
+    def fetch_centricities(self):
+        """
+        Fetch the list of centricities, instead of using the hardcoded in _constants
+        """
+        path = self.api_reporting_centricities
+        centricities_result = self.conn.json_request('GET', path)
+
+        centricities = []
+        for centricity_item in centricities_result:
+            centricities.append(centricity_item["id"])
+
+        return centricities
+
+    def fetch_group_bys_dict(self):
+        """
+        Fetch the group_bys, instead of using the hardcoded in _constants
+        Return a dict of item(id,name)
+        """
+        path = self.api_reporting_group_bys
+        group_bys_result = self.conn.json_request('GET', path)
+
+        group_bys = []
+        for group_by_item in group_bys_result:
+            group_bys.append((group_by_item["id"],group_by_item["name"]))
+
+        return group_bys        
 
     def _load_file_caches(self):
         """Load and unroll locally cached files
