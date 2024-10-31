@@ -1,5 +1,15 @@
 CHANGELOG
 =========
+[24.10.1]
+* Remove submodule
+* Enable oauth code authentication support
+
+[24.2.1]
+* Python 3.12
+* New versioning scheme 24.2.1
+* Change versioning gitpy for manual 24.2.1
+* Remove deprecated namespace_packages parameter
+* Fix bug else syntax
 
 [1.4]
  * Add appfwk example utilization report
