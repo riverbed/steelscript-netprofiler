@@ -27,8 +27,6 @@ import steelscript.common.service
 
 __all__ = ['NetProfiler']
 
-API_VERSIONS = ["1.0"]
-
 logger = logging.getLogger(__name__)
 
 
@@ -65,17 +63,16 @@ class NetProfiler(steelscript.common.service.Service):
         """
         super(NetProfiler, self).__init__("profiler", host, port,
                                           auth=auth,
-                                          versions=[APIVersion("1.0")],
                                           enable_auth_detection = False,
                                           supports_auth_basic=True,
                                           supports_auth_oauth=True,
-                                          override_services_api='/api/common/1.0/services')
+                                          override_services_api='/api/common/1.1/services')
 
         self.api = _api1.Handler(self)
 
-        self.groupbys = DictObject.create_from_dict(_constants.groupbys)
         self.realms = _constants.realms
         self.centricities = _constants.centricities
+        self.groupbys = DictObject.create_from_dict(_constants.groupbys)
 
         self._info = None
 
@@ -93,7 +90,7 @@ class NetProfiler(steelscript.common.service.Service):
         self.columns = ColumnContainer(self._unique_columns())
         self.colnames = set(c.key for c in self.columns)
 
-        self.areas = AreaContainer(self._areas_dict.items())
+        self.areas = AreaContainer(self._areas_dict.items())   
 
     def _load_file_caches(self):
         """Load and unroll locally cached files
@@ -163,17 +160,16 @@ class NetProfiler(steelscript.common.service.Service):
                                      '%s, %s, %s' % (realm,
                                                      centricity,
                                                      groupby))
+
+                        # TODO: fix properly and remove the patch
+                        # Patch to avoid /api/profiler/1.0/reporting/columns.json returned status 400 (Bad Request)
+                        if realm =="msq" and centricity == "hos" and groupby == "slm":
+                            continue
+
                         try:
-                            api_call = self.api.report.columns(realm,
-                                                               centricity,
-                                                               groupby)
+                            api_call = self.api.report.columns(realm,centricity,groupby)
                         except RvbdHTTPException as e:
-                            logger.warning('Exception raised fetching columns'
-                                           'for triplet: {0}, {1}, {2} with '
-                                           'message {3}'.format(realm,
-                                                                centricity,
-                                                                groupby,
-                                                                e.message))
+                            logger.warning(f"Exception raised fetching columns for triplet( realm:{realm}, centricity:{centricity}, groupby:{groupby} with message {e.message}")
                             have_exception = True
                             continue
 
@@ -264,6 +260,8 @@ class NetProfiler(steelscript.common.service.Service):
     def supports_version(self, version):
         if isinstance(version, (str,)):
             version = APIVersion(version)
+        if self.supported_versions is None:
+            return True
         return version in self.supported_versions
 
     def get_columns(self, columns, groupby=None, strict=True):

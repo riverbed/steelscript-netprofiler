@@ -13,10 +13,10 @@ test = ['vcrpy', 'mock', 'pytest']
 
 setup_args = {
     'name':               'steelscript.netprofiler',
-    'version':            '24.2.1',
+    'version':            '24.10.1',
     'author':             'Riverbed Technology',
     'author_email':       'eng-github@riverbed.com',
-    'url':                'http://pythonhosted.org/steelscript',
+    'url':                'https://github.com/riverbed/steelscript',
     'license':            'MIT',
     'description':        'Python module for interacting with Riverbed '
                           'NetProfiler with SteelScript',
@@ -27,9 +27,8 @@ setup_args = {
 SteelScript is a collection of libraries and scripts in Python and JavaScript
 for interacting with Riverbed Technology devices.
 
-For a complete guide to installation, see:
+More about SteelScript: https://github.com/riverbed/steelscript
 
-http://pythonhosted.org/steelscript/
     ''',
 
     'platforms': 'Linux, Mac OS, Windows',
@@ -53,7 +52,7 @@ http://pythonhosted.org/steelscript/
     ),
 
     'install_requires': (
-        'steelscript>=24.2.0',
+        'steelscript>=24.10.0',
     ),
 
     'extras_require': {
