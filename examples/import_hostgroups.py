@@ -66,18 +66,18 @@ class HostGroupImport(NetProfilerApp):
                               '"--hostgroup"')
 
     def validate(self, name):
-        valid = set(string.letters + string.digits + '.-_')
+        valid = set(string.ascii_letters + string.digits + '.-_')
         return all(c in valid for c in name)
 
     def import_file(self):
         """Process the input file and load into dict."""
         groups = defaultdict(list)
 
-        with open(self.options.input_file, 'rb') as f:
+        with open(self.options.input_file, 'rt') as f:
             dialect = csv.Sniffer().sniff(f.read(1024))
             f.seek(0)
             reader = csv.reader(f, dialect)
-            header = reader.next()
+            header = next(reader)
             if header != ['subnet', 'SiteName']:
                 print(EXAMPLE_WARN)
 
